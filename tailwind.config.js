@@ -1,0 +1,238 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ["class"],
+  content: [
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
+  ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  prefix: "",
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+          // Deep Blue
+          900: "#1A365D",
+          800: "#1E429F",
+          700: "#2563EB",
+          600: "#3B82F6",
+          500: "#60A5FA",
+          400: "#93C5FD",
+          300: "#BFDBFE",
+          200: "#DBEAFE",
+          100: "#EFF6FF",
+          50: "#F8FAFC",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+          // Teal
+          900: "#0D9488",
+          800: "#0F766E",
+          700: "#0E7490",
+          600: "#0891B2",
+          500: "#06B6D4",
+          400: "#22D3EE",
+          300: "#67E8F9",
+          200: "#A5F3FC",
+          100: "#CFFAFE",
+          50: "#ECFEFF",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+          // Light Blue
+          900: "#0C4A6E",
+          800: "#075985",
+          700: "#0369A1",
+          600: "#0284C7",
+          500: "#0EA5E9",
+          400: "#38BDF8",
+          300: "#7DD3FC",
+          200: "#BAE6FD",
+          100: "#E0F2FE",
+          50: "#F0F9FF",
+        },
+        coolGray: {
+          // Cool Gray
+          900: "#1E293B",
+          800: "#334155",
+          700: "#475569",
+          600: "#64748B",
+          500: "#94A3B8",
+          400: "#CBD5E1",
+          300: "#E2E8F0",
+          200: "#F1F5F9",
+          100: "#F8FAFC",
+          50: "#F9FAFB",
+        },
+        success: {
+          // Success Green
+          900: "#14532D",
+          800: "#166534",
+          700: "#15803D",
+          600: "#16A34A",
+          500: "#22C55E",
+          400: "#4ADE80",
+          300: "#86EFAC",
+          200: "#BBF7D0",
+          100: "#DCFCE7",
+          50: "#F0FDF4",
+          DEFAULT: "#10B981",
+        },
+        warning: {
+          // Warning Amber
+          900: "#78350F",
+          800: "#92400E",
+          700: "#B45309",
+          600: "#D97706",
+          500: "#F59E0B",
+          400: "#FBBF24",
+          300: "#FCD34D",
+          200: "#FDE68A",
+          100: "#FEF3C7",
+          50: "#FFFBEB",
+          DEFAULT: "#F59E0B",
+        },
+        error: {
+          // Error Red
+          900: "#7F1D1D",
+          800: "#991B1B",
+          700: "#B91C1C",
+          600: "#DC2626",
+          500: "#EF4444",
+          400: "#F87171",
+          300: "#FCA5A5",
+          200: "#FECACA",
+          100: "#FEE2E2",
+          50: "#FEF2F2",
+          DEFAULT: "#EF4444",
+        },
+        // Consultant's Specific Color Psychology
+        'deep-blue': {
+          DEFAULT: '#1E3A8A', // Primary deep blue for trust and stability
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#1E3A8A',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
+        },
+        'success-green': {
+          DEFAULT: '#10B981', // Success and growth
+          50: '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80',
+          500: '#10B981',
+          600: '#059669',
+          700: '#047857',
+          800: '#065f46',
+          900: '#064e3b',
+        },
+        'urgency-orange': {
+          DEFAULT: '#F59E0B', // Urgency and action
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#F59E0B',
+          600: '#d97706',
+          700: '#b45309',
+          800: '#92400e',
+          900: '#78350f',
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "fade-out": {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+        "slide-in-from-top": {
+          "0%": { transform: "translateY(-10%)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "slide-in-from-bottom": {
+          "0%": { transform: "translateY(10%)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "slide-in-from-left": {
+          "0%": { transform: "translateX(-10%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+        "slide-in-from-right": {
+          "0%": { transform: "translateX(10%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.5s ease-out",
+        "fade-out": "fade-out 0.5s ease-out",
+        "slide-in-from-top": "slide-in-from-top 0.5s ease-out",
+        "slide-in-from-bottom": "slide-in-from-bottom 0.5s ease-out",
+        "slide-in-from-left": "slide-in-from-left 0.5s ease-out",
+        "slide-in-from-right": "slide-in-from-right 0.5s ease-out",
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
+}
