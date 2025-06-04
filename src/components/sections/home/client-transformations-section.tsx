@@ -187,10 +187,10 @@ export function ClientTransformationsSection() {
           {/* Header Section - Design system compliant */}
           <div className="text-center mb-16 max-w-4xl mx-auto">
             <Heading level="2" className="velox-text-h1 mb-6">
-              Real Transformations, Measurable Results
+              From Operational Burden to Strategic Freedom
             </Heading>
             <Text className="velox-text-lead max-w-3xl mx-auto mb-6">
-              Three outcome types. Guaranteed results. See which transformation matches your priority.
+              Three businesses share how smart delegation transformed their daily reality
             </Text>
             <div className="velox-card-advantage p-6 rounded-xl max-w-2xl mx-auto">
               <Text className="text-lg font-semibold text-blue-900">

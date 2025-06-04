@@ -22,44 +22,44 @@ const transformationData = {
   traditionalChallenges: [
     {
       title: "Complex Software to Master",
-      description: "Multiple dashboards, constant updates, features that require extensive training and ongoing maintenance. Software licenses: €500-2,000+ monthly.",
+      description: "Multiple dashboards, constant updates, features that require extensive training. Your team spends months learning instead of doing. Software licenses: €500-2,000+ monthly",
       icon: "Settings",
     },
     {
       title: "Technical Teams to Hire",
-      description: "€60K+ developers, ongoing training costs, retention challenges, and knowledge dependency risks. Total cost: €80-120K+ annually per developer.",
+      description: "€60k+ developers, ongoing training costs. Retention challenges in competitive tech market. Total cost: €10-120k+ annually per developer",
       icon: "Users",
     },
     {
       title: "Integration Nightmares",
-      description: "Systems that don't communicate, data silos, and endless technical compatibility issues. Integration projects: €15-50K+ with 6-12 month timelines.",
+      description: "Systems that don't communicate. Data silos and endless technical roadblocks. Integration projects: €15-50k+ per connection",
       icon: "AlertTriangle",
     },
     {
       title: "Uncertain Outcomes",
-      description: "\"It should work\" promises, variable results, and no guarantees on performance or ROI. Failed projects cost €50-200K+ with zero value delivered.",
+      description: "\"It should work\" promises. Variable results with no guarantees. 80% failure rate on AI projects industry-wide",
       icon: "HelpCircle",
     },
   ],
   veloxforceAdvantages: [
     {
       title: "Zero Technology Burden - Ever",
-      description: "Complete automation delivered as a service. No software to learn, no updates to manage, no technical overhead. Save €500-2,000+ monthly on software costs.",
+      description: "Complete automation delivered as a service. No software to learn, update, or manage. Save €500-2,000+ monthly on software costs",
       icon: "CheckCircle",
     },
     {
       title: "15+ Years Experience Included",
-      description: "Our specialists handle everything permanently. No hiring, training, or retention concerns for you. Avoid €80-120K+ annual developer costs.",
+      description: "Our specialists handle everything permanently. No hiring, training, or retention concerns. Save €40-120k+ annual developer costs",
       icon: "Shield",
     },
     {
       title: "Integration Headaches Eliminated",
-      description: "We make your systems work together flawlessly. One unified process, no technical headaches. Avoid €15-50K+ integration project costs.",
+      description: "We make your systems work together flawlessly. Data flows seamlessly between all platforms. Save €15-50k+ per integration project",
       icon: "Zap",
     },
     {
       title: "Specific Metrics, Written Guarantees",
-      description: "Precise performance targets documented in writing. Certainty of outcomes, not hopes and promises. Prevent €50-200K+ failed project losses.",
+      description: "Precise performance targets documented. Clear ROI projections based on your data. If we don't deliver, you don't pay",
       icon: "Target",
     },
   ],
@@ -89,10 +89,10 @@ export function WhatYouDontWantSection() {
       <Container>
         <div className="text-center mb-20 max-w-4xl mx-auto">
           <Heading level="2" className="velox-text-h1 mb-6">
-            Why Veloxforce Succeeds Where Others Struggle
+            Why Traditional Automation Creates More Work
           </Heading>
           <Text className="velox-text-lead max-w-3xl mx-auto mb-6">
-            Traditional automation approaches face systemic challenges. Our hybrid model eliminates these barriers with a proven, comprehensive solution.
+            And why our operational partnership model actually delivers freedom
           </Text>
           <Text className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             See the stark difference between traditional automation headaches and our service-based approach that actually works.
@@ -114,7 +114,7 @@ export function WhatYouDontWantSection() {
                 </Heading>
               </div>
               <Text className="text-lg text-gray-600 ml-7 font-medium">
-                Industry-wide barriers that limit success
+                Why conventional approaches fail business owners
               </Text>
             </div>
 

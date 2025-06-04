@@ -236,6 +236,58 @@
     opacity: 0.8;
   }
 
+  /* Enhanced Advantage Card - Premium Design */
+  .velox-card-advantage-enhanced {
+    @apply border border-blue-300 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 relative overflow-hidden;
+    background: linear-gradient(135deg,
+      rgba(219, 234, 254, 0.9) 0%,    /* Blue-100 with transparency */
+      rgba(191, 219, 254, 0.95) 25%,  /* Blue-200 */
+      rgba(147, 197, 253, 0.8) 50%,   /* Blue-300 */
+      rgba(191, 219, 254, 0.95) 75%,  /* Blue-200 */
+      rgba(219, 234, 254, 0.9) 100%   /* Blue-100 */
+    );
+  }
+
+  .velox-card-advantage-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3B82F6, #1D4ED8, #2563EB);
+    border-radius: 16px 16px 0 0;
+    z-index: 1;
+  }
+
+  .velox-card-advantage-enhanced::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(59, 130, 246, 0.05) 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  .velox-card-advantage-enhanced:hover::after {
+    opacity: 0.7;
+  }
+
+  /* Gradient Text Effects */
+  .gradient-text-blue {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #1E40AF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
   /* ===== ICON SYSTEM ===== */
   .velox-icon-primary {
     @apply text-gray-700;
@@ -869,6 +921,20 @@
     transform: translateY(-4px);
   }
 
+  .velox-card-traditional {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .velox-card-traditional:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+
   .velox-card-traditional-enhanced {
     background-color: #FFFFFF;
     border: 1px solid #E5E7EB;
@@ -889,6 +955,55 @@
 
   .velox-text-header-contrast {
     color: #0A2A4F; /* Ensures 4.5:1 contrast ratio for headers */
+  }
+
+  /* Service Revolution Section Styles */
+  .text-deep-blue {
+    color: #0A2A4F;
+  }
+
+  /* Extra Large Padding for Service Revolution */
+  .section-padding-xl {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  /* Gradient Text for Statistics */
+  .gradient-text-blue {
+    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Pulse Animation for Urgency Bar */
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.02);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  /* Arrow Slide Animation */
+  @keyframes arrow-slide {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+  }
+
+  .arrow-slide {
+    animation: arrow-slide 2s ease-in-out infinite;
   }
 
   /* Reduced Motion Support */

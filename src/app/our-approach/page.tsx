@@ -1,25 +1,42 @@
+// NEW A/B TEST "HOW IT WORKS" PAGE - PRIMARY VERSION
+// This implements the new Service-as-Software methodology copywriting
+// Original page preserved in page-original.tsx
+
 import { Metadata } from "next"
 
 import { MainLayout } from "@/components/layout/main-layout"
-import { ApproachHeroSection } from "@/components/sections/approach/approach-hero"
-import { DetailedPillarsSection } from "@/components/sections/approach/detailed-pillars"
-import { ProcessDeepDiveSection } from "@/components/sections/approach/process-deep-dive"
-import { ServiceModelsSection } from "@/components/sections/approach/service-models"
-import { CtaSection } from "@/components/sections/home/cta-section"
+import { HeroSectionV2 } from "@/components/sections/approach/hero-section-v2"
+import { ROIAnalysisSection } from "@/components/sections/approach/roi-analysis-section"
+import { CustomDevelopmentSection } from "@/components/sections/approach/custom-development-section"
+import { SeamlessHandoffSection } from "@/components/sections/approach/seamless-handoff-section"
+import { OngoingExcellenceSection } from "@/components/sections/approach/ongoing-excellence-section"
+import { NextStepSection } from "@/components/sections/approach/next-step"
 
 export const metadata: Metadata = {
-  title: "Our Approach | Veloxforce",
-  description: "Discover Veloxforce's unique hybrid AI-human automation methodology that delivers certainty of outcomes for your business.",
+  title: "How It Works: The Service-as-Software Method | Veloxforce",
+  description: "ROI-first process transformation. We only proceed when the numbers make sense for both of us. See our proven approach to Service-as-Software implementation.",
 }
 
 export default function OurApproachPage() {
   return (
     <MainLayout>
-      <ApproachHeroSection />
-      <DetailedPillarsSection />
-      <ProcessDeepDiveSection />
-      <ServiceModelsSection />
-      <CtaSection />
+      {/* 1. NEW HERO: "ROI-First Process Transformation" */}
+      <HeroSectionV2 />
+
+      {/* 2. NEW: "Phase 1: ROI Analysis First" */}
+      <ROIAnalysisSection />
+
+      {/* 3. NEW: "Phase 2: Custom Solution Development" */}
+      <CustomDevelopmentSection />
+
+      {/* 4. NEW: "Phase 3: Seamless Handoff" */}
+      <SeamlessHandoffSection />
+
+      {/* 5. NEW: "Phase 4: Ongoing Excellence" */}
+      <OngoingExcellenceSection />
+
+      {/* 6. PRESERVED: "Ready to See Your Process Transformed?" */}
+      <NextStepSection />
     </MainLayout>
   )
 }
