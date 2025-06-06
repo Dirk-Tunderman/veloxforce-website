@@ -32,11 +32,11 @@ const operations = [
       "Expense management chaos"
     ],
     transformation: [
-      "Send invoices → Receive organized data",
-      "Automatic payment follow-up until collected",
-      "Reports generated and delivered on schedule",
-      "Perfect pricing based on your rules",
-      "Expenses captured, categorized, reported"
+      "You send invoices → We deliver organized financial data",
+      "You request reports → We deliver them on schedule",
+      "You set pricing rules → We apply them perfectly",
+      "You submit expenses → We categorize and report them",
+      "You delegate the process → We handle all complexity"
     ],
     realityHandled: [
       "Complex approval workflows? Built in.",
@@ -61,11 +61,11 @@ const operations = [
       "Follow-up balls getting dropped"
     ],
     transformation: [
-      "Common queries handled instantly",
-      "All interactions captured in one place",
-      "24/7 response capability",
-      "Unified view across all channels",
-      "Nothing falls through cracks"
+      "You forward customer inquiries → We deliver responses",
+      "You receive escalated complex cases → We handle routine ones",
+      "You set response standards → We meet them 24/7",
+      "You define service levels → We deliver consistently",
+      "You delegate customer operations → We ensure nothing falls through cracks"
     ],
     realityHandled: [
       "Multiple support channels? Unified.",
@@ -90,11 +90,11 @@ const operations = [
       "Manual report generation"
     ],
     transformation: [
-      "Documents → Structured data automatically",
-      "Systems stay synchronized",
-      "Everything filed and findable",
-      "Compliance handled consistently",
-      "Reports created while you sleep"
+      "You send documents → We deliver structured data",
+      "You request filing → We organize and store everything",
+      "You need compliance → We handle all requirements",
+      "You want reports → We create them automatically",
+      "You delegate admin work → We deliver organized results"
     ],
     realityHandled: [
       "Paper documents? Digitized.",
@@ -119,11 +119,11 @@ const operations = [
       "Revenue reporting blindness"
     ],
     transformation: [
-      "Service delivered → Invoice sent",
-      "Consistent pricing every time",
-      "Complex quotes in minutes",
-      "Payments tracked automatically",
-      "Real-time revenue visibility"
+      "You deliver service → We send invoices automatically",
+      "You set pricing rules → We apply them consistently",
+      "You need quotes → We generate them in minutes",
+      "You track payments → We handle all reconciliation",
+      "You delegate revenue ops → We deliver real-time visibility"
     ],
     realityHandled: [
       "Complex pricing rules? Programmed.",
@@ -148,11 +148,11 @@ const operations = [
       "Activity tracking overhead"
     ],
     transformation: [
-      "Every lead nurtured perfectly",
-      "CRM updated automatically",
-      "Pipeline always current",
-      "Proposals generated quickly",
-      "Activities logged without effort"
+      "You generate leads → We nurture them perfectly",
+      "You close deals → We update CRM automatically",
+      "You need pipeline visibility → We keep it current",
+      "You request proposals → We generate them quickly",
+      "You delegate sales ops → We log all activities"
     ],
     realityHandled: [
       "Multiple lead sources? Consolidated.",
@@ -305,7 +305,7 @@ export function CoreOperationsSection() {
               </div>
               <Text className="text-xl text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto">
                 These are just examples. We've transformed over 200 unique processes across every industry.
-                <span className="font-semibold text-white block mt-2">If it's repetitive and follows rules, we can automate it.</span>
+                <span className="font-semibold text-white block mt-2">If it's repetitive and follows rules, you can delegate it to us.</span>
               </Text>
 
               <Button
@@ -314,7 +314,7 @@ export function CoreOperationsSection() {
                 asChild
               >
                 <Link href="/tools/business-audit">
-                  Assess My Specific Process
+                  Check What I Can Delegate
                 </Link>
               </Button>
             </div>

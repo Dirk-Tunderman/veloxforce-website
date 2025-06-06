@@ -757,7 +757,7 @@ export const FINAL_QUESTIONS: QuizPhase[] = [
           { value: '10000-15000', label: '€10,000-15,000/month' },
           { value: 'over-15000', label: 'Over €15,000/month' }
         ],
-        benchmark: "Companies your size typically invest €[X] monthly in automation"
+        benchmark: "Companies your size typically invest €[X] monthly in process delegation"
       },
       {
         id: 'success_vision',
@@ -772,7 +772,7 @@ export const FINAL_QUESTIONS: QuizPhase[] = [
   {
     id: 'contact_information',
     title: 'Get Your Analysis',
-    description: 'Where should we send your personalized automation roadmap?',
+    description: 'Where should we send your personalized delegation roadmap?',
     estimatedTime: 0.5,
     questions: [
       {

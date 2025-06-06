@@ -183,7 +183,7 @@ export function ROICalculatorSection() {
           </div>
           <div className="max-w-2xl mx-auto">
             <p className="font-semibold text-gray-900 mb-3">
-              <span className="font-bold">MIT research</span> shows early automation adopters gain <span className="font-bold">23% market share</span> from laggards within 24 months.
+              <span className="font-bold">MIT research</span> shows early Service-as-Software adopters gain <span className="font-bold">23% market share</span> from laggards within 24 months.
             </p>
             <p className="text-sm text-gray-600">
               Every month you wait, your competitors get <span className="font-semibold">stronger</span> while your costs <span className="font-semibold">compound</span>.

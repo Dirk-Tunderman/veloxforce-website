@@ -34,7 +34,7 @@ const digitalEmployees = [
     id: "sales-assistant",
     department: "sales",
     icon: Mail,
-    title: "Digital Sales Assistant",
+    title: "Sales Operations Service",
     handles: "Lead entry, CRM updates, follow-up sequences, proposal drafts",
     never: "Loses a lead, forgets follow-up, misses data"
   },
@@ -42,7 +42,7 @@ const digitalEmployees = [
     id: "ap-specialist",
     department: "finance",
     icon: DollarSign,
-    title: "Digital AP Specialist",
+    title: "Financial Processing Service",
     handles: "Invoice processing, PO matching, payment prep, vendor communication",
     never: "Misses early payment discounts, loses invoices, delays payments"
   },
@@ -50,7 +50,7 @@ const digitalEmployees = [
     id: "data-analyst",
     department: "operations",
     icon: BarChart3,
-    title: "Digital Data Analyst",
+    title: "Data Analysis Service",
     handles: "Report generation, data consolidation, dashboard updates, trend analysis",
     never: "Makes calculation errors, misses deadlines, formats incorrectly"
   },
@@ -141,10 +141,10 @@ export function DigitalWorkforceCatalog() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <Heading level="2" className="velox-text-h2 mb-4">
-            Browse Your Digital Workforce
+            Browse Service-as-Software Solutions
           </Heading>
           <Text className="velox-text-body text-lg text-gray-700">
-            Which Digital Employees Do You Need?
+            Which Processes Can You Delegate?
           </Text>
         </div>
 

@@ -9,7 +9,7 @@ const ctaOptions = [
     icon: Target,
     title: "Start With Your Biggest Time Drain",
     description: "Tell us which task hurts most",
-    buttonText: "Identify My First Digital Employee",
+    buttonText: "Check What I Can Delegate",
     href: "/tools/business-audit"
   },
   {
@@ -35,7 +35,7 @@ export function DigitalWorkforceCTA() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <Heading level="2" className="velox-text-h2 text-white mb-4">
-            Build Your Digital Workforce
+            Start Delegating Your Processes
           </Heading>
         </div>
 
@@ -79,7 +79,7 @@ export function DigitalWorkforceCTA() {
         {/* Bottom Spacing */}
         <div className="mt-16 text-center">
           <Text className="text-blue-100 text-lg">
-            Ready to transform your business operations with intelligent digital employees?
+            Ready to transform your business operations through strategic delegation?
           </Text>
         </div>
       </Container>

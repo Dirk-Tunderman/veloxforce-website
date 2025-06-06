@@ -5,12 +5,12 @@ import { Users, Brain, Target, ArrowDown, Clock, Shield, Zap } from "lucide-reac
 
 const serviceLayer = [
   {
-    title: "Your Digital Workforce",
+    title: "Your Service Infrastructure",
     subtitle: "What we build",
     icon: Users,
     color: "blue",
     features: [
-      "Custom digital employees designed for your process",
+      "Custom systems designed for your specific process",
       "Work 24/7 without breaks or errors",
       "Follow your exact rules and standards", 
       "Scale instantly with demand"

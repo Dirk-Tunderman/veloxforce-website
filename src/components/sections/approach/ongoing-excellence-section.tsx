@@ -12,7 +12,7 @@ export function OngoingExcellenceSection() {
             Phase 4: Ongoing Excellence, Not Just One-Time Setup
           </Heading>
           <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
-            Unlike traditional development that hands you software and disappears, <span className="font-bold">we maintain operational responsibility</span>. Once your digital workforce is built, we keep it running smoothly, adapting as your business evolves.
+            Unlike other companies that hand you tools and disappear, <span className="font-bold">we deliver results forever</span>. We handle all the operational complexity so you keep receiving perfect results.
           </Text>
         </div>
 

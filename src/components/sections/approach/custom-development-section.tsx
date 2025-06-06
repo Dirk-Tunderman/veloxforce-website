@@ -9,10 +9,10 @@ export function CustomDevelopmentSection() {
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Phase 2: Rapid Development
+            Phase 2: Custom Solution Development
           </Heading>
           <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
-            <span className="font-bold">Thanks to AI acceleration</span>, what once took years now happens in a fraction of the time. <span className="font-semibold">MIT research shows this trend will only accelerate</span> - AI capabilities double annually.
+            <span className="font-bold">We build the systems needed to deliver your outcomes reliably.</span> Thanks to AI acceleration, what once took years now happens in weeks to months.
           </Text>
         </div>
 
@@ -25,10 +25,10 @@ export function CustomDevelopmentSection() {
               </div>
               <div>
                 <Heading level="3" className="text-lg font-bold text-gray-900 mb-2">
-                  Built specifically for your current process
+                  Systems configured exactly for your process and standards
                 </Heading>
                 <Text className="text-gray-700">
-                  Custom-built to match your established workflow, rules, and exceptions
+                  We handle all the technical complexity of making this work with your current systems
                 </Text>
               </div>
             </div>

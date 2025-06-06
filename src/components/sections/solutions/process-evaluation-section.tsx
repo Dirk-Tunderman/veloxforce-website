@@ -167,7 +167,7 @@ export function ProcessEvaluationSection() {
                         Might Need Some Adjustments
                       </Heading>
                       <Text className="text-orange-800 mb-4">
-                        Your process might benefit from some refinement before automation. 
+                        Your process might benefit from some refinement before delegation.
                         Let's discuss how to optimize it for better results.
                       </Text>
                       <Button

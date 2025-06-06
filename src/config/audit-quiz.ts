@@ -182,7 +182,7 @@ export const QUIZ_PHASES: QuizPhase[] = [
           { value: 'team-morale', label: 'Team morale suffers from repetitive work', score: 1 },
           { value: 'losing-money', label: 'Losing money on inefficiencies', score: 2 }
         ],
-        dynamicMessage: 'You\'ve identified [X] growth barriers. Automation typically eliminates [Y] of these.',
+        dynamicMessage: 'You\'ve identified [X] growth barriers. Service-as-Software typically eliminates [Y] of these.',
         awayFromMotivation: true
       },
       {
@@ -209,7 +209,7 @@ export const QUIZ_PHASES: QuizPhase[] = [
           { value: 'monthly', label: 'Monthly', score: 1 },
           { value: 'rarely', label: 'Rarely', score: 0 }
         ],
-        calculationMessage: 'Estimated error cost: €[Amount]/month\nAutomation typically achieves 98%+ accuracy'
+        calculationMessage: 'Estimated error cost: €[Amount]/month\nService-as-Software typically achieves 98%+ accuracy'
       }
     ]
   },
@@ -218,13 +218,13 @@ export const QUIZ_PHASES: QuizPhase[] = [
   {
     id: 'phase3',
     title: 'Readiness Assessment',
-    description: 'Evaluating automation potential and decision readiness',
+    description: 'Evaluating delegation potential and decision readiness',
     estimatedTime: 2,
     questions: [
       // Screen 3.1: Process Maturity Check
       {
         id: 'q7_processStandardization',
-        title: 'For automation to work, we need consistent processes.',
+        title: 'For delegation to work, we need consistent processes.',
         subtitle: 'How standardized is your [PROCESS_NAME]?',
         type: 'radio',
         required: true,
@@ -243,7 +243,7 @@ export const QUIZ_PHASES: QuizPhase[] = [
       },
       {
         id: 'q8_decisionAuthority',
-        title: 'Who needs to approve automation investments in your company?',
+        title: 'Who needs to approve Service-as-Software investments in your company?',
         type: 'radio',
         required: true,
         options: [
@@ -256,7 +256,7 @@ export const QUIZ_PHASES: QuizPhase[] = [
       },
       {
         id: 'q8_roiTimeline',
-        title: 'When would you want to see ROI from automation?',
+        title: 'When would you want to see ROI from delegation?',
         type: 'radio',
         required: true,
         options: [
@@ -333,7 +333,7 @@ export const QUIZ_PHASES: QuizPhase[] = [
       },
       {
         id: 'q11_solutionCriteria',
-        title: 'What would need to be true for an automation solution to make sense?',
+        title: 'What would need to be true for a Service-as-Software solution to make sense?',
         type: 'checkbox',
         required: true,
         options: [
@@ -373,7 +373,7 @@ export const QUIZ_PHASES: QuizPhase[] = [
         type: 'text',
         required: false,
         placeholder: 'e.g., Customer support ticket routing',
-        helpText: 'This helps us design a complete automation strategy'
+        helpText: 'This helps us design a complete delegation strategy'
       }
     ]
   }

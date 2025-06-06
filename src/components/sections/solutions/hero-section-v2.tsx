@@ -35,7 +35,7 @@ export function HeroSectionV2() {
             </Text>
 
             <Text className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto text-center">
-              Stop wondering <strong>"Could this work for me?"</strong> See exactly how we transform processes just like yours.
+              Stop wondering <strong>"Could this work for me?"</strong> See exactly how we transform processes just like yours into delegated outcomes.
             </Text>
           </div>
 
@@ -48,7 +48,7 @@ export function HeroSectionV2() {
             >
               <Link href="/tools/business-audit">
                 <div className="flex flex-col items-center py-2 text-center">
-                  <span className="text-lg">Find My Biggest Time Drain</span>
+                  <span className="text-lg">Check What I Can Delegate</span>
                   <span className="text-sm font-normal opacity-90 text-center">Free assessment • 8 minutes • Honest analysis</span>
                 </div>
               </Link>

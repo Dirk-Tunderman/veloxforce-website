@@ -12,7 +12,7 @@ export function ROIAnalysisSection() {
             Phase 1: ROI Analysis First
           </Heading>
           <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
-            We analyze if transformation makes financial sense - <span className="font-bold">only proceeding when the numbers work for both of us</span>
+            We check if delegating this process creates clear value - <span className="font-bold">only proceeding when the numbers work for both of us</span>
           </Text>
         </div>
 
@@ -28,7 +28,7 @@ export function ROIAnalysisSection() {
                   Understand your current process economics
                 </Heading>
                 <Text className="text-gray-700">
-                  Time spent, resource allocation, and <span className="font-semibold">untapped potential</span> in your established workflow
+                  How much time this process consumes and <span className="font-semibold">what perfect execution would save</span>
                 </Text>
               </div>
             </div>
@@ -39,10 +39,10 @@ export function ROIAnalysisSection() {
               </div>
               <div>
                 <Heading level="3" className="text-lg font-bold text-gray-900 mb-2">
-                  Identify transformation opportunities
+                  Identify what you can delegate to us
                 </Heading>
                 <Text className="text-gray-700">
-                  <span className="font-semibold">Realistic improvement potential</span> - we focus on what can truly be automated while preserving what works
+                  <span className="font-semibold">Realistic delegation potential</span> - we focus on what you can confidently hand over while preserving what you should keep strategic control over
                 </Text>
               </div>
             </div>

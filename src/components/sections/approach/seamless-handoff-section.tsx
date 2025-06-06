@@ -25,10 +25,10 @@ export function SeamlessHandoffSection() {
               </div>
               <div>
                 <Heading level="3" className="text-lg font-bold text-gray-900 mb-2">
-                  Your digital workforce goes live
+                  You start receiving results without changing how you work
                 </Heading>
                 <Text className="text-gray-700">
-                  <span className="font-semibold">Seamless integration</span> with your existing workflow, systems, and team processes
+                  <span className="font-semibold">We integrate with your current systems</span> so you don't have to change anything
                 </Text>
               </div>
             </div>
@@ -53,10 +53,10 @@ export function SeamlessHandoffSection() {
               </div>
               <div>
                 <Heading level="3" className="text-lg font-bold text-gray-900 mb-2">
-                  Start with pilot volume to ensure perfection
+                  We start small to ensure you receive perfect results from day one
                 </Heading>
                 <Text className="text-gray-700">
-                  <span className="font-semibold">Test with small batches</span> before full deployment to validate quality and accuracy
+                  <span className="font-semibold">Test with small batches</span> before full deployment to validate outcome quality
                 </Text>
               </div>
             </div>

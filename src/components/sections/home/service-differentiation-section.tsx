@@ -30,35 +30,31 @@ export function ServiceDifferentiationSection() {
               <div className="absolute -top-3 left-6 bg-gray-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                 Automation Agencies
               </div>
-              
+
               <div className="pt-4 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
                   <Cog className="h-6 w-6 text-gray-700" />
-                  <Heading level="3" className="text-lg font-semibold text-gray-900">Tools You Manage</Heading>
+                  <Heading level="3" className="text-lg font-semibold text-gray-900">Give you tools to manage</Heading>
                 </div>
-                
+
                 <div className="space-y-3 mb-6 flex-1">
-                  <div className="flex items-start gap-2">
-                    <X className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">Give you automation tools</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <X className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">You manage the maintenance</span>
-                  </div>
                   <div className="flex items-start gap-2">
                     <X className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
                     <span className="text-sm text-gray-700">You handle when it breaks</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <X className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">Still your responsibility</span>
+                    <span className="text-sm text-gray-700">You operate the complexity</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <X className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-700">Tool-Focused</span>
                   </div>
                 </div>
-                
+
                 <div className="text-center">
-                  <Text className="text-gray-600 font-medium">Linear Growth</Text>
-                  <Text className="text-xs text-gray-500">More complexity = More management</Text>
+                  <Text className="text-gray-600 font-medium">Tool Management</Text>
+                  <Text className="text-xs text-gray-500">You manage the complexity</Text>
                 </div>
               </div>
             </div>
@@ -70,21 +66,17 @@ export function ServiceDifferentiationSection() {
               <div className="absolute -top-3 left-6 bg-gray-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                 Service Businesses
               </div>
-              
+
               <div className="pt-4 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
                   <Users className="h-6 w-6 text-gray-700" />
-                  <Heading level="3" className="text-lg font-semibold text-gray-900">People You Pay</Heading>
+                  <Heading level="3" className="text-lg font-semibold text-gray-900">People you pay hourly</Heading>
                 </div>
-                
+
                 <div className="space-y-3 mb-6 flex-1">
                   <div className="flex items-start gap-2">
                     <X className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">Scale with more people</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <X className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">Linear cost increases</span>
+                    <span className="text-sm text-gray-700">Limited by human capacity</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <X className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
@@ -92,10 +84,10 @@ export function ServiceDifferentiationSection() {
                   </div>
                   <div className="flex items-start gap-2">
                     <X className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">Human limitations</span>
+                    <span className="text-sm text-gray-700">People-Focused</span>
                   </div>
                 </div>
-                
+
                 <div className="text-center">
                   <Text className="text-gray-600 font-medium">Human Scaling</Text>
                   <Text className="text-xs text-gray-500">Double volume = Double costs</Text>
@@ -122,19 +114,19 @@ export function ServiceDifferentiationSection() {
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-800 font-medium">We build custom software for YOUR process</span>
+                    <span className="text-gray-800 font-medium">Outcomes you receive</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-800 font-medium">We run it forever - you never touch it</span>
+                    <span className="text-gray-800 font-medium">We handle all complexity</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-800 font-medium">Scales with software, not people</span>
+                    <span className="text-gray-800 font-medium">Guaranteed results delivered</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-800 font-medium">You delegate work, receive outcomes</span>
+                    <span className="text-gray-800 font-medium">Outcome-Focused</span>
                   </div>
                 </div>
                 

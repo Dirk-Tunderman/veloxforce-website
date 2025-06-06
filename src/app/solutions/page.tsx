@@ -16,8 +16,8 @@ import { DigitalWorkforceCTA } from "@/components/sections/solutions/digital-wor
 
 export const metadata: Metadata = constructMetadata({
   title: "Every Process You Hate Doing Can Become a Process You Love Delegating | Veloxforce Solutions",
-  description: "Discover which of your daily operations can be transformed into Service-as-Software. Stop wondering 'Could this work for me?' See exactly how we transform processes just like yours.",
-  keywords: ["process automation", "service as software", "business operations", "delegate processes", "operational efficiency", "process transformation"],
+  description: "Discover which of your daily operations can be transformed into delegated outcomes. Stop wondering 'Could this work for me?' See exactly how we transform processes just like yours.",
+  keywords: ["process delegation", "service as software", "business operations", "delegate processes", "operational efficiency", "process transformation"],
   pathname: "/solutions",
 })
 

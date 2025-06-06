@@ -20,14 +20,14 @@ export function HeroSectionV2() {
               level="1"
               className="velox-text-h1 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             >
-              Every Business Has{" "}
+              Your Processes Work. What If You Could{" "}
               <span className="gradient-text-blue">
-                Untapped Potential
-              </span>
+                Delegate Them Completely
+              </span>?
             </Heading>
 
             <Text className="velox-text-body text-xl md:text-2xl text-gray-700 leading-relaxed text-center">
-              <span className="font-bold">Your processes work</span> - they got you this far. But imagine if they could run without consuming your time.
+              <span className="font-bold">Your processes got you this far.</span> Now imagine delegating them completely and just receiving perfect results.
             </Text>
 
             <Text className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto text-center">
