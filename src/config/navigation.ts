@@ -8,6 +8,10 @@ export const mainNavItems = [
     href: "/our-approach",
   },
   {
+    title: "Is This Right for Me?",
+    href: "/is-this-right-for-me",
+  },
+  {
     title: "Success Stories",
     href: "/case-studies",
   },
@@ -103,6 +107,10 @@ export const footerLinks = [
     title: "Resources",
     links: [
       {
+        title: "Process Evaluation Guide",
+        href: "/is-this-right-for-me",
+      },
+      {
         title: "Blog",
         href: "/blog",
       },
@@ -124,12 +132,20 @@ export const footerLinks = [
     title: "Tools",
     links: [
       {
+        title: "Free Process Audit",
+        href: "/tools/business-audit",
+      },
+      {
         title: "Process Efficiency Analyzer",
         href: "/tools/business-audit",
       },
       {
         title: "SOP Automator",
         href: "/tools/sop-automator",
+      },
+      {
+        title: "Service Guarantee",
+        href: "/#service-guarantee",
       },
       {
         title: "All Tools",

@@ -25,11 +25,11 @@ const operations = [
     gradient: "from-blue-500 to-indigo-600",
     bgGradient: "from-blue-50 to-indigo-50",
     struggles: [
-      "Invoice processing that never ends",
-      "Payment tracking across multiple systems",
-      "Financial reports that take hours",
-      "Pricing calculations prone to errors",
-      "Expense management chaos"
+      "Your accounting people spend hours on invoice processing instead of financial analysis",
+      "Team tracks payments manually instead of analyzing cash flow trends",
+      "Financial reports take hours instead of strategic planning time",
+      "Pricing calculations prone to errors instead of optimization",
+      "Expense management chaos instead of budget analysis"
     ],
     transformation: [
       "You send invoices → We deliver organized financial data",
@@ -54,11 +54,11 @@ const operations = [
     gradient: "from-green-500 to-emerald-600",
     bgGradient: "from-green-50 to-emerald-50",
     struggles: [
-      "Answering the same questions repeatedly",
-      "Customer data scattered everywhere",
-      "Response delays hurting satisfaction",
-      "Tracking issues across channels",
-      "Follow-up balls getting dropped"
+      "Your service team answers routine questions instead of building relationships",
+      "Customer data scattered instead of strategic analysis",
+      "Response delays instead of proactive service improvements",
+      "Tracking issues manually instead of optimizing customer experience",
+      "Follow-up tasks instead of complex problem-solving"
     ],
     transformation: [
       "You forward customer inquiries → We deliver responses",
@@ -83,11 +83,11 @@ const operations = [
     gradient: "from-purple-500 to-violet-600",
     bgGradient: "from-purple-50 to-violet-50",
     struggles: [
-      "Document processing nightmares",
-      "Data entry between systems",
-      "Filing and organization chaos",
-      "Compliance documentation burden",
-      "Manual report generation"
+      "Your team drowns in document processing instead of workflow optimization",
+      "Data entry between systems instead of process improvement",
+      "Filing chaos instead of efficiency analysis",
+      "Compliance documentation burden instead of strategic compliance planning",
+      "Manual report generation instead of insights analysis"
     ],
     transformation: [
       "You send documents → We deliver structured data",
@@ -112,11 +112,11 @@ const operations = [
     gradient: "from-orange-500 to-amber-600",
     bgGradient: "from-orange-50 to-amber-50",
     struggles: [
-      "Delayed invoicing hurting cash flow",
-      "Pricing inconsistencies losing money",
-      "Quote creation taking forever",
-      "Payment reconciliation headaches",
-      "Revenue reporting blindness"
+      "Your finance people manage invoicing manually instead of analyzing revenue trends",
+      "Pricing inconsistencies instead of strategic pricing optimization",
+      "Quote creation delays instead of growth opportunity analysis",
+      "Payment reconciliation headaches instead of cash flow planning",
+      "Revenue reporting delays instead of growth strategy development"
     ],
     transformation: [
       "You deliver service → We send invoices automatically",
@@ -141,11 +141,11 @@ const operations = [
     gradient: "from-teal-500 to-cyan-600",
     bgGradient: "from-teal-50 to-cyan-50",
     struggles: [
-      "Lead follow-up inconsistency",
-      "CRM data entry burden",
-      "Pipeline visibility issues",
-      "Proposal creation delays",
-      "Activity tracking overhead"
+      "Your sales team spends time on follow-up tasks instead of closing deals",
+      "CRM data entry burden instead of relationship building",
+      "Pipeline management instead of strategic sales planning",
+      "Proposal creation delays instead of customer relationship focus",
+      "Activity tracking overhead instead of partnership development"
     ],
     transformation: [
       "You generate leads → We nurture them perfectly",

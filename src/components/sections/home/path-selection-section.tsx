@@ -3,6 +3,7 @@
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Button } from "@/components/ui/button"
+import { Text } from "@/components/ui/typography"
 import { Calculator, Download, ArrowRight, Clock, CheckCircle } from "lucide-react"
 import Link from "next/link"
 
@@ -34,21 +35,28 @@ export function PathSelectionSection() {
                 <Calculator className="h-10 w-10 text-blue-600" />
               </div>
               
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Ready to Calculate Your Savings?
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Primary Option:
               </h3>
-              
+              <h4 className="text-xl font-semibold text-blue-600 mb-4">
+                Calculate My Delegation Savings
+              </h4>
+
               <div className="flex justify-center mb-6">
                 <Link
                   href="/tools/business-audit"
                   className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-6 rounded-lg text-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl min-h-[56px]"
                 >
-                  Get My Free ROI Analysis
+                  Calculate My Delegation Savings
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </div>
-              
-              <div className="space-y-4 text-left">
+
+              <Text className="text-sm text-gray-600 mb-4 text-center">
+                For businesses ready to see specific ROI numbers
+              </Text>
+
+              <div className="space-y-3 text-left">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-green-600" />
                   <span className="text-sm text-gray-600">8-minute assessment</span>
@@ -72,21 +80,28 @@ export function PathSelectionSection() {
                 <Download className="h-10 w-10 text-gray-600" />
               </div>
               
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Not Sure You're Ready?
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Secondary Option:
               </h3>
-              
+              <h4 className="text-xl font-semibold text-gray-600 mb-4">
+                Get Free Process Audit
+              </h4>
+
               <div className="flex justify-center mb-6">
                 <Link
-                  href="/our-approach"
+                  href="/tools/business-audit"
                   className="inline-flex items-center justify-center gap-2 w-full bg-white border-2 border-blue-600 text-blue-600 px-6 py-6 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-all duration-200 min-h-[56px]"
                 >
-                  Learn About Service-as-Software
+                  Get Free Process Audit
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </div>
-              
-              <div className="space-y-4 text-left">
+
+              <Text className="text-sm text-gray-600 mb-4 text-center">
+                Not sure yet? Get valuable insights with no sales pressure
+              </Text>
+
+              <div className="space-y-3 text-left">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-gray-400" />
                   <span className="text-sm text-gray-600">Instant clarity on timing</span>

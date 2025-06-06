@@ -59,20 +59,20 @@ export function HeroTransformationSection() {
               <div className="absolute -top-4 left-8 bg-gray-900 text-white px-4 py-2 rounded-full text-sm font-semibold">
                 Before Service-as-Software
               </div>
-              <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Sarah's Tuesday</Heading>
+              <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Sarah's Team</Heading>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <Clock className="h-5 w-5 text-gray-500 mt-0.5" />
                   <div>
-                    <Text className="font-semibold text-gray-900">6:30 AM - 9:00 PM</Text>
-                    <Text className="text-sm text-gray-600">Managing operations manually</Text>
+                    <Text className="font-semibold text-gray-900">Drowning in operational tasks</Text>
+                    <Text className="text-sm text-gray-600">No time for strategic work</Text>
                   </div>
                 </div>
                 <ul className="ml-8 space-y-2 text-sm text-gray-600">
-                  <li>• Processes 47 customer requests manually</li>
-                  <li>• Updating 3 different systems</li>
-                  <li>• Fixing errors from rushed work</li>
-                  <li>• Missing family dinner again</li>
+                  <li>• Team handles 47 customer requests manually instead of strategic analysis</li>
+                  <li>• Updating 3 different systems instead of optimizing workflows</li>
+                  <li>• Fixing errors from rushed work instead of process improvement</li>
+                  <li>• No capacity for growth initiatives</li>
                 </ul>
               </div>
             </div>
@@ -89,20 +89,20 @@ export function HeroTransformationSection() {
               <div className="absolute -top-4 left-8 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
                 With Service-as-Software
               </div>
-              <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Sarah's Tuesday</Heading>
+              <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Sarah's Team</Heading>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <Target className="h-5 w-5 text-blue-600 mt-0.5" />
                   <div>
-                    <Text className="font-semibold text-gray-900">Receives 47 processed results by 5:30 PM</Text>
-                    <Text className="text-sm text-gray-600">Strategic focus instead of operations</Text>
+                    <Text className="font-semibold text-gray-900">Focuses on strategic work</Text>
+                    <Text className="text-sm text-gray-600">Receives 47 processed results and analyzes trends</Text>
                   </div>
                 </div>
                 <ul className="ml-8 space-y-2 text-sm text-gray-600">
-                  <li>• All 47 requests processed and delivered</li>
-                  <li>• Results arrive in her inbox</li>
+                  <li>• All 47 requests processed and delivered automatically</li>
+                  <li>• Team analyzes customer patterns and improves service</li>
                   <li>• 99.7% accuracy (better than manual)</li>
-                  <li>• Home for dinner with energy to spare</li>
+                  <li>• Capacity freed for growth initiatives</li>
                 </ul>
               </div>
             </div>

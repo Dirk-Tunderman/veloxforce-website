@@ -5,8 +5,9 @@
 import { Metadata } from "next"
 
 import { MainLayout } from "@/components/layout/main-layout"
-import { HeroSectionV2 } from "@/components/sections/approach/hero-section-v2"
+import { EvaluationGuideSection } from "@/components/sections/approach/evaluation-guide-section"
 import { ROIAnalysisSection } from "@/components/sections/approach/roi-analysis-section"
+import { WhatYoullReceiveSection } from "@/components/sections/approach/what-youll-receive-section"
 import { CustomDevelopmentSection } from "@/components/sections/approach/custom-development-section"
 import { SeamlessHandoffSection } from "@/components/sections/approach/seamless-handoff-section"
 import { OngoingExcellenceSection } from "@/components/sections/approach/ongoing-excellence-section"
@@ -21,25 +22,28 @@ export const metadata: Metadata = {
 export default function OurApproachPage() {
   return (
     <MainLayout>
-      {/* 1. NEW HERO: "ROI-First Process Transformation" */}
-      <HeroSectionV2 />
+      {/* 1. NEW HERO: "Stop Comparing Apples to Oranges" */}
+      <EvaluationGuideSection />
 
       {/* 2. NEW: "Phase 1: ROI Analysis First" */}
       <ROIAnalysisSection />
 
-      {/* 3. NEW: "Phase 2: Custom Solution Development" */}
+      {/* 3. NEW: "Before You Decide: See Exactly What You'll Receive" */}
+      <WhatYoullReceiveSection />
+
+      {/* 4. NEW: "Phase 2: Custom Solution Development" */}
       <CustomDevelopmentSection />
 
-      {/* 4. NEW: "Phase 3: Seamless Handoff" */}
+      {/* 5. NEW: "Phase 3: Seamless Handoff" */}
       <SeamlessHandoffSection />
 
-      {/* 5. NEW: "Phase 4: Ongoing Excellence" */}
+      {/* 6. NEW: "Phase 4: Ongoing Excellence" */}
       <OngoingExcellenceSection />
 
-      {/* 6. NEW: "Why Service-as-Software Works" */}
+      {/* 7. NEW: "Why Service-as-Software Works" */}
       <WhyServiceAsSoftwareWorks />
 
-      {/* 7. PRESERVED: "Ready to See Your Process Transformed?" */}
+      {/* 8. PRESERVED: "Ready to See Your Process Transformed?" */}
       <NextStepSection />
     </MainLayout>
   )

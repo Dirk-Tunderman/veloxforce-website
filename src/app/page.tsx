@@ -12,6 +12,7 @@ import { PartnershipModel } from "@/components/sections/home/partnership-model"
 import { DecisionMakingRelief } from "@/components/sections/home/decision-making-relief"
 import { StrategicElevation } from "@/components/sections/home/strategic-elevation"
 import { ServicePromise } from "@/components/sections/home/service-promise"
+import { ServiceGuarantee } from "@/components/sections/home/service-guarantee"
 import { ServiceAsSoftwareEducation } from "@/components/sections/home/service-as-software-education"
 import { ProblemSolutionSection } from "@/components/sections/home/problem-solution-section"
 import { ProofSection } from "@/components/sections/home/proof-section"
@@ -55,7 +56,10 @@ export default function HomePage() {
       {/* Section 9: Your Economics & ROI */}
       <ROICalculatorSection />
 
-      {/* Section 10: Clear Next Step */}
+      {/* Section 10: Service Guarantee */}
+      <ServiceGuarantee />
+
+      {/* Section 11: Clear Next Step */}
       <PathSelectionSection />
     </MainLayout>
   )
