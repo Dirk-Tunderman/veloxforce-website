@@ -39,7 +39,7 @@ export function AuditQuiz() {
   const currentQuestion = currentPhase?.questions?.[currentQuestionInPhase]
   const isLastQuestionInPhase = currentQuestionInPhase === (currentPhase?.questions?.length || 1) - 1
   const isLastPhase = currentPhaseIndex === QUIZ_PHASES.length - 1
-  const processName = answers.q1_processName || answers.q1_processDescription
+  const processName = answers.q1_processDescription || ""
 
   // Calculate total progress
   const totalQuestionsCompleted = QUIZ_PHASES.slice(0, currentPhaseIndex).reduce((acc, phase) =>
@@ -218,19 +218,19 @@ export function AuditQuiz() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: details.email,
-          name: details.name,
+          name: details.fullName,
           companyName: details.companyName,
           auditResults: {
             processName: results.processName,
             calculatedScore: results.score.total,
             resultCategory: results.category,
             estimatedSavings: {
-              timePerWeek: results.estimatedSavings.timePerWeek,
-              costPerWeek: results.estimatedSavings.costPerWeek,
-              annualSavings: results.estimatedSavings.annualSavings
+              timePerWeek: results.hoursFreed || 0,
+              costPerWeek: Math.round((results.estimatedMonthlyCost || 0) / 4.33),
+              annualSavings: (results.potentialSavings || 0) * 12
             },
-            recommendations: results.recommendations,
-            nextSteps: results.nextSteps
+            recommendations: [],
+            nextSteps: []
           }
         })
       })
@@ -581,7 +581,7 @@ export function AuditQuiz() {
   }
 
   const renderResults = () => {
-    if (!contactDetails || !answers.q1_processName) return null
+    if (!contactDetails || !answers.q1_processDescription) return null
 
     const results = generateResultsData(answers as QuizAnswers)
     return <ResultsDisplay results={results} />

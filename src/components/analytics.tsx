@@ -44,13 +44,4 @@ export function Analytics() {
   )
 }
 
-// Add this to your types.d.ts file
-declare global {
-  interface Window {
-    gtag: (
-      command: string,
-      targetId: string,
-      config?: Record<string, any>
-    ) => void
-  }
-}
+// Types are defined in src/types/gtag.d.ts

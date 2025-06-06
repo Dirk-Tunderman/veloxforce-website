@@ -50,8 +50,8 @@ export function SaaSDifferenceSection() {
             const IconComponent = comparison.icon
             
             return (
-              <div key={index} className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div key={index} className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 md:gap-8 items-center">
                   {/* Their Approach */}
                   <div className="lg:col-span-5">
                     <div className={`
@@ -120,7 +120,7 @@ export function SaaSDifferenceSection() {
 
         {/* Bottom Message */}
         <div className="text-center">
-          <div className="velox-card-advantage-enhanced p-8 max-w-5xl mx-auto">
+          <div className="velox-card-advantage-enhanced p-4 sm:p-6 md:p-8 max-w-5xl mx-auto">
             <Heading level="3" className="text-2xl font-bold text-blue-900 mb-6">
               The Fundamental Difference
             </Heading>

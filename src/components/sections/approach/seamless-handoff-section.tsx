@@ -5,13 +5,13 @@ import { Play, Mail, Globe, Zap, TrendingUp } from "lucide-react"
 
 export function SeamlessHandoffSection() {
   return (
-    <Section padding="xl" background="white">
+    <Section padding="xl" background="light-blue">
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Phase 3: Seamless Handoff
           </Heading>
-          <Text className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
             From development to delegation without disruption
           </Text>
         </div>
@@ -28,7 +28,7 @@ export function SeamlessHandoffSection() {
                   Your digital workforce goes live
                 </Heading>
                 <Text className="text-gray-700">
-                  Seamless integration with your existing workflow
+                  <span className="font-semibold">Seamless integration</span> with your existing workflow, systems, and team processes
                 </Text>
               </div>
             </div>
@@ -39,10 +39,10 @@ export function SeamlessHandoffSection() {
               </div>
               <div>
                 <Heading level="3" className="text-lg font-bold text-gray-900 mb-2">
-                  Simple delegation interface
+                  Choose your preferred delegation method
                 </Heading>
                 <Text className="text-gray-700">
-                  Email, portal, or API—whatever works best for you
+                  Email, portal, or API—<span className="font-semibold">whatever works best for your team's current habits</span>
                 </Text>
               </div>
             </div>
@@ -56,7 +56,7 @@ export function SeamlessHandoffSection() {
                   Start with pilot volume to ensure perfection
                 </Heading>
                 <Text className="text-gray-700">
-                  Test with small batches before full-scale deployment
+                  <span className="font-semibold">Test with small batches</span> before full deployment to validate quality and accuracy
                 </Text>
               </div>
             </div>
@@ -67,69 +67,62 @@ export function SeamlessHandoffSection() {
               </div>
               <div>
                 <Heading level="3" className="text-lg font-bold text-gray-900 mb-2">
-                  Scale up as comfort grows
+                  Scale up as confidence and comfort grows
                 </Heading>
                 <Text className="text-gray-700">
-                  Continuous optimization included throughout
+                  <span className="font-semibold">Continuous optimization</span> and performance monitoring included
                 </Text>
               </div>
             </div>
           </div>
 
           {/* Right: Delegation Interface Examples */}
-          <div className="space-y-6">
-            <div className="bg-blue-50 rounded-2xl p-6 border border-blue-200">
-              <div className="flex items-center gap-3 mb-4">
-                <Mail className="w-6 h-6 text-blue-600" />
-                <Heading level="3" className="text-lg font-bold text-blue-900">
-                  Email Delegation
-                </Heading>
+          <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200">
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Play className="w-8 h-8 text-white" />
               </div>
+              <Text className="text-lg font-semibold text-blue-900 mb-4">
+                Three Ways to Delegate
+              </Text>
+            </div>
+            
+            <div className="space-y-4">
               <div className="bg-white rounded-lg p-4 border border-blue-300">
-                <Text className="text-sm text-gray-700 mb-2">
-                  <strong>To:</strong> invoices@yourcompany.veloxforce.ai
+                <div className="flex items-center gap-3 mb-2">
+                  <Mail className="w-5 h-5 text-blue-600" />
+                  <Text className="font-semibold text-blue-900">Email Delegation</Text>
+                </div>
+                <Text className="text-sm text-blue-700">
+                  invoices@yourcompany.veloxforce.ai → Results in your inbox
                 </Text>
-                <Text className="text-sm text-gray-700 mb-2">
-                  <strong>Subject:</strong> Process attached invoices
+              </div>
+
+              <div className="bg-white rounded-lg p-4 border border-blue-300">
+                <div className="flex items-center gap-3 mb-2">
+                  <Globe className="w-5 h-5 text-blue-600" />
+                  <Text className="font-semibold text-blue-900">Portal Interface</Text>
+                </div>
+                <Text className="text-sm text-blue-700">
+                  Web dashboard for batch uploads and real-time tracking
                 </Text>
-                <Text className="text-sm text-gray-700">
-                  <strong>Body:</strong> [Attach files] → Results delivered to your inbox
+              </div>
+
+              <div className="bg-white rounded-lg p-4 border border-blue-300">
+                <div className="flex items-center gap-3 mb-2">
+                  <Zap className="w-5 h-5 text-blue-600" />
+                  <Text className="font-semibold text-blue-900">API Integration</Text>
+                </div>
+                <Text className="text-sm text-blue-700">
+                  Direct system-to-system automation triggers
                 </Text>
               </div>
             </div>
 
-            <div className="bg-green-50 rounded-2xl p-6 border border-green-200">
-              <div className="flex items-center gap-3 mb-4">
-                <Globe className="w-6 h-6 text-green-600" />
-                <Heading level="3" className="text-lg font-bold text-green-900">
-                  Portal Delegation
-                </Heading>
-              </div>
-              <div className="bg-white rounded-lg p-4 border border-green-300">
-                <Text className="text-sm text-gray-700 mb-2">
-                  Simple web interface for batch uploads
-                </Text>
-                <Text className="text-sm text-gray-700">
-                  Real-time status tracking and results download
-                </Text>
-              </div>
-            </div>
-
-            <div className="bg-purple-50 rounded-2xl p-6 border border-purple-200">
-              <div className="flex items-center gap-3 mb-4">
-                <Zap className="w-6 h-6 text-purple-600" />
-                <Heading level="3" className="text-lg font-bold text-purple-900">
-                  API Integration
-                </Heading>
-              </div>
-              <div className="bg-white rounded-lg p-4 border border-purple-300">
-                <Text className="text-sm text-gray-700 mb-2">
-                  Direct system-to-system integration
-                </Text>
-                <Text className="text-sm text-gray-700">
-                  Fully automated workflow triggers
-                </Text>
-              </div>
+            <div className="mt-6 pt-6 border-t border-blue-200">
+              <Text className="text-center text-base text-blue-700 italic">
+                "Choose what works best for your workflow - <span className="font-semibold">we adapt to you</span>."
+              </Text>
             </div>
           </div>
         </div>

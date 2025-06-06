@@ -20,7 +20,8 @@ export function Text({
   return (
     <Component
       className={cn(
-        "max-w-prose",
+        // Only apply max-w-prose if not centered
+        !className?.includes("text-center") && "max-w-prose",
         {
           // Font weights
           "font-light": weight === "light",
@@ -40,7 +41,7 @@ export function Text({
           "text-base leading-7 md:leading-relaxed": variant === "default" && !size,
           "text-lg md:text-xl leading-8 md:leading-9": variant === "lead" && !size,
           "text-lg leading-7 md:leading-relaxed": variant === "large" && !size,
-          "text-sm leading-6": variant === "small" && !size,
+          "text-sm leading-6 text-foreground": variant === "small" && !size,
           "text-sm text-muted-foreground leading-relaxed": variant === "muted" && !size,
           "text-base text-foreground/80 leading-relaxed": variant === "subtle" && !size,
           "text-base text-primary leading-7": variant === "primary" && !size,
@@ -99,7 +100,7 @@ export function Heading({
           "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent": gradient === "primary-secondary",
           "bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent": gradient === "primary-accent",
           "bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent": gradient === "secondary-accent",
-          "bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent": gradient === "primary",
+          "bg-gradient-to-r from-primary/90 to-primary/60 bg-clip-text text-transparent": gradient === "primary",
           "bg-gradient-to-r from-secondary to-secondary/80 bg-clip-text text-transparent": gradient === "secondary",
           "bg-gradient-to-r from-accent to-accent/80 bg-clip-text text-transparent": gradient === "accent",
 

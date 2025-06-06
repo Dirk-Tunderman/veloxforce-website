@@ -6,16 +6,15 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
 import { Button } from "@/components/ui/button"
-import { BarChart3, MessageCircle, FileText, DollarSign, Users, TrendingUp, ChevronDown, ChevronUp } from "lucide-react"
+import { BarChart3, MessageCircle, FileText, DollarSign, Users, TrendingUp, ChevronDown, ChevronUp, Calculator, Headphones, ClipboardList, CreditCard, Phone, Building } from "lucide-react"
 
 const timeDrains = [
   {
     id: "data-entry",
-    emoji: "📊",
     title: "I'm drowning in data entry and reporting",
     category: "Financial Operations Solutions",
-    icon: BarChart3,
-    color: "blue",
+    icon: Calculator,
+    color: "gray", // 90% of icons should be gray-700
     problems: [
       "Manual invoice processing that never ends",
       "Financial reports that take hours to compile",
@@ -27,14 +26,13 @@ const timeDrains = [
   },
   {
     id: "customer-service",
-    emoji: "📧", 
     title: "Customer service is eating all our time",
     category: "Customer Operations Solutions",
-    icon: MessageCircle,
-    color: "green",
+    icon: Headphones,
+    color: "blue", // 10% of icons for success/completion states
     problems: [
       "Answering the same questions repeatedly",
-      "Customer data scattered everywhere", 
+      "Customer data scattered everywhere",
       "Response delays hurting satisfaction",
       "Follow-up balls getting dropped"
     ],
@@ -43,11 +41,10 @@ const timeDrains = [
   },
   {
     id: "documents",
-    emoji: "📄",
-    title: "Documents and paperwork never end", 
+    title: "Documents and paperwork never end",
     category: "Administrative Solutions",
-    icon: FileText,
-    color: "purple",
+    icon: ClipboardList,
+    color: "gray", // 90% of icons should be gray-700
     problems: [
       "Document processing nightmares",
       "Data entry between systems",
@@ -59,11 +56,10 @@ const timeDrains = [
   },
   {
     id: "invoicing",
-    emoji: "💰",
     title: "Our invoicing and billing is a mess",
-    category: "Revenue Operations Solutions", 
-    icon: DollarSign,
-    color: "orange",
+    category: "Revenue Operations Solutions",
+    icon: CreditCard,
+    color: "gray", // 90% of icons should be gray-700
     problems: [
       "Delayed invoicing hurting cash flow",
       "Pricing inconsistencies losing money",
@@ -75,15 +71,14 @@ const timeDrains = [
   },
   {
     id: "sales-followup",
-    emoji: "🔄",
     title: "Sales follow-up falls through the cracks",
     category: "Sales Operations Solutions",
-    icon: Users,
-    color: "red",
+    icon: Phone,
+    color: "gray", // 90% of icons should be gray-700
     problems: [
       "Lead follow-up inconsistency",
       "CRM data entry burden",
-      "Pipeline visibility issues", 
+      "Pipeline visibility issues",
       "Proposal creation delays"
     ],
     solution: "Ensure every lead is nurtured perfectly, CRM stays updated automatically, and proposals are generated quickly with full pipeline visibility.",
@@ -91,11 +86,10 @@ const timeDrains = [
   },
   {
     id: "scaling",
-    emoji: "📈",
     title: "I can't scale without hiring more people",
     category: "Scaling Solutions",
-    icon: TrendingUp,
-    color: "indigo",
+    icon: Building,
+    color: "gray", // 90% of icons should be gray-700
     problems: [
       "Operations don't scale with growth",
       "Quality drops when volume increases",
@@ -115,7 +109,7 @@ export function ProblemRecognitionSection() {
   }
 
   return (
-    <Section padding="xl" background="light-blue" className="bg-gray-50" id="problem-recognition">
+    <Section padding="xl" background="light-to-white" id="problem-recognition">
       <Container className="max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -128,7 +122,7 @@ export function ProblemRecognitionSection() {
         </div>
 
         {/* Interactive Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {timeDrains.map((drain) => {
             const IconComponent = drain.icon
             const isExpanded = expandedCard === drain.id
@@ -136,19 +130,37 @@ export function ProblemRecognitionSection() {
             return (
               <div key={drain.id} className="relative">
                 {/* Card */}
-                <div 
+                <div
                   className={`
-                    cursor-pointer transition-all duration-300 rounded-lg border-2 p-6
-                    ${isExpanded 
-                      ? 'velox-card-advantage-enhanced border-blue-300 shadow-lg transform scale-105' 
-                      : 'bg-white border-gray-200 hover:border-blue-200 hover:shadow-md'
+                    cursor-pointer transition-all duration-300 rounded-xl border-2 p-4 sm:p-6 group
+                    ${isExpanded
+                      ? 'velox-card-advantage-enhanced border-blue-300 shadow-lg transform scale-[1.02]'
+                      : 'bg-white border-gray-200 hover:border-blue-200 hover:shadow-md hover:bg-blue-50/20 hover:transform hover:scale-[1.01]'
                     }
                   `}
                   onClick={() => toggleCard(drain.id)}
                 >
                   {/* Card Header */}
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="text-3xl">{drain.emoji}</div>
+                    <div className={`
+                      w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0
+                      ${isExpanded
+                        ? 'bg-blue-100 border border-blue-200'
+                        : 'bg-gray-100 border border-gray-200'
+                      }
+                    `}>
+                      <IconComponent className={`
+                        w-6 h-6 transition-colors duration-200
+                        ${drain.color === 'blue' && isExpanded
+                          ? 'text-blue-600'
+                          : drain.color === 'blue'
+                            ? 'text-blue-600'
+                            : isExpanded
+                              ? 'text-blue-600'
+                              : 'text-gray-700'
+                        }
+                      `} />
+                    </div>
                     <div className="flex-1">
                       <Text className={`
                         font-semibold leading-tight
@@ -222,7 +234,7 @@ export function ProblemRecognitionSection() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 md:p-8 border border-blue-200 max-w-4xl mx-auto">
             <Text className="text-lg font-semibold text-blue-900 mb-4">
               Don't see your specific challenge?
             </Text>
@@ -232,7 +244,7 @@ export function ProblemRecognitionSection() {
             
             <Button
               size="lg"
-              className="velox-cta-primary text-lg font-semibold px-8 py-4 h-auto rounded-xl"
+              className="velox-cta-primary text-base md:text-lg font-semibold px-4 sm:px-6 md:px-8 py-3 md:py-4 h-auto rounded-xl"
               asChild
             >
               <Link href="/tools/business-audit">

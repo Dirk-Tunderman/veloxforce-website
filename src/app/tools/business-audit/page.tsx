@@ -2,6 +2,7 @@ import { Metadata } from "next"
 
 import { MainLayout } from "@/components/layout/main-layout"
 import { AuditQuiz } from "@/components/tools/audit/audit-quiz"
+import { EnhancedWorkingServiceQuiz } from "@/components/tools/audit/enhanced-working-service-quiz"
 import { constructMetadata } from "@/components/seo"
 
 export const metadata: Metadata = constructMetadata({
@@ -12,9 +13,12 @@ export const metadata: Metadata = constructMetadata({
 })
 
 export default function BusinessAuditPage() {
+  // Use the new Service Quiz instead of the old audit quiz
+  const useNewServiceQuiz = true
+  
   return (
     <MainLayout>
-      <AuditQuiz />
+      {useNewServiceQuiz ? <EnhancedWorkingServiceQuiz /> : <AuditQuiz />}
     </MainLayout>
   )
 }

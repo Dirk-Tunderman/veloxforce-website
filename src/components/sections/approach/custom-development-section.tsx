@@ -5,14 +5,14 @@ import { Zap, Code, Clock, DollarSign, ArrowRight } from "lucide-react"
 
 export function CustomDevelopmentSection() {
   return (
-    <Section padding="xl" background="light-blue">
+    <Section padding="xl" background="white-to-light">
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Phase 2: Custom Solution Development
+            Phase 2: Rapid Development
           </Heading>
-          <Text className="text-xl text-gray-600 max-w-3xl mx-auto">
-            AI makes this 10x faster than traditional approaches
+          <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
+            <span className="font-bold">Thanks to AI acceleration</span>, what once took years now happens in a fraction of the time. <span className="font-semibold">MIT research shows this trend will only accelerate</span> - AI capabilities double annually.
           </Text>
         </div>
 
@@ -25,10 +25,10 @@ export function CustomDevelopmentSection() {
               </div>
               <div>
                 <Heading level="3" className="text-lg font-bold text-gray-900 mb-2">
-                  Build your digital workforce for your exact process
+                  Built specifically for your current process
                 </Heading>
                 <Text className="text-gray-700">
-                  Custom-built to match your specific rules, exceptions, and workflow
+                  Custom-built to match your established workflow, rules, and exceptions
                 </Text>
               </div>
             </div>
@@ -39,10 +39,10 @@ export function CustomDevelopmentSection() {
               </div>
               <div>
                 <Heading level="3" className="text-lg font-bold text-gray-900 mb-2">
-                  Development time varies by complexity
+                  AI-powered development timeline
                 </Heading>
                 <Text className="text-gray-700">
-                  What took months now takes significantly less time
+                  <span className="font-semibold">What took years now takes months. What took months now takes weeks.</span> Implementation speed varies by scope.
                 </Text>
               </div>
             </div>
@@ -53,10 +53,10 @@ export function CustomDevelopmentSection() {
               </div>
               <div>
                 <Heading level="3" className="text-lg font-bold text-gray-900 mb-2">
-                  Lower development cost = better ROI for you
+                  Investment proportional to value created
                 </Heading>
                 <Text className="text-gray-700">
-                  AI acceleration makes custom solutions finally affordable
+                  <span className="font-semibold">Harvard Business Review</span> reports <span className="font-bold">70-90% cost reduction</span> with AI-accelerated development
                 </Text>
               </div>
             </div>
@@ -88,23 +88,23 @@ export function CustomDevelopmentSection() {
             </div>
             
             <div className="space-y-6">
-              <div className="bg-red-50 rounded-lg p-4 border border-red-200">
-                <Text className="font-semibold text-red-900 mb-2">Traditional custom development:</Text>
-                <Text className="text-sm text-red-700">6-12 months, €100k+</Text>
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <Text className="font-semibold text-gray-900 mb-2">Traditional timeline:</Text>
+                <Text className="text-sm text-gray-700">Years to months for custom development</Text>
               </div>
 
               <div className="flex justify-center">
-                <ArrowRight className="w-8 h-8 text-gray-400" />
-              </div>
-
-              <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                <Text className="font-semibold text-green-900 mb-2">Our AI-accelerated approach:</Text>
-                <Text className="text-sm text-green-700">Fraction of time and cost</Text>
+                <ArrowRight className="w-8 h-8 text-blue-400" />
               </div>
 
               <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                <Text className="font-semibold text-blue-900 mb-2">Your benefit:</Text>
-                <Text className="text-sm text-blue-700">Custom solutions are finally affordable</Text>
+                <Text className="font-semibold text-blue-900 mb-2">With AI acceleration:</Text>
+                <Text className="text-sm text-blue-700"><span className="font-bold">Weeks to months</span> - and getting faster every year</Text>
+              </div>
+
+              <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                <Text className="font-semibold text-green-900 mb-2">The breakthrough:</Text>
+                <Text className="text-sm text-green-700">Custom solutions now <span className="font-bold">make financial sense</span></Text>
               </div>
             </div>
           </div>

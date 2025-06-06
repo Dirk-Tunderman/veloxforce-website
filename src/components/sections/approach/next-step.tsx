@@ -58,7 +58,7 @@ export function NextStepSection() {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <Section padding="lg" background="light-to-white">
+    <Section padding="lg" background="accent-to-white">
       <Container>
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
@@ -106,7 +106,7 @@ export function NextStepSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.2 }}
-                  className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 text-center"
+                  className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 text-center flex flex-col h-full"
                 >
                   <div className="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
                     <step.icon className="w-8 h-8 text-white" />
@@ -116,7 +116,7 @@ export function NextStepSection() {
                     {step.title}
                   </Heading>
 
-                  <Text className="velox-text-body text-gray-600 mb-4">
+                  <Text className="velox-text-body text-gray-600 mb-4 flex-grow">
                     {step.description}
                   </Text>
 
@@ -128,7 +128,7 @@ export function NextStepSection() {
                     </div>
                   </div>
 
-                  <button className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
+                  <button className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 mt-auto">
                     {step.cta}
                   </button>
                 </motion.div>
@@ -143,7 +143,7 @@ export function NextStepSection() {
             transition={{ duration: 0.6, delay: 1.0 }}
             className="mb-16"
           >
-            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-8">
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 rounded-xl p-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 {urgencyFactors.map((factor, index) => (
                   <motion.div
@@ -153,13 +153,13 @@ export function NextStepSection() {
                     transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
                     className="text-center"
                   >
-                    <div className="velox-icon-bg-warning mx-auto mb-3">
-                      <factor.icon className="velox-icon-md" />
+                    <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <factor.icon className="w-6 h-6 text-gray-600" />
                     </div>
-                    <Text className="font-semibold text-amber-800 mb-2">
+                    <Text className="font-semibold text-gray-800 mb-2">
                       {factor.title}
                     </Text>
-                    <Text className="velox-text-small text-amber-700">
+                    <Text className="velox-text-small text-gray-600">
                       {factor.description}
                     </Text>
                   </motion.div>
@@ -168,7 +168,7 @@ export function NextStepSection() {
 
               <div className="w-full flex justify-center">
                 <div className="max-w-3xl px-4">
-                  <Text className="text-base font-semibold text-amber-800 leading-relaxed text-center">
+                  <Text className="text-base font-semibold text-gray-800 leading-relaxed text-center">
                     Choose the next step that fits where you are today. Just choose soon.
                   </Text>
                 </div>
@@ -183,7 +183,7 @@ export function NextStepSection() {
             transition={{ duration: 0.6, delay: 1.6 }}
             className="text-center"
           >
-            <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl p-8 text-white">
+            <div className="bg-gradient-to-r from-blue-900 to-blue-800 rounded-xl p-8 text-white">
               <div className="w-full flex justify-center mb-4">
                 <div className="max-w-4xl px-4">
                   <Text className="text-xl font-semibold leading-relaxed text-center">
@@ -192,10 +192,10 @@ export function NextStepSection() {
                 </div>
               </div>
 
-              <div className="border-t border-blue-400 pt-6 mt-6">
+              <div className="border-t border-blue-600 pt-6 mt-6">
                 <div className="w-full flex justify-center">
                   <div className="max-w-3xl px-4">
-                    <Text className="text-blue-100 text-lg font-medium leading-relaxed text-center">
+                    <Text className="text-blue-200 text-lg font-medium leading-relaxed text-center">
                       The business that learns to delegate intelligently today leads the market tomorrow.
                     </Text>
                   </div>

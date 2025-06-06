@@ -30,7 +30,7 @@ const ctaOptions = [
 
 export function DigitalWorkforceCTA() {
   return (
-    <Section padding="xl" background="primary" className="bg-blue-900">
+    <Section padding="xl" background="accent-to-white">
       <Container className="max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -46,7 +46,7 @@ export function DigitalWorkforceCTA() {
             return (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 text-center"
+                className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 hover:shadow-xl transition-shadow duration-300 text-center"
               >
                 {/* Icon */}
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">

@@ -1,3 +1,15 @@
+export interface ServiceQuizAnswers {
+  // Opening Context
+  company_size: string
+  user_role: string
+  business_model: string
+  department_focus: string
+  
+  // Dynamic answers based on department selection
+  [key: string]: any
+}
+
+// Legacy interface for backward compatibility
 export interface QuizAnswers {
   // Main Questions
   q1_processDescription: string
@@ -20,6 +32,16 @@ export interface QuizAnswers {
   b3_documentation?: string
 }
 
+export interface ServiceContactDetails {
+  first_name: string
+  last_name: string
+  work_email: string
+  phone?: string
+  company_name: string
+  preferred_contact: string
+}
+
+// Legacy interface for backward compatibility
 export interface ContactDetails {
   email: string
   fullName: string
@@ -35,6 +57,23 @@ export interface QuizSummary {
   resultCategory: 'Highly Qualified' | 'Qualified' | 'Not Yet Ready'
 }
 
+export interface ServiceQuizSubmission {
+  contactDetails: ServiceContactDetails
+  quizAnswers: ServiceQuizAnswers
+  departmentRoute: string
+  summary: {
+    selectedDepartment: string
+    calculatedScore: number
+    estimatedSavings: {
+      timePerWeek: number
+      costPerWeek: number
+      annualSavings: number
+    }
+    recommendations: string[]
+  }
+}
+
+// Legacy interface for backward compatibility
 export interface QuizSubmission {
   contactDetails: ContactDetails
   quizAnswers: QuizAnswers
@@ -46,6 +85,54 @@ export interface QuestionOption {
   label: string
   score?: number
   allowCustom?: boolean
+}
+
+export interface TeamInput {
+  id: string
+  label: string
+  type: 'dropdown' | 'text'
+  max?: number
+  unit?: string
+}
+
+export interface BooleanInput {
+  id: string
+  label: string
+}
+
+export interface TimeBreakdown {
+  category: string
+  options: QuestionOption[]
+}
+
+export interface VolumeInput {
+  category: string
+  options: QuestionOption[]
+}
+
+export interface ApprovalMetric {
+  metric: string
+  options: QuestionOption[]
+}
+
+export interface ContactField {
+  id: string
+  label: string
+  type: 'text' | 'email' | 'tel'
+  required: boolean
+  options?: QuestionOption[]
+}
+
+export interface PreferenceField {
+  id: string
+  label: string
+  options: QuestionOption[]
+}
+
+export interface PercentageCategory {
+  id: string
+  label: string
+  max: number
 }
 
 export interface SliderConfig {
@@ -97,13 +184,71 @@ export interface QuizPhase {
   questions?: Question[]
 }
 
+export interface VisualOption {
+  value: string
+  label: string
+  description: string
+  icon: string
+  color: string
+}
+
+export interface TimeCategory {
+  id: string
+  label: string
+  max: number
+  unit?: string
+}
+
+export interface TeamCategory {
+  id: string
+  label: string
+  max: number
+  unit?: string
+}
+
+export interface SystemConfig {
+  id: string
+  label: string
+  type: 'text' | 'number'
+  max?: number
+  placeholder?: string
+}
+
+// ContactField already defined above
+
+export interface SliderDef {
+  id: string
+  label: string
+  min: number
+  max: number
+  step: number
+  markers: number[]
+}
+
+export interface PercentageCategory {
+  id: string
+  label: string
+}
+
 export interface Question {
   id: string
   title: string
   subtitle?: string
   description?: string
-  type: 'text' | 'radio' | 'checkbox' | 'select' | 'slider'
+  type: 'text' | 'radio' | 'checkbox' | 'select' | 'slider' | 'visual_grid' | 'conditional_checkbox' | 'time_breakdown' | 'team_breakdown' | 'dual_slider' | 'time_matrix' | 'system_count' | 'percentage_sliders' | 'contact_form' | 'multi_time_breakdown' | 'team_structure' | 'transaction_volumes' | 'approval_analysis' | 'textarea'
   options?: QuestionOption[]
+  visualOptions?: VisualOption[]
+  conditionalOn?: string
+  conditionalOptions?: Record<string, QuestionOption[]>
+  timeCategories?: TimeCategory[]
+  teamCategories?: TeamCategory[]
+  sliders?: SliderDef[]
+  timeOptions?: string[]
+  tasks?: { id: string; label: string }[]
+  systems?: SystemConfig[]
+  categories?: PercentageCategory[]
+  mustTotal?: number
+  fields?: ContactField[]
   required?: boolean
   tooltip?: string
   maxSelections?: number
@@ -116,7 +261,6 @@ export interface Question {
   followUpMaxLength?: number
   sliderConfig?: SliderConfig
   expandableCalculator?: ExpandableCalculator
-  realTimeCalculation?: boolean
   calculationMessage?: string
   conditionalMessage?: ConditionalMessage
   identityTransformation?: boolean
@@ -125,6 +269,18 @@ export interface Question {
   qualificationLogic?: QualificationLogic
   urgencyFrame?: boolean
   phaseId?: string
+  
+  // New question type properties
+  timeBreakdowns?: TimeBreakdown[]
+  teamInputs?: TeamInput[]
+  booleanInputs?: BooleanInput[]
+  volumeInputs?: VolumeInput[]
+  approvalMetrics?: ApprovalMetric[]
+  contactFields?: ContactField[]
+  preferenceField?: PreferenceField
+  benchmark?: string
+  realTimeCalculation?: boolean
+  calculationText?: string
 }
 
 export interface QuizStep {

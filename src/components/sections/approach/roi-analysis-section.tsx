@@ -5,14 +5,14 @@ import { Calculator, TrendingUp, DollarSign, Target, CheckCircle } from "lucide-
 
 export function ROIAnalysisSection() {
   return (
-    <Section id="roi-analysis" padding="xl" background="white">
+    <Section id="roi-analysis" padding="xl" background="light-to-white">
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Phase 1: ROI Analysis First
           </Heading>
-          <Text className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We analyze if delegation makes financial sense
+          <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
+            We analyze if transformation makes financial sense - <span className="font-bold">only proceeding when the numbers work for both of us</span>
           </Text>
         </div>
 
@@ -25,10 +25,10 @@ export function ROIAnalysisSection() {
               </div>
               <div>
                 <Heading level="3" className="text-lg font-bold text-gray-900 mb-2">
-                  Deep-dive into your current process costs
+                  Understand your current process economics
                 </Heading>
                 <Text className="text-gray-700">
-                  Time spent, hourly costs, error rates, and hidden inefficiencies
+                  Time spent, resource allocation, and <span className="font-semibold">untapped potential</span> in your established workflow
                 </Text>
               </div>
             </div>
@@ -39,10 +39,10 @@ export function ROIAnalysisSection() {
               </div>
               <div>
                 <Heading level="3" className="text-lg font-bold text-gray-900 mb-2">
-                  Calculate potential savings and efficiency gains
+                  Identify transformation opportunities
                 </Heading>
                 <Text className="text-gray-700">
-                  Realistic automation potential (usually 60-80%, not 100%)
+                  <span className="font-semibold">Realistic improvement potential</span> - we focus on what can truly be automated while preserving what works
                 </Text>
               </div>
             </div>
@@ -53,10 +53,10 @@ export function ROIAnalysisSection() {
               </div>
               <div>
                 <Heading level="3" className="text-lg font-bold text-gray-900 mb-2">
-                  Project realistic ROI based on your volumes
+                  Project realistic ROI based on your scale
                 </Heading>
                 <Text className="text-gray-700">
-                  Development investment vs. monthly service cost vs. break-even point
+                  <span className="font-semibold">Investment proportional to value created</span> - timeline depends on process complexity
                 </Text>
               </div>
             </div>

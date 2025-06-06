@@ -20,23 +20,28 @@ export function HeroSectionV2() {
               level="1"
               className="velox-text-h1 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             >
-              The Service-as-Software Method:{" "}
+              Every Business Has{" "}
               <span className="gradient-text-blue">
-                ROI-First Process Transformation
+                Untapped Potential
               </span>
             </Heading>
 
-            <Text className="velox-text-body text-xl md:text-2xl text-gray-700 leading-relaxed">
-              We only proceed when the numbers make sense for both of us
+            <Text className="velox-text-body text-xl md:text-2xl text-gray-700 leading-relaxed text-center">
+              <span className="font-bold">Your processes work</span> - they got you this far. But imagine if they could run without consuming your time.
             </Text>
 
-            <Text className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">
-              The revolution isn't just about technology—it's about making custom solutions financially viable through AI-accelerated development.
+            <Text className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto text-center">
+              <span className="font-semibold">That's the Service-as-Software transformation.</span> Thanks to the AI revolution, what once took years now happens in <span className="font-bold">weeks to months</span> - and this is just the beginning.
             </Text>
 
-            <Text className="text-lg font-semibold text-blue-600 max-w-3xl mx-auto">
-              Here's our proven approach:
-            </Text>
+            <div className="bg-blue-100 rounded-lg p-4 max-w-3xl mx-auto">
+              <Text className="text-base font-semibold text-blue-900 mb-2 text-center">
+                The AI Revolution in Custom Software:
+              </Text>
+              <Text className="text-sm text-blue-800 text-center">
+                <span className="font-bold">MIT Technology Review</span> reports AI makes custom development <span className="font-bold">10x faster</span>. <span className="font-bold">Harvard Business Review</span> shows <span className="font-bold">70-90% cost reduction</span>. The best part? AI capabilities double every year.
+              </Text>
+            </div>
           </div>
 
           {/* ROI-First Process Preview */}
@@ -53,7 +58,7 @@ export function HeroSectionV2() {
                   ROI Analysis First
                 </Text>
                 <Text className="text-xs text-gray-600 leading-tight">
-                  We analyze if delegation makes financial sense
+                  We analyze if transformation makes financial sense
                 </Text>
               </div>
 
@@ -65,10 +70,10 @@ export function HeroSectionV2() {
                   Phase 2
                 </Text>
                 <Text className="text-sm text-gray-700 font-medium mb-1">
-                  Custom Solution Development
+                  Rapid Development
                 </Text>
                 <Text className="text-xs text-gray-600 leading-tight">
-                  AI makes this 10x faster than traditional approaches
+                  AI acceleration: what took years now takes weeks
                 </Text>
               </div>
 
@@ -95,10 +100,10 @@ export function HeroSectionV2() {
                   Phase 4
                 </Text>
                 <Text className="text-sm text-gray-700 font-medium mb-1">
-                  Ongoing Excellence
+                  Continuous Operation
                 </Text>
                 <Text className="text-xs text-gray-600 leading-tight">
-                  Pay for outcomes, not promises
+                  We handle the ongoing operations
                 </Text>
               </div>
             </div>
@@ -139,16 +144,16 @@ export function HeroSectionV2() {
             <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200">
               <div className="text-center">
                 <Heading level="3" className="text-2xl font-bold text-blue-900 mb-4">
-                  Transform When the ROI Makes Sense
+                  Transform Strength into Competitive Advantage
                 </Heading>
-                <Text className="text-lg text-blue-800 mb-6">
-                  Not every process is right for Service-as-Software. We'll tell you honestly.
+                <Text className="text-lg text-blue-800 mb-6 text-center">
+                  <span className="font-bold">Your process has gotten you this far.</span> Now it's time to scale without constraints - when the ROI makes sense.
                 </Text>
 
                 <div className="bg-white rounded-lg p-6 border border-blue-300">
-                  <Text className="text-base text-gray-700 italic">
-                    "We've walked away from opportunities that didn't make financial sense.
-                    That's how you know when we move forward, it's the right decision."
+                  <Text className="text-base text-gray-700 italic text-center">
+                    "We've turned down opportunities that didn't make financial sense.
+                    That's how you know when we move forward, <span className="font-semibold">it's the right decision for your growth</span>."
                   </Text>
                 </div>
               </div>

@@ -10,25 +10,25 @@ const qualificationCriteria = [
     icon: Clock,
     title: "Your process takes 5+ hours weekly",
     description: "Enough volume to justify custom development",
-    color: "blue"
+    color: "gray" // 90% of icons should be gray-700
   },
   {
     icon: CheckCircle,
     title: "It follows consistent rules (even complex ones)",
     description: "Patterns we can capture and automate",
-    color: "green"
+    color: "blue" // 10% of icons for success/completion
   },
   {
     icon: AlertTriangle,
     title: "The cost of mistakes or delays hurts",
     description: "Quality and speed matter to your business",
-    color: "orange"
+    color: "gray" // 90% of icons should be gray-700
   },
   {
     icon: DollarSign,
     title: "You're currently paying premium prices for repetitive work",
     description: "Skilled people doing routine tasks",
-    color: "purple"
+    color: "gray" // 90% of icons should be gray-700
   }
 ]
 
@@ -49,13 +49,11 @@ export function ROIQualificationSection() {
           {qualificationCriteria.map((criteria, index) => {
             const IconComponent = criteria.icon
             return (
-              <div key={index} className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
+              <div key={index} className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className={`
                     w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0
-                    ${criteria.color === 'blue' ? 'bg-blue-600' :
-                      criteria.color === 'green' ? 'bg-green-600' :
-                      criteria.color === 'orange' ? 'bg-orange-600' : 'bg-purple-600'}
+                    ${criteria.color === 'blue' ? 'bg-blue-600' : 'bg-gray-700'}
                   `}>
                     <IconComponent className="w-6 h-6 text-white" />
                   </div>
@@ -74,7 +72,7 @@ export function ROIQualificationSection() {
         </div>
 
         {/* Results Section */}
-        <div className="bg-green-50 rounded-2xl p-8 border border-green-200 mb-12">
+        <div className="bg-green-50 rounded-2xl p-4 sm:p-6 md:p-8 border border-green-200 mb-12">
           <div className="text-center">
             <Heading level="3" className="text-2xl font-bold text-green-900 mb-6">
               If that's you, delegation typically saves 60-70% while freeing your time.
@@ -103,7 +101,7 @@ export function ROIQualificationSection() {
         </div>
 
         {/* Honesty Section */}
-        <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200 mb-12">
+        <div className="bg-blue-50 rounded-2xl p-4 sm:p-6 md:p-8 border border-blue-200 mb-12">
           <div className="text-center">
             <Heading level="3" className="text-2xl font-bold text-blue-900 mb-6">
               If it's not, we'll tell you honestly in our free assessment.
@@ -126,7 +124,7 @@ export function ROIQualificationSection() {
         <div className="text-center">
           <Button
             size="lg"
-            className="velox-cta-primary text-lg font-semibold px-8 py-4 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+            className="velox-cta-primary text-base md:text-lg font-semibold px-4 sm:px-6 md:px-8 py-3 md:py-4 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
             asChild
           >
             <Link href="/tools/business-audit">

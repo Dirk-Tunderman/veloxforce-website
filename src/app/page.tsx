@@ -1,90 +1,46 @@
-// NEW A/B TEST LANDING PAGE - PRIMARY VERSION
-// This implements the new copywriting strategy for A/B testing
-// Original landing page preserved in page-original.tsx
+// RESTRUCTURED LANDING PAGE - 5 SECTION FLOW
+// Problem → Solution → Proof → ROI → Action journey
+// Based on industry research from Gartner, McKinsey, MIT, HBR, and Forrester
 
 import { Metadata } from "next"
 
 import { MainLayout } from "@/components/layout/main-layout"
-import { HeroSectionV2 } from "@/components/sections/home/hero-section-v2"
-import { IdentityTransformationSection } from "@/components/sections/home/identity-transformation-section"
-import { OpportunitySection } from "@/components/sections/home/opportunity-section"
-import { ThirdOptionSection } from "@/components/sections/home/third-option-section"
-import { SkepticsGuideSection } from "@/components/sections/home/skeptics-guide-section"
-import { GmailAnalogySection } from "@/components/sections/home/gmail-analogy-section"
-import { ClientTransformationsV2 } from "@/components/sections/home/client-transformations-v2"
-import { ThreeChoicesSection } from "@/components/sections/home/three-choices-section"
-import { ChallengeSelectorSection } from "@/components/sections/home/challenge-selector-section"
-import { VeloxforceDifferenceSection } from "@/components/sections/home/veloxforce-difference-section"
-import { WhatOthersTrySection } from "@/components/sections/home/what-others-try-section"
-import { ROIBreakdownSection } from "@/components/sections/home/roi-breakdown-section"
-import { Container } from "@/components/layout/container"
-import { Section } from "@/components/layout/section"
-import { CostBenefitInfographic } from "@/components/sections/home/cost-benefit-infographic"
-import { OutcomeGuaranteeSection } from "@/components/sections/home/outcome-guarantee-section"
-import { AiSelfAuditSpotlightSection } from "@/components/sections/home/ai-self-audit-spotlight-section"
-import { CtaSection } from "@/components/sections/home/cta-section"
+import { HeroTransformationSection } from "@/components/sections/home/hero-transformation-section"
+import { ServiceDifferentiationSection } from "@/components/sections/home/service-differentiation-section"
+import { AhaMomentSection } from "@/components/sections/home/aha-moment-section"
+import { ServiceAsSoftwareEducation } from "@/components/sections/home/service-as-software-education"
+import { ProblemSolutionSection } from "@/components/sections/home/problem-solution-section"
+import { ProofSection } from "@/components/sections/home/proof-section"
+import { ROICalculatorSection } from "@/components/sections/home/roi-calculator-section"
+import { PathSelectionSection } from "@/components/sections/home/path-selection-section"
 import { constructMetadata } from "@/components/seo"
 
 export const metadata: Metadata = constructMetadata({
-  title: "Your Competitors Buy Software. You're About to Create It.",
-  description: "We use AI to build custom software for your exact processes—in weeks, not years. Then we run it for you. No complexity. No management. Just outcomes.",
-  keywords: ["service as software", "custom automation", "AI development", "business process automation", "hybrid AI-human", "operational efficiency"],
+  title: "Stop Buying Software. Start Receiving Outcomes | Veloxforce Service-as-Software",
+  description: "Service-as-Software: We build custom solutions for YOUR exact process, then run them forever. You delegate work, we deliver outcomes. No software to learn.",
+  keywords: ["service as software", "custom software solutions", "business process delegation", "outcome-based services", "software as a service alternative"],
 })
 
 export default function HomePage() {
   return (
     <MainLayout>
-      {/* 1. NEW HERO: "Your Competitors Buy Software. You're About to Create It." */}
-      <HeroSectionV2 />
+      {/* Section 1: Hero + Immediate Transformation */}
+      <HeroTransformationSection />
 
-      {/* 2. NEW: Identity Transformation Statement */}
-      <IdentityTransformationSection />
+      {/* Section 2: Clear Differentiation - What Makes This Different */}
+      <ServiceDifferentiationSection />
 
-      {/* 3. NEW: "Everything Just Changed" - The Opportunity */}
-      <OpportunitySection />
+      {/* Section 3: The "Aha Moment" - Understanding Through Analogy */}
+      <AhaMomentSection />
 
-      {/* 4. NEW: "The Third Option" */}
-      <ThirdOptionSection />
+      {/* Section 4: Industry Proof & Evidence */}
+      <ProofSection />
 
-      {/* 5. NEW: "But How Do I Know This Will Work for MY Business?" - Skeptic's Guide */}
-      <SkepticsGuideSection />
+      {/* Section 5: Your Economics & ROI */}
+      <ROICalculatorSection />
 
-      {/* 6. NEW: "You Already Delegate Successfully Every Day" - Gmail Analogy */}
-      <GmailAnalogySection />
-
-      {/* 7. UPDATED: "The First Businesses to Discover Service-as-Software" */}
-      <ClientTransformationsV2 />
-
-      {/* 8. NEW: "Every Business Owner Faces the Same Decision" */}
-      <ThreeChoicesSection />
-
-      {/* 9. NEW: "Your Investment Math Is Simple" - ROI Breakdown */}
-      <ROIBreakdownSection />
-
-      {/* 10. NEW: "What We've Seen Businesses Try" */}
-      <WhatOthersTrySection />
-
-      {/* 11. PRESERVED: "Which Challenge Is Stealing Your Success?" */}
-      <ChallengeSelectorSection />
-
-      {/* 12. NEW: "We're Not Another AI Automation Agency" */}
-      <VeloxforceDifferenceSection />
-
-      {/* 13. NEW: "The Cost of Waiting vs. Acting Now" - Cost Benefit Analysis */}
-      <Section padding="xl" background="light-blue" className="bg-gray-50">
-        <Container className="max-w-7xl">
-          <CostBenefitInfographic />
-        </Container>
-      </Section>
-
-      {/* 14. NEW: "We Take The Risk, You Get The Results" - Outcome Guarantee */}
-      <OutcomeGuaranteeSection />
-
-      {/* 15. PRESERVED: "AI Self Audit Tool" - Keep as requested */}
-      <AiSelfAuditSpotlightSection />
-
-      {/* 16. PRESERVED: Final CTA Section */}
-      <CtaSection />
+      {/* Section 6: Clear Next Step */}
+      <PathSelectionSection />
     </MainLayout>
   )
 }

@@ -29,13 +29,13 @@ interface AnimatedElementProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const getVariants = (type: AnimationType) => ({
-  hidden: (amount: number): Variant => ({
+  hidden: {
     opacity: 0,
-    y: type === "slide-up" ? amount : type === "slide-down" ? -amount : 0,
-    x: type === "slide-left" ? amount : type === "slide-right" ? -amount : 0,
+    y: type === "slide-up" ? 20 : type === "slide-down" ? -20 : 0,
+    x: type === "slide-left" ? 20 : type === "slide-right" ? -20 : 0,
     scale: type === "scale-up" ? 0.8 : type === "scale-down" ? 1.2 : 1,
     rotate: type === "rotate" ? -5 : 0,
-  }),
+  },
   visible: {
     opacity: 1,
     y: 0,
@@ -47,7 +47,7 @@ const getVariants = (type: AnimationType) => ({
     y: [0, -10, 0],
     transition: {
       repeat: Infinity,
-      repeatType: "loop",
+      repeatType: "loop" as const,
       duration: 1.5,
     },
   },
@@ -55,7 +55,7 @@ const getVariants = (type: AnimationType) => ({
     scale: [1, 1.05, 1],
     transition: {
       repeat: Infinity,
-      repeatType: "loop",
+      repeatType: "loop" as const,
       duration: 2,
     },
   },
@@ -84,7 +84,7 @@ export function AnimatedElement({
         animate={type}
         variants={getVariants(type)}
         className={className}
-        {...props}
+        {...(props as any)}
       >
         {children}
       </motion.div>
@@ -114,7 +114,7 @@ export function AnimatedElement({
         ease: "easeOut"
       }}
       className={className}
-      {...props}
+      {...(props as any)}
     >
       {children}
     </motion.div>
@@ -137,7 +137,7 @@ export function FadeIn({
       duration={duration}
       once={once}
       className={className}
-      {...props}
+      {...(props as any)}
     >
       {children}
     </AnimatedElement>
@@ -161,7 +161,7 @@ export function SlideUp({
       amount={amount}
       once={once}
       className={className}
-      {...props}
+      {...(props as any)}
     >
       {children}
     </AnimatedElement>
@@ -185,7 +185,7 @@ export function SlideIn({
       amount={amount}
       once={once}
       className={className}
-      {...props}
+      {...(props as any)}
     >
       {children}
     </AnimatedElement>

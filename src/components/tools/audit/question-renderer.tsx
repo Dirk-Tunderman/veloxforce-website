@@ -266,9 +266,9 @@ export function QuestionRenderer({
             {question.options.map((option) => {
               const currentValues = Array.isArray(value) ? value : []
               const isChecked = currentValues.includes(option.value)
-              const isDisabled = question.maxSelections &&
+              const isDisabled = Boolean(question.maxSelections &&
                 currentValues.length >= question.maxSelections &&
-                !isChecked
+                !isChecked)
 
               return (
                 <div

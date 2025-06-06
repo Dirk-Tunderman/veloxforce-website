@@ -12,7 +12,6 @@ import { ProblemRecognitionSection } from "@/components/sections/solutions/probl
 import { UniversalTruthSection } from "@/components/sections/solutions/universal-truth-section"
 import { CoreOperationsSection } from "@/components/sections/solutions/core-operations-section"
 import { ProcessEvaluationSection } from "@/components/sections/solutions/process-evaluation-section"
-import { SaaSDifferenceSection } from "@/components/sections/solutions/saas-difference-section"
 import { DigitalWorkforceCTA } from "@/components/sections/solutions/digital-workforce-cta"
 
 export const metadata: Metadata = constructMetadata({
@@ -43,10 +42,7 @@ export default function SolutionsPage() {
       {/* 6. NEW: "Not Sure What to Delegate First? Let's Find Out." - Process Evaluation Tool */}
       <ProcessEvaluationSection />
 
-      {/* 7. NEW: "The Service-as-Software Difference" - Why This Works */}
-      <SaaSDifferenceSection />
-
-      {/* 8. PRESERVED: Bottom CTA Section */}
+      {/* 7. PRESERVED: Bottom CTA Section */}
       <DigitalWorkforceCTA />
     </MainLayout>
   )

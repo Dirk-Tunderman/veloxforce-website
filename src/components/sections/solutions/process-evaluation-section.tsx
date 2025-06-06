@@ -51,7 +51,7 @@ export function ProcessEvaluationSection() {
   const score = getScore()
 
   return (
-    <Section padding="xl" background="white">
+    <Section padding="xl" background="accent-blue">
       <Container className="max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -65,7 +65,7 @@ export function ProcessEvaluationSection() {
 
         {/* Evaluation Tool */}
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 md:p-8">
             {/* Questions */}
             <div className="space-y-8 mb-8">
               {questions.map((question, index) => {
@@ -153,7 +153,7 @@ export function ProcessEvaluationSection() {
                       </Text>
                       <Button
                         size="lg"
-                        className="velox-cta-primary text-lg font-semibold px-8 py-4 h-auto rounded-xl"
+                        className="velox-cta-primary text-base md:text-lg font-semibold px-4 sm:px-6 md:px-8 py-3 md:py-4 h-auto rounded-xl"
                         asChild
                       >
                         <Link href="/tools/business-audit">
@@ -172,7 +172,7 @@ export function ProcessEvaluationSection() {
                       </Text>
                       <Button
                         size="lg"
-                        className="velox-cta-secondary text-lg font-semibold px-8 py-4 h-auto rounded-xl"
+                        className="velox-cta-secondary text-base md:text-lg font-semibold px-4 sm:px-6 md:px-8 py-3 md:py-4 h-auto rounded-xl"
                         asChild
                       >
                         <Link href="/tools/business-audit">

@@ -128,7 +128,6 @@ export function TwoCostsHeroSection() {
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </Container>
     </Section>
