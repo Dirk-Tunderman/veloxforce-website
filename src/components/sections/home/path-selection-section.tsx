@@ -38,13 +38,15 @@ export function PathSelectionSection() {
                 Ready to Calculate Your Savings?
               </h3>
               
-              <Link 
-                href="/tools/business-audit"
-                className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-6 rounded-lg text-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl min-h-[56px] mb-6"
-              >
-                Get My Free ROI Analysis
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              <div className="flex justify-center mb-6">
+                <Link
+                  href="/tools/business-audit"
+                  className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-6 rounded-lg text-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl min-h-[56px]"
+                >
+                  Get My Free ROI Analysis
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </div>
               
               <div className="space-y-4 text-left">
                 <div className="flex items-center gap-3">
@@ -74,13 +76,15 @@ export function PathSelectionSection() {
                 Not Sure You're Ready?
               </h3>
               
-              <Link 
-                href="/our-approach"
-                className="inline-flex items-center justify-center gap-2 w-full bg-white border-2 border-blue-600 text-blue-600 px-6 py-6 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-all duration-200 min-h-[56px] mb-6"
-              >
-                Learn About Service-as-Software
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              <div className="flex justify-center mb-6">
+                <Link
+                  href="/our-approach"
+                  className="inline-flex items-center justify-center gap-2 w-full bg-white border-2 border-blue-600 text-blue-600 px-6 py-6 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-all duration-200 min-h-[56px]"
+                >
+                  Learn About Service-as-Software
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </div>
               
               <div className="space-y-4 text-left">
                 <div className="flex items-center gap-3">

@@ -766,22 +766,6 @@ export const FINAL_QUESTIONS: QuizPhase[] = [
         type: 'textarea',
         required: true,
         placeholder: 'Describe what perfect would look like - time saved, stress reduced, growth enabled...'
-      },
-      {
-        id: 'decision_makers',
-        title: 'Who else should be involved in evaluating solutions?',
-        subtitle: 'Select all that apply',
-        type: 'checkbox',
-        required: true,
-        options: [
-          { value: 'business-partner', label: 'Business partner/Co-founder' },
-          { value: 'cfo-finance', label: 'CFO/Finance head' },
-          { value: 'operations-head', label: 'Operations head' },
-          { value: 'it-technology', label: 'IT/Technology lead' },
-          { value: 'department-managers', label: 'Department managers' },
-          { value: 'board-investors', label: 'Board/Investors' },
-          { value: 'just-me', label: 'Just me for now' }
-        ]
       }
     ]
   },

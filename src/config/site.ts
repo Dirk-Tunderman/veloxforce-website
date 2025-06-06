@@ -8,8 +8,7 @@ export const siteConfig = {
     linkedin: "https://linkedin.com/company/veloxforce",
   },
   contact: {
-    email: "info@veloxforce.ai",
-    phone: "+1 (555) 123-4567",
+    email: "team@veloxforce.ai",
   },
   address: {
     street: "123 Innovation Way",

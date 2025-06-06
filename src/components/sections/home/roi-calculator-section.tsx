@@ -191,22 +191,7 @@ export function ROICalculatorSection() {
           </div>
         </div>
 
-        {/* Risk Reversal */}
-        <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-8 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Start with a pilot
-          </h3>
-          <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-            We'll automate your most painful process first. 
-            <span className="font-semibold text-gray-900"> If it doesn't save you money in 60 days, we'll refund everything.</span>
-          </p>
-          <Button size="lg" className="text-lg px-8 py-6" asChild>
-            <Link href="/tools/business-audit">
-              Calculate My Exact Savings
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
+
       </Container>
     </Section>
   )

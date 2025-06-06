@@ -2,10 +2,10 @@
 
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { GA_MEASUREMENT_ID, GA_EVENTS, GA_PARAMETERS } from '@/lib/analytics';
 
-export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
+function AnalyticsTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -83,6 +83,10 @@ export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
     }
   }, [pathname]);
 
+  return null;
+}
+
+export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
   return (
     <>
       {/* Google Analytics Script */}
@@ -105,6 +109,9 @@ export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
           `,
         }}
       />
+      <Suspense fallback={null}>
+        <AnalyticsTracker />
+      </Suspense>
       {children}
     </>
   );

@@ -7,7 +7,6 @@ import { Metadata } from "next"
 import { MainLayout } from "@/components/layout/main-layout"
 import { HeroTransformationSection } from "@/components/sections/home/hero-transformation-section"
 import { ServiceDifferentiationSection } from "@/components/sections/home/service-differentiation-section"
-import { AhaMomentSection } from "@/components/sections/home/aha-moment-section"
 import { ServiceAsSoftwareEducation } from "@/components/sections/home/service-as-software-education"
 import { ProblemSolutionSection } from "@/components/sections/home/problem-solution-section"
 import { ProofSection } from "@/components/sections/home/proof-section"
@@ -30,10 +29,7 @@ export default function HomePage() {
       {/* Section 2: Clear Differentiation - What Makes This Different */}
       <ServiceDifferentiationSection />
 
-      {/* Section 3: The "Aha Moment" - Understanding Through Analogy */}
-      <AhaMomentSection />
-
-      {/* Section 4: Industry Proof & Evidence */}
+      {/* Section 3: Industry Proof & Evidence */}
       <ProofSection />
 
       {/* Section 5: Your Economics & ROI */}

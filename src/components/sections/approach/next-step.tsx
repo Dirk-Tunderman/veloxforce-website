@@ -187,7 +187,7 @@ export function NextStepSection() {
               <div className="w-full flex justify-center mb-4">
                 <div className="max-w-4xl px-4">
                   <Text className="text-xl font-semibold leading-relaxed text-center">
-                    Because while you're working late again tonight, your competitors might be having dinner with their families while their operations run perfectly.
+                    The business that learns to delegate intelligently today leads the market tomorrow.
                   </Text>
                 </div>
               </div>

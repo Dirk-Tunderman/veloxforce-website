@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import { Mail, MapPin, Phone, Clock, Calendar, MessageSquare } from "lucide-react"
+import { Mail, Clock, Calendar, MessageSquare } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import { MainLayout } from "@/components/layout/main-layout"
@@ -92,26 +92,7 @@ export default function ContactPage() {
                       </Text>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Phone className="h-5 w-5 text-primary mt-1" />
-                    <div>
-                      <Text className="font-medium">Phone</Text>
-                      <Text className="text-muted-foreground">
-                        {siteConfig.contact.phone}
-                      </Text>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-primary mt-1" />
-                    <div>
-                      <Text className="font-medium">Address</Text>
-                      <Text className="text-muted-foreground">
-                        {siteConfig.address.street}<br />
-                        {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}<br />
-                        {siteConfig.address.country}
-                      </Text>
-                    </div>
-                  </div>
+
                   <div className="flex items-start gap-3">
                     <Clock className="h-5 w-5 text-primary mt-1" />
                     <div>

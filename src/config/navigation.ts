@@ -12,12 +12,12 @@ export const mainNavItems = [
     href: "/case-studies",
   },
   {
-    title: "ROI Calculator",
-    href: "/tools/business-audit",
+    title: "Blog",
+    href: "/blog",
   },
   {
-    title: "Get Started",
-    href: "/contact",
+    title: "Careers",
+    href: "/careers",
   },
 ]
 

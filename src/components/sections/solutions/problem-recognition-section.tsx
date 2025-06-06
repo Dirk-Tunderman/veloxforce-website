@@ -236,10 +236,11 @@ export function ProblemRecognitionSection() {
         <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 md:p-8 border border-blue-200 max-w-4xl mx-auto">
             <Text className="text-lg font-semibold text-blue-900 mb-4">
-              Don't see your specific challenge?
+              Don't see your specific operation?
             </Text>
             <Text className="text-blue-800 mb-6">
-              We've transformed over 200 unique processes. If it follows rules and takes time, we can automate it.
+              These are just examples. We've transformed over 200 unique processes across every industry.
+              If it's repetitive and follows rules, we can automate it.
             </Text>
             
             <Button

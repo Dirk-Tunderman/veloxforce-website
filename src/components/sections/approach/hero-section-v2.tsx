@@ -139,24 +139,13 @@ export function HeroSectionV2() {
             </Button>
           </div>
 
-          {/* Transform When ROI Makes Sense */}
+          {/* Trust Quote */}
           <div className="max-w-4xl mx-auto">
-            <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200">
-              <div className="text-center">
-                <Heading level="3" className="text-2xl font-bold text-blue-900 mb-4">
-                  Transform Strength into Competitive Advantage
-                </Heading>
-                <Text className="text-lg text-blue-800 mb-6 text-center">
-                  <span className="font-bold">Your process has gotten you this far.</span> Now it's time to scale without constraints - when the ROI makes sense.
-                </Text>
-
-                <div className="bg-white rounded-lg p-6 border border-blue-300">
-                  <Text className="text-base text-gray-700 italic text-center">
-                    "We've turned down opportunities that didn't make financial sense.
-                    That's how you know when we move forward, <span className="font-semibold">it's the right decision for your growth</span>."
-                  </Text>
-                </div>
-              </div>
+            <div className="bg-white rounded-lg p-6 border border-blue-300">
+              <Text className="text-base text-gray-700 italic text-center">
+                "We've turned down opportunities that didn't make financial sense.
+                That's how you know when we move forward, <span className="font-semibold">it's the right decision for your growth</span>."
+              </Text>
             </div>
           </div>
         </div>

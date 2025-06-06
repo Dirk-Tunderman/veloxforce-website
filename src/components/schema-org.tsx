@@ -51,7 +51,6 @@ export function SchemaOrg({
     sameAs: [siteConfig.links.twitter, siteConfig.links.linkedin],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: siteConfig.contact.phone,
       email: siteConfig.contact.email,
       contactType: "customer service",
     },

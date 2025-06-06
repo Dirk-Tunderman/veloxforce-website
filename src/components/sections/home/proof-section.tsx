@@ -47,9 +47,8 @@ export function ProofSection() {
         <div className="text-center mb-16">
           <h2 className="velox-text-h2 mb-6">Early Adopters Are Already Winning</h2>
           <p className="velox-text-body-lg max-w-3xl mx-auto text-gray-600">
-            While we compile our client data, here's what industry research shows: 
-            <span className="font-semibold text-gray-900"><span className="font-bold">Harvard Business Review</span> found <span className="font-bold">70% of complex operational 
-            tasks can be automated with AI</span></span> - and <span className="font-bold">early adopters are capturing the advantage</span>.
+            While we compile our client data, here's what industry research shows:
+            <span className="font-bold">Early adopters are capturing the advantage</span>.
           </p>
         </div>
 

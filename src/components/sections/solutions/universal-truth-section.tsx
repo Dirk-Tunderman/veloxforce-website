@@ -309,7 +309,7 @@ export function UniversalTruthSection() {
               </Heading>
             </div>
             <Text className="text-lg text-blue-800 leading-relaxed">
-              Your industry expertise + Our process transformation = Perfect outcomes
+              Your business knowledge + Our automation expertise = Guaranteed results
             </Text>
           </div>
         </div>
