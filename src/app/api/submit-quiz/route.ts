@@ -4,12 +4,20 @@ import { QuizSubmission, ServiceQuizSubmission } from '@/types/audit-tool'
 
 // Initialize Supabase client
 const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_KEY!
+  process.env.SUPABASE_URL || '',
+  process.env.SUPABASE_KEY || ''
 )
 
 export async function POST(request: NextRequest) {
   try {
+    // Check if environment variables are available
+    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
+      return NextResponse.json(
+        { success: false, error: 'Database configuration missing' },
+        { status: 500 }
+      )
+    }
+
     const submission: QuizSubmission | ServiceQuizSubmission = await request.json()
     
     // Determine if this is the new service quiz or legacy quiz

@@ -1,0 +1,16 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "functions": {
+    "src/app/api/submit-quiz/route.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/send-audit-email/route.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/test-email/route.ts": {
+      "maxDuration": 30
+    }
+  }
+}
