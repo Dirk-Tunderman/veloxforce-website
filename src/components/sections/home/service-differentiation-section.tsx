@@ -14,7 +14,7 @@ export function ServiceDifferentiationSection() {
         {/* Section Title */}
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            This Isn't Automation. It Isn't Consulting. It's Something New.
+            This Isn't Automation. It Isn't Consulting. <span className="gradient-text-blue">It's Something New</span>.
           </Heading>
           <Text className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
             <span className="font-bold">AI made custom software affordable.</span> We made it accessible by <span className="font-bold">running it for you</span>. 
@@ -26,7 +26,7 @@ export function ServiceDifferentiationSection() {
         <div className="grid lg:grid-cols-7 gap-8 mb-16">
           {/* Automation Agencies (20% weight) */}
           <div className="lg:col-span-2">
-            <div className="bg-gray-100 rounded-2xl p-8 h-full relative flex flex-col">
+            <div className="challenge-card-premium h-full relative flex flex-col">
               <div className="absolute -top-3 left-6 bg-gray-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                 Automation Agencies
               </div>
@@ -62,7 +62,7 @@ export function ServiceDifferentiationSection() {
 
           {/* Service Businesses (20% weight) */}
           <div className="lg:col-span-2">
-            <div className="bg-gray-100 rounded-2xl p-8 h-full relative flex flex-col">
+            <div className="challenge-card-premium h-full relative flex flex-col">
               <div className="absolute -top-3 left-6 bg-gray-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                 Service Businesses
               </div>
@@ -98,15 +98,15 @@ export function ServiceDifferentiationSection() {
 
           {/* Service-as-Software (60% weight - Enhanced) */}
           <div className="lg:col-span-3">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-300 rounded-2xl p-8 h-full relative shadow-lg flex flex-col">
+            <div className="solution-card-premium h-full relative flex flex-col">
               <div className="absolute -top-3 left-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">
                 Service-as-Software
               </div>
               
               <div className="pt-4 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="bg-blue-600 rounded-full p-2">
-                    <Zap className="h-6 w-6 text-white" />
+                  <div className="icon-container-gradient">
+                    <Zap className="h-6 w-6 text-blue-600" />
                   </div>
                   <Heading level="3" className="text-xl font-bold text-blue-900">Outcomes You Receive</Heading>
                 </div>
@@ -138,9 +138,9 @@ export function ServiceDifferentiationSection() {
                 <div className="text-center">
                   <Link 
                     href="/our-approach"
-                    className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-md hover:shadow-lg"
+                    className="velox-btn-premium inline-flex items-center gap-2 px-6 py-3 rounded-lg text-base"
                   >
-                    See How This Works
+                    <span className="relative z-10">See How This Works</span>
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -150,14 +150,17 @@ export function ServiceDifferentiationSection() {
         </div>
 
         {/* Key Insight */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-8 text-center">
-          <Heading level="3" className="text-2xl md:text-3xl font-bold mb-4">The Revolution: We Don't Sell You Tools to Manage</Heading>
-          <Text className="text-lg md:text-xl mb-2 text-center">
-            We deliver a department that runs itself.
-          </Text>
-          <Text className="text-blue-100 text-center">
-            AI made custom software affordable. We made it accessible by running it forever. That's the Service-as-Software revolution.
-          </Text>
+        <div className="stat-card-premium text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-blue-700/10"></div>
+          <div className="relative z-10">
+            <Heading level="3" className="text-2xl md:text-3xl font-bold mb-4 gradient-text-blue">The Revolution: We Don't Sell You Tools to Manage</Heading>
+            <Text className="text-lg md:text-xl mb-2 text-center font-semibold text-gray-900">
+              We deliver a department that runs itself.
+            </Text>
+            <Text className="text-gray-600 text-center">
+              AI made custom software affordable. We made it accessible by running it forever. That's the Service-as-Software revolution.
+            </Text>
+          </div>
         </div>
       </Container>
     </Section>
