@@ -47,10 +47,10 @@ export function HeroTransformationSection() {
           </div>
         </div>
 
-        {/* Sarah's Transformation Visual */}
+        {/* Team Transformation Visual */}
         <div className="mb-20">
           <Heading level="3" className="text-center text-2xl md:text-3xl font-bold mb-8 text-gray-900">
-            The Transformation in Practice
+            From Operational Overwhelm to Strategic Leadership
           </Heading>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -59,7 +59,7 @@ export function HeroTransformationSection() {
               <div className="absolute -top-4 left-8 bg-gray-900 text-white px-4 py-2 rounded-full text-sm font-semibold">
                 Before Service-as-Software
               </div>
-              <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Sarah Opens Her Laptop</Heading>
+              <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Your Team Today</Heading>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <Clock className="h-5 w-5 text-gray-500 mt-0.5" />
@@ -90,13 +90,13 @@ export function HeroTransformationSection() {
               <div className="absolute -top-4 left-8 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
                 With Service-as-Software
               </div>
-              <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Sarah Opens Her Laptop</Heading>
+              <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Your Team Tomorrow</Heading>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <Target className="h-5 w-5 text-blue-600 mt-0.5" />
                   <div>
                     <Text className="font-semibold text-gray-900">Focuses on strategic work</Text>
-                    <Text className="text-sm text-gray-600">Receives 47 processed results and analyzes trends</Text>
+                    <Text className="text-sm text-gray-600">Receives processed results and analyzes trends</Text>
                   </div>
                 </div>
                 <ul className="ml-8 space-y-2 text-sm text-gray-600">

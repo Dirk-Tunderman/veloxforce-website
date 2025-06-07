@@ -20,7 +20,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-base text-gray-700 max-w-md leading-relaxed mb-6">
-              Stop drowning in operations. Start leading with vision. Working processes delivered, not software to figure out.
+              Elevate your team from operators to innovators. Outcomes delivered, complexity handled.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3">

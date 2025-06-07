@@ -31,11 +31,11 @@ export function HeroSectionV2() {
             </Heading>
 
             <Text className="velox-text-body text-xl md:text-2xl text-gray-700 leading-relaxed text-center">
-              From <strong>overwhelming task lists</strong> to <strong>confident delegation</strong>—discover which of your operations can run without you.
+              <strong>Elevate your team from operators to innovators.</strong> Transform routine work into strategic advantage.
             </Text>
 
             <Text className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto text-center">
-              Stop wondering <strong>"Could this work for me?"</strong> See exactly how we transform processes just like yours into <strong>delegated outcomes</strong>.
+              Your talented people deserve better than data entry and status updates. See how we free your team to do the work that only they can do.
             </Text>
           </div>
 

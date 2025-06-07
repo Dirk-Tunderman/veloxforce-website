@@ -21,58 +21,17 @@ export function EvaluationGuideSection() {
           </Text>
         </div>
 
-        {/* Wrong vs Right Questions */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {/* Wrong Questions */}
-          <div className="bg-red-50 border border-red-200 rounded-2xl p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                <X className="w-6 h-6 text-red-600" />
-              </div>
-              <Heading level="3" className="text-xl font-bold text-red-900">
-                ❌ Wrong Questions (Tool Thinking):
-              </Heading>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
-                <Text className="text-red-800">"How much does it cost per month?"</Text>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
-                <Text className="text-red-800">"What features does it include?"</Text>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
-                <Text className="text-red-800">"Can I try it for free?"</Text>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Questions */}
-          <div className="bg-green-50 border border-green-200 rounded-2xl p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                <Check className="w-6 h-6 text-green-600" />
-              </div>
-              <Heading level="3" className="text-xl font-bold text-green-900">
-                ✅ Right Questions (Service Thinking):
-              </Heading>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                <Text className="text-green-800">"What does this process currently cost us in time + errors + management?"</Text>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                <Text className="text-green-800">"What would perfect execution be worth to our growth?"</Text>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                <Text className="text-green-800">"What's the risk of continuing to operate this manually?"</Text>
-              </div>
-            </div>
+        {/* Partnership Foundation */}
+        <div className="bg-blue-50 border border-blue-200 rounded-2xl p-8 mb-16">
+          <div className="text-center">
+            <Heading level="3" className="text-2xl font-bold text-blue-900 mb-4">
+              Built on Partnership, Not Products
+            </Heading>
+            <Text className="text-lg text-blue-800 max-w-3xl mx-auto leading-relaxed">
+              Service-as-Software isn't about selling you tools to manage. It's about forming a partnership where 
+              <span className="font-semibold"> you focus on strategy while we handle execution</span>. 
+              Every phase is designed to ensure mutual success and seamless collaboration.
+            </Text>
           </div>
         </div>
 

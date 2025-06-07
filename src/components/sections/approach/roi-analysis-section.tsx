@@ -9,10 +9,10 @@ export function ROIAnalysisSection() {
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Phase 1: ROI Analysis First
+            Phase 1: Partnership Validation
           </Heading>
           <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
-            We check if delegating this process creates clear value - <span className="font-bold">only proceeding when the numbers work for both of us</span>
+            We evaluate mutual fit and value creation - <span className="font-bold">ensuring this partnership benefits both organizations</span>
           </Text>
         </div>
 

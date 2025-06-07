@@ -9,10 +9,10 @@ export function CustomDevelopmentSection() {
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Phase 2: Custom Solution Development
+            Phase 2: Collaborative Solution Design
           </Heading>
           <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
-            <span className="font-bold">We build the systems needed to deliver your outcomes reliably.</span> Thanks to AI acceleration, what once took years now happens in weeks to months.
+            <span className="font-bold">Together, we design systems that align with your standards and goals.</span> Your expertise guides our development, ensuring perfect fit with your operations.
           </Text>
         </div>
 

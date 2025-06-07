@@ -9,10 +9,10 @@ export function SeamlessHandoffSection() {
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Phase 3: Seamless Handoff
+            Phase 3: Smooth Transition to Partnership
           </Heading>
           <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
-            From development to delegation without disruption
+            <span className="font-bold">Your team maintains full visibility and control</span> while we handle the operational execution
           </Text>
         </div>
 

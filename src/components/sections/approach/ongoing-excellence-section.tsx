@@ -9,10 +9,10 @@ export function OngoingExcellenceSection() {
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Phase 4: Ongoing Excellence, Not Just One-Time Setup
+            Phase 4: Continuous Partnership Excellence
           </Heading>
           <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
-            Unlike other companies that hand you tools and disappear, <span className="font-bold">we deliver results forever</span>. We handle all the operational complexity so you keep receiving perfect results.
+            <span className="font-bold">Our partnership grows stronger over time.</span> We continuously optimize and evolve together, ensuring your operations scale seamlessly with your business.
           </Text>
         </div>
 
