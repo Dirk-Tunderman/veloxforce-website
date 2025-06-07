@@ -31,7 +31,7 @@ export function ServiceDifferentiationSection() {
                 Automation Agencies
               </div>
 
-              <div className="pt-4 flex-1 flex flex-col">
+              <div className="pt-6 flex-1 flex flex-col">
                 <div className="comparison-icon-bad mx-auto mb-4">
                   <Cog className="h-5 w-5 text-gray-600" />
                 </div>
@@ -67,7 +67,7 @@ export function ServiceDifferentiationSection() {
                 Service Businesses
               </div>
 
-              <div className="pt-4 flex-1 flex flex-col">
+              <div className="pt-6 flex-1 flex flex-col">
                 <div className="comparison-icon-bad mx-auto mb-4">
                   <Users className="h-5 w-5 text-gray-600" />
                 </div>
@@ -98,7 +98,7 @@ export function ServiceDifferentiationSection() {
 
           {/* Service-as-Software (60% weight - Enhanced) */}
           <div className="lg:col-span-3">
-            <div className="comparison-card-new h-full relative flex flex-col">
+            <div className="service-card-recommended-final h-full relative flex flex-col">
               
               <div className="pt-8 flex-1 flex flex-col">
                 <div className="comparison-icon-good mx-auto mb-6">
