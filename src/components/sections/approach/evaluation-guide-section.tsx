@@ -14,10 +14,10 @@ export function EvaluationGuideSection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <Heading level="1" className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Stop Comparing Apples to Oranges: How to Evaluate Service-as-Software
+            The Service-as-Software Method
           </Heading>
           <Text className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            Most businesses struggle to evaluate Service-as-Software because they compare it to the wrong things.
+            Four phases from overwhelm to operational freedom. Each designed to ensure success without disruption.
           </Text>
         </div>
 

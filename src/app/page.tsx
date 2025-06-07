@@ -8,6 +8,7 @@ import { MainLayout } from "@/components/layout/main-layout"
 import { HeroTransformationSection } from "@/components/sections/home/hero-transformation-section"
 import { ServiceDifferentiationSection } from "@/components/sections/home/service-differentiation-section"
 import { ServiceAsSoftwareRevolution } from "@/components/sections/home/service-as-software-revolution"
+import { MultiplicationEffectSection } from "@/components/sections/home/multiplication-effect-section"
 import { PartnershipModel } from "@/components/sections/home/partnership-model"
 import { DecisionMakingRelief } from "@/components/sections/home/decision-making-relief"
 import { StrategicElevation } from "@/components/sections/home/strategic-elevation"
@@ -38,7 +39,10 @@ export default function HomePage() {
       {/* Section 3: Service-as-Software Revolution */}
       <ServiceAsSoftwareRevolution />
 
-      {/* Section 4: Partnership Model */}
+      {/* Section 4: The Multiplication Effect */}
+      <MultiplicationEffectSection />
+
+      {/* Section 5: Partnership Model */}
       <PartnershipModel />
 
       {/* Section 5: Decision-Making Relief */}

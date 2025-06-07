@@ -151,12 +151,12 @@ export function ServiceDifferentiationSection() {
 
         {/* Key Insight */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-8 text-center">
-          <Heading level="3" className="text-2xl md:text-3xl font-bold mb-4">The Revolutionary Insight</Heading>
+          <Heading level="3" className="text-2xl md:text-3xl font-bold mb-4">The Revolution: We Don't Sell You Tools to Manage</Heading>
           <Text className="text-lg md:text-xl mb-2 text-center">
-            AI made custom development affordable. We made it accessible by running it forever.
+            We deliver a department that runs itself.
           </Text>
           <Text className="text-blue-100 text-center">
-            That's what makes this Service-as-Software, not just cheaper custom development.
+            AI made custom software affordable. We made it accessible by running it forever. That's the Service-as-Software revolution.
           </Text>
         </div>
       </Container>

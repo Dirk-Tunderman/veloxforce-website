@@ -8,26 +8,26 @@ import { Calculator, Clock, AlertTriangle, DollarSign, CheckCircle, ArrowRight }
 const qualificationCriteria = [
   {
     icon: Clock,
-    title: "Your process takes 5+ hours weekly",
-    description: "Enough volume to justify custom development",
+    title: "Meaningful time investment (5+ hours weekly)",
+    description: "Enough volume to justify transformation",
     color: "gray" // 90% of icons should be gray-700
   },
   {
     icon: CheckCircle,
-    title: "It follows consistent rules (even complex ones)",
-    description: "Patterns we can capture and automate",
+    title: "Consistent patterns (even with complex rules)",
+    description: "Rules we can codify and perfect",
     color: "blue" // 10% of icons for success/completion
   },
   {
     icon: AlertTriangle,
-    title: "The cost of mistakes or delays hurts",
-    description: "Quality and speed matter to your business",
+    title: "Quality matters (errors create real impact)",
+    description: "Where precision drives value",
     color: "gray" // 90% of icons should be gray-700
   },
   {
     icon: DollarSign,
-    title: "You're currently paying premium prices for repetitive work",
-    description: "Skilled people doing routine tasks",
+    title: "Strategic work waiting (clear opportunity cost)",
+    description: "Better uses for your team's expertise",
     color: "gray" // 90% of icons should be gray-700
   }
 ]
@@ -38,10 +38,10 @@ export function ROIQualificationSection() {
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            But First: Does This Make Financial Sense?
+            First: Ensuring Mutual Success
           </Heading>
           <Text className="text-xl text-gray-600 max-w-4xl mx-auto">
-            We only work with businesses where the math works. That means:
+            Service-as-Software works best when these align:
           </Text>
         </div>
 
@@ -75,7 +75,7 @@ export function ROIQualificationSection() {
         <div className="bg-green-50 rounded-2xl p-4 sm:p-6 md:p-8 border border-green-200 mb-12">
           <div className="text-center">
             <Heading level="3" className="text-2xl font-bold text-green-900 mb-6">
-              If that's you, delegation typically saves 60-70% while freeing your time.
+              When these conditions exist, transformation begins in weeks, not months.
             </Heading>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">

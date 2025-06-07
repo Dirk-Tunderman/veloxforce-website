@@ -20,13 +20,13 @@ export function HeroSectionV2() {
               level="1"
               className="velox-text-h1 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             >
-              Turn Work You{" "}
-              <span className="gradient-text-blue font-bold">
-                Dread
+              Every Process You{" "}
+              <span className="text-red-600 font-bold">
+                Hate Doing
               </span>{" "}
-              Into Work That's{" "}
+              Can Become a Process You{" "}
               <span className="gradient-text-blue font-bold">
-                Done
+                Love Delegating
               </span>
             </Heading>
 
@@ -35,7 +35,7 @@ export function HeroSectionV2() {
             </Text>
 
             <Text className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto text-center">
-              Stop wondering <strong>"Could this work for me?"</strong> See exactly how we transform processes just like yours into delegated outcomes.
+              Stop wondering <strong>"Could this work for me?"</strong> See exactly how we transform processes just like yours into <strong>delegated outcomes</strong>.
             </Text>
           </div>
 

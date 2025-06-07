@@ -26,8 +26,8 @@ export function HeroTransformationSection() {
 
           {/* Subheadline */}
           <Text className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-4 max-w-3xl mx-auto">
-            Service-as-Software: You delegate your process, we deliver perfect results forever.
-            <span className="font-semibold text-blue-600"> You own the strategy. We own the execution.</span>
+            You delegate operations once. We deliver outcomes forever.
+            <span className="font-semibold text-blue-600"> Your team leads. Technology serves. Business grows.</span>
           </Text>
 
           {/* Supporting Text */}
@@ -59,7 +59,7 @@ export function HeroTransformationSection() {
               <div className="absolute -top-4 left-8 bg-gray-900 text-white px-4 py-2 rounded-full text-sm font-semibold">
                 Before Service-as-Software
               </div>
-              <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Sarah's Team</Heading>
+              <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Sarah Opens Her Laptop</Heading>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <Clock className="h-5 w-5 text-gray-500 mt-0.5" />
@@ -69,10 +69,11 @@ export function HeroTransformationSection() {
                   </div>
                 </div>
                 <ul className="ml-8 space-y-2 text-sm text-gray-600">
-                  <li>• Team handles 47 customer requests manually instead of strategic analysis</li>
-                  <li>• Updating 3 different systems instead of optimizing workflows</li>
-                  <li>• Fixing errors from rushed work instead of process improvement</li>
-                  <li>• No capacity for growth initiatives</li>
+                  <li>• Opens laptop to 47 unprocessed requests</li>
+                  <li>• Three systems need manual updates (again)</li>
+                  <li>• Two hours copying data between platforms</li>
+                  <li>• Strategic planning meeting? Cancelled (again)</li>
+                  <li>• Leaves at 7 PM, further behind than morning</li>
                 </ul>
               </div>
             </div>
@@ -89,7 +90,7 @@ export function HeroTransformationSection() {
               <div className="absolute -top-4 left-8 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
                 With Service-as-Software
               </div>
-              <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Sarah's Team</Heading>
+              <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Sarah Opens Her Laptop</Heading>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <Target className="h-5 w-5 text-blue-600 mt-0.5" />
@@ -99,10 +100,11 @@ export function HeroTransformationSection() {
                   </div>
                 </div>
                 <ul className="ml-8 space-y-2 text-sm text-gray-600">
-                  <li>• All 47 requests processed and delivered automatically</li>
-                  <li>• Team analyzes customer patterns and improves service</li>
-                  <li>• 99.7% accuracy (better than manual)</li>
-                  <li>• Capacity freed for growth initiatives</li>
+                  <li>• Opens laptop to completed work awaiting review</li>
+                  <li>• Reviews three exceptions needing her expertise</li>
+                  <li>• Leads strategic session on market expansion</li>
+                  <li>• Mentors junior team member on analysis</li>
+                  <li>• Leaves at 4 PM for daughter's recital</li>
                 </ul>
               </div>
             </div>
