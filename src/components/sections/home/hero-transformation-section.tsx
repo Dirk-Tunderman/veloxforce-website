@@ -11,8 +11,8 @@ import { motion } from "framer-motion"
 
 export function HeroTransformationSection() {
   return (
-    <Section padding="xl" background="white-to-light" className="hero-section-premium relative overflow-hidden">
-      <Container className="relative max-w-7xl">
+    <Section padding="xl" background="white-to-light" className="hero-section-ultra-premium relative overflow-hidden section-transition-ultra">
+      <Container className="relative max-w-7xl z-10">
         <div className="text-center">
           {/* Main Headline */}
           <motion.div
@@ -22,11 +22,11 @@ export function HeroTransformationSection() {
           >
             <Heading
               level="1"
-              className="hero-headline text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-6 max-w-4xl mx-auto"
+              className="hero-headline-enhanced text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-6 max-w-4xl mx-auto"
               data-text="Stop Managing Processes. Start Receiving Results."
             >
               Stop Managing Processes. Start{" "}
-              <span className="gradient-text-blue">
+              <span className="hero-headline-enhanced">
                 Receiving Results
               </span>.
             </Heading>
@@ -70,7 +70,7 @@ export function HeroTransformationSection() {
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Before */}
             <motion.div 
-              className="challenge-card-premium relative"
+              className="challenge-card-ultra relative"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -82,7 +82,7 @@ export function HeroTransformationSection() {
               <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Your Team Today</Heading>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <div className="icon-container-glass">
+                  <div className="icon-container-glass-premium">
                     <Clock className="h-5 w-5 text-gray-700" />
                   </div>
                   <div>
@@ -102,14 +102,14 @@ export function HeroTransformationSection() {
 
             {/* Transformation Arrow */}
             <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-              <div className="transformation-arrow-premium">
+              <div className="transformation-arrow-ultra">
                 <ArrowRight className="h-6 w-6 text-white" />
               </div>
             </div>
 
             {/* After */}
             <motion.div 
-              className="solution-card-premium relative"
+              className="solution-card-ultra relative"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -121,7 +121,7 @@ export function HeroTransformationSection() {
               <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Your Team Tomorrow</Heading>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <div className="icon-container-gradient">
+                  <div className="icon-container-gradient-premium">
                     <Target className="h-5 w-5 text-blue-600" />
                   </div>
                   <div>
@@ -149,18 +149,18 @@ export function HeroTransformationSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <div className="stat-card-premium text-center">
-            <div className="stat-number-premium mb-2">Scale</div>
+          <div className="stat-card-ultra text-center">
+            <div className="stat-number-ultra mb-2">Scale</div>
             <Text className="text-sm text-gray-600 font-medium">Investment proportional to value created</Text>
             <Text className="text-xs text-gray-500">Pricing aligned with your savings</Text>
           </div>
-          <div className="stat-card-premium text-center">
-            <div className="stat-number-premium mb-2">Fast</div>
+          <div className="stat-card-ultra text-center">
+            <div className="stat-number-ultra mb-2">Fast</div>
             <Text className="text-sm text-gray-600 font-medium">Most clients see positive ROI quickly</Text>
             <Text className="text-xs text-gray-500">ROI timeline depends on process complexity</Text>
           </div>
-          <div className="stat-card-premium text-center">
-            <div className="stat-number-premium mb-2">Custom</div>
+          <div className="stat-card-ultra text-center">
+            <div className="stat-number-ultra mb-2">Custom</div>
             <Text className="text-sm text-gray-600 font-medium">Faster than any alternative</Text>
             <Text className="text-xs text-gray-500">Implementation speed varies by scope</Text>
           </div>
@@ -169,7 +169,7 @@ export function HeroTransformationSection() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/tools/business-audit">
-            <button className="velox-btn-premium text-lg font-semibold px-8 py-4 h-auto rounded-xl">
+            <button className="velox-btn-ultra-premium text-lg font-semibold px-8 py-4 h-auto rounded-xl">
               <span className="relative z-10">Calculate My Delegation Savings</span>
               <ArrowRight className="inline-block ml-2 h-5 w-5" />
             </button>

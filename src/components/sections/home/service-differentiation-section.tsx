@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 
 export function ServiceDifferentiationSection() {
   return (
-    <Section padding="xl" background="light-to-white">
+    <Section padding="xl" background="light-to-white" className="section-transition-ultra">
       <Container className="max-w-7xl">
         {/* Section Title */}
         <div className="text-center mb-16">
@@ -26,14 +26,16 @@ export function ServiceDifferentiationSection() {
         <div className="grid lg:grid-cols-7 gap-8 mb-16">
           {/* Automation Agencies (20% weight) */}
           <div className="lg:col-span-2">
-            <div className="challenge-card-premium h-full relative flex flex-col">
+            <div className="challenge-card-ultra h-full relative flex flex-col">
               <div className="absolute -top-3 left-6 bg-gray-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                 Automation Agencies
               </div>
 
               <div className="pt-4 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
-                  <Cog className="h-6 w-6 text-gray-700" />
+                  <div className="icon-container-glass-premium">
+                    <Cog className="h-5 w-5 text-gray-700" />
+                  </div>
                   <Heading level="3" className="text-lg font-semibold text-gray-900">Give you tools to manage</Heading>
                 </div>
 
@@ -62,14 +64,16 @@ export function ServiceDifferentiationSection() {
 
           {/* Service Businesses (20% weight) */}
           <div className="lg:col-span-2">
-            <div className="challenge-card-premium h-full relative flex flex-col">
+            <div className="challenge-card-ultra h-full relative flex flex-col">
               <div className="absolute -top-3 left-6 bg-gray-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                 Service Businesses
               </div>
 
               <div className="pt-4 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
-                  <Users className="h-6 w-6 text-gray-700" />
+                  <div className="icon-container-glass-premium">
+                    <Users className="h-5 w-5 text-gray-700" />
+                  </div>
                   <Heading level="3" className="text-lg font-semibold text-gray-900">People you pay hourly</Heading>
                 </div>
 
@@ -98,14 +102,14 @@ export function ServiceDifferentiationSection() {
 
           {/* Service-as-Software (60% weight - Enhanced) */}
           <div className="lg:col-span-3">
-            <div className="solution-card-premium h-full relative flex flex-col">
+            <div className="solution-card-ultra h-full relative flex flex-col">
               <div className="absolute -top-3 left-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">
                 Service-as-Software
               </div>
               
               <div className="pt-4 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="icon-container-gradient">
+                  <div className="icon-container-gradient-premium">
                     <Zap className="h-6 w-6 text-blue-600" />
                   </div>
                   <Heading level="3" className="text-xl font-bold text-blue-900">Outcomes You Receive</Heading>
@@ -138,7 +142,7 @@ export function ServiceDifferentiationSection() {
                 <div className="text-center">
                   <Link 
                     href="/our-approach"
-                    className="velox-btn-premium inline-flex items-center gap-2 px-6 py-3 rounded-lg text-base"
+                    className="velox-btn-ultra-premium inline-flex items-center gap-2 px-6 py-3 rounded-lg text-base"
                   >
                     <span className="relative z-10">See How This Works</span>
                     <ArrowRight className="h-4 w-4" />
@@ -150,10 +154,10 @@ export function ServiceDifferentiationSection() {
         </div>
 
         {/* Key Insight */}
-        <div className="stat-card-premium text-center relative overflow-hidden">
+        <div className="stat-card-ultra text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-blue-700/10"></div>
           <div className="relative z-10">
-            <Heading level="3" className="text-2xl md:text-3xl font-bold mb-4 gradient-text-blue">The Revolution: We Don't Sell You Tools to Manage</Heading>
+            <Heading level="3" className="text-2xl md:text-3xl font-bold mb-4 hero-headline-enhanced" data-text="The Revolution: We Don't Sell You Tools to Manage">The Revolution: We Don't Sell You Tools to Manage</Heading>
             <Text className="text-lg md:text-xl mb-2 text-center font-semibold text-gray-900">
               We deliver a department that runs itself.
             </Text>
