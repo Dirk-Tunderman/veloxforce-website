@@ -26,18 +26,16 @@ export function ServiceDifferentiationSection() {
         <div className="grid lg:grid-cols-7 gap-8 mb-16">
           {/* Automation Agencies (20% weight) */}
           <div className="lg:col-span-2">
-            <div className="challenge-card-ultra h-full relative flex flex-col">
+            <div className="comparison-card-old h-full relative flex flex-col">
               <div className="absolute -top-3 left-6 bg-gray-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                 Automation Agencies
               </div>
 
               <div className="pt-4 flex-1 flex flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="icon-container-glass-premium">
-                    <Cog className="h-5 w-5 text-gray-700" />
-                  </div>
-                  <Heading level="3" className="text-lg font-semibold text-gray-900">Give you tools to manage</Heading>
+                <div className="comparison-icon-bad mx-auto mb-4">
+                  <Cog className="h-5 w-5 text-gray-600" />
                 </div>
+                <Heading level="3" className="text-lg font-semibold text-gray-900 text-center mb-4">Give you tools to manage</Heading>
 
                 <div className="space-y-3 mb-6 flex-1">
                   <div className="flex items-start gap-2">
@@ -64,18 +62,16 @@ export function ServiceDifferentiationSection() {
 
           {/* Service Businesses (20% weight) */}
           <div className="lg:col-span-2">
-            <div className="challenge-card-ultra h-full relative flex flex-col">
+            <div className="comparison-card-old h-full relative flex flex-col">
               <div className="absolute -top-3 left-6 bg-gray-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                 Service Businesses
               </div>
 
               <div className="pt-4 flex-1 flex flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="icon-container-glass-premium">
-                    <Users className="h-5 w-5 text-gray-700" />
-                  </div>
-                  <Heading level="3" className="text-lg font-semibold text-gray-900">People you pay hourly</Heading>
+                <div className="comparison-icon-bad mx-auto mb-4">
+                  <Users className="h-5 w-5 text-gray-600" />
                 </div>
+                <Heading level="3" className="text-lg font-semibold text-gray-900 text-center mb-4">People you pay hourly</Heading>
 
                 <div className="space-y-3 mb-6 flex-1">
                   <div className="flex items-start gap-2">
@@ -102,18 +98,13 @@ export function ServiceDifferentiationSection() {
 
           {/* Service-as-Software (60% weight - Enhanced) */}
           <div className="lg:col-span-3">
-            <div className="solution-card-ultra h-full relative flex flex-col">
-              <div className="absolute -top-3 left-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">
-                Service-as-Software
-              </div>
+            <div className="comparison-card-new h-full relative flex flex-col">
               
-              <div className="pt-4 flex-1 flex flex-col">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="icon-container-gradient-premium">
-                    <Zap className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <Heading level="3" className="text-xl font-bold text-blue-900">Outcomes You Receive</Heading>
+              <div className="pt-8 flex-1 flex flex-col">
+                <div className="comparison-icon-good mx-auto mb-6">
+                  <Zap className="h-6 w-6 text-white" />
                 </div>
+                <Heading level="3" className="text-xl font-bold text-blue-900 text-center mb-6">Outcomes You Receive</Heading>
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">

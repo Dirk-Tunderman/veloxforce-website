@@ -1601,4 +1601,364 @@
       transition: none !important;
     }
   }
+
+  /* ===== TRANSFORMATION SECTION ENHANCEMENTS ===== */
+
+  /* Enhanced transformation section background */
+  .transformation-section-enhanced {
+    background: 
+      radial-gradient(at 10% 50%, rgba(37, 99, 235, 0.04) 0px, transparent 40%),
+      radial-gradient(at 90% 50%, rgba(99, 102, 241, 0.03) 0px, transparent 40%),
+      linear-gradient(180deg, #FAFBFC 0%, #F7F9FC 100%);
+    position: relative;
+    padding: 120px 0;
+  }
+
+  /* Add subtle dot pattern */
+  .transformation-section-enhanced::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  /* Enhanced Challenge Card - Recessed Design */
+  .challenge-card-enhanced {
+    background: #F8F9FA;
+    border: 1px solid #E5E7EB;
+    box-shadow: 
+      inset 0 2px 8px rgba(0, 0, 0, 0.04),
+      0 1px 2px rgba(0, 0, 0, 0.02);
+    padding: 32px;
+    border-radius: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  /* Add subtle inner shadow for depth */
+  .challenge-card-enhanced::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    pointer-events: none;
+  }
+
+  .challenge-card-enhanced:hover {
+    transform: translateY(-1px);
+    box-shadow: 
+      inset 0 2px 8px rgba(0, 0, 0, 0.06),
+      0 4px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Enhanced Solution Card - Elevated Design */
+  .solution-card-enhanced {
+    background: 
+      linear-gradient(135deg, rgba(239, 246, 255, 0.98) 0%, rgba(219, 234, 254, 0.98) 100%);
+    border: 1px solid rgba(37, 99, 235, 0.18);
+    box-shadow: 
+      0 24px 48px -12px rgba(37, 99, 235, 0.18),
+      0 12px 24px -8px rgba(0, 0, 0, 0.04);
+    padding: 36px 32px;
+    border-radius: 20px;
+    position: relative;
+    transform: translateY(-6px) scale(1.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Blue accent bar at top */
+  .solution-card-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background: linear-gradient(90deg, #2563EB 0%, #1E40AF 100%);
+    border-radius: 2px;
+  }
+
+  .solution-card-enhanced:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 
+      0 32px 64px -16px rgba(37, 99, 235, 0.25),
+      0 16px 32px -12px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Enhanced Transformation Arrow with Pulse Rings */
+  .transformation-arrow-container-enhanced {
+    position: relative;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .transformation-arrow-enhanced {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+      0 20px 40px rgba(37, 99, 235, 0.3),
+      inset 0 2px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+
+  /* Pulse rings */
+  .transformation-arrow-enhanced::before,
+  .transformation-arrow-enhanced::after {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 99, 235, 0.2);
+    animation: pulse-ring-enhanced 3s ease-out infinite;
+  }
+
+  .transformation-arrow-enhanced::after {
+    animation-delay: 1.5s;
+  }
+
+  @keyframes pulse-ring-enhanced {
+    0% {
+      transform: scale(0.8);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  .transformation-arrow-enhanced:hover {
+    transform: scale(1.1);
+    box-shadow: 
+      0 25px 50px rgba(37, 99, 235, 0.4),
+      inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  /* Enhanced Value Proposition Cards */
+  .value-prop-card-enhanced {
+    background: white;
+    border: 1px solid rgba(229, 231, 235, 0.5);
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Gradient border on hover */
+  .value-prop-card-enhanced::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(135deg, #2563EB, #1E40AF);
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .value-prop-card-enhanced:hover::before {
+    opacity: 1;
+  }
+
+  .value-prop-card-enhanced:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Value prop title styling */
+  .value-prop-title-enhanced {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #1E40AF 0%, #2563EB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  /* Enhanced Service Comparison Cards */
+  .comparison-card-old {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    padding: 32px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+  }
+
+  .comparison-card-old:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Service-as-Software card - highlighted */
+  .comparison-card-new {
+    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+    border: 2px solid #2563EB;
+    padding: 40px 32px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    transform: scale(1.05);
+    box-shadow: 
+      0 30px 60px -20px rgba(37, 99, 235, 0.25),
+      0 20px 40px -15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  /* Add "Recommended" badge */
+  .comparison-card-new::before {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+    color: white;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+  }
+
+  .comparison-card-new:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 
+      0 35px 70px -25px rgba(37, 99, 235, 0.3),
+      0 25px 50px -20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Enhanced icon containers for comparison */
+  .comparison-icon-bad {
+    width: 48px;
+    height: 48px;
+    background: #FEE2E2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: all 0.3s ease;
+  }
+
+  .comparison-icon-good {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .comparison-icon-good:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.4);
+  }
+
+  /* Enhanced Bottom CTA Section */
+  .bottom-cta-section-enhanced {
+    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+    color: white;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Add animated background pattern */
+  .bottom-cta-section-enhanced::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    animation: float-bg 20s ease-in-out infinite;
+  }
+
+  @keyframes float-bg {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -30px) scale(1.1); }
+  }
+
+  /* White CTA button that pops */
+  .cta-button-white-enhanced {
+    background: white;
+    color: #2563EB;
+    padding: 18px 40px;
+    border-radius: 12px;
+    font-weight: 700;
+    box-shadow: 
+      0 10px 30px rgba(0, 0, 0, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cta-button-white-enhanced:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 15px 40px rgba(0, 0, 0, 0.3),
+      inset 0 2px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  /* Performance optimizations for new animations */
+  .transformation-arrow-enhanced,
+  .value-prop-card-enhanced,
+  .comparison-card-new,
+  .comparison-card-old {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Reduced motion support for new animations */
+  @media (prefers-reduced-motion: reduce) {
+    .transformation-arrow-enhanced::before,
+    .transformation-arrow-enhanced::after {
+      animation: none !important;
+    }
+    
+    .bottom-cta-section-enhanced::before {
+      animation: none !important;
+    }
+    
+    .pulse-ring-enhanced {
+      animation: none !important;
+    }
+  }
 }

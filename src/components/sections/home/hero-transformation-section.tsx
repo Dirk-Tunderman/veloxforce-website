@@ -55,22 +55,22 @@ export function HeroTransformationSection() {
           </div>
         </div>
 
-        {/* Team Transformation Visual */}
+        {/* Team Transformation Visual - Enhanced */}
         <motion.div 
-          className="mb-20"
+          className="mb-20 transformation-section-enhanced"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <Heading level="3" className="text-center text-2xl md:text-3xl font-bold mb-8 text-gray-900">
+          <Heading level="3" className="text-center text-2xl md:text-3xl font-bold mb-12 text-gray-900 relative z-10">
             From Operational Overwhelm to Strategic Leadership
           </Heading>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="relative grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Before */}
             <motion.div 
-              className="challenge-card-ultra relative"
+              className="challenge-card-enhanced relative"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -80,7 +80,7 @@ export function HeroTransformationSection() {
                 Before Service-as-Software
               </div>
               <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Your Team Today</Heading>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <div className="icon-container-glass-premium">
                     <Clock className="h-5 w-5 text-gray-700" />
@@ -90,7 +90,7 @@ export function HeroTransformationSection() {
                     <Text className="text-sm text-gray-600">No time for strategic work</Text>
                   </div>
                 </div>
-                <ul className="ml-8 space-y-2 text-sm text-gray-600">
+                <ul className="ml-12 space-y-2 text-sm text-gray-600">
                   <li>• Opens laptop to 47 unprocessed requests</li>
                   <li>• Three systems need manual updates (again)</li>
                   <li>• Two hours copying data between platforms</li>
@@ -100,16 +100,18 @@ export function HeroTransformationSection() {
               </div>
             </motion.div>
 
-            {/* Transformation Arrow */}
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-              <div className="transformation-arrow-ultra">
-                <ArrowRight className="h-6 w-6 text-white" />
+            {/* Enhanced Transformation Arrow */}
+            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+              <div className="transformation-arrow-container-enhanced">
+                <div className="transformation-arrow-enhanced">
+                  <ArrowRight className="h-7 w-7 text-white" />
+                </div>
               </div>
             </div>
 
             {/* After */}
             <motion.div 
-              className="solution-card-ultra relative"
+              className="solution-card-enhanced relative"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -119,7 +121,7 @@ export function HeroTransformationSection() {
                 With Service-as-Software
               </div>
               <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Your Team Tomorrow</Heading>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <div className="icon-container-gradient-premium">
                     <Target className="h-5 w-5 text-blue-600" />
@@ -129,7 +131,7 @@ export function HeroTransformationSection() {
                     <Text className="text-sm text-gray-600">Receives processed results and analyzes trends</Text>
                   </div>
                 </div>
-                <ul className="ml-8 space-y-2 text-sm text-gray-600">
+                <ul className="ml-12 space-y-2 text-sm text-gray-600">
                   <li>• Opens laptop to completed work awaiting review</li>
                   <li>• Reviews three exceptions needing her expertise</li>
                   <li>• Leads strategic session on market expansion</li>
@@ -141,7 +143,7 @@ export function HeroTransformationSection() {
           </div>
         </motion.div>
 
-        {/* Value Proposition Row */}
+        {/* Value Proposition Row - Enhanced */}
         <motion.div 
           className="grid md:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
@@ -149,19 +151,19 @@ export function HeroTransformationSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <div className="stat-card-ultra text-center">
-            <div className="stat-number-ultra mb-2">Scale</div>
-            <Text className="text-sm text-gray-600 font-medium">Investment proportional to value created</Text>
+          <div className="value-prop-card-enhanced">
+            <div className="value-prop-title-enhanced">Scale</div>
+            <Text className="text-sm text-gray-600 font-medium mb-2">Investment proportional to value created</Text>
             <Text className="text-xs text-gray-500">Pricing aligned with your savings</Text>
           </div>
-          <div className="stat-card-ultra text-center">
-            <div className="stat-number-ultra mb-2">Fast</div>
-            <Text className="text-sm text-gray-600 font-medium">Most clients see positive ROI quickly</Text>
+          <div className="value-prop-card-enhanced">
+            <div className="value-prop-title-enhanced">Fast</div>
+            <Text className="text-sm text-gray-600 font-medium mb-2">Most clients see positive ROI quickly</Text>
             <Text className="text-xs text-gray-500">ROI timeline depends on process complexity</Text>
           </div>
-          <div className="stat-card-ultra text-center">
-            <div className="stat-number-ultra mb-2">Custom</div>
-            <Text className="text-sm text-gray-600 font-medium">Faster than any alternative</Text>
+          <div className="value-prop-card-enhanced">
+            <div className="value-prop-title-enhanced">Custom</div>
+            <Text className="text-sm text-gray-600 font-medium mb-2">Faster than any alternative</Text>
             <Text className="text-xs text-gray-500">Implementation speed varies by scope</Text>
           </div>
         </motion.div>
