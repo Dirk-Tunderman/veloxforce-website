@@ -47,7 +47,7 @@ const timeline: TimelineItem[] = [
 
 export function MultiplicationEffectSection() {
   return (
-    <Section padding="xl" background="light-to-white">
+    <Section padding="xl" background="transparent">
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">

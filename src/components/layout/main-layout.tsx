@@ -13,7 +13,7 @@ export function MainLayout({
   hideFooter = false
 }: MainLayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col" style={{ backgroundColor: '#FAFBFC' }}>
+    <div className="flex min-h-screen flex-col">
       {!hideHeader && <Header />}
       <main className="flex-1">{children}</main>
       {!hideFooter && <Footer />}

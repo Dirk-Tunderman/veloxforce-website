@@ -8,7 +8,7 @@ import Link from "next/link"
 
 export function ServiceAsSoftwareRevolution() {
   return (
-    <Section padding="xl" background="white-to-light">
+    <Section padding="xl" background="transparent">
       <Container className="max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16">

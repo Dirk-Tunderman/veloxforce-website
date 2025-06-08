@@ -17,7 +17,7 @@ export function ROICalculatorSection() {
   const competitorAdvantage = timelineMonth >= 12 ? "23% market share to competitors" : "Competitors pulling ahead"
 
   return (
-    <Section padding="xl" background="light-to-accent">
+    <Section padding="xl" background="transparent">
       <Container className="max-w-7xl">
         {/* Section Title */}
         <div className="text-center mb-16">

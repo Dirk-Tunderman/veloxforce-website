@@ -7,7 +7,7 @@ import { Check, Shield, TrendingUp, Calendar, Unlock, Target } from "lucide-reac
 
 export function ServiceGuarantee() {
   return (
-    <Section padding="xl" background="light-to-white">
+    <Section padding="xl" background="transparent">
       <Container className="max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16">

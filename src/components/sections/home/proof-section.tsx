@@ -41,7 +41,7 @@ const caseStudies = [
 
 export function ProofSection() {
   return (
-    <Section id="proof" padding="xl" background="light-blue">
+    <Section id="proof" padding="xl" background="transparent">
       <Container className="max-w-7xl">
         {/* Section Title */}
         <div className="text-center mb-16">

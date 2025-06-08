@@ -12,10 +12,17 @@ npm run start    # Start production server
 npm run lint     # Run ESLint with Next.js config
 ```
 
-### Design Analysis
+### Design Analysis & Tools
 ```bash
-node scripts/design-analysis.js    # Run Puppeteer design analysis and take screenshots
-node scripts/screenshot.js <page>  # Take screenshots of specific pages
+node scripts/design-analysis.js                   # Run Puppeteer design analysis and take screenshots
+node scripts/screenshot.js <page>                 # Take screenshots of specific pages
+node scripts/capture-all-pages.js                 # Screenshot all pages
+node scripts/analyze-solutions-page.js            # Analyze solutions page specifically
+node scripts/puppeteer-screenshot-workflow.js     # Complete screenshot workflow
+node scripts/verify-revisions.js                  # Verify design revisions
+node scripts/extract-pages-to-xml.js              # Extract page structure to XML
+node scripts/split-landing-screenshot.js          # Split landing page screenshots
+node scripts/split-screenshots-compressed.js      # Compress and split screenshots
 ```
 
 ### Environment Setup
@@ -26,20 +33,23 @@ Ensure you have a `.env.local` file with:
 
 ## Architecture Overview
 
-This is a Next.js 14 application using the App Router with a comprehensive design system for VeloxForce, a business automation consultancy offering "Service-as-Software" solutions.
+This is a Next.js 14.1.0 application using the App Router with a comprehensive design system for VeloxForce, a business automation consultancy offering "Service-as-Software" solutions.
 
 ### Core Technology Stack
-- **Next.js 14.1.0** with App Router
-- **TypeScript** with strict mode
-- **Tailwind CSS** with custom design tokens
+- **Next.js 14.1.0** with App Router (Node.js 18.x)
+- **TypeScript 5.x** with strict mode
+- **Tailwind CSS 3.4.17** with custom design tokens
 - **shadcn/ui** components based on Radix UI
-- **Supabase** for database and authentication
-- **Resend** for transactional emails
-- **Puppeteer** for automated design analysis and screenshots
+- **Supabase 2.49.8** for database and authentication
+- **Resend 4.5.1** for transactional emails
+- **Framer Motion 12.12.1** for animations
+- **Lucide React 0.511.0** for icons
+- **React Hook Form 7.56.4** + **Zod 3.25.7** for forms
+- **date-fns 4.1.0** for date handling
 
 ### Design System Implementation
 
-The design system is documented in `/VELOXFORCE-COMPREHENSIVE-DESIGN-SYSTEM.md` (828 lines) and defines:
+The design system principles are implemented throughout the codebase and define:
 
 1. **Color System**: Centralized CSS custom properties in `globals.css`
    - Primary: Deep Blue (#0A2A4F, #002547)
@@ -71,6 +81,7 @@ The design system is documented in `/VELOXFORCE-COMPREHENSIVE-DESIGN-SYSTEM.md` 
 2. **API Routes**: Located in `/src/app/api/`
    - `submit-quiz`: Handles audit tool submissions
    - `send-audit-email`: Sends customized ROI analysis emails
+   - `test-email`: Development endpoint for testing email functionality
 
 3. **Database Schema**: Three main tables in Supabase
    - `clients`: Customer information
@@ -85,8 +96,9 @@ The design system is documented in `/VELOXFORCE-COMPREHENSIVE-DESIGN-SYSTEM.md` 
    - Form schemas defined with Zod
    - Use `@hookform/resolvers/zod` for integration
 
-6. **Animations**: Prefer Tailwind CSS animations over Framer Motion
-   - Use `tailwindcss-animate` for complex animations
+6. **Animations**: Strategic use of both Tailwind CSS and Framer Motion
+   - Use `tailwindcss-animate` for simple animations (hover, focus states)
+   - Use Framer Motion for complex interactions and page transitions
    - Keep animations subtle and purposeful
 
 ### Development Guidelines
@@ -166,9 +178,20 @@ Currently no test framework is configured. When implementing tests:
 
 ### Design Analysis Tools
 
-Use `node scripts/design-analysis.js` to automatically:
-- Check icon color compliance (90/10 rule)
-- Identify problematic colors (red, yellow, amber)
-- Validate spacing and alignment
-- Generate screenshots for review
-- Track design system adherence
+Multiple Puppeteer-based scripts for design validation and analysis:
+
+- `design-analysis.js`: Comprehensive design system compliance checking
+  - Icon color compliance (90/10 rule)
+  - Problematic color identification (red, yellow, amber)
+  - Spacing and alignment validation
+  - Design system adherence tracking
+
+- `capture-all-pages.js`: Full website screenshot automation
+- `screenshot.js`: Individual page screenshots
+- `analyze-solutions-page.js`: Solutions page specific analysis
+- `verify-revisions.js`: Design revision validation
+- `extract-pages-to-xml.js`: Page structure extraction
+- `split-landing-screenshot.js`: Landing page section analysis
+- `puppeteer-screenshot-workflow.js`: Complete automated workflow
+
+All scripts use Puppeteer for browser automation and provide detailed reports on design compliance and visual consistency.

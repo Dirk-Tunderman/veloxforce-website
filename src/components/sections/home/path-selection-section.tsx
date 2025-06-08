@@ -9,7 +9,7 @@ import Link from "next/link"
 
 export function PathSelectionSection() {
   return (
-    <Section padding="xl" background="accent-to-white">
+    <Section padding="xl" background="transparent">
       <Container className="max-w-6xl">
         {/* Section Title */}
         <div className="text-center mb-16">

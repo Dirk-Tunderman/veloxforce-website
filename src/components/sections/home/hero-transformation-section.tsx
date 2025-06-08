@@ -11,7 +11,7 @@ import { motion } from "framer-motion"
 
 export function HeroTransformationSection() {
   return (
-    <Section padding="xl" background="white-to-light" className="hero-section-ultra-premium hero-section-final hero-section-smooth relative overflow-hidden section-transition-ultra">
+    <Section padding="xl" background="transparent" className="hero-section relative overflow-hidden">
       <Container className="relative max-w-7xl z-10 hero-content-wrapper">
         <div className="text-center">
           {/* Main Headline */}
@@ -71,7 +71,7 @@ export function HeroTransformationSection() {
           <div className="relative grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Before */}
             <motion.div 
-              className="team-today-card-final relative"
+              className="challenge-card relative"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -103,16 +103,14 @@ export function HeroTransformationSection() {
 
             {/* Final Enhanced Transformation Arrow */}
             <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-              <div className="transformation-arrow-final">
-                <div className="transformation-arrow-inner-final">
-                  <ArrowRight className="h-8 w-8 text-white" />
-                </div>
+              <div className="transformation-arrow">
+                <ArrowRight className="h-8 w-8 text-white" />
               </div>
             </div>
 
             {/* After */}
             <motion.div 
-              className="team-tomorrow-card-final relative"
+              className="solution-card relative"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -172,7 +170,7 @@ export function HeroTransformationSection() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/tools/business-audit">
-            <button className="velox-btn-ultra-premium text-lg font-semibold px-8 py-4 h-auto rounded-xl">
+            <button className="velox-btn-primary text-lg font-semibold px-8 py-4 h-auto rounded-xl">
               <span className="relative z-10">Calculate My Delegation Savings</span>
               <ArrowRight className="inline-block ml-2 h-5 w-5" />
             </button>

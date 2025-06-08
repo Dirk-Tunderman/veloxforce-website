@@ -2,96 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== PREMIUM BACKGROUND SYSTEM ===== */
-/* Apply to body for consistent site-wide background */
-body {
-  position: relative;
-  background-color: #FAFBFC;
-  background-image: 
-    radial-gradient(at 20% 80%, rgba(37, 99, 235, 0.06) 0px, transparent 50%),
-    radial-gradient(at 80% 20%, rgba(99, 102, 241, 0.04) 0px, transparent 50%),
-    radial-gradient(at 40% 60%, rgba(30, 64, 175, 0.03) 0px, transparent 50%);
-  background-attachment: fixed;
-  min-height: 100vh;
-}
-
-/* Subtle noise texture overlay */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  opacity: 0.5;
-  z-index: 1;
-}
-
-/* Ensure all content is above background effects */
-#__next,
-main,
-.main-content {
-  position: relative;
-  z-index: 2;
-}
-
-/* Hero section enhanced background */
-.hero-section {
-  position: relative;
-  background: 
-    radial-gradient(at 30% 70%, rgba(37, 99, 235, 0.12) 0px, transparent 40%),
-    radial-gradient(at 70% 30%, rgba(99, 102, 241, 0.08) 0px, transparent 40%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, transparent 100%);
-}
-
-/* Smooth transition from hero to next section */
-.hero-section::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 200px;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(250, 251, 252, 0.3) 40%,
-    rgba(250, 251, 252, 0.8) 70%,
-    #FAFBFC 100%
-  );
-  pointer-events: none;
-  z-index: 5;
-}
-
-/* All sections should be transparent to show body background */
-.section-default {
-  background: transparent;
-  position: relative;
-}
-
-/* White sections for contrast */
-.section-white {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
-  margin: 40px 0;
-  padding: 60px 40px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-}
-
-/* Light blue accent sections */
-.section-accent {
-  background: linear-gradient(135deg, rgba(239, 246, 255, 0.6) 0%, rgba(219, 234, 254, 0.4) 100%);
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
-  margin: 40px 0;
-  padding: 60px 40px;
-  border: 1px solid rgba(37, 99, 235, 0.1);
-}
-
 :root {
   --radius: 0.625rem;
 
@@ -252,121 +162,141 @@ main,
 
   /* ===== BUTTON SYSTEM ===== */
   .velox-btn-primary {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
-    color: white;
-    font-weight: 600;
-    padding: 18px 36px;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: none;
+    @apply bg-gradient-to-r from-blue-600 to-blue-900 hover:from-blue-700 hover:to-blue-950 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300;
   }
 
-  .velox-btn-primary:hover {
-    background: linear-gradient(135deg, #1E40AF 0%, #1E3A8A 100%);
-    box-shadow: 0 12px 32px rgba(37, 99, 235, 0.35);
-    transform: translateY(-2px);
+  .velox-btn-secondary {
+    @apply bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold transition-all duration-300;
   }
 
-  /* Shimmer effect overlay */
-  .velox-btn-primary::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.2) 20%,
-      rgba(255, 255, 255, 0.5) 50%,
-      rgba(255, 255, 255, 0.2) 80%,
-      transparent 100%
-    );
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
-  }
-
-  .velox-btn-primary:hover::before {
-    transform: translateX(100%);
+  .velox-btn-success {
+    @apply bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300;
   }
 
   /* ===== CARD SYSTEM ===== */
-  .challenge-card {
-    background: #F8F9FA;
-    border: 1px solid #E2E8F0;
-    box-shadow: 
-      inset 0 2px 4px rgba(0, 0, 0, 0.06),
-      0 1px 2px rgba(0, 0, 0, 0.02);
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    padding: 32px;
-    transition: all 0.3s ease;
+  .velox-card {
+    @apply bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300;
   }
 
-  .challenge-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: 
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 35px,
-        rgba(0, 0, 0, 0.01) 35px,
-        rgba(0, 0, 0, 0.01) 70px
-      );
-    pointer-events: none;
+  .velox-card-elevated {
+    @apply bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300;
   }
 
-  .challenge-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 
-      inset 0 2px 4px rgba(0, 0, 0, 0.06),
-      0 4px 8px rgba(0, 0, 0, 0.06);
+  .velox-card-problem {
+    @apply bg-red-50 border border-red-200 rounded-lg transition-all duration-200 hover:bg-red-100;
   }
 
-  .solution-card {
-    background: 
-      linear-gradient(135deg, rgba(239, 246, 255, 0.98) 0%, rgba(219, 234, 254, 0.95) 100%);
-    border: 1px solid rgba(37, 99, 235, 0.2);
-    box-shadow: 
-      0 24px 48px -12px rgba(37, 99, 235, 0.2),
-      0 12px 24px -8px rgba(0, 0, 0, 0.05),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    transform: translateY(-4px) scale(1.02);
-    position: relative;
-    border-radius: 20px;
-    padding: 36px 32px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  .velox-card-solution {
+    @apply bg-green-50 border border-green-200 rounded-lg transition-all duration-200 hover:bg-green-100;
   }
 
-  .solution-card::before {
+  .velox-card-feature {
+    @apply bg-blue-50 border border-blue-200 rounded-lg transition-all duration-200 hover:bg-blue-100;
+  }
+
+  .velox-card-traditional {
+    @apply bg-white border border-gray-200 rounded-lg transition-all duration-300 hover:shadow-sm;
+  }
+
+  .velox-card-advantage {
+    @apply bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 relative;
+  }
+
+  .velox-card-advantage::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 20px;
-    right: 20px;
-    height: 3px;
-    background: linear-gradient(90deg, #2563EB 0%, #1E40AF 100%);
-    border-radius: 0 0 2px 2px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(29, 78, 216, 0.05) 100%);
+    border-radius: inherit;
+    pointer-events: none;
   }
 
-  .solution-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 
-      0 32px 64px -16px rgba(37, 99, 235, 0.25),
-      0 16px 32px -12px rgba(0, 0, 0, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  /* Enhanced Gradient Card - Subtle Blue Gradient with Strong Text Contrast */
+  .velox-card-advantage-gradient {
+    @apply border border-blue-200 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden;
+    background: linear-gradient(135deg,
+      #DBEAFE 0%,           /* Light blue-100 */
+      #BFDBFE 25%,          /* Blue-200 */
+      #93C5FD 50%,          /* Blue-300 */
+      #BFDBFE 75%,          /* Back to blue-200 */
+      #DBEAFE 100%          /* Light blue-100 at end */
+    );
   }
 
-  /* Consolidated gradient text */
-  .gradient-text {
-    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+  .velox-card-advantage-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(59, 130, 246, 0.08) 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .velox-card-advantage-gradient:hover::before {
+    opacity: 0.8;
+  }
+
+  /* Enhanced Advantage Card - Premium Design */
+  .velox-card-advantage-enhanced {
+    @apply border border-blue-300 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 relative overflow-hidden;
+    background: linear-gradient(135deg,
+      rgba(219, 234, 254, 0.9) 0%,    /* Blue-100 with transparency */
+      rgba(191, 219, 254, 0.95) 25%,  /* Blue-200 */
+      rgba(147, 197, 253, 0.8) 50%,   /* Blue-300 */
+      rgba(191, 219, 254, 0.95) 75%,  /* Blue-200 */
+      rgba(219, 234, 254, 0.9) 100%   /* Blue-100 */
+    );
+  }
+
+  .velox-card-advantage-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3B82F6, #1D4ED8, #2563EB);
+    border-radius: 16px 16px 0 0;
+    z-index: 1;
+  }
+
+  .velox-card-advantage-enhanced::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(59, 130, 246, 0.05) 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  .velox-card-advantage-enhanced:hover::after {
+    opacity: 0.7;
+  }
+
+  /* Gradient Text Effects */
+  .gradient-text-blue {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #1E40AF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: transparent;
   }
 
   /* ===== ICON SYSTEM ===== */
@@ -388,93 +318,6 @@ main,
 
   .velox-icon-error {
     @apply text-red-600;
-  }
-
-  /* Icon Containers */
-  .icon-container-glass {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .icon-container-glass:hover {
-    background: rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.15);
-  }
-
-  .icon-container-gradient {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .icon-container-gradient:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
-  }
-
-  /* ===== TRANSFORMATION ARROW ===== */
-  .transformation-arrow {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 
-      0 8px 24px rgba(37, 99, 235, 0.25),
-      inset 0 2px 0 rgba(255, 255, 255, 0.2);
-    position: relative;
-    animation: pulse-glow 3s ease-in-out infinite;
-    transition: all 0.3s ease;
-  }
-
-  .transformation-arrow:hover {
-    transform: scale(1.05);
-    box-shadow: 
-      0 12px 32px rgba(37, 99, 235, 0.35),
-      inset 0 2px 0 rgba(255, 255, 255, 0.2);
-  }
-
-  .transformation-arrow svg {
-    color: white;
-    animation: slide-right 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 
-        0 8px 24px rgba(37, 99, 235, 0.25),
-        inset 0 2px 0 rgba(255, 255, 255, 0.2),
-        0 0 0 0 rgba(37, 99, 235, 0.4);
-    }
-    50% {
-      box-shadow: 
-        0 8px 24px rgba(37, 99, 235, 0.25),
-        inset 0 2px 0 rgba(255, 255, 255, 0.2),
-        0 0 0 20px rgba(37, 99, 235, 0);
-    }
-  }
-
-  @keyframes slide-right {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(4px); }
   }
 
   .velox-icon-light {
@@ -768,7 +611,43 @@ main,
     height: 20px;
   }
 
-  /* Duplicate CTA buttons removed - keeping only ultra-premium */
+  /* Button System from Design System */
+  .velox-cta-primary {
+    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    transition: all 0.3s ease;
+    min-height: 48px;
+    border: none;
+  }
+
+  .velox-cta-primary:hover {
+    background: linear-gradient(135deg, #1E40AF 0%, #1E3A8A 100%);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .velox-cta-secondary {
+    background: transparent;
+    color: #2563EB;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 28px;
+    border: 2px solid #2563EB;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-height: 48px;
+  }
+
+  .velox-cta-secondary:hover {
+    background: #2563EB;
+    color: #FFFFFF;
+    transform: translateY(-1px);
+  }
 
   /* Hover Effects */
   .velox-hover-lift {
@@ -1171,7 +1050,34 @@ main,
     opacity: 0.5;
   }
 
-  /* Old unified background removed - now using body background system */
+  /* Unified Landing Page Background - Applied to entire page */
+  .landing-page-unified-background {
+    background: 
+      radial-gradient(at 20% 80%, rgba(37, 99, 235, 0.12) 0px, transparent 50%),
+      radial-gradient(at 80% 20%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+      radial-gradient(at 40% 60%, rgba(30, 64, 175, 0.05) 0px, transparent 50%),
+      linear-gradient(180deg, #FFFFFF 0%, #F7F9FC 100%);
+    position: relative;
+    min-height: 100vh;
+  }
+
+  /* Noise texture overlay for unified background */
+  .landing-page-unified-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+    z-index: 0;
+  }
+
+  /* Ensure content stays above background */
+  .landing-page-unified-background > * {
+    position: relative;
+    z-index: 1;
+  }
 
   /* Premium headline with glow */
   .hero-headline {
@@ -1195,9 +1101,101 @@ main,
     opacity: 0.3;
   }
 
-  /* Duplicate premium button removed - keeping only ultra-premium */
+  /* Premium button with shimmer */
+  .velox-btn-premium {
+    position: relative;
+    overflow: hidden;
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-blue-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+  }
 
-  /* Premium transformation cards removed - using final versions */
+  .velox-btn-premium:hover {
+    background: var(--gradient-hover);
+    box-shadow: var(--shadow-blue-lg);
+    transform: translateY(-2px);
+  }
+
+  /* Shimmer effect */
+  .velox-btn-premium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.2) 80%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+
+  .velox-btn-premium:hover::before {
+    transform: translateX(100%);
+  }
+
+  /* Premium transformation cards */
+  .challenge-card-premium {
+    background: linear-gradient(145deg, #F9FAFB, #F3F4F6);
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    box-shadow: 
+      inset 0 2px 4px rgba(0, 0, 0, 0.04),
+      var(--shadow-blue-sm);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s ease;
+  }
+
+  .challenge-card-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      inset 0 2px 4px rgba(0, 0, 0, 0.04),
+      0 8px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .solution-card-premium {
+    background: 
+      var(--gradient-subtle),
+      white;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 16px;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+      var(--shadow-blue-lg),
+      0 8px 16px -8px rgba(0, 0, 0, 0.04),
+      inset 0 2px 0 rgba(255, 255, 255, 0.9);
+    transform: translateY(-4px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Top accent bar */
+  .solution-card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+  }
+
+  .solution-card-premium:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 30px 60px -15px rgba(37, 99, 235, 0.25),
+      0 20px 40px -15px rgba(0, 0, 0, 0.06),
+      inset 0 2px 0 rgba(255, 255, 255, 0.9);
+  }
 
   /* Premium icon containers */
   .icon-container-glass {
@@ -1503,7 +1501,46 @@ main,
     50% { transform: translateX(4px); }
   }
 
-  /* Ultra-premium button moved to main button section */
+  /* Premium Button with Shimmer */
+  .velox-btn-ultra-premium {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+    color: white;
+    font-weight: 600;
+    padding: 18px 36px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+  }
+
+  .velox-btn-ultra-premium:hover {
+    background: linear-gradient(135deg, #1E40AF 0%, #1E3A8A 100%);
+    box-shadow: 0 12px 32px rgba(37, 99, 235, 0.35);
+    transform: translateY(-2px);
+  }
+
+  /* Shimmer effect overlay */
+  .velox-btn-ultra-premium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.2) 80%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .velox-btn-ultra-premium:hover::before {
+    transform: translateX(100%);
+  }
 
   /* Ultra Premium Statistics Cards */
   .stat-card-ultra {
