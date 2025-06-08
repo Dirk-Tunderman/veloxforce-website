@@ -906,6 +906,198 @@ main,
   to { --num: 100; }
 }
 
+/* ===== SERVICE-AS-SOFTWARE REVOLUTION SPECIFIC STYLES ===== */
+/* Magnetic hover effect */
+.magnetic-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.magnetic-hover:hover {
+  transform: perspective(1000px) translateZ(10px);
+}
+
+/* Particle Flow Animation */
+.particle-flow-container {
+  position: absolute;
+  width: 200px;
+  height: 2px;
+  overflow: hidden;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.particle-flow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(37, 99, 235, 0.4) 20%,
+    rgba(37, 99, 235, 0.8) 50%,
+    rgba(37, 99, 235, 0.4) 80%,
+    transparent 100%
+  );
+}
+
+/* Pulse Rings for Transformation Arrow */
+.pulse-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 99, 235, 0.4);
+  animation: pulse-ring-expand 3s ease-out infinite;
+}
+
+.pulse-ring-1 {
+  animation-delay: 0s;
+}
+
+.pulse-ring-2 {
+  animation-delay: 1s;
+}
+
+.pulse-ring-3 {
+  animation-delay: 2s;
+}
+
+@keyframes pulse-ring-expand {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Aurora gradient animation */
+.bg-gradient-aurora {
+  background: var(--velox-gradient-aurora);
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Premium gradient background */
+.bg-gradient-premium {
+  background: var(--velox-gradient-premium);
+}
+
+/* Validation badge styles */
+.validation-badge {
+  text-align: center;
+}
+
+.validation-badge > div {
+  transition: all 0.3s ease;
+}
+
+.validation-badge > div:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--velox-shadow-md);
+}
+
+/* ===== PARTNERSHIP MODEL SPECIFIC STYLES ===== */
+/* Partnership visualization container */
+.partnership-visualization {
+  position: relative;
+}
+
+/* Gear animations */
+.gear-strategic,
+.gear-execution {
+  position: relative;
+  overflow: hidden;
+}
+
+.gear-strategic::before,
+.gear-execution::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(37, 99, 235, 0.2) 60deg,
+    transparent 120deg,
+    rgba(37, 99, 235, 0.2) 180deg,
+    transparent 240deg,
+    rgba(37, 99, 235, 0.2) 300deg,
+    transparent 360deg
+  );
+  border-radius: 50%;
+  animation: gear-glow 3s linear infinite;
+}
+
+.gear-execution::before {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(107, 114, 128, 0.2) 60deg,
+    transparent 120deg,
+    rgba(107, 114, 128, 0.2) 180deg,
+    transparent 240deg,
+    rgba(107, 114, 128, 0.2) 300deg,
+    transparent 360deg
+  );
+}
+
+@keyframes gear-glow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsibility card hover effects */
+.responsibility-card {
+  padding: 12px 16px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  cursor: pointer;
+}
+
+.responsibility-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--velox-shadow-sm);
+  transform: translateX(4px);
+}
+
+.responsibility-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 0;
+  background: var(--velox-gradient-primary);
+  border-radius: 2px;
+  transform: translateY(-50%);
+  transition: height 0.3s ease;
+}
+
+.responsibility-card:hover::before {
+  height: 70%;
+}
+
+/* Enhanced shadow classes */
+.shadow-blue-sm {
+  box-shadow: var(--velox-shadow-blue-sm);
+}
+
+.shadow-blue-lg {
+  box-shadow: var(--velox-shadow-blue-lg);
+}
+
+/* Animated gradient shift for backgrounds */
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
 /* ===== MISSING CSS CLASSES - HERO SECTION ===== */
 /* Value Proposition Cards */
 .value-prop-card-final {

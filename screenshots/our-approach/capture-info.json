@@ -1,0 +1,24 @@
+{
+  "page": "our-approach",
+  "url": "http://localhost:3000/our-approach",
+  "screenshots": {
+    "desktop": {
+      "full": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/our-approach/our-approach-desktop-full.png",
+      "aboveTheFold": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/our-approach/our-approach-desktop-atf.png"
+    },
+    "tablet": {
+      "full": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/our-approach/our-approach-tablet-full.png",
+      "aboveTheFold": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/our-approach/our-approach-tablet-atf.png"
+    },
+    "mobile": {
+      "full": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/our-approach/our-approach-mobile-full.png",
+      "aboveTheFold": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/our-approach/our-approach-mobile-atf.png"
+    }
+  },
+  "metrics": {
+    "documents": 9,
+    "nodes": 893,
+    "layoutDuration": 0,
+    "scriptDuration": 0
+  }
+}

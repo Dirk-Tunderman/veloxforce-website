@@ -1,0 +1,24 @@
+{
+  "page": "landing",
+  "url": "http://localhost:3000/",
+  "screenshots": {
+    "desktop": {
+      "full": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/landing/landing-desktop-full.png",
+      "aboveTheFold": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/landing/landing-desktop-atf.png"
+    },
+    "tablet": {
+      "full": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/landing/landing-tablet-full.png",
+      "aboveTheFold": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/landing/landing-tablet-atf.png"
+    },
+    "mobile": {
+      "full": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/landing/landing-mobile-full.png",
+      "aboveTheFold": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/landing/landing-mobile-atf.png"
+    }
+  },
+  "metrics": {
+    "documents": 9,
+    "nodes": 893,
+    "layoutDuration": 0,
+    "scriptDuration": 0
+  }
+}
