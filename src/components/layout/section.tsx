@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   as?: React.ElementType
   padding?: "none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"
-  background?: "default" | "muted" | "primary" | "secondary" | "accent" | "gradient" | "white" | "light-blue" | "accent-blue" | "off-white" | "trust" | "white-to-light" | "light-to-white" | "light-to-accent" | "accent-to-white" | "light-blue-to-accent"
+  background?: "default" | "muted" | "primary" | "secondary" | "accent" | "gradient" | "white" | "light-blue" | "accent-blue" | "off-white" | "trust" | "white-to-light" | "light-to-white" | "light-to-accent" | "accent-to-white" | "light-blue-to-accent" | "transparent"
   fullHeight?: boolean
 }
 
@@ -49,6 +49,9 @@ export function Section({
           "velox-section-light-to-accent": background === "light-to-accent",
           "velox-section-light-blue-to-accent": background === "light-blue-to-accent",
           "velox-section-accent-to-white": background === "accent-to-white",
+          
+          // Transparent background option
+          "bg-transparent": background === "transparent",
 
           // Full height option
           "min-h-screen flex flex-col justify-center": fullHeight,

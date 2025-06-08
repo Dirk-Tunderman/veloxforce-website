@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils"
 
 export function ServiceDifferentiationSection() {
   return (
-    <Section padding="xl" background="light-to-white" className="section-transition-ultra">
-      <Container className="max-w-7xl">
+    <Section padding="xl" background="transparent" className="section-transition-ultra velox-section-transparent">
+      <Container className="max-w-7xl container-no-bg">
         {/* Section Title */}
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">

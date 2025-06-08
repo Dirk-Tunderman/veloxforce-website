@@ -97,7 +97,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-color: #FAFBFC !important; /* Light off-white for entire page */
   }
 }
 
@@ -743,7 +744,7 @@
 
   /* Overlapping Section Transitions - Seamless Handoffs */
 
-  /* Section 1: Pure white that transitions to light blue at bottom */
+  /* Section 1: White that transitions to consistent off-white background */
   .velox-section-white {
     background: linear-gradient(to bottom,
       #FFFFFF 0%,
@@ -752,8 +753,8 @@
       #FDFDFE 80%,
       #FCFDFD 85%,
       #FAFBFC 90%,
-      #F8FAFC 95%,
-      #F7F9FC 100%
+      #FAFBFC 95%,
+      #FAFBFC 100%
     );
   }
 
@@ -791,7 +792,7 @@
 
   /* Overlapping Transition Variants - Seamless Section Handoffs */
 
-  /* White section that transitions to light blue at bottom (30% transition zone) */
+  /* White section that transitions to consistent background at bottom */
   .velox-section-white-to-light {
     background: linear-gradient(to bottom,
       #FFFFFF 0%,
@@ -800,8 +801,8 @@
       #FDFDFE 80%,
       #FCFDFD 85%,
       #FAFBFC 90%,
-      #F8FAFC 95%,
-      #F7F9FC 100%
+      #FAFBFC 95%,
+      #FAFBFC 100%
     );
   }
 
@@ -1309,7 +1310,7 @@
       radial-gradient(at 20% 80%, rgba(37, 99, 235, 0.12) 0px, transparent 50%),
       radial-gradient(at 80% 20%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
       radial-gradient(at 40% 60%, rgba(30, 64, 175, 0.05) 0px, transparent 50%),
-      linear-gradient(180deg, #FFFFFF 0%, #F7F9FC 100%);
+      linear-gradient(180deg, #FFFFFF 0%, #FAFBFC 100%);
     min-height: 100vh;
   }
 
@@ -1608,8 +1609,7 @@
   .transformation-section-enhanced {
     background: 
       radial-gradient(at 10% 50%, rgba(37, 99, 235, 0.04) 0px, transparent 40%),
-      radial-gradient(at 90% 50%, rgba(99, 102, 241, 0.03) 0px, transparent 40%),
-      linear-gradient(180deg, #FAFBFC 0%, #F7F9FC 100%);
+      radial-gradient(at 90% 50%, rgba(99, 102, 241, 0.03) 0px, transparent 40%);
     position: relative;
     padding: 120px 0;
   }
@@ -2458,5 +2458,183 @@
     .service-card-recommended-final:hover {
       transform: scale(1.05) translateY(-2px);
     }
+  }
+
+  /* ===== BACKGROUND TRANSITION FIXES ===== */
+
+  /* Ensure consistent background across entire site */
+  body {
+    background-color: #FAFBFC; /* Light off-white for entire page */
+  }
+
+  /* Enhanced Hero Section with Smooth Fade Transition */
+  .hero-section-smooth {
+    position: relative;
+    /* Keep existing gradient background */
+  }
+
+  /* Create smooth fade transition from hero to next section */
+  .hero-section-smooth::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px; /* Generous height for smooth transition */
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(250, 251, 252, 0) 20%,
+      rgba(250, 251, 252, 0.5) 50%,
+      rgba(250, 251, 252, 0.9) 80%,
+      #FAFBFC 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Ensure hero content is above the gradient overlay */
+  .hero-content-wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Alternative: Wave Divider for Hero */
+  .hero-wave-divider-smooth {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 1;
+  }
+
+  .hero-wave-divider-smooth svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+  }
+
+  .hero-wave-divider-smooth .wave-fill {
+    fill: #FAFBFC; /* Match next section background */
+  }
+
+  /* Remove white backgrounds from all content sections */
+  .content-section,
+  .transformation-section,
+  .automation-section,
+  .revolution-section,
+  .service-section,
+  .approach-section {
+    background: transparent !important; /* Let body background show through */
+  }
+
+  /* Fix transformation section specifically */
+  .transformation-section-fixed {
+    background: transparent !important;
+    /* Remove any white background that might be applied */
+  }
+
+  .transformation-container {
+    background: transparent !important;
+    /* Remove any container white backgrounds */
+  }
+
+  /* Ensure cards maintain their individual backgrounds */
+  .team-today-card-final,
+  .team-tomorrow-card-final,
+  .challenge-card-enhanced,
+  .solution-card-enhanced {
+    /* Keep their existing backgrounds - don't override */
+  }
+
+  /* Section background consistency */
+  .velox-section-consistent {
+    background: #FAFBFC; /* Match body background */
+  }
+
+  .velox-section-transparent {
+    background: transparent !important;
+  }
+
+  /* Remove any section-specific white backgrounds */
+  section:not(.hero-section) {
+    background-color: transparent !important;
+  }
+
+  /* Fix for any containers with white backgrounds */
+  .container-no-bg {
+    background: transparent !important;
+  }
+
+  /* Enhanced section transitions */
+  .section-fade-transition::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #FAFBFC 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Curved bottom edge alternative */
+  .hero-section-curved {
+    position: relative;
+    padding-bottom: 100px; /* Extra padding for curve */
+  }
+
+  .hero-section-curved::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: #FAFBFC; /* Match next section background */
+    clip-path: ellipse(100% 100% at 50% 100%);
+  }
+
+  /* Mobile optimizations for background transitions */
+  @media (max-width: 768px) {
+    .hero-section-smooth::after {
+      height: 150px; /* Slightly smaller on mobile */
+    }
+    
+    .hero-wave-divider-smooth svg {
+      height: 60px;
+    }
+  }
+
+  /* Remove any inline white backgrounds with higher specificity */
+  [style*="background: white"] {
+    background: transparent !important;
+  }
+
+  [style*="background-color: white"] {
+    background-color: transparent !important;
+  }
+
+  [style*="background: #fff"] {
+    background: transparent !important;
+  }
+
+  [style*="background-color: #fff"] {
+    background-color: transparent !important;
+  }
+
+  [style*="background: #ffffff"] {
+    background: transparent !important;
+  }
+
+  [style*="background-color: #ffffff"] {
+    background-color: transparent !important;
   }
 }

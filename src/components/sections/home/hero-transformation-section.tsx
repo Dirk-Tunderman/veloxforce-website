@@ -11,8 +11,8 @@ import { motion } from "framer-motion"
 
 export function HeroTransformationSection() {
   return (
-    <Section padding="xl" background="white-to-light" className="hero-section-ultra-premium hero-section-final relative overflow-hidden section-transition-ultra">
-      <Container className="relative max-w-7xl z-10">
+    <Section padding="xl" background="white-to-light" className="hero-section-ultra-premium hero-section-final hero-section-smooth relative overflow-hidden section-transition-ultra">
+      <Container className="relative max-w-7xl z-10 hero-content-wrapper">
         <div className="text-center">
           {/* Main Headline */}
           <motion.div
@@ -57,11 +57,12 @@ export function HeroTransformationSection() {
 
         {/* Team Transformation Visual - Enhanced */}
         <motion.div 
-          className="mb-20 transformation-section-enhanced"
+          className="mb-20 transformation-section-enhanced transformation-section-fixed"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true, margin: "-100px" }}
+          style={{ background: 'transparent' }}
         >
           <Heading level="3" className="text-center text-2xl md:text-3xl font-bold mb-12 text-gray-900 relative z-10">
             From Operational Overwhelm to Strategic Leadership
