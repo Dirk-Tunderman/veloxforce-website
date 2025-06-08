@@ -1098,6 +1098,135 @@ main,
   animation: gradient-shift 8s ease-in-out infinite;
 }
 
+/* ===== DECISION MAKING RELIEF SPECIFIC STYLES ===== */
+/* Brain network visualization */
+.brain-network-container {
+  position: relative;
+  overflow: visible;
+}
+
+/* Decision complexity reduction animations */
+.complexity-reducer {
+  position: relative;
+}
+
+.complexity-reducer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(239, 68, 68, 0.1) 0%,
+    rgba(245, 158, 11, 0.1) 50%,
+    rgba(37, 99, 235, 0.1) 100%
+  );
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.complexity-reducer:hover::before {
+  opacity: 1;
+}
+
+/* Decision flow animation */
+@keyframes decision-flow {
+  0% {
+    transform: translateX(-100%) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%) scale(1);
+  }
+  100% {
+    transform: translateX(100%) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.decision-flow-particle {
+  animation: decision-flow 3s ease-in-out infinite;
+}
+
+/* Brain node pulse animation */
+@keyframes brain-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+}
+
+.brain-node {
+  animation: brain-pulse 2s infinite;
+}
+
+/* Decision category cards enhanced */
+.decision-card-premium {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.decision-card-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transition: left 0.6s;
+}
+
+.decision-card-premium:hover::before {
+  left: 100%;
+}
+
+/* Stress relief indicators */
+.stress-relief-meter {
+  background: linear-gradient(
+    90deg,
+    #EF4444 0%,
+    #F59E0B 30%,
+    #10B981 70%,
+    #059669 100%
+  );
+  height: 4px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stress-relief-meter::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 70%;
+  background: rgba(16, 185, 129, 0.8);
+  border-radius: 2px;
+  animation: relief-progress 2s ease-out;
+}
+
+@keyframes relief-progress {
+  0% { width: 0%; }
+  100% { width: 70%; }
+}
+
 /* ===== MISSING CSS CLASSES - HERO SECTION ===== */
 /* Value Proposition Cards */
 .value-prop-card-final {
