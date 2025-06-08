@@ -14,7 +14,7 @@ export function ServiceDifferentiationSection() {
         {/* Section Title */}
         <div className="text-center mb-16">
           <Heading level="2" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            This Isn't Automation. It Isn't Consulting. <span className="gradient-text-blue">It's Something New</span>.
+            This Isn't Automation. It Isn't Consulting. <span className="text-gradient">It's Something New</span>.
           </Heading>
           <Text className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
             <span className="font-bold">AI made custom software affordable.</span> We made it accessible by <span className="font-bold">running it for you</span>. 
@@ -133,7 +133,7 @@ export function ServiceDifferentiationSection() {
                 <div className="text-center">
                   <Link 
                     href="/our-approach"
-                    className="velox-btn-ultra-premium inline-flex items-center gap-2 px-6 py-3 rounded-lg text-base"
+                    className="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-lg text-base"
                   >
                     <span className="relative z-10">See How This Works</span>
                     <ArrowRight className="h-4 w-4" />

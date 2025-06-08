@@ -24,7 +24,7 @@ export function HeroSectionV2() {
               className="velox-text-h1 text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
             >
               Stop Managing Tools.{" "}
-              <span className="gradient-text-blue">
+              <span className="text-gradient">
                 Start Delegating Work.
               </span>
             </Heading>
@@ -57,15 +57,15 @@ export function HeroSectionV2() {
           {/* Stats Bar - Centered */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-4xl font-bold gradient-text-blue mb-2">€2,400</div>
+              <div className="text-4xl font-bold text-gradient mb-2">€2,400</div>
               <Text className="text-sm text-gray-600 font-medium">Average Monthly Savings</Text>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold gradient-text-blue mb-2">70%</div>
+              <div className="text-4xl font-bold text-gradient mb-2">70%</div>
               <Text className="text-sm text-gray-600 font-medium">Less Than Traditional Staff</Text>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold gradient-text-blue mb-2">Zero</div>
+              <div className="text-4xl font-bold text-gradient mb-2">Zero</div>
               <Text className="text-sm text-gray-600 font-medium">Technology for You to Manage</Text>
             </div>
           </div>

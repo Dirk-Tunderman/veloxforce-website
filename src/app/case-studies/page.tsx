@@ -26,7 +26,7 @@ export default function CaseStudiesPage() {
             <div className="space-y-6">
               <Heading level="1" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Real Businesses,{" "}
-                <span className="gradient-text-blue">
+                <span className="text-gradient">
                   Real Results
                 </span>
               </Heading>

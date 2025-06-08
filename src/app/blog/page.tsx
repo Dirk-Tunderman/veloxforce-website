@@ -26,7 +26,7 @@ export default function BlogPage() {
             <div className="space-y-6">
               <Heading level="1" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Insights on{" "}
-                <span className="gradient-text-blue">
+                <span className="text-gradient">
                   Business Transformation
                 </span>
               </Heading>

@@ -25,7 +25,7 @@ export function HeroSectionV2() {
                 Hate Doing
               </span>{" "}
               Can Become a Process You{" "}
-              <span className="gradient-text-blue font-bold">
+              <span className="text-gradient font-bold">
                 Love Delegating
               </span>
             </Heading>

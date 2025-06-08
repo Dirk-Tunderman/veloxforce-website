@@ -13,7 +13,7 @@ export function IdentityTransformationSection() {
             <div className="mb-16">
               <Heading level="2" className="velox-text-h2 mb-6">
                 <span className="text-gray-900">Sarah's</span>{" "}
-                <span className="gradient-text-blue font-bold">Real Tuesday</span>
+                <span className="text-gradient font-bold">Real Tuesday</span>
               </Heading>
               <Text className="velox-text-body text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
                 See what changes when you stop <span className="font-semibold text-gray-900">managing operations</span> and start{" "}

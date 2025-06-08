@@ -247,7 +247,7 @@ export function ClientTransformationsSection() {
               return (
                 <div
                   key={case_.id}
-                  className={`${getCardStyling(case_.cardStyle)} p-6 rounded-xl velox-hover-lift min-h-[600px] flex flex-col ${
+                  className={`${getCardStyling(case_.cardStyle)} p-6 rounded-xl hover-lift min-h-[600px] flex flex-col ${
                     isInView
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"
@@ -299,7 +299,7 @@ export function ClientTransformationsSection() {
                       {case_.results.map((result, resultIndex) => {
                         const ResultIcon = result.icon
                         return (
-                          <div key={resultIndex} className="velox-card-traditional p-5 text-center velox-hover-lift group">
+                          <div key={resultIndex} className="velox-card-traditional p-5 text-center hover-lift group">
                             <div className="flex justify-center mb-3">
                               <div className="velox-icon-container-advantage">
                                 <ResultIcon className="velox-icon-standard text-white" />

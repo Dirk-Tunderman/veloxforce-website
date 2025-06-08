@@ -71,7 +71,7 @@ export function HeroTransformationSection() {
           <div className="relative grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Before */}
             <motion.div 
-              className="challenge-card relative"
+              className="card-challenge relative"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -83,7 +83,7 @@ export function HeroTransformationSection() {
               <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Your Team Today</Heading>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="icon-container-glass-final">
+                  <div className="icon-glass">
                     <Clock className="h-5 w-5 text-gray-700" />
                   </div>
                   <div>
@@ -110,7 +110,7 @@ export function HeroTransformationSection() {
 
             {/* After */}
             <motion.div 
-              className="solution-card relative"
+              className="card-solution relative"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -122,7 +122,7 @@ export function HeroTransformationSection() {
               <Heading level="4" className="text-xl font-bold text-gray-900 mb-4">Your Team Tomorrow</Heading>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="icon-container-gradient-final">
+                  <div className="icon-gradient">
                     <Target className="h-5 w-5 text-blue-600" />
                   </div>
                   <div>
@@ -170,7 +170,7 @@ export function HeroTransformationSection() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/tools/business-audit">
-            <button className="velox-btn-primary text-lg font-semibold px-8 py-4 h-auto rounded-xl">
+            <button className="btn-primary text-lg font-semibold px-8 py-4 h-auto rounded-xl">
               <span className="relative z-10">Calculate My Delegation Savings</span>
               <ArrowRight className="inline-block ml-2 h-5 w-5" />
             </button>

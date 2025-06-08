@@ -113,7 +113,7 @@ export function TransformationStepsSection() {
         <div className="text-center mt-16">
           <Button
             size="lg"
-            className="velox-btn-primary"
+            className="btn-primary"
             asChild
             trackingLabel="Start My Transformation Analysis"
             trackingLocation="Transformation Steps Section"

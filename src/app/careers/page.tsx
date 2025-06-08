@@ -26,7 +26,7 @@ export default function CareersPage() {
             <div className="space-y-6">
               <Heading level="1" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Build the Future of{" "}
-                <span className="gradient-text-blue">
+                <span className="text-gradient">
                   Business Automation
                 </span>
               </Heading>

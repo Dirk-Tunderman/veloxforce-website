@@ -21,7 +21,7 @@ export function HeroSectionV2() {
               className="velox-text-h1 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             >
               Your Processes Work. What If You Could{" "}
-              <span className="gradient-text-blue">
+              <span className="text-gradient">
                 Delegate Them Completely
               </span>?
             </Heading>
