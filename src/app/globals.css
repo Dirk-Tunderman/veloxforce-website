@@ -386,6 +386,13 @@ main,
     letter-spacing: -0.014em;
   }
 
+  .velox-text-caption {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--velox-gray-500);
+    font-weight: 400;
+  }
+
   /* Premium Icon Containers */
   .icon-container {
     width: 48px;
@@ -593,6 +600,37 @@ main,
     color: white;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+  }
+
+  .cta-secondary {
+    background: white;
+    color: var(--velox-accent);
+    padding: 16px 32px;
+    border-radius: 12px;
+    border: 2px solid var(--velox-accent);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .cta-secondary:hover {
+    background: var(--velox-accent);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--velox-shadow-md);
+  }
+
+  .cta-ghost {
+    background: transparent;
+    color: var(--velox-gray-700);
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .cta-ghost:hover {
+    background: var(--velox-gray-100);
+    transform: translateY(-1px);
   }
 
   /* Simplified Background Patterns */

@@ -71,51 +71,31 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
         transition: 'transform 0.2s ease-out',
       }}
     >
-      {/* Floating Card with Premium Effects */}
-      <div className={cn(
-        "relative h-full rounded-2xl p-8",
-        "bg-white/95 backdrop-blur-xl",
-        "border border-blue-100/50",
-        "shadow-[0_20px_40px_-12px_rgba(37,99,235,0.08)]",
-        "transition-all duration-300",
-        "group-hover:shadow-[0_30px_60px_-15px_rgba(37,99,235,0.15)]",
-        "group-hover:border-blue-200/60",
-        "overflow-hidden"
-      )}>
-        {/* Gradient Accent Line */}
-        <div 
-          className="absolute top-0 left-0 right-0 h-1"
-          style={{ background: gradient }}
-        />
-        
-        {/* Background Gradient on Hover */}
-        <div 
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{
-            background: `radial-gradient(600px circle at ${mousePosition.x * 100 + 50}% ${mousePosition.y * 100 + 50}%, ${gradient.match(/rgba\([^)]+\)/g)?.[0] || 'rgba(37, 99, 235, 0.03)'}, transparent 40%)`,
-          }}
-        />
+      {/* Design System Compliant Card */}
+      <div className="card-elevated h-full overflow-hidden">
+        {/* Gradient Accent Line - Design System Colors */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-700" />
         
         {/* Content */}
         <div className="relative z-10">
-          {/* Industry Badge */}
+          {/* Industry Badge - Design System Compliant */}
           <div className="flex items-center justify-between mb-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100/50">
-              <Activity className="w-3 h-3 text-blue-600" />
-              <span className="text-xs font-semibold text-blue-700 uppercase tracking-wider">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200 shadow-sm">
+              <Activity className="w-3 h-3 icon-accent" />
+              <span className="velox-text-caption font-semibold text-blue-700 uppercase tracking-wider">
                 {industry}
               </span>
             </span>
-            <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
+            <ArrowUpRight className="w-4 h-4 icon-primary group-hover:text-blue-600 transition-colors" />
           </div>
           
           {/* Company */}
-          <p className="text-sm font-medium text-gray-500 mb-3">{company}</p>
-          
+          <p className="velox-text-caption font-medium mb-3">{company}</p>
+
           {/* Quote */}
           <blockquote className="relative mb-8">
             <div className="absolute -top-2 -left-2 text-4xl text-blue-100 font-serif">"</div>
-            <p className="text-lg font-medium text-gray-900 relative z-10 italic">
+            <p className="velox-text-body font-medium relative z-10 italic">
               {quote}
             </p>
           </blockquote>
@@ -131,16 +111,16 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
                 transition={{ duration: 0.5, delay: delay + 0.2 + idx * 0.1 }}
                 className="flex items-center gap-3"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="icon-container-gradient">
                   {React.cloneElement(metric.icon as React.ReactElement, {
-                    className: "w-5 h-5 text-blue-600"
+                    className: "w-5 h-5 icon-accent"
                   })}
                 </div>
                 <div className="flex-1">
-                  <span className="text-sm text-gray-600">{metric.label}:</span>
-                  <span className="ml-2 font-semibold text-gray-900">{metric.value}</span>
+                  <span className="velox-text-caption">{metric.label}:</span>
+                  <span className="ml-2 font-semibold velox-text-body">{metric.value}</span>
                   {metric.trend && (
-                    <span className="ml-2 text-xs font-medium text-emerald-600">
+                    <span className="ml-2 velox-text-caption font-medium text-emerald-600">
                       {metric.trend}
                     </span>
                   )}
@@ -193,7 +173,7 @@ const AnimatedNumber: React.FC<{ value: string }> = ({ value }) => {
   }, [isInView, value])
   
   return (
-    <div ref={ref} className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+    <div ref={ref} className="text-3xl font-bold text-gradient">
       {displayValue}
     </div>
   )
@@ -241,26 +221,13 @@ export function EarlyAdoptersSection() {
   
   return (
     <section className="relative py-32 overflow-hidden">
-      {/* Premium Animated Background */}
+      {/* Performance-Optimized Background */}
       <div className="absolute inset-0">
         {/* Base Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-white" />
-        
-        {/* Animated Gradient Mesh */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-200/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-300/10 rounded-full blur-3xl" />
-        </div>
-        
-        {/* Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: 'linear-gradient(#2563EB 1px, transparent 1px), linear-gradient(90deg, #2563EB 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
-          }}
-        />
+        <div className="absolute inset-0 bg-gradient-simple" />
+
+        {/* Static Mesh Pattern */}
+        <div className="absolute inset-0 bg-mesh-static opacity-30" />
       </div>
       
       <Container className="relative z-10">
@@ -272,26 +239,24 @@ export function EarlyAdoptersSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          {/* Innovation Badge */}
-          <motion.div 
+          {/* Innovation Badge - Design System Compliant */}
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100/50 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-6"
           >
-            <Zap className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-medium text-blue-700">The Innovation Window</span>
+            <Zap className="w-4 h-4 icon-accent" />
+            <span className="velox-text-caption font-medium text-blue-700">The Innovation Window</span>
           </motion.div>
-          
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent">
-              Early Adopters Are Already Winning
-            </span>
+
+          <h2 className="velox-text-h2 mb-6 text-center">
+            Early Adopters Are Already Winning
           </h2>
-          
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            The innovation window is closing. While others debate, 
+
+          <p className="velox-text-lead max-w-3xl mx-auto text-center">
+            The innovation window is closing. While others debate,
             <span className="font-semibold text-gray-900"> leaders are transforming their operations</span> with AI-powered delegation.
           </p>
           
@@ -304,8 +269,8 @@ export function EarlyAdoptersSection() {
             className="mt-12 max-w-2xl mx-auto"
           >
             <div className="relative h-24 bg-gradient-to-r from-gray-100 via-blue-100 to-blue-200 rounded-full overflow-hidden">
-              <motion.div 
-                className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"
+              <motion.div
+                className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full"
                 initial={{ width: '0%' }}
                 whileInView={{ width: '35%' }}
                 viewport={{ once: true }}
@@ -313,7 +278,7 @@ export function EarlyAdoptersSection() {
               >
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg" />
               </motion.div>
-              <div className="absolute inset-0 flex items-center justify-between px-8 text-xs font-medium">
+              <div className="absolute inset-0 flex items-center justify-between px-8 velox-text-caption font-medium">
                 <span className="text-white relative z-10">Early Adopters (You)</span>
                 <span className="text-gray-600">Early Majority</span>
                 <span className="text-gray-500">Late Majority</span>
@@ -341,27 +306,18 @@ export function EarlyAdoptersSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="relative"
         >
-          {/* Aurora Card Background */}
-          <div className={cn(
-            "relative rounded-3xl p-12",
-            "bg-gradient-to-br from-white/80 via-blue-50/40 to-indigo-50/30",
-            "border border-blue-100/50",
-            "shadow-[0_20px_60px_-15px_rgba(37,99,235,0.15)]",
-            "overflow-hidden"
-          )}>
-            {/* Animated Background Pattern */}
-            <div className="absolute inset-0 opacity-30">
-              <div className="absolute -top-20 -left-20 w-60 h-60 bg-blue-200/50 rounded-full blur-3xl" />
-              <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-indigo-200/50 rounded-full blur-3xl" />
-            </div>
+          {/* Design System Compliant Card */}
+          <div className="card-elevated p-12 overflow-hidden">
+            {/* Simplified Background Pattern */}
+            <div className="absolute inset-0 bg-mesh-static opacity-20" />
             
             {/* Content */}
             <div className="relative z-10">
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/25">
+                <div className="icon-container-gradient w-16 h-16">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900">
+                <h3 className="velox-text-h3">
                   Why We're Different: The Alignment Test
                 </h3>
               </div>
@@ -380,10 +336,10 @@ export function EarlyAdoptersSection() {
                       transition={{ duration: 0.5, delay: 0.8 + idx * 0.1 }}
                       className="flex items-start gap-4 group cursor-pointer"
                     >
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <CheckCircle className="w-5 h-5 text-emerald-600" />
+                      <div className="icon-container">
+                        <CheckCircle className="w-5 h-5 icon-success" />
                       </div>
-                      <p className="text-gray-700 group-hover:text-gray-900 transition-colors">
+                      <p className="velox-text-body group-hover:text-gray-900 transition-colors">
                         <span className="font-semibold">{text.split(' (')[0]}</span>
                         {text.includes('(') && <span className="text-gray-600"> ({text.split(' (')[1]}</span>}
                       </p>
@@ -404,10 +360,10 @@ export function EarlyAdoptersSection() {
                       transition={{ duration: 0.5, delay: 1 + idx * 0.1 }}
                       className="flex items-start gap-4 group cursor-pointer"
                     >
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <CheckCircle className="w-5 h-5 text-emerald-600" />
+                      <div className="icon-container">
+                        <CheckCircle className="w-5 h-5 icon-success" />
                       </div>
-                      <p className="text-gray-700 group-hover:text-gray-900 transition-colors">
+                      <p className="velox-text-body group-hover:text-gray-900 transition-colors">
                         <span className="font-semibold">{text}</span>
                       </p>
                     </motion.div>
@@ -415,13 +371,13 @@ export function EarlyAdoptersSection() {
                 </motion.div>
               </div>
               
-              {/* Partnership Badge */}
-              <motion.div 
+              {/* Partnership Badge - Design System Compliant */}
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 1.2 }}
-                className="mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg shadow-blue-500/25"
+                className="mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg"
               >
                 <Award className="w-5 h-5" />
                 <span className="font-semibold">True Partnership Model</span>
@@ -439,23 +395,18 @@ export function EarlyAdoptersSection() {
           className="mt-20 text-center"
         >
           <blockquote className="relative max-w-4xl mx-auto">
-            {/* Glassmorphic Container */}
-            <div className={cn(
-              "relative rounded-2xl p-10",
-              "bg-gradient-to-br from-white/70 to-blue-50/50",
-                "border border-blue-100/50",
-              "shadow-[0_20px_40px_-12px_rgba(37,99,235,0.1)]"
-            )}>
+            {/* Design System Compliant Container */}
+            <div className="card-elevated p-10">
               {/* Floating Quote Marks */}
               <div className="absolute -top-4 -left-4 text-6xl text-blue-200 font-serif">"</div>
               <div className="absolute -bottom-4 -right-4 text-6xl text-blue-200 font-serif rotate-180">"</div>
-              
-              <p className="text-2xl font-medium text-gray-800 italic relative z-10">
-                By 2025, AI-powered automation will handle 50% of repetitive tasks. 
+
+              <p className="velox-text-lead font-medium italic relative z-10 text-center">
+                By 2025, AI-powered automation will handle 50% of repetitive tasks.
                 The winners will be companies that implement without complexity.
               </p>
-              
-              <cite className="block mt-6 text-lg font-semibold text-gray-600">
+
+              <cite className="block mt-6 velox-text-body font-semibold text-gray-600 text-center">
                 — Forrester Research
               </cite>
             </div>
