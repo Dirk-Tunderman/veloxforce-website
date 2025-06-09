@@ -2,206 +2,385 @@
 
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
-import { Check, X, ArrowRight, Zap, Users, Cog } from "lucide-react"
+import { Check, X, ArrowRight, Zap, Users, Cog, TrendingUp, Shield } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef, useState, useEffect } from "react"
+
+// Animated Counter Component
+function AnimatedCounter({ end, duration = 2000 }: { end: number; duration?: number }) {
+  const [count, setCount] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+  const counterRef = useRef<HTMLSpanElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [isVisible])
+
+  useEffect(() => {
+    if (!isVisible) return
+
+    let startTime: number
+    let animationFrame: number
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp
+      const progress = Math.min((timestamp - startTime) / duration, 1)
+      
+      setCount(Math.floor(progress * end))
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate)
+      }
+    }
+
+    animationFrame = requestAnimationFrame(animate)
+
+    return () => cancelAnimationFrame(animationFrame)
+  }, [end, duration, isVisible])
+
+  return <span ref={counterRef}>{count}</span>
+}
 
 export function ServiceDifferentiationSection() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  })
+  
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
+  const particleOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.2, 0.5, 0.2])
+  
   return (
-    <Section 
-      padding="xl" 
-      background="transparent" 
-      className="relative overflow-hidden"
-    >
-      <Container className="max-w-7xl relative z-10" style={{ overflow: 'visible' }}>
-        {/* Premium Section Title */}
+    <div ref={sectionRef}>
+      <Section padding="xl" background="transparent" className="relative overflow-hidden">
+        {/* Premium Background Effects */}
         <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <h2 className="velox-text-h1-premium mb-6" data-text="This Isn't Automation. It Isn't Consulting. It's Something New.">
-            This Isn't Automation. It Isn't Consulting. <span className="text-gradient">It's Something New</span>.
-          </h2>
-          <p className="velox-text-lead max-w-3xl mx-auto">
-            <span className="font-bold">AI made custom software affordable.</span> We made it accessible by <span className="font-bold">running it for you</span>. 
-            <span className="font-semibold" style={{ color: 'var(--velox-gray-900)' }}> That's the <span className="font-bold">Service-as-Software revolution</span>.</span>
-          </p>
-        </motion.div>
-
-        {/* Premium Three-Column Comparison */}
-        <div className="grid lg:grid-cols-7 gap-8 mb-16 pt-8">
-          {/* Automation Agencies */}
+          className="absolute inset-0 bg-gradient-mesh"
+          style={{ y: backgroundY }}
+        />
+        <motion.div 
+          className="absolute inset-0 bg-particles"
+          style={{ opacity: particleOpacity }}
+        />
+        <div className="absolute inset-0 noise-overlay" />
+        
+        <Container className="relative z-10 max-w-6xl">
+          {/* Premium Section Header */}
           <motion.div 
-            className="lg:col-span-2"
-            initial={{ opacity: 0, y: 30 }}
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <div className="card-challenge h-full relative flex flex-col">
-              <div className="absolute -top-2 left-6 px-3 py-1 rounded-full text-sm font-medium text-white z-10" style={{ backgroundColor: 'var(--velox-gray-600)' }}>
-                Automation Agencies
-              </div>
-
-              <div className="pt-6 flex-1 flex flex-col">
-                <div className="icon-container-glass mx-auto mb-4">
-                  <Cog className="h-5 w-5 icon-primary" />
-                </div>
-                <h3 className="velox-text-h3 text-center mb-4">Give you tools to manage</h3>
-
-                <div className="space-y-3 mb-6 flex-1">
-                  <div className="flex items-start gap-2">
-                    <X className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--velox-gray-500)' }} />
-                    <span className="text-sm" style={{ color: 'var(--velox-gray-700)' }}>You handle when it breaks</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <X className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--velox-gray-500)' }} />
-                    <span className="text-sm" style={{ color: 'var(--velox-gray-700)' }}>You operate the complexity</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <X className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--velox-gray-500)' }} />
-                    <span className="text-sm" style={{ color: 'var(--velox-gray-700)' }}>Tool-Focused</span>
-                  </div>
-                </div>
-
-                <div className="text-center">
-                  <p className="font-medium" style={{ color: 'var(--velox-gray-600)' }}>Tool Management</p>
-                  <p className="text-xs" style={{ color: 'var(--velox-gray-500)' }}>You manage the complexity</p>
-                </div>
-              </div>
-            </div>
+            <motion.h2 
+              className="velox-text-h1-premium mb-8"
+              data-text="This Isn't Automation. It Isn't Consulting. It's Something New."
+              initial={{ scale: 0.9 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+            >
+              This Isn't Automation. It Isn't Consulting. <span className="text-gradient">It's Something New</span>.
+            </motion.h2>
+            <motion.p 
+              className="velox-text-lead max-w-4xl mx-auto text-blue-800"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
+              <span className="font-bold">AI made custom software affordable.</span> We made it accessible by <span className="font-bold">running it for you</span>. 
+              <span className="font-semibold"> That's the Service-as-Software revolution.</span>
+            </motion.p>
           </motion.div>
 
-          {/* Service Businesses */}
-          <motion.div 
-            className="lg:col-span-2"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <div className="card-challenge h-full relative flex flex-col">
-              <div className="absolute -top-2 left-6 px-3 py-1 rounded-full text-sm font-medium text-white z-10" style={{ backgroundColor: 'var(--velox-gray-600)' }}>
-                Service Businesses
-              </div>
-
-              <div className="pt-6 flex-1 flex flex-col">
-                <div className="icon-container-glass mx-auto mb-4">
-                  <Users className="h-5 w-5 icon-primary" />
+          {/* Enhanced Three-Column Comparison with Premium Effects */}
+          <div className="grid lg:grid-cols-12 gap-8 items-center mb-20">
+            {/* Traditional Approach + Human Services (Old Ways) - Subdued */}
+            <div className="lg:col-span-5 space-y-6">
+              <motion.div 
+                className="card-challenge magnetic-hover relative group"
+                initial={{ opacity: 0, x: -60, rotateY: -10 }}
+                whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl" />
                 </div>
-                <h3 className="velox-text-h3 text-center mb-4">People you pay hourly</h3>
-
-                <div className="space-y-3 mb-6 flex-1">
-                  <div className="flex items-start gap-2">
-                    <X className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--velox-gray-500)' }} />
-                    <span className="text-sm" style={{ color: 'var(--velox-gray-700)' }}>Limited by human capacity</span>
+                <div className="relative z-10">
+                  <div className="icon-container-glass mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                    <Cog className="w-6 h-6 icon-primary" />
                   </div>
-                  <div className="flex items-start gap-2">
-                    <X className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--velox-gray-500)' }} />
-                    <span className="text-sm" style={{ color: 'var(--velox-gray-700)' }}>Quality varies by person</span>
+                  <h3 className="velox-text-h3 text-center mb-4 text-gray-700">Traditional Approach</h3>
+                  <div className="space-y-3 velox-text-body text-center text-gray-600">
+                    <motion.p whileHover={{ x: 2 }} transition={{ type: "spring" }}>• You buy tools</motion.p>
+                    <motion.p whileHover={{ x: 2 }} transition={{ type: "spring" }}>• You operate them</motion.p>
+                    <motion.p whileHover={{ x: 2 }} transition={{ type: "spring" }}>• You handle complexity</motion.p>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <X className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--velox-gray-500)' }} />
-                    <span className="text-sm" style={{ color: 'var(--velox-gray-700)' }}>People-Focused</span>
+                  <div className="mt-4 text-center">
+                    <span className="text-sm text-gray-500">Average efficiency: 20-30%</span>
                   </div>
                 </div>
-
-                <div className="text-center">
-                  <p className="font-medium" style={{ color: 'var(--velox-gray-600)' }}>Human Scaling</p>
-                  <p className="text-xs" style={{ color: 'var(--velox-gray-500)' }}>Double volume = Double costs</p>
+              </motion.div>
+              
+              <motion.div 
+                className="card-challenge magnetic-hover relative group"
+                initial={{ opacity: 0, x: -60, rotateY: -10 }}
+                whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-2xl" />
                 </div>
-              </div>
+                <div className="relative z-10">
+                  <div className="icon-container-glass mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                    <Users className="w-6 h-6 icon-primary" />
+                  </div>
+                  <h3 className="velox-text-h3 text-center mb-4 text-gray-700">Human Services</h3>
+                  <div className="space-y-3 velox-text-body text-center text-gray-600">
+                    <motion.p whileHover={{ x: 2 }} transition={{ type: "spring" }}>• You hire people/consultants</motion.p>
+                    <motion.p whileHover={{ x: 2 }} transition={{ type: "spring" }}>• Limited by human capacity</motion.p>
+                    <motion.p whileHover={{ x: 2 }} transition={{ type: "spring" }}>• Quality varies by person</motion.p>
+                  </div>
+                  <div className="mt-4 text-center">
+                    <span className="text-sm text-gray-500">Average efficiency: 30-40%</span>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
 
-          {/* Service-as-Software Premium Card */}
-          <motion.div 
-            className="lg:col-span-3"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <div className="card-aurora card-floating h-full relative flex flex-col">
-              {/* RECOMMENDED Badge */}
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 px-6 py-2 rounded-full text-xs font-bold letter-spacing-wide text-white z-20" style={{ background: 'var(--velox-gradient-primary)', boxShadow: 'var(--velox-shadow-blue-md)' }}>
-                RECOMMENDED
+            {/* Enhanced Transformation Arrow with Particle Flow */}
+            <motion.div 
+              className="lg:col-span-2 flex justify-center relative"
+              initial={{ opacity: 0, scale: 0.3 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.3, type: "spring" }}
+            >
+              {/* Particle Flow Effect */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="particle-flow-container">
+                  <motion.div 
+                    className="particle-flow"
+                    animate={{ 
+                      x: ["-100%", "100%"],
+                      opacity: [0, 1, 1, 0]
+                    }}
+                    transition={{ 
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  />
+                </div>
               </div>
               
-              <div className="pt-8 flex-1 flex flex-col">
-                <div className="icon-container-gradient mx-auto mb-6">
-                  <Zap className="h-6 w-6 text-white" />
+              {/* Premium Transformation Arrow */}
+              <motion.div 
+                className="transformation-arrow-premium relative z-10"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <ArrowRight className="h-8 w-8 text-white" />
+                {/* Pulse Rings */}
+                <div className="absolute inset-0 rounded-full">
+                  <div className="pulse-ring pulse-ring-1" />
+                  <div className="pulse-ring pulse-ring-2" />
+                  <div className="pulse-ring pulse-ring-3" />
                 </div>
-                <h3 className="velox-text-h2 text-center mb-6" style={{ color: 'var(--velox-blue-900)' }}>
-                  Outcomes You Receive
-                </h3>
-                
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--velox-accent)' }} />
-                    <span className="font-medium" style={{ color: 'var(--velox-gray-800)' }}>Outcomes you receive</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--velox-accent)' }} />
-                    <span className="font-medium" style={{ color: 'var(--velox-gray-800)' }}>We handle all complexity</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--velox-accent)' }} />
-                    <span className="font-medium" style={{ color: 'var(--velox-gray-800)' }}>Guaranteed results delivered</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--velox-accent)' }} />
-                    <span className="font-medium" style={{ color: 'var(--velox-gray-800)' }}>Outcome-Focused</span>
-                  </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Service-as-Software (New Way) - Premium Elevated */}
+            <motion.div 
+              className="lg:col-span-5"
+              initial={{ opacity: 0, x: 60, rotateY: 10 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
+              <motion.div 
+                className="card-solution card-aurora card-floating relative group"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 32px 64px -16px rgba(37, 99, 235, 0.35)"
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                {/* Animated gradient background */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 bg-gradient-aurora rounded-2xl animate-gradient-shift" />
                 </div>
                 
-                <div className="glass-light rounded-xl p-4 text-center mb-6">
-                  <p className="font-bold text-lg" style={{ color: 'var(--velox-blue-900)' }}>Exponential Efficiency</p>
-                  <p className="text-sm" style={{ color: 'var(--velox-gray-600)' }}>Double volume = Same cost</p>
+                <div className="relative z-10">
+                  <div className="icon-container-gradient mb-6 mx-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <Check className="w-8 h-8 icon-accent" />
+                  </div>
+                  <h3 className="velox-text-h3 text-blue-800 text-center mb-4 font-bold">
+                    Service-as-Software
+                  </h3>
+                  <div className="space-y-3 velox-text-body text-blue-800 text-center font-medium">
+                    <motion.p 
+                      className="flex items-center justify-center gap-2"
+                      whileHover={{ x: 4 }} 
+                      transition={{ type: "spring" }}
+                    >
+                      <Zap className="w-4 h-4 text-blue-600" />
+                      You delegate process
+                    </motion.p>
+                    <motion.p 
+                      className="flex items-center justify-center gap-2"
+                      whileHover={{ x: 4 }} 
+                      transition={{ type: "spring" }}
+                    >
+                      <Shield className="w-4 h-4 text-blue-600" />
+                      We deliver guaranteed results
+                    </motion.p>
+                    <motion.p 
+                      className="flex items-center justify-center gap-2"
+                      whileHover={{ x: 4 }} 
+                      transition={{ type: "spring" }}
+                    >
+                      <TrendingUp className="w-4 h-4 text-blue-600" />
+                      We handle complexity for you
+                    </motion.p>
+                  </div>
+                  <div className="mt-6 text-center">
+                    <motion.div 
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      <span className="text-sm font-semibold text-blue-800">
+                        Efficiency: <AnimatedCounter end={95} />%
+                      </span>
+                    </motion.div>
+                  </div>
                 </div>
-                
-                <div className="text-center">
-                  <Link 
-                    href="/our-approach"
-                    className="cta-magnetic inline-flex items-center gap-2 text-base"
-                  >
-                    <span className="relative z-10">See How This Works</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Industry Validation Badges */}
+          <motion.div 
+            className="mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <div className="flex flex-wrap justify-center items-center gap-8">
+              <div className="validation-badge">
+                <span className="text-sm text-gray-600">Validated by</span>
+                <div className="flex items-center gap-4 mt-2">
+                  <div className="px-4 py-2 bg-white/80 backdrop-blur rounded-lg border border-gray-200">
+                    <span className="font-semibold text-gray-700">MIT Technology Review</span>
+                  </div>
+                  <div className="px-4 py-2 bg-white/80 backdrop-blur rounded-lg border border-gray-200">
+                    <span className="font-semibold text-gray-700">Harvard Business Review</span>
+                  </div>
                 </div>
               </div>
             </div>
           </motion.div>
-        </div>
 
-        {/* Premium Key Insight */}
-        <motion.div 
-          className="card-elevated text-center relative overflow-hidden"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <div className="absolute inset-0" style={{ background: 'var(--velox-gradient-aurora)' }}></div>
-          <div className="relative z-10">
-            <h3 
-              className="velox-text-h1-premium mb-4" 
-              data-text="The Revolution: We Don't Sell You Tools to Manage"
-            >
-              The Revolution: We Don't Sell You Tools to Manage
-            </h3>
-            <p className="velox-text-lead mb-2 font-semibold" style={{ color: 'var(--velox-gray-900)' }}>
-              We deliver a department that runs itself.
-            </p>
-            <p className="velox-text-body text-center" style={{ color: 'var(--velox-gray-600)' }}>
-              AI made custom software affordable. We made it accessible by running it forever. That's the Service-as-Software revolution.
-            </p>
-          </div>
-        </motion.div>
-      </Container>
-    </Section>
+          {/* Key Message with Premium Glass Design */}
+          <motion.div 
+            className="card-glass-blue text-center relative overflow-hidden"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            {/* Animated background gradient */}
+            <div className="absolute inset-0 bg-gradient-premium opacity-10 animate-gradient-shift" />
+            
+            <div className="relative z-10">
+              <motion.h3 
+                className="velox-text-h2 text-blue-900 mb-4"
+                initial={{ scale: 0.95 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+              >
+                You own the strategy. We own the execution.
+              </motion.h3>
+              <p className="velox-text-lead text-blue-800 mb-8">
+                The perfect partnership for business growth
+              </p>
+              
+              {/* ROI Preview Mini Widget */}
+              <div className="grid md:grid-cols-3 gap-6 mb-8 max-w-2xl mx-auto">
+                <motion.div 
+                  className="text-center"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring" }}
+                >
+                  <div className="text-3xl font-bold text-blue-600 mb-1">
+                    <AnimatedCounter end={10} />x
+                  </div>
+                  <p className="text-sm text-gray-600">Faster Development</p>
+                </motion.div>
+                <motion.div 
+                  className="text-center"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring" }}
+                >
+                  <div className="text-3xl font-bold text-blue-600 mb-1">
+                    <AnimatedCounter end={90} />%
+                  </div>
+                  <p className="text-sm text-gray-600">Cost Reduction</p>
+                </motion.div>
+                <motion.div 
+                  className="text-center"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring" }}
+                >
+                  <div className="text-3xl font-bold text-blue-600 mb-1">
+                    <AnimatedCounter end={24} />/7
+                  </div>
+                  <p className="text-sm text-gray-600">Operations</p>
+                </motion.div>
+              </div>
+              
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Link 
+                  href="/our-approach"
+                  className="cta-magnetic inline-flex items-center gap-2 group"
+                >
+                  <span>See How This Works</span>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+    </div>
   )
 }

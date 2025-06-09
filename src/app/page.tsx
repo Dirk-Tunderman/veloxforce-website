@@ -7,16 +7,16 @@ import { Metadata } from "next"
 import { MainLayout } from "@/components/layout/main-layout"
 import { HeroTransformationSection } from "@/components/sections/home/hero-transformation-section"
 import { ServiceDifferentiationSection } from "@/components/sections/home/service-differentiation-section"
-import { ServiceAsSoftwareRevolution } from "@/components/sections/home/service-as-software-revolution"
 import { MultiplicationEffectSection } from "@/components/sections/home/multiplication-effect-section"
 import { PartnershipModel } from "@/components/sections/home/partnership-model"
 import { DecisionMakingRelief } from "@/components/sections/home/decision-making-relief"
 import { StrategicElevation } from "@/components/sections/home/strategic-elevation"
 import { ServicePromise } from "@/components/sections/home/service-promise"
 import { ServiceGuarantee } from "@/components/sections/home/service-guarantee"
+import { FreedTimeSection } from "@/components/sections/home/freed-time-section"
 import { ServiceAsSoftwareEducation } from "@/components/sections/home/service-as-software-education"
 import { ProblemSolutionSection } from "@/components/sections/home/problem-solution-section"
-import { ProofSection } from "@/components/sections/home/proof-section"
+import { EarlyAdoptersSection } from "@/components/sections/home/early-adopters-section"
 import { ROICalculatorSection } from "@/components/sections/home/roi-calculator-section"
 import { PathSelectionSection } from "@/components/sections/home/path-selection-section"
 import { constructMetadata } from "@/components/seo"
@@ -36,34 +36,34 @@ export default function HomePage() {
       {/* Section 2: Clear Differentiation - What Makes This Different */}
       <ServiceDifferentiationSection />
 
-      {/* Section 3: Service-as-Software Revolution */}
-      <ServiceAsSoftwareRevolution />
+      {/* Section 3: The Multiplication Effect */}
+      {/* <MultiplicationEffectSection /> */}
 
-      {/* Section 4: The Multiplication Effect */}
-      <MultiplicationEffectSection />
-
-      {/* Section 5: Partnership Model */}
+      {/* Section 4: Partnership Model */}
       <PartnershipModel />
 
       {/* Section 5: Decision-Making Relief */}
       <DecisionMakingRelief />
 
       {/* Section 6: Strategic Elevation */}
-      <StrategicElevation />
+      {/* <StrategicElevation /> */}
 
-      {/* Section 7: Service Promise */}
-      <ServicePromise />
+      {/* Section 7: What Our Clients Do With Their Freed Time */}
+      <FreedTimeSection />
 
-      {/* Section 8: Industry Proof & Evidence */}
-      <ProofSection />
+      {/* Section 8: Service Promise */}
+      {/* <ServicePromise /> */}
 
-      {/* Section 9: Your Economics & ROI */}
+      {/* Section 9: Early Adopters Are Already Winning */}
+      <EarlyAdoptersSection />
+
+      {/* Section 10: Your Economics & ROI */}
       <ROICalculatorSection />
 
-      {/* Section 10: Service Guarantee */}
-      <ServiceGuarantee />
+      {/* Section 11: Service Guarantee */}
+      {/* <ServiceGuarantee /> */}
 
-      {/* Section 11: Clear Next Step */}
+      {/* Section 12: Clear Next Step */}
       <PathSelectionSection />
     </MainLayout>
   )

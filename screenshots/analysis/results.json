@@ -1,0 +1,160 @@
+{
+  "timestamp": "2025-06-09T05:56:33.817Z",
+  "url": "http://localhost:3001/solutions",
+  "viewports": {
+    "desktop": {
+      "hasHorizontalScroll": false,
+      "aboveFoldContent": {
+        "hasHeroSection": false,
+        "hasClearHeading": true,
+        "hasCallToAction": true
+      },
+      "screenshot": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/analysis/solutions-desktop.png"
+    },
+    "tablet": {
+      "hasHorizontalScroll": false,
+      "aboveFoldContent": {
+        "hasHeroSection": false,
+        "hasClearHeading": true,
+        "hasCallToAction": true
+      },
+      "screenshot": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/analysis/solutions-tablet.png"
+    },
+    "mobile": {
+      "hasHorizontalScroll": true,
+      "aboveFoldContent": {
+        "hasHeroSection": false,
+        "hasClearHeading": true,
+        "hasCallToAction": true
+      },
+      "screenshot": "/Users/dirktunderman/Desktop/veloxforce-website/screenshots/analysis/solutions-mobile.png"
+    }
+  },
+  "performance": {
+    "domContentLoaded": "NaNms",
+    "layoutDuration": "0ms",
+    "scriptDuration": "0ms",
+    "documents": 3,
+    "nodes": 2661
+  },
+  "content": {
+    "headings": {
+      "h1": {
+        "count": 1,
+        "texts": [
+          "Every Process You Hate Doing Can Become a Process You Love Delegating"
+        ]
+      },
+      "h2": {
+        "count": 5,
+        "texts": [
+          "First: Ensuring Mutual Success",
+          "Which Time-Drain Is Killing Your Growth?",
+          "Your Process Matters. Your Industry Doesn't."
+        ]
+      },
+      "h3": {
+        "count": 17,
+        "texts": [
+          "Meaningful time investment (5+ hours weekly)",
+          "Consistent patterns (even with complex rules)",
+          "Quality matters (errors create real impact)"
+        ]
+      },
+      "h4": {
+        "count": 5,
+        "texts": [
+          "1. Can you train someone to do this process?",
+          "2. Does this happen at least weekly?",
+          "3. Does it follow consistent steps or rules?"
+        ]
+      },
+      "h5": {
+        "count": 0,
+        "texts": []
+      },
+      "h6": {
+        "count": 0,
+        "texts": []
+      }
+    },
+    "images": [
+      {
+        "src": "http://localhost:3001/veloxforce-logo-gradient.svg",
+        "alt": "Veloxforce",
+        "hasAlt": true,
+        "loading": "auto",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "http://localhost:3001/veloxforce-logo-gradient.svg",
+        "alt": "Veloxforce",
+        "hasAlt": true,
+        "loading": "auto",
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "buttons": [
+      {
+        "text": "",
+        "href": null,
+        "classes": "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive active:scale-[0.97] touch-manipulation hover:text-accent-foreground dark:hover:bg-accent/50 size-10 h-10 w-10 hover:bg-gray-100 transition-colors duration-200 relative z-20"
+      },
+      {
+        "text": "Yes",
+        "href": null,
+        "classes": "\n                          flex items-center gap-3 px-8 py-4 rounded-xl border-2 transition-all duration-300 font-semibold\n                          card-challenge text-gray-700 border-gray-200 hover:border-blue-300 hover:elevation-1\n                        "
+      },
+      {
+        "text": "No",
+        "href": null,
+        "classes": "\n                          flex items-center gap-3 px-8 py-4 rounded-xl border-2 transition-all duration-300 font-semibold\n                          card-challenge text-gray-700 border-gray-200 hover:border-red-300 hover:elevation-1\n                        "
+      },
+      {
+        "text": "Yes",
+        "href": null,
+        "classes": "\n                          flex items-center gap-3 px-8 py-4 rounded-xl border-2 transition-all duration-300 font-semibold\n                          card-challenge text-gray-700 border-gray-200 hover:border-blue-300 hover:elevation-1\n                        "
+      },
+      {
+        "text": "No",
+        "href": null,
+        "classes": "\n                          flex items-center gap-3 px-8 py-4 rounded-xl border-2 transition-all duration-300 font-semibold\n                          card-challenge text-gray-700 border-gray-200 hover:border-red-300 hover:elevation-1\n                        "
+      },
+      {
+        "text": "Yes",
+        "href": null,
+        "classes": "\n                          flex items-center gap-3 px-8 py-4 rounded-xl border-2 transition-all duration-300 font-semibold\n                          card-challenge text-gray-700 border-gray-200 hover:border-blue-300 hover:elevation-1\n                        "
+      },
+      {
+        "text": "No",
+        "href": null,
+        "classes": "\n                          flex items-center gap-3 px-8 py-4 rounded-xl border-2 transition-all duration-300 font-semibold\n                          card-challenge text-gray-700 border-gray-200 hover:border-red-300 hover:elevation-1\n                        "
+      },
+      {
+        "text": "Yes",
+        "href": null,
+        "classes": "\n                          flex items-center gap-3 px-8 py-4 rounded-xl border-2 transition-all duration-300 font-semibold\n                          card-challenge text-gray-700 border-gray-200 hover:border-blue-300 hover:elevation-1\n                        "
+      },
+      {
+        "text": "No",
+        "href": null,
+        "classes": "\n                          flex items-center gap-3 px-8 py-4 rounded-xl border-2 transition-all duration-300 font-semibold\n                          card-challenge text-gray-700 border-gray-200 hover:border-red-300 hover:elevation-1\n                        "
+      },
+      {
+        "text": "Yes",
+        "href": null,
+        "classes": "\n                          flex items-center gap-3 px-8 py-4 rounded-xl border-2 transition-all duration-300 font-semibold\n                          card-challenge text-gray-700 border-gray-200 hover:border-blue-300 hover:elevation-1\n                        "
+      }
+    ],
+    "links": [],
+    "text": {
+      "totalLength": 37388,
+      "wordCount": 1449
+    }
+  },
+  "issues": [
+    "Horizontal scroll detected on mobile"
+  ]
+}

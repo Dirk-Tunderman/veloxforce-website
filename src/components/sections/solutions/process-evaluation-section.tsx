@@ -2,36 +2,48 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, X, HelpCircle, Target } from "lucide-react"
+import { CheckCircle, X, HelpCircle, Target, Clock, Zap, Shield } from "lucide-react"
 
 const questions = [
   {
     id: "explainable",
-    question: "Can you explain it to a new employee?",
-    description: "If yes, we can build a digital workforce for it.",
-    icon: HelpCircle
+    question: "Can you train someone to do this process?",
+    description: "If you can explain it step-by-step, we can automate it perfectly.",
+    icon: HelpCircle,
+    color: "blue"
   },
   {
     id: "regular",
-    question: "Does it happen regularly?",
-    description: "Daily, weekly, or monthly processes are ideal.",
-    icon: CheckCircle
+    question: "Does this happen at least weekly?",
+    description: "Regular, predictable work is ideal for Service-as-Software.",
+    icon: Clock,
+    color: "blue"
   },
   {
     id: "rules",
-    question: "Does it follow rules (even complex ones)?",
-    description: "If there's a \"way\" to do it, we can replicate it.",
-    icon: Target
+    question: "Does it follow consistent steps or rules?",
+    description: "Even complex rules work - we just need consistency.",
+    icon: Target,
+    color: "blue"
   },
   {
     id: "time",
-    question: "Is it taking significant time from your team?",
-    description: "If it's over 5 hours per week, it's worth delegating.",
-    icon: CheckCircle
+    question: "Is your team spending 5+ hours per week on this?",
+    description: "Enough volume to generate meaningful time savings.",
+    icon: Zap,
+    color: "blue"
+  },
+  {
+    id: "impact",
+    question: "Would automating this free your team for strategic work?",
+    description: "The best automations unlock your team's highest-value activities.",
+    icon: Shield,
+    color: "blue"
   }
 ]
 
@@ -51,21 +63,44 @@ export function ProcessEvaluationSection() {
   const score = getScore()
 
   return (
-    <Section padding="xl" background="accent-blue">
-      <Container className="max-w-7xl">
+    <Section 
+      padding="xl" 
+      background="accent-blue"
+      className="relative overflow-hidden"
+    >
+      {/* Premium Background Effects */}
+      <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
+      <div className="absolute inset-0 noise-overlay" />
+      
+      <Container className="relative z-10 max-w-7xl">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <Heading level="2" className="velox-text-h2 mb-6">
-            Not Sure What to Delegate First? Let's Find Out.
+            Not Sure What to Delegate First?{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Let's Find Out.
+            </span>
           </Heading>
-          <Text className="velox-text-body text-xl text-gray-700 max-w-3xl mx-auto">
-            The 4-Question Process Test
+          <Text className="velox-text-lead max-w-3xl mx-auto">
+            The 5-Question Automation Readiness Assessment
           </Text>
-        </div>
+        </motion.div>
 
         {/* Evaluation Tool */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 md:p-8">
+        <motion.div 
+          className="max-w-5xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="card-aurora rounded-3xl p-8 elevation-3">
             {/* Questions */}
             <div className="space-y-8 mb-8">
               {questions.map((question, index) => {
@@ -73,127 +108,204 @@ export function ProcessEvaluationSection() {
                 const answer = answers[question.id]
                 
                 return (
-                  <div key={question.id} className="space-y-4">
+                  <motion.div 
+                    key={question.id} 
+                    className="space-y-6"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  >
                     {/* Question */}
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <IconComponent className="w-5 h-5 text-blue-600" />
+                    <div className="flex items-start gap-6">
+                      <div className="icon-container-gradient">
+                        <IconComponent className="w-6 h-6 text-blue-600" />
                       </div>
                       <div className="flex-1">
-                        <Heading level="4" className="text-lg font-semibold text-gray-900 mb-2">
+                        <Heading level="4" className="velox-text-h3 mb-3">
                           {index + 1}. {question.question}
                         </Heading>
-                        <Text className="text-gray-600 text-sm">
+                        <Text className="velox-text-body text-gray-600 leading-relaxed">
                           {question.description}
                         </Text>
                       </div>
                     </div>
 
                     {/* Answer Buttons */}
-                    <div className="flex gap-4 ml-14">
-                      <button
+                    <div className="flex gap-4 ml-20">
+                      <motion.button
                         onClick={() => handleAnswer(question.id, true)}
                         className={`
-                          flex items-center gap-2 px-6 py-3 rounded-lg border-2 transition-all duration-300
+                          flex items-center gap-3 px-8 py-4 rounded-xl border-2 transition-all duration-300 font-semibold
                           ${answer === true 
-                            ? 'bg-green-50 border-green-500 text-green-800' 
-                            : 'bg-gray-50 border-gray-200 text-gray-700 hover:border-green-300'
+                            ? 'card-solution text-blue-900 border-blue-300 elevation-2' 
+                            : 'card-challenge text-gray-700 border-gray-200 hover:border-blue-300 hover:elevation-1'
                           }
                         `}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                       >
-                        <CheckCircle className={`w-5 h-5 ${answer === true ? 'text-green-600' : 'text-gray-400'}`} />
-                        <span className="font-medium">Yes</span>
-                      </button>
+                        <CheckCircle className={`w-6 h-6 ${answer === true ? 'text-blue-600' : 'text-gray-400'}`} />
+                        <span>Yes</span>
+                      </motion.button>
                       
-                      <button
+                      <motion.button
                         onClick={() => handleAnswer(question.id, false)}
                         className={`
-                          flex items-center gap-2 px-6 py-3 rounded-lg border-2 transition-all duration-300
+                          flex items-center gap-3 px-8 py-4 rounded-xl border-2 transition-all duration-300 font-semibold
                           ${answer === false 
-                            ? 'bg-red-50 border-red-500 text-red-800' 
-                            : 'bg-gray-50 border-gray-200 text-gray-700 hover:border-red-300'
+                            ? 'bg-red-50 border-red-300 text-red-800 elevation-1' 
+                            : 'card-challenge text-gray-700 border-gray-200 hover:border-red-300 hover:elevation-1'
                           }
                         `}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                       >
-                        <X className={`w-5 h-5 ${answer === false ? 'text-red-600' : 'text-gray-400'}`} />
-                        <span className="font-medium">No</span>
-                      </button>
+                        <X className={`w-6 h-6 ${answer === false ? 'text-red-600' : 'text-gray-400'}`} />
+                        <span>No</span>
+                      </motion.button>
                     </div>
-                  </div>
+                  </motion.div>
                 )
               })}
             </div>
 
             {/* Results */}
             {allAnswered && (
-              <div className="pt-8 border-t border-gray-200">
+              <motion.div 
+                className="pt-8 border-t border-blue-200"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 <div className="text-center">
                   {/* Score Display */}
-                  <div className="mb-6">
+                  <motion.div 
+                    className="mb-8"
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
                     <div className={`
-                      inline-flex items-center justify-center w-20 h-20 rounded-full text-3xl font-bold mb-4
-                      ${score >= 3 ? 'bg-green-100 text-green-600' : 'bg-orange-100 text-orange-600'}
+                      inline-flex items-center justify-center w-24 h-24 rounded-full text-4xl font-bold mb-4 elevation-3
+                      ${score >= 4 ? 'bg-gradient-to-br from-green-400 to-emerald-500 text-white' : 
+                        score >= 3 ? 'bg-gradient-to-br from-blue-400 to-blue-500 text-white' :
+                        'bg-gradient-to-br from-orange-400 to-amber-500 text-white'}
                     `}>
-                      {score}/4
+                      {score}/5
                     </div>
-                    <Text className="text-lg font-semibold text-gray-900">
-                      Your Process Score
+                    <Text className="velox-text-lead font-semibold text-gray-900">
+                      Your Automation Readiness Score
                     </Text>
-                  </div>
+                  </motion.div>
 
                   {/* Score Interpretation */}
-                  {score >= 3 ? (
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
-                      <Heading level="4" className="text-xl font-bold text-green-900 mb-3">
-                        🎉 Perfect for Service-as-Software!
+                  {score >= 4 ? (
+                    <motion.div 
+                      className="card-solution rounded-2xl p-8 mb-8 elevation-2"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                    >
+                      <Heading level="4" className="velox-text-h3 text-blue-900 mb-4">
+                        🎉 Excellent Automation Candidate!
                       </Heading>
-                      <Text className="text-green-800 mb-4">
-                        Score 3-4 "Yes" answers? Your process is perfect for Service-as-Software. 
-                        You could see significant time savings and cost reductions.
+                      <Text className="velox-text-body text-blue-800 mb-6 leading-relaxed">
+                        Score 4-5 "Yes" answers? Your process is ideal for Service-as-Software. 
+                        You could see 60-80% time savings and significant cost reductions within months.
                       </Text>
                       <Button
-                        size="lg"
-                        className="velox-cta-primary text-base md:text-lg font-semibold px-4 sm:px-6 md:px-8 py-3 md:py-4 h-auto rounded-xl"
+                        className="cta-magnetic text-lg font-semibold px-8 py-4 rounded-xl"
                         asChild
                       >
                         <Link href="/tools/business-audit">
-                          Evaluate My Process Now
+                          Get My Custom Analysis
                         </Link>
                       </Button>
-                    </div>
-                  ) : (
-                    <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 mb-6">
-                      <Heading level="4" className="text-xl font-bold text-orange-900 mb-3">
-                        Might Need Some Adjustments
+                    </motion.div>
+                  ) : score >= 3 ? (
+                    <motion.div 
+                      className="card-aurora rounded-2xl p-8 mb-8 elevation-2"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                    >
+                      <Heading level="4" className="velox-text-h3 text-blue-900 mb-4">
+                        ✅ Good Automation Potential
                       </Heading>
-                      <Text className="text-orange-800 mb-4">
-                        Your process might benefit from some refinement before delegation.
-                        Let's discuss how to optimize it for better results.
+                      <Text className="velox-text-body text-blue-800 mb-6 leading-relaxed">
+                        Score 3 "Yes" answers? Your process has solid automation potential. 
+                        With some optimization, you could achieve meaningful time and cost savings.
                       </Text>
                       <Button
-                        size="lg"
-                        className="velox-cta-secondary text-base md:text-lg font-semibold px-4 sm:px-6 md:px-8 py-3 md:py-4 h-auto rounded-xl"
+                        className="cta-magnetic text-lg font-semibold px-8 py-4 rounded-xl"
+                        asChild
+                      >
+                        <Link href="/tools/business-audit">
+                          Optimize My Process
+                        </Link>
+                      </Button>
+                    </motion.div>
+                  ) : (
+                    <motion.div 
+                      className="card-challenge rounded-2xl p-8 mb-8 elevation-1"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                    >
+                      <Heading level="4" className="velox-text-h3 text-gray-900 mb-4">
+                        🔧 Let's Refine Your Process
+                      </Heading>
+                      <Text className="velox-text-body text-gray-700 mb-6 leading-relaxed">
+                        Your process might benefit from some refinement before automation.
+                        Let's discuss how to optimize it for maximum efficiency and value.
+                      </Text>
+                      <Button
+                        className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white font-semibold px-8 py-4 rounded-xl elevation-1 hover:elevation-2 transition-all duration-300"
                         asChild
                       >
                         <Link href="/tools/business-audit">
                           Discuss My Process
                         </Link>
                       </Button>
-                    </div>
+                    </motion.div>
                   )}
                 </div>
-              </div>
+              </motion.div>
             )}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Bottom Message */}
-        <div className="text-center mt-12">
-          <Text className="text-gray-600 max-w-2xl mx-auto">
-            This is just a quick assessment. Even if your process doesn't score perfectly, 
-            we often find ways to optimize and automate parts of it for significant value.
-          </Text>
-        </div>
+        {/* Enhanced Bottom Message */}
+        <motion.div 
+          className="text-center mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <div className="card-aurora rounded-2xl p-8 max-w-4xl mx-auto elevation-2">
+            <Text className="velox-text-body text-gray-700 mb-6 leading-relaxed">
+              This is just a quick assessment. Even if your process doesn't score perfectly, 
+              we often find ways to optimize and automate parts of it for significant value.
+            </Text>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                variant="outline"
+                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300"
+                asChild
+              >
+                <Link href="/tools/service-quiz">
+                  <HelpCircle className="w-5 h-5 mr-2" />
+                  Take Full Service Quiz
+                </Link>
+              </Button>
+              <Text className="text-sm text-gray-500">
+                Or explore our complete evaluation process
+              </Text>
+            </div>
+          </div>
+        </motion.div>
       </Container>
     </Section>
   )
