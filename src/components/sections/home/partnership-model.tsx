@@ -217,7 +217,7 @@ export function PartnershipModel() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="card-glass-blue card-floating magnetic-hover relative group h-full">
+            <div className="bg-white/95 border border-blue-200 rounded-lg p-6 relative group h-full shadow-sm hover:shadow-md transition-shadow duration-200">
               {/* Animated gradient overlay */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute inset-0 bg-gradient-mesh rounded-2xl opacity-20" />

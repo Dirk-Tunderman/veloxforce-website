@@ -12,7 +12,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center group mb-6">
               <img
-                src="/veloxforce-logo-gradient.svg"
+                src="/veloxforce-logo-deep-blue.svg"
                 alt={siteConfig.name}
                 className="h-12 w-auto transition-all duration-300 group-hover:scale-105"
                 width={200}

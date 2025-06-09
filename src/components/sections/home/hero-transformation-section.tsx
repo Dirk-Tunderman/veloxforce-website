@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef } from "react"
+import React from "react"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import {
@@ -15,53 +15,18 @@ import {
   Zap
 } from "lucide-react"
 import Link from "next/link"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 
 export function HeroTransformationSection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  })
-  
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
-  const particleOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.1, 0.3, 0.1])
-  
   return (
-    <div ref={sectionRef}>
+    <div>
       <Section 
         padding="xl" 
         background="transparent" 
         className="relative overflow-hidden"
       >
-        {/* Enhanced Background with Parallax */}
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20"
-          style={{ y: backgroundY }}
-        />
-        
-        {/* Dynamic Particle Effects */}
-        <motion.div 
-          className="absolute inset-0"
-          style={{ opacity: particleOpacity }}
-        >
-          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-20 w-72 h-72 bg-indigo-200/20 rounded-full blur-3xl animate-pulse" 
-            style={{ animationDelay: '3s' }} 
-          />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-200/10 rounded-full blur-3xl animate-pulse" 
-            style={{ animationDelay: '6s' }} 
-          />
-        </motion.div>
-        
-        {/* Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.015]"
-          style={{
-            backgroundImage: 'linear-gradient(#2563EB 1px, transparent 1px), linear-gradient(90deg, #2563EB 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
-          }}
-        />
+        {/* Simplified Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20" />
         
         {/* Hero Content */}
         <Container className="relative z-10">

@@ -308,7 +308,7 @@ export function ServiceDifferentiationSection() {
 
           {/* Key Message with Premium Glass Design */}
           <motion.div 
-            className="card-glass-blue text-center relative overflow-hidden"
+            className="bg-white/95 border border-blue-200 rounded-lg p-6 text-center relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

@@ -21,7 +21,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/98 backdrop-blur-md supports-[backdrop-filter]:bg-white/95">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between relative">
           {/* Logo Area - Much Larger */}
@@ -29,7 +29,7 @@ export function Header() {
             <Link href="/" className="flex items-center group">
               <div className="relative">
                 <img
-                  src="/veloxforce-logo-gradient.svg"
+                  src="/veloxforce-logo-deep-blue.svg"
                   alt={siteConfig.name}
                   className="h-20 w-auto transition-all duration-300 group-hover:scale-105"
                   width={300}

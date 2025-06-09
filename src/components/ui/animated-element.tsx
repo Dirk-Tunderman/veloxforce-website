@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { motion, useInView, Variant } from "framer-motion"
 import { cn } from "@/lib/utils"
 
@@ -74,7 +74,31 @@ export function AnimatedElement({
   ...props
 }: AnimatedElementProps) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once, amount: threshold })
+  const [isVisible, setIsVisible] = useState(false)
+  const [animationCount, setAnimationCount] = useState(0)
+  const MAX_ANIMATIONS = 5
+  
+  // Use intersection observer for better performance
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && animationCount < MAX_ANIMATIONS) {
+          setIsVisible(true)
+          setAnimationCount(prev => prev + 1)
+          if (once) {
+            observer.unobserve(entry.target)
+          }
+        }
+      },
+      { threshold }
+    )
+    
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+    
+    return () => observer.disconnect()
+  }, [threshold, once, animationCount])
 
   // For continuous animations like bounce and pulse
   if (type === "bounce" || type === "pulse") {
@@ -105,7 +129,7 @@ export function AnimatedElement({
     <motion.div
       ref={ref}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      animate={isVisible ? "visible" : "hidden"}
       variants={getVariants(type)}
       custom={amount}
       transition={{
@@ -113,7 +137,12 @@ export function AnimatedElement({
         delay,
         ease: "easeOut"
       }}
-      className={className}
+      className={cn(className, isVisible && "animation-done")}
+      onAnimationComplete={() => {
+        if (ref.current && 'style' in ref.current) {
+          (ref.current as HTMLElement).style.willChange = 'auto'
+        }
+      }}
       {...(props as any)}
     >
       {children}
