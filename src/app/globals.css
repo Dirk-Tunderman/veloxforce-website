@@ -1364,6 +1364,16 @@ main,
       radial-gradient(at 80% 20%, var(--velox-blue-50) 0px, transparent 40%);
   }
 
+  /* Animation Classes */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
   .text-gradient {
     background: var(--velox-gradient-primary);
     -webkit-background-clip: text;
@@ -1475,6 +1485,153 @@ main,
   .elevation-3 { box-shadow: 0 10px 32px rgba(0, 0, 0, 0.10); }
   .elevation-4 { box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12); }
   .elevation-glow { box-shadow: 0 0 48px rgba(37, 99, 235, 0.25); }
+}
+
+/* ===== MISSING DESIGN SYSTEM CLASSES ===== */
+@layer components {
+  /* Background Pattern Classes */
+  .bg-dots {
+    background-image: radial-gradient(circle, var(--velox-gray-300) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .bg-grid {
+    background-image: 
+      linear-gradient(var(--velox-gray-200) 1px, transparent 1px),
+      linear-gradient(90deg, var(--velox-gray-200) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Typography Classes - Design System Compliant */
+  .velox-text-h2 {
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    /* MANDATORY: Gradient for all H2 headlines */
+    background: var(--velox-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .velox-text-h3 {
+    font-size: clamp(20px, 3.5vw, 32px);
+    line-height: 1.3;
+    color: var(--velox-blue-800);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .velox-text-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--velox-gray-700);
+    font-weight: 400;
+    letter-spacing: -0.011em;
+  }
+
+  .velox-text-lead {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--velox-gray-600);
+    font-weight: 450;
+    letter-spacing: -0.014em;
+  }
+
+  .velox-text-caption {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--velox-gray-500);
+    font-weight: 400;
+  }
+
+  /* Card Premium Class */
+  .card-premium {
+    background: linear-gradient(to bottom, white, var(--velox-gray-50));
+    border: 1px solid var(--velox-blue-100);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.10);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s ease;
+  }
+
+  .card-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+  }
+
+  /* Icon Container Classes */
+  .icon-container {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--velox-gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+
+  .icon-container:hover {
+    transform: translateY(-2px);
+  }
+
+  .icon-container-gradient {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--velox-gradient-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--velox-shadow-blue-sm);
+  }
+
+  .icon-container-gradient::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: var(--velox-gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+    filter: blur(20px);
+  }
+
+  .icon-container-gradient:hover::before {
+    opacity: 0.3;
+  }
+
+  /* Icon Color Classes */
+  .icon-primary { color: var(--velox-gray-700); }
+  .icon-accent { color: var(--velox-accent); }
+  .icon-success { color: var(--velox-emerald-500); }
+  .icon-warning { color: var(--velox-amber-500); }
+  .icon-error { color: var(--velox-red-500); }
+
+  /* Animation Classes */
+  @keyframes fadeInUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  /* Transition Duration Classes */
+  .duration-2000 {
+    transition-duration: 2000ms;
+  }
 }
 
 /* ===== REDUCED MOTION ===== */
