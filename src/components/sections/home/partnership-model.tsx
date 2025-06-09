@@ -9,8 +9,9 @@ import { motion } from "framer-motion"
 export function PartnershipModel() {
   return (
     <Section padding="xl" background="transparent" className="relative overflow-hidden">
-      {/* Simple static background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20" />
+      {/* Performance-Optimized Background */}
+      <div className="absolute inset-0 bg-gradient-simple" />
+      <div className="absolute inset-0 bg-mesh-static opacity-30" />
       
       <Container className="relative z-10 max-w-6xl">
         {/* Premium Section Header */}
@@ -102,234 +103,198 @@ export function PartnershipModel() {
 
         {/* Premium Two-Column Layout */}
         <div className="grid lg:grid-cols-2 gap-8 mb-20">
-          {/* What You Own (Strategic Layer) - Premium Aurora Card */}
+          {/* What You Own (Strategic Layer) */}
           <motion.div
-            initial={{ opacity: 0, x: -50, rotateY: -10 }}
-            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="card-aurora card-floating magnetic-hover relative group h-full">
-              {/* Animated gradient overlay */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute inset-0 bg-gradient-premium rounded-2xl opacity-10" />
+            <div className="card-solution h-full">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="icon-container">
+                  <Crown className="w-6 h-6 icon-accent" />
+                </div>
+                <div>
+                  <h3 className="velox-text-h3 text-blue-900 mb-2">
+                    What You Own
+                  </h3>
+                  <p className="text-blue-700 font-medium flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-blue-600" />
+                    Strategic Layer
+                  </p>
+                </div>
               </div>
-              
-              <div className="relative z-10">
-                <div className="flex items-center gap-4 mb-8">
-                  <motion.div 
-                    className="icon-container-gradient group-hover:scale-110 transition-transform duration-300"
-                    whileHover={{ rotate: 5 }}
-                  >
-                    <Crown className="w-8 h-8 icon-accent" />
-                  </motion.div>
-                  <div>
-                    <h3 className="velox-text-h3 text-blue-900 mb-2">
-                      What You Own
-                    </h3>
-                    <p className="text-blue-700 font-medium flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-blue-600" />
-                      Strategic Layer
-                    </p>
-                  </div>
-                </div>
 
-                <div className="space-y-6">
-                  {[
-                    {
-                      icon: Target,
-                      title: "Your business knowledge and expertise",
-                      description: "You understand your customers and market"
-                    },
-                    {
-                      icon: TrendingUp,
-                      title: "Process improvement decisions",
-                      description: "You decide what should be optimized"
-                    },
-                    {
-                      icon: Shield,
-                      title: "Quality standards and requirements",
-                      description: "You set the bar for excellence"
-                    },
-                    {
-                      icon: Building,
-                      title: "Continuous optimization of what works",
-                      description: "You guide strategic improvements"
-                    }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      className="responsibility-card group"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      whileHover={{ x: 8, transition: { type: "spring" } }}
-                    >
-                      <div className="flex items-start gap-4">
-                        <motion.div 
-                          className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center flex-shrink-0 shadow-blue-sm"
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                        >
-                          <item.icon className="w-5 h-5 text-white" />
-                        </motion.div>
-                        <div className="flex-1">
-                          <p className="font-semibold text-blue-900 mb-1">{item.title}</p>
-                          <p className="text-sm text-blue-700/80">{item.description}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: Target,
+                    title: "Your business knowledge and expertise",
+                    description: "You understand your customers and market"
+                  },
+                  {
+                    icon: TrendingUp,
+                    title: "Process improvement decisions",
+                    description: "You decide what should be optimized"
+                  },
+                  {
+                    icon: Shield,
+                    title: "Quality standards and requirements",
+                    description: "You set the bar for excellence"
+                  },
+                  {
+                    icon: Building,
+                    title: "Continuous optimization of what works",
+                    description: "You guide strategic improvements"
+                  }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-start gap-4 p-4 rounded-lg hover:bg-blue-50/50 transition-colors duration-200"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <div className="icon-container bg-blue-100">
+                      <item.icon className="w-5 h-5 icon-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold text-blue-900 mb-1">{item.title}</p>
+                      <p className="velox-text-body text-blue-700">{item.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>
 
-          {/* What We Own (Execution Layer) - Premium Glass Card */}
+          {/* What We Own (Execution Layer) */}
           <motion.div
-            initial={{ opacity: 0, x: 50, rotateY: 10 }}
-            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="bg-white/95 border border-blue-200 rounded-lg p-6 relative group h-full shadow-sm hover:shadow-md transition-shadow duration-200">
-              {/* Simple hover overlay */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-blue-100 rounded-2xl" />
-              
-              <div className="relative z-10">
-                <div className="flex items-center gap-4 mb-8">
-                  <motion.div 
-                    className="icon-container-gradient group-hover:scale-110 transition-transform duration-300"
-                    whileHover={{ rotate: -5 }}
-                  >
-                    <Cog className="w-8 h-8 icon-primary" />
-                  </motion.div>
-                  <div>
-                    <h3 className="velox-text-h3 text-gray-900 mb-2">
-                      What We Own
-                    </h3>
-                    <p className="text-gray-700 font-medium flex items-center gap-2">
-                      <Zap className="w-4 h-4 text-gray-600" />
-                      Execution Layer
-                    </p>
-                  </div>
+            <div className="card-base h-full">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="icon-container">
+                  <Cog className="w-6 h-6 icon-primary" />
                 </div>
+                <div>
+                  <h3 className="velox-text-h3 text-gray-900 mb-2">
+                    What We Own
+                  </h3>
+                  <p className="text-gray-700 font-medium flex items-center gap-2">
+                    <Zap className="w-4 h-4 text-gray-600" />
+                    Execution Layer
+                  </p>
+                </div>
+              </div>
 
-                <div className="space-y-6">
-                  {[
-                    {
-                      icon: Settings,
-                      title: "All technical complexity and decisions",
-                      description: "We handle the technical implementation"
-                    },
-                    {
-                      icon: Shield,
-                      title: "Ensuring processes run perfectly 24/7",
-                      description: "We guarantee operational excellence"
-                    },
-                    {
-                      icon: TrendingUp,
-                      title: "Scaling to any volume you need",
-                      description: "We handle capacity and performance"
-                    },
-                    {
-                      icon: Users,
-                      title: "Adapting when technology changes",
-                      description: "We stay current with tech evolution"
-                    }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      className="responsibility-card group"
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      whileHover={{ x: -8, transition: { type: "spring" } }}
-                    >
-                      <div className="flex items-start gap-4">
-                        <motion.div 
-                          className="w-10 h-10 bg-gradient-to-br from-gray-500 to-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm"
-                          whileHover={{ scale: 1.1, rotate: -5 }}
-                        >
-                          <item.icon className="w-5 h-5 text-white" />
-                        </motion.div>
-                        <div className="flex-1">
-                          <p className="font-semibold text-gray-900 mb-1">{item.title}</p>
-                          <p className="text-sm text-gray-600">{item.description}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: Settings,
+                    title: "All technical complexity and decisions",
+                    description: "We handle the technical implementation"
+                  },
+                  {
+                    icon: Shield,
+                    title: "Ensuring processes run perfectly 24/7",
+                    description: "We guarantee operational excellence"
+                  },
+                  {
+                    icon: TrendingUp,
+                    title: "Scaling to any volume you need",
+                    description: "We handle capacity and performance"
+                  },
+                  {
+                    icon: Users,
+                    title: "Adapting when technology changes",
+                    description: "We stay current with tech evolution"
+                  }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <div className="icon-container bg-gray-100">
+                      <item.icon className="w-5 h-5 icon-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold text-gray-900 mb-1">{item.title}</p>
+                      <p className="velox-text-body text-gray-600">{item.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Premium Bottom Message */}
-        <motion.div 
+        {/* Bottom Message */}
+        <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className="card-elevated relative overflow-hidden max-w-4xl mx-auto">
-            {/* Animated background gradient */}
-            <div className="absolute inset-0 bg-gradient-premium opacity-5 animate-gradient-shift" />
-            
-            <div className="relative z-10">
-              <motion.div
-                initial={{ scale: 0.95 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              >
-                <p className="velox-text-h3 text-blue-900 mb-6 font-bold">
-                  You're the architect. We're the construction crew that builds it perfectly every time.
-                </p>
-              </motion.div>
-              
-              <p className="velox-text-lead text-gray-700 mb-8">
-                This clear division of responsibilities ensures you stay focused on what only you can do: 
-                growing your business and serving your customers.
+          <div className="card-solution max-w-4xl mx-auto">
+            <motion.div
+              initial={{ scale: 0.95 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              <p className="velox-text-h3 text-blue-900 mb-6 font-bold">
+                You're the architect. We're the construction crew that builds it perfectly every time.
               </p>
-              
-              {/* Visual separator with animation */}
-              <motion.div 
-                className="flex items-center justify-center gap-4 mb-8"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-              >
-                <div className="w-16 h-[2px] bg-gradient-to-r from-transparent to-blue-400" />
-                <div className="w-3 h-3 rounded-full bg-blue-500 animate-pulse" />
-                <div className="w-16 h-[2px] bg-gradient-to-l from-transparent to-gray-400" />
-              </motion.div>
-              
-              {/* Partnership benefits */}
-              <div className="grid md:grid-cols-3 gap-6">
-                {[
-                  { value: "100%", label: "Focus on Strategy" },
-                  { value: "24/7", label: "Execution Excellence" },
-                  { value: "∞", label: "Scalability" }
-                ].map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    className="text-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6 + index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <div className="text-2xl font-bold text-blue-600 mb-1">{stat.value}</div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </div>
+            </motion.div>
+
+            <p className="velox-text-lead text-blue-800 mb-8">
+              This clear division of responsibilities ensures you stay focused on what only you can do:
+              growing your business and serving your customers.
+            </p>
+
+            {/* Visual separator */}
+            <motion.div
+              className="flex items-center justify-center gap-4 mb-8"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              <div className="w-16 h-[2px] bg-blue-300" />
+              <div className="w-3 h-3 rounded-full bg-blue-500" />
+              <div className="w-16 h-[2px] bg-blue-300" />
+            </motion.div>
+
+            {/* Partnership benefits */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { value: "100%", label: "Focus on Strategy" },
+                { value: "24/7", label: "Execution Excellence" },
+                { value: "∞", label: "Scalability" }
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 + index * 0.1 }}
+                >
+                  <div className="text-2xl font-bold text-blue-600 mb-1">{stat.value}</div>
+                  <div className="velox-text-body text-blue-700">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </motion.div>

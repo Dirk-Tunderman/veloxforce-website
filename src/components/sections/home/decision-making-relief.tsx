@@ -93,11 +93,12 @@ function BrainNetworkVisualization() {
 export function DecisionMakingRelief() {
   return (
     <Section padding="xl" background="transparent" className="relative overflow-hidden">
-      {/* Simple static background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20" />
+      {/* Performance-Optimized Background */}
+      <div className="absolute inset-0 bg-gradient-simple" />
+      <div className="absolute inset-0 bg-mesh-static opacity-30" />
       
       <Container className="relative z-10 max-w-6xl">
-        {/* Premium Section Header */}
+        {/* Section Header */}
         <motion.div 
           className="text-center mb-20"
           initial={{ opacity: 0, y: 40 }}
@@ -144,7 +145,7 @@ export function DecisionMakingRelief() {
             </p>
           </div>
           
-          <div className="card-glass-blue max-w-lg mx-auto p-8">
+          <div className="card-base max-w-lg mx-auto">
             <BrainNetworkVisualization />
             
             {/* Decision metrics */}
@@ -174,160 +175,141 @@ export function DecisionMakingRelief() {
           </div>
         </motion.div>
 
-        {/* Premium Decision Categories Grid */}
+        {/* Decision Categories Grid */}
         <div className="grid lg:grid-cols-2 gap-6 mb-20">
           {[
             {
               icon: Settings,
               title: "Which technology works best for your process",
               description: "No more researching tools, comparing features, or worrying about compatibility. We choose the right technology stack for your specific needs.",
-              gradient: "from-blue-500 to-indigo-600",
-              bgClass: "card-aurora"
+              iconColor: "icon-primary"
             },
             {
               icon: Shield,
               title: "How to handle exceptions and edge cases", 
               description: "We design robust systems that handle the unexpected. When edge cases arise, we solve them without disrupting your business.",
-              gradient: "from-blue-600 to-blue-800",
-              bgClass: "card-glass-blue"
+              iconColor: "icon-primary"
             },
             {
               icon: TrendingUp,
               title: "When to scale up or optimize performance",
               description: "We monitor performance and proactively scale your systems. You'll never have to worry about capacity or speed issues.",
-              gradient: "from-indigo-500 to-purple-600",
-              bgClass: "card-aurora"
+              iconColor: "icon-primary"
             },
             {
               icon: Network,
               title: "What to do when systems need updates",
               description: "Technology evolves constantly. We handle all updates, migrations, and improvements so your processes keep running smoothly.",
-              gradient: "from-blue-700 to-indigo-700",
-              bgClass: "card-glass-blue"
+              iconColor: "icon-accent"
             }
           ].map((decision, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40, rotateY: -10 }}
-              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
             >
-              <div className={`${decision.bgClass} card-floating magnetic-hover relative group h-full`}>
-                {/* Animated gradient overlay */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute inset-0 bg-gradient-premium rounded-2xl opacity-10" />
-                </div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-start gap-4 mb-6">
-                    <motion.div 
-                      className="icon-container-gradient group-hover:scale-110 transition-transform duration-300"
-                      whileHover={{ rotate: 5 }}
-                    >
-                      <decision.icon className="w-6 h-6 icon-accent" />
-                    </motion.div>
-                    <div className="flex-1">
-                      <h3 className="velox-text-h3 text-blue-900 mb-3 text-lg font-bold leading-tight">
-                        {decision.title}
-                      </h3>
-                    </div>
+              <div className="card-base h-full">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="icon-container">
+                    <decision.icon className={`w-6 h-6 ${decision.iconColor}`} />
                   </div>
-                  
-                  <p className="velox-text-body text-blue-800/90 leading-relaxed">
-                    {decision.description}
-                  </p>
-                  
-                  {/* Complexity reduction indicator */}
-                  <motion.div 
-                    className="mt-6 pt-4 border-t border-blue-200/50"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5 + index * 0.1 }}
-                  >
-                    <div className="flex items-center gap-2 text-sm">
-                      <div className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
-                      <span className="text-gray-600">Complex Decision</span>
-                      <ArrowRight className="w-3 h-3 text-gray-400 mx-1" />
-                      <div className="w-2 h-2 rounded-full bg-blue-500" />
-                      <span className="text-blue-700 font-medium">Automated</span>
-                    </div>
-                  </motion.div>
+                  <div className="flex-1">
+                    <h3 className="velox-text-h3 text-blue-900 mb-3 leading-tight">
+                      {decision.title}
+                    </h3>
+                  </div>
                 </div>
+
+                <p className="velox-text-body text-blue-800 mb-6">
+                  {decision.description}
+                </p>
+
+                {/* Complexity reduction indicator */}
+                <motion.div
+                  className="pt-4 border-t border-blue-200"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                >
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-2 h-2 rounded-full bg-red-400" />
+                    <span className="text-gray-600">Complex Decision</span>
+                    <ArrowRight className="w-3 h-3 text-gray-400 mx-1" />
+                    <div className="w-2 h-2 rounded-full bg-blue-500" />
+                    <span className="text-blue-700 font-medium">Automated</span>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Premium Key Message & CTA */}
-        <motion.div 
+        {/* Bottom Message */}
+        <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className="card-elevated relative overflow-hidden max-w-4xl mx-auto">
-            {/* Animated background gradient */}
-            <div className="absolute inset-0 bg-gradient-premium opacity-10 animate-gradient-shift" />
-            
-            <div className="relative z-10">
-              <motion.div
-                initial={{ scale: 0.95 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              >
-                <h3 className="velox-text-h2 text-blue-900 mb-6 font-bold">
-                  You make business decisions. We make technical decisions.
-                </h3>
-              </motion.div>
-              
-              <p className="velox-text-lead text-gray-700 mb-8 max-w-3xl mx-auto">
-                This clear separation lets you focus on strategy, growth, and customer relationships 
-                while we handle all the technical complexity behind the scenes.
-              </p>
-              
-              {/* Decision Relief Statistics */}
-              <div className="grid md:grid-cols-4 gap-6 mb-8">
-                {[
-                  { value: "500+", label: "Technical Decisions Monthly", icon: Settings },
-                  { value: "0", label: "Hours You Spend", icon: Gauge },
-                  { value: "90%", label: "Reduced Decision Fatigue", icon: Brain },
-                  { value: "24/7", label: "Automated Resolution", icon: Zap }
-                ].map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    className="text-center group"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6 + index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                      <stat.icon className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <div className="text-2xl font-bold text-blue-600 mb-1">{stat.value}</div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </div>
-              
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <Link 
-                  href="/tools/business-audit"
-                  className="cta-magnetic inline-flex items-center gap-2 group"
+          <div className="card-solution max-w-4xl mx-auto">
+            <motion.div
+              initial={{ scale: 0.95 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              <h3 className="velox-text-h2 text-blue-900 mb-6 font-bold">
+                You make business decisions. We make technical decisions.
+              </h3>
+            </motion.div>
+
+            <p className="velox-text-lead text-blue-800 mb-8 max-w-3xl mx-auto">
+              This clear separation lets you focus on strategy, growth, and customer relationships
+              while we handle all the technical complexity behind the scenes.
+            </p>
+
+            {/* Decision Relief Statistics */}
+            <div className="grid md:grid-cols-4 gap-6 mb-8">
+              {[
+                { value: "500+", label: "Technical Decisions Monthly", icon: Settings, iconColor: "icon-primary" },
+                { value: "0", label: "Hours You Spend", icon: Gauge, iconColor: "icon-primary" },
+                { value: "90%", label: "Reduced Decision Fatigue", icon: Brain, iconColor: "icon-primary" },
+                { value: "24/7", label: "Automated Resolution", icon: Zap, iconColor: "icon-accent" }
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 + index * 0.1 }}
                 >
-                  <span>See What I Can Delegate</span>
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </motion.div>
+                  <div className="icon-container mx-auto mb-3 bg-blue-100">
+                    <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
+                  </div>
+                  <div className="text-2xl font-bold text-blue-600 mb-1">{stat.value}</div>
+                  <div className="velox-text-body text-blue-700">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
+
+            <Button
+              size="lg"
+              className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-8 py-4 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
+              asChild
+            >
+              <Link href="/tools/business-audit">
+                <span className="relative z-10">
+                  See What I Can Delegate
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              </Link>
+            </Button>
           </div>
         </motion.div>
       </Container>

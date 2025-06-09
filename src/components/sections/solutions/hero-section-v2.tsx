@@ -6,7 +6,7 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Calculator, Target, TrendingUp } from "lucide-react"
+import { Calculator, Target, TrendingUp } from "lucide-react"
 
 export function HeroSectionV2() {
   return (
@@ -15,10 +15,9 @@ export function HeroSectionV2() {
       background="white-to-light"
       className="relative min-h-[90vh] flex items-center overflow-hidden"
     >
-      {/* Premium Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-indigo-50/30" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/20 via-transparent to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-indigo-100/15 via-transparent to-transparent" />
+      {/* Performance-Optimized Background */}
+      <div className="absolute inset-0 bg-gradient-simple" />
+      <div className="absolute inset-0 bg-mesh-static opacity-30" />
 
       <Container className="relative z-10 max-w-6xl">
         <motion.div
@@ -31,26 +30,23 @@ export function HeroSectionV2() {
           <div className="space-y-6 max-w-5xl mx-auto">
             <Heading
               level="1"
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              className="velox-text-h1-premium"
             >
-              Every Process You{" "}
+              Every Process You Hate Doing
               <span className="relative">
-                <span className="text-gray-700 font-bold">
-                  Hate Doing
-                </span>
                 <div className="absolute -bottom-2 left-0 right-0 h-3 bg-gradient-to-r from-red-200 to-red-300 opacity-60 rounded-full transform -rotate-1"></div>
               </span>{" "}
               Can Become a Process You{" "}
-              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent font-bold">
+              <span className="text-gradient">
                 Love Delegating
               </span>
             </Heading>
 
-            <Text className="text-xl md:text-2xl text-gray-700 leading-relaxed text-center max-w-4xl mx-auto">
+            <Text className="velox-text-lead text-center max-w-4xl mx-auto">
               <strong>Elevate your team from operators to innovators.</strong> Transform routine work into strategic advantage.
             </Text>
 
-            <Text className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto text-center">
+            <Text className="velox-text-body max-w-4xl mx-auto text-center">
               Your talented people deserve better than data entry and status updates. See how we free your team to do the work that only they can do.
             </Text>
           </div>
@@ -62,9 +58,9 @@ export function HeroSectionV2() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="bg-white/80 backdrop-blur-sm border border-blue-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <Target className="w-6 h-6 text-white" />
+            <div className="card-base">
+              <div className="icon-container mx-auto mb-4">
+                <Target className="w-6 h-6 icon-primary" />
               </div>
               <Text className="font-semibold text-gray-900 mb-2 text-center">
                 Strategic Focus
@@ -74,9 +70,9 @@ export function HeroSectionV2() {
               </Text>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm border border-blue-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <TrendingUp className="w-6 h-6 text-white" />
+            <div className="card-base">
+              <div className="icon-container mx-auto mb-4">
+                <TrendingUp className="w-6 h-6 icon-primary" />
               </div>
               <Text className="font-semibold text-gray-900 mb-2 text-center">
                 Guaranteed Results
@@ -86,9 +82,9 @@ export function HeroSectionV2() {
               </Text>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm border border-blue-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <Calculator className="w-6 h-6 text-white" />
+            <div className="card-base">
+              <div className="icon-container mx-auto mb-4">
+                <Calculator className="w-6 h-6 icon-accent" />
               </div>
               <Text className="font-semibold text-gray-900 mb-2 text-center">
                 Clear ROI

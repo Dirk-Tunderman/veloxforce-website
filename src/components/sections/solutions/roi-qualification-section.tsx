@@ -38,9 +38,9 @@ const qualificationCriteria = [
 export function ROIQualificationSection() {
   return (
     <Section padding="xl" background="white">
-      {/* Premium Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/30 to-white" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-100/20 via-transparent to-transparent" />
+      {/* Performance-Optimized Background */}
+      <div className="absolute inset-0 bg-gradient-simple" />
+      <div className="absolute inset-0 bg-mesh-static opacity-30" />
 
       <Container className="relative z-10 max-w-6xl">
         <motion.div
@@ -50,13 +50,13 @@ export function ROIQualificationSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Heading level="2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+          <Heading level="2" className="velox-text-h2 mb-6">
+            <span className="text-gradient">
               First:
             </span>{" "}
             Ensuring Mutual Success
           </Heading>
-          <Text className="text-xl text-gray-600 max-w-4xl mx-auto">
+          <Text className="velox-text-lead max-w-4xl mx-auto">
             Service-as-Software works best when these align:
           </Text>
         </motion.div>
@@ -67,27 +67,23 @@ export function ROIQualificationSection() {
             return (
               <motion.div
                 key={index}
-                className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-blue-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="group card-base"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="flex items-start gap-4">
-                  <div className={`
-                    w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110
-                    ${criteria.color === 'blue'
-                      ? 'bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg shadow-blue-500/25'
-                      : 'bg-gradient-to-br from-gray-600 to-gray-700 shadow-lg shadow-gray-500/25'
-                    }
-                  `}>
-                    <IconComponent className="w-7 h-7 text-white" />
+                  <div className="icon-container flex-shrink-0">
+                    <IconComponent className={`w-6 h-6 ${
+                      criteria.color === 'blue' ? 'icon-accent' : 'icon-primary'
+                    }`} />
                   </div>
                   <div className="flex-1">
-                    <Heading level="3" className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300">
+                    <Heading level="3" className="velox-text-h3 mb-3 group-hover:text-blue-700 transition-colors duration-300">
                       {criteria.title}
                     </Heading>
-                    <Text className="text-gray-700 leading-relaxed">
+                    <Text className="velox-text-body">
                       {criteria.description}
                     </Text>
                   </div>
@@ -99,56 +95,53 @@ export function ROIQualificationSection() {
 
         {/* Results Section */}
         <motion.div
-          className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 md:p-8 border border-blue-200 mb-12 relative overflow-hidden"
+          className="card-solution mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {/* Background Pattern */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/30 via-transparent to-transparent" />
-
-          <div className="relative z-10 text-center">
-            <Heading level="3" className="text-2xl md:text-3xl font-bold text-blue-900 mb-8">
+          <div className="text-center">
+            <Heading level="3" className="velox-text-h3 text-blue-900 mb-8">
               When these conditions exist, transformation begins in{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="text-gradient">
                 weeks, not months
               </span>.
             </Heading>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <motion.div
-                className="bg-white/90 backdrop-blur-sm rounded-xl p-6 border border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="card-base text-center"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent mb-2">60-70%</div>
+                <div className="text-4xl font-bold text-gradient mb-2">60-70%</div>
                 <Text className="text-blue-800 font-semibold text-lg mb-1">Cost Reduction</Text>
                 <Text className="text-sm text-blue-600">vs traditional staffing</Text>
               </motion.div>
 
               <motion.div
-                className="bg-white/90 backdrop-blur-sm rounded-xl p-6 border border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="card-base text-center"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-700 bg-clip-text text-transparent mb-2">2-6</div>
+                <div className="text-4xl font-bold text-gradient mb-2">2-6</div>
                 <Text className="text-blue-800 font-semibold text-lg mb-1">Months to ROI</Text>
                 <Text className="text-sm text-blue-600">varies by process complexity</Text>
               </motion.div>
 
               <motion.div
-                className="bg-white/90 backdrop-blur-sm rounded-xl p-6 border border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="card-base text-center"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">24/7</div>
+                <div className="text-4xl font-bold text-gradient mb-2">24/7</div>
                 <Text className="text-blue-800 font-semibold text-lg mb-1">Processing</Text>
                 <Text className="text-sm text-blue-600">no breaks, no sick days</Text>
               </motion.div>

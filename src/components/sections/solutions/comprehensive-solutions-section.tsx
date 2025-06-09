@@ -183,15 +183,15 @@ export function ComprehensiveSolutionsSection() {
   }
 
   return (
-    <Section 
-      padding="xl" 
-      background="light-to-white" 
+    <Section
+      padding="xl"
+      background="light-to-white"
       className="relative overflow-hidden"
       id="comprehensive-solutions"
     >
-      {/* Premium Background Effects */}
-      <div className="absolute inset-0 bg-gradient-mesh opacity-60" />
-      <div className="absolute inset-0 noise-overlay" />
+      {/* Performance-Optimized Background */}
+      <div className="absolute inset-0 bg-gradient-simple" />
+      <div className="absolute inset-0 bg-mesh-static opacity-30" />
       
       <Container className="relative z-10 max-w-7xl">
         {/* Section Header */}
@@ -237,23 +237,20 @@ export function ComprehensiveSolutionsSection() {
               >
                 <div
                   className={`
-                    card-aurora cursor-pointer transition-all duration-300 rounded-xl border-2 p-6 group hover-lift
+                    cursor-pointer transition-all duration-300 rounded-xl border-2 p-6 group hover-lift
                     ${isExpanded
                       ? 'card-solution transform scale-[1.02] elevation-3'
-                      : 'hover:border-blue-200 hover:elevation-2'
+                      : 'card-base hover:border-blue-200 hover:elevation-2'
                     }
                   `}
                   onClick={() => toggleOperation(operation.id)}
                 >
                   {/* Card Header */}
                   <div className="flex items-start gap-4 mb-4">
-                    <div className={`
-                      icon-container-gradient
-                      ${isExpanded ? 'bg-gradient-to-br ' + operation.gradient : ''}
-                    `}>
+                    <div className="icon-container">
                       <IconComponent className={`
                         w-6 h-6 transition-colors duration-200
-                        ${isExpanded ? 'text-white' : 'icon-primary'}
+                        ${isExpanded ? 'icon-accent' : 'icon-primary'}
                       `} />
                     </div>
                     <div className="flex-1">
@@ -308,48 +305,44 @@ export function ComprehensiveSolutionsSection() {
                 const IconComponent = operation.icon
                 
                 return (
-                  <div 
-                    key={operation.id} 
-                    className={`relative bg-gradient-to-br ${operation.bgGradient} rounded-3xl elevation-4 p-8 border border-white/50 overflow-hidden`}
+                  <div
+                    key={operation.id}
+                    className="card-solution"
                   >
-                    {/* Premium Background Effects */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full blur-2xl -translate-y-16 translate-x-16"></div>
-                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full blur-xl translate-y-12 -translate-x-12"></div>
-
                     {/* Operation Header */}
                     <motion.div
-                      className="relative z-10 flex items-center gap-6 mb-10"
+                      className="flex items-center gap-6 mb-10"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5 }}
                     >
-                      <div className={`w-16 h-16 bg-gradient-to-br ${operation.gradient} rounded-2xl flex items-center justify-center elevation-2`}>
-                        <IconComponent className="w-8 h-8 text-white" />
+                      <div className="icon-container-gradient">
+                        <IconComponent className="w-8 h-8 icon-accent" />
                       </div>
                       <div>
                         <Heading level="3" className="velox-text-h3 mb-2">
                           {operation.title} Transformation
                         </Heading>
-                        <Text className="text-gray-600">
+                        <Text className="velox-text-body">
                           Complete operational transformation breakdown
                         </Text>
                       </div>
                     </motion.div>
 
                     {/* Three Columns with Enhanced Design */}
-                    <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                       {/* Struggles Column */}
                       <motion.div
-                        className="card-challenge glass-light p-6 elevation-1"
+                        className="card-challenge"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                       >
                         <div className="flex items-center gap-3 mb-6">
-                          <div className="icon-container-glass bg-red-50">
-                            <XCircle className="w-5 h-5 text-red-600" />
+                          <div className="icon-container">
+                            <XCircle className="w-5 h-5 icon-primary" />
                           </div>
-                          <Heading level="4" className="text-lg font-bold text-red-900">
+                          <Heading level="4" className="velox-text-h3 text-red-900">
                             What Everyone Struggles With:
                           </Heading>
                         </div>
@@ -363,7 +356,7 @@ export function ComprehensiveSolutionsSection() {
                               transition={{ duration: 0.3, delay: 0.2 + struggleIndex * 0.05 }}
                             >
                               <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
-                              <Text className="text-sm text-gray-700 leading-relaxed">
+                              <Text className="velox-text-body">
                                 {struggle}
                               </Text>
                             </motion.li>
@@ -373,16 +366,16 @@ export function ComprehensiveSolutionsSection() {
 
                       {/* Transformation Column */}
                       <motion.div
-                        className="card-solution glass-blue p-6 elevation-2"
+                        className="card-solution"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                       >
                         <div className="flex items-center gap-3 mb-6">
-                          <div className="icon-container-gradient">
-                            <Zap className="w-5 h-5 text-blue-600" />
+                          <div className="icon-container">
+                            <Zap className="w-5 h-5 icon-accent" />
                           </div>
-                          <Heading level="4" className="text-lg font-bold text-blue-900">
+                          <Heading level="4" className="velox-text-h3 text-blue-900">
                             How Service-as-Software Transforms It:
                           </Heading>
                         </div>
@@ -398,7 +391,7 @@ export function ComprehensiveSolutionsSection() {
                               <div className="transformation-arrow-premium w-6 h-6 !rounded-full">
                                 <ArrowRight className="w-3 h-3 text-white" />
                               </div>
-                              <Text className="text-sm text-blue-800 leading-relaxed font-medium">
+                              <Text className="velox-text-body text-blue-800 font-medium">
                                 {transform}
                               </Text>
                             </motion.li>
@@ -408,16 +401,16 @@ export function ComprehensiveSolutionsSection() {
 
                       {/* Reality Handled Column */}
                       <motion.div
-                        className="card-elevated p-6 bg-gradient-to-br from-green-50 to-emerald-50"
+                        className="card-base bg-gradient-to-br from-green-50 to-emerald-50"
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
                       >
                         <div className="flex items-center gap-3 mb-6">
-                          <div className="icon-container-glass bg-green-50">
-                            <Shield className="w-5 h-5 text-green-600" />
+                          <div className="icon-container">
+                            <Shield className="w-5 h-5 icon-primary" />
                           </div>
-                          <Heading level="4" className="text-lg font-bold text-green-900">
+                          <Heading level="4" className="velox-text-h3 text-green-900">
                             Your Reality Handled:
                           </Heading>
                         </div>
@@ -431,7 +424,7 @@ export function ComprehensiveSolutionsSection() {
                               transition={{ duration: 0.3, delay: 0.4 + realityIndex * 0.05 }}
                             >
                               <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                              <Text className="text-sm text-green-800 leading-relaxed font-medium">
+                              <Text className="velox-text-body text-green-800 font-medium">
                                 {reality}
                               </Text>
                             </motion.li>
@@ -442,17 +435,19 @@ export function ComprehensiveSolutionsSection() {
 
                     {/* CTA */}
                     <motion.div
-                      className="relative z-10 text-center mt-10 pt-8 border-t border-white/30"
+                      className="text-center mt-10 pt-8 border-t border-white/30"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.5 }}
                     >
                       <Button
-                        className={`cta-magnetic bg-gradient-to-r ${operation.gradient} text-white font-semibold px-8 py-4 rounded-xl`}
+                        size="lg"
+                        className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-8 py-4 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
                         asChild
                       >
                         <Link href="/tools/business-audit">
-                          {operation.cta}
+                          <span className="relative z-10">{operation.cta}</span>
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                         </Link>
                       </Button>
                     </motion.div>
@@ -470,13 +465,13 @@ export function ComprehensiveSolutionsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="card-aurora rounded-3xl p-8 border border-blue-200 max-w-4xl mx-auto elevation-2">
+          <div className="card-base rounded-3xl p-8 border border-blue-200 max-w-4xl mx-auto elevation-2">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <Zap className="w-8 h-8 text-blue-600" />
+              <Zap className="w-8 h-8 icon-accent" />
               <Heading level="3" className="velox-text-h3 text-blue-900">
                 Don't see your specific operation?
               </Heading>
-              <Zap className="w-8 h-8 text-blue-600" />
+              <Zap className="w-8 h-8 icon-accent" />
             </div>
             <Text className="velox-text-lead text-blue-800 mb-8">
               These are just examples. We've transformed over 200 unique processes across every industry.
@@ -484,13 +479,15 @@ export function ComprehensiveSolutionsSection() {
                 If it's repetitive and follows rules, you can delegate it to us.
               </span>
             </Text>
-            
+
             <Button
-              className="cta-magnetic text-lg font-semibold px-8 py-4 rounded-xl"
+              size="lg"
+              className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-8 py-4 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
               asChild
             >
               <Link href="/tools/business-audit">
-                Assess My Specific Process
+                <span className="relative z-10">Assess My Specific Process</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               </Link>
             </Button>
           </div>

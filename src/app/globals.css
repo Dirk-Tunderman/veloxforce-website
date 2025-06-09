@@ -387,6 +387,21 @@ main,
   }
 
   /* Premium Icon Containers */
+  .icon-container {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--velox-gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+
+  .icon-container:hover {
+    transform: translateY(-2px);
+  }
+
   .icon-container-glass {
     width: 48px;
     height: 48px;
@@ -442,6 +457,19 @@ main,
   .icon-error { color: var(--velox-red-500); }
 
   /* Simplified Card Designs */
+  .card-base {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid var(--velox-gray-200);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card-base:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--velox-shadow-md);
+  }
+
   .card-elevated {
     background: white;
     border-radius: 16px;
@@ -1285,6 +1313,24 @@ main,
     border: 1px solid rgba(37, 99, 235, 0.15);
     border-radius: 20px;
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+  }
+
+  /* Performance-Optimized Backgrounds */
+  .bg-gradient-simple {
+    background: linear-gradient(180deg, white 0%, var(--velox-blue-50) 100%);
+  }
+
+  .bg-mesh-static {
+    background-image:
+      radial-gradient(at 20% 80%, var(--velox-blue-100) 0px, transparent 40%),
+      radial-gradient(at 80% 20%, var(--velox-blue-50) 0px, transparent 40%);
+  }
+
+  .text-gradient {
+    background: var(--velox-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   /* Glass Light */
