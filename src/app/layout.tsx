@@ -6,6 +6,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
 import "./globals.css";
 
+// Import animation observer for performance-optimized animations
+import "@/lib/animation-observer";
+
 export const metadata: Metadata = constructMetadata({
   title: "End Operational Chaos. Reclaim Your Growth.",
   description: "Once Your Toughest Manual Processes Are Transformed by This Hybrid AI-Human Model, Costs Typically Slash by up to 50%, Execution Speed Triples, and Your Leadership is Freed to Drive the Business Forward—Guaranteed.",

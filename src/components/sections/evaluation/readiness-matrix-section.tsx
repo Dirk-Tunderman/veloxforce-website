@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
 import { CheckCircle, Clock, AlertTriangle, XCircle } from "lucide-react"
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 
 interface Quadrant {
   id: number
@@ -55,148 +56,161 @@ const quadrants: Quadrant[] = [
 ]
 
 export function ReadinessMatrixSection() {
+  const { ref: titleRef, isVisible: titleVisible } = useIntersectionObserver({ threshold: 0.3 })
+  const { ref: matrixRef, isVisible: matrixVisible } = useIntersectionObserver({ threshold: 0.2 })
+
   return (
     <Section id="readiness-matrix" padding="xl" background="light-to-white">
       <Container className="max-w-6xl">
-        <div className="text-center mb-12">
-          <Heading level="2" className="text-3xl md:text-4xl font-bold mb-4">
+        <div 
+          ref={titleRef as any}
+          className={`text-center mb-12 transition-all duration-800 ease-out ${
+            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <h2 className="velox-text-h1-premium mb-4">
             Where Does Your Business Fit?
-          </Heading>
-          <Text className="text-xl text-gray-600 max-w-3xl mx-auto">
+          </h2>
+          <p className="velox-text-lead max-w-3xl mx-auto">
             Find your position on the readiness matrix to understand your next best step
-          </Text>
+          </p>
         </div>
 
         {/* Matrix Visualization */}
-        <div className="relative bg-white rounded-2xl p-8 border-2 border-gray-200 shadow-lg mb-8">
+        <div 
+          ref={matrixRef as any}
+          className={`relative card-elevated mb-8 transition-all duration-1000 ease-out ${
+            matrixVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}
+        >
           {/* Axis Labels */}
           <div className="absolute -left-24 top-1/2 -translate-y-1/2 -rotate-90 hidden lg:block">
-            <Text className="text-sm font-semibold text-gray-700">Process Maturity →</Text>
+            <p className="text-sm font-semibold text-gray-700">Process Maturity →</p>
           </div>
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-8 hidden lg:block">
-            <Text className="text-sm font-semibold text-gray-700">Strategic Pressure →</Text>
+            <p className="text-sm font-semibold text-gray-700">Strategic Pressure →</p>
           </div>
 
           {/* Grid Container */}
-          <div className="grid grid-cols-2 gap-4 h-[600px]">
+          <div className="grid grid-cols-2 gap-6 h-[600px]">
             {/* Top Left - Prepare First */}
-            <div className="bg-yellow-50 border-2 border-yellow-300 rounded-xl p-6 flex flex-col">
+            <div className="card-base hover:elevation-2 transition-all duration-300 flex flex-col">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
-                  <Clock className="w-6 h-6 text-white" />
+                <div className="icon-container">
+                  <Clock className="w-6 h-6 text-gray-700" />
                 </div>
                 <div>
-                  <Heading level="3" className="text-lg font-bold text-gray-900">
+                  <h3 className="velox-text-h3 text-lg">
                     {quadrants[1].title}
-                  </Heading>
-                  <Text className="text-sm text-yellow-700 font-medium">
+                  </h3>
+                  <p className="text-sm text-gray-600 font-medium">
                     {quadrants[1].subtitle}
-                  </Text>
+                  </p>
                 </div>
               </div>
-              <Text className="text-gray-700 text-sm flex-1">
+              <p className="velox-text-body text-sm flex-1">
                 {quadrants[1].description}
-              </Text>
-              <div className="mt-4 pt-4 border-t border-yellow-300">
-                <Text className="text-xs text-yellow-700 font-medium">
+              </p>
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <p className="text-xs text-gray-600 font-medium">
                   Low Process Maturity + High Strategic Pressure
-                </Text>
+                </p>
               </div>
             </div>
 
             {/* Top Right - Perfect Fit */}
-            <div className="bg-green-50 border-2 border-green-300 rounded-xl p-6 flex flex-col">
+            <div className="card-solution flex flex-col">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                  <CheckCircle className="w-6 h-6 text-white" />
+                <div className="icon-container-gradient">
+                  <CheckCircle className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <Heading level="3" className="text-lg font-bold text-gray-900">
+                  <h3 className="velox-text-h3 text-lg text-blue-800">
                     {quadrants[0].title}
-                  </Heading>
-                  <Text className="text-sm text-green-700 font-medium">
+                  </h3>
+                  <p className="text-sm text-blue-700 font-medium">
                     {quadrants[0].subtitle}
-                  </Text>
+                  </p>
                 </div>
               </div>
-              <Text className="text-gray-700 text-sm flex-1">
+              <p className="text-blue-800 text-sm flex-1 font-medium">
                 {quadrants[0].description}
-              </Text>
-              <div className="mt-4 pt-4 border-t border-green-300">
-                <Text className="text-xs text-green-700 font-medium">
+              </p>
+              <div className="mt-4 pt-4 border-t border-blue-300">
+                <p className="text-xs text-blue-700 font-medium">
                   High Process Maturity + High Strategic Pressure
-                </Text>
+                </p>
               </div>
             </div>
 
             {/* Bottom Left - Not Yet */}
-            <div className="bg-gray-50 border-2 border-gray-300 rounded-xl p-6 flex flex-col">
+            <div className="card-base hover:elevation-2 transition-all duration-300 flex flex-col opacity-90">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center">
-                  <XCircle className="w-6 h-6 text-white" />
+                <div className="icon-container">
+                  <XCircle className="w-6 h-6 text-gray-700" />
                 </div>
                 <div>
-                  <Heading level="3" className="text-lg font-bold text-gray-900">
+                  <h3 className="velox-text-h3 text-lg">
                     {quadrants[3].title}
-                  </Heading>
-                  <Text className="text-sm text-gray-700 font-medium">
+                  </h3>
+                  <p className="text-sm text-gray-600 font-medium">
                     {quadrants[3].subtitle}
-                  </Text>
+                  </p>
                 </div>
               </div>
-              <Text className="text-gray-700 text-sm flex-1">
+              <p className="velox-text-body text-sm flex-1">
                 {quadrants[3].description}
-              </Text>
-              <div className="mt-4 pt-4 border-t border-gray-300">
-                <Text className="text-xs text-gray-600 font-medium">
+              </p>
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <p className="text-xs text-gray-600 font-medium">
                   Low Process Maturity + Low Strategic Pressure
-                </Text>
+                </p>
               </div>
             </div>
 
             {/* Bottom Right - Future Opportunity */}
-            <div className="bg-blue-50 border-2 border-blue-300 rounded-xl p-6 flex flex-col">
+            <div className="card-base hover:elevation-2 transition-all duration-300 flex flex-col border-blue-200">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                  <AlertTriangle className="w-6 h-6 text-white" />
+                <div className="icon-container">
+                  <AlertTriangle className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <Heading level="3" className="text-lg font-bold text-gray-900">
+                  <h3 className="velox-text-h3 text-lg">
                     {quadrants[2].title}
-                  </Heading>
-                  <Text className="text-sm text-blue-700 font-medium">
+                  </h3>
+                  <p className="text-sm text-blue-700 font-medium">
                     {quadrants[2].subtitle}
-                  </Text>
+                  </p>
                 </div>
               </div>
-              <Text className="text-gray-700 text-sm flex-1">
+              <p className="velox-text-body text-sm flex-1">
                 {quadrants[2].description}
-              </Text>
-              <div className="mt-4 pt-4 border-t border-blue-300">
-                <Text className="text-xs text-blue-700 font-medium">
+              </p>
+              <div className="mt-4 pt-4 border-t border-blue-200">
+                <p className="text-xs text-blue-700 font-medium">
                   High Process Maturity + Low Strategic Pressure
-                </Text>
+                </p>
               </div>
             </div>
           </div>
 
           {/* Axis Descriptions */}
           <div className="absolute -top-12 left-0 right-0 flex justify-between px-4 text-sm text-gray-600">
-            <Text>Low: "Still figuring out how things work"</Text>
-            <Text className="font-semibold">Process Maturity</Text>
-            <Text>High: "Documented and consistent"</Text>
+            <p>Low: "Still figuring out how things work"</p>
+            <p className="font-semibold">Process Maturity</p>
+            <p>High: "Documented and consistent"</p>
           </div>
           <div className="absolute top-4 bottom-4 -right-48 flex flex-col justify-between text-sm text-gray-600 hidden xl:block">
-            <Text>High: "Growth constrained by capacity"</Text>
-            <Text className="font-semibold">Strategic Pressure</Text>
-            <Text>Low: "Have bandwidth for volume"</Text>
+            <p>High: "Growth constrained by capacity"</p>
+            <p className="font-semibold">Strategic Pressure</p>
+            <p>Low: "Have bandwidth for volume"</p>
           </div>
         </div>
 
         {/* Mobile Legend */}
         <div className="block lg:hidden space-y-2 text-sm text-gray-600">
-          <Text><span className="font-semibold">Y-Axis (Process Maturity):</span> Low = Still figuring out | High = Documented & consistent</Text>
-          <Text><span className="font-semibold">X-Axis (Strategic Pressure):</span> Low = Have bandwidth | High = Growth constrained</Text>
+          <p><span className="font-semibold">Y-Axis (Process Maturity):</span> Low = Still figuring out | High = Documented & consistent</p>
+          <p><span className="font-semibold">X-Axis (Strategic Pressure):</span> Low = Have bandwidth | High = Growth constrained</p>
         </div>
       </Container>
     </Section>

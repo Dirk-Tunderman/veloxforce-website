@@ -5,7 +5,6 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Check, ArrowRight, Zap, Users, Cog, TrendingUp, Shield } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
 
 export function ServiceDifferentiationSection() {
   return (
@@ -15,158 +14,94 @@ export function ServiceDifferentiationSection() {
       
       <Container className="relative z-10 max-w-6xl">
         {/* Premium Section Header */}
-        <motion.div 
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <motion.h2 
-            className="velox-text-h1-premium mb-8"
-            data-text="This Isn't Automation. It Isn't Consulting. It's Something New."
-            initial={{ scale: 0.9 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-          >
+        <div className="text-center mb-20 animate-on-scroll" data-animation="fadeInUp">
+          <h2 className="velox-text-h1-premium mb-8">
             This Isn't Automation. It Isn't Consulting. <span className="text-gradient">It's Something New</span>.
-          </motion.h2>
-          <motion.p 
-            className="velox-text-lead max-w-4xl mx-auto text-blue-800"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
+          </h2>
+          <p className="velox-text-lead max-w-4xl mx-auto text-blue-800">
             <span className="font-bold">AI made custom software affordable.</span> We made it accessible by <span className="font-bold">running it for you</span>. 
             <span className="font-semibold"> That's the Service-as-Software revolution.</span>
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        {/* Enhanced Three-Column Comparison with Premium Effects */}
+        {/* Enhanced Three-Column Comparison - Optimized */}
         <div className="grid lg:grid-cols-12 gap-8 items-center mb-20">
           {/* Traditional Approach + Human Services (Old Ways) - Subdued */}
           <div className="lg:col-span-5 space-y-6">
-            <motion.div 
-              className="card-challenge magnetic-hover relative group"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute inset-0 bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl" />
+            <div className="card-challenge relative group animate-on-scroll" data-animation="fadeInLeft">
+              <div className="icon-container mx-auto mb-6">
+                <Cog className="w-6 h-6 icon-primary" />
               </div>
-              <div className="relative z-10">
-                <div className="icon-container-glass mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
-                  <Cog className="w-6 h-6 icon-primary" />
-                </div>
-                <h3 className="velox-text-h3 text-center mb-4 text-gray-700">Traditional Approach</h3>
-                <div className="space-y-3 velox-text-body text-center text-gray-600">
-                  <p className="hover:translate-x-1 transition-transform duration-200">• You buy tools</p>
-                  <p className="hover:translate-x-1 transition-transform duration-200">• You operate them</p>
-                  <p className="hover:translate-x-1 transition-transform duration-200">• You handle complexity</p>
-                </div>
-                <div className="mt-4 text-center">
-                  <span className="text-sm text-gray-500">Average efficiency: 20-30%</span>
-                </div>
+              <h3 className="velox-text-h3 text-center mb-4 text-gray-700">Traditional Approach</h3>
+              <div className="space-y-3 velox-text-body text-center text-gray-600">
+                <p className="hover:translate-x-1 transition-transform duration-200">• You buy tools</p>
+                <p className="hover:translate-x-1 transition-transform duration-200">• You operate them</p>
+                <p className="hover:translate-x-1 transition-transform duration-200">• You handle complexity</p>
               </div>
-            </motion.div>
+              <div className="mt-4 text-center">
+                <span className="text-sm text-gray-500">Average efficiency: 20-30%</span>
+              </div>
+            </div>
             
-            <motion.div 
-              className="card-challenge magnetic-hover relative group"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-2xl" />
+            <div className="card-challenge relative group animate-on-scroll" data-animation="fadeInLeft" style={{animationDelay: '0.1s'}}>
+              <div className="icon-container mx-auto mb-6">
+                <Users className="w-6 h-6 icon-primary" />
               </div>
-              <div className="relative z-10">
-                <div className="icon-container-glass mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
-                  <Users className="w-6 h-6 icon-primary" />
-                </div>
-                <h3 className="velox-text-h3 text-center mb-4 text-gray-700">Human Services</h3>
-                <div className="space-y-3 velox-text-body text-center text-gray-600">
-                  <p className="hover:translate-x-1 transition-transform duration-200">• You hire people/consultants</p>
-                  <p className="hover:translate-x-1 transition-transform duration-200">• Limited by human capacity</p>
-                  <p className="hover:translate-x-1 transition-transform duration-200">• Quality varies by person</p>
-                </div>
-                <div className="mt-4 text-center">
-                  <span className="text-sm text-gray-500">Average efficiency: 30-40%</span>
-                </div>
+              <h3 className="velox-text-h3 text-center mb-4 text-gray-700">Human Services</h3>
+              <div className="space-y-3 velox-text-body text-center text-gray-600">
+                <p className="hover:translate-x-1 transition-transform duration-200">• You hire people/consultants</p>
+                <p className="hover:translate-x-1 transition-transform duration-200">• Limited by human capacity</p>
+                <p className="hover:translate-x-1 transition-transform duration-200">• Quality varies by person</p>
               </div>
-            </motion.div>
+              <div className="mt-4 text-center">
+                <span className="text-sm text-gray-500">Average efficiency: 30-40%</span>
+              </div>
+            </div>
           </div>
 
           {/* Simple Transformation Arrow */}
           <div className="lg:col-span-2 flex justify-center relative">
-            <div className="transformation-arrow-premium relative z-10">
+            <div className="transformation-arrow animate-on-scroll" data-animation="scaleIn" style={{animationDelay: '0.2s'}}>
               <ArrowRight className="h-8 w-8 text-white" />
             </div>
           </div>
 
           {/* Service-as-Software (New Way) - Premium Elevated */}
-          <motion.div 
-            className="lg:col-span-5"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          >
-            <div className="card-solution relative group hover:transform hover:translate-y-[-2px] transition-transform duration-200">
-              {/* Simple hover effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 bg-blue-100 rounded-2xl" />
-              
-              <div className="relative z-10">
-                <div className="icon-container-gradient mb-6 mx-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <Check className="w-8 h-8 icon-accent" />
-                </div>
-                <h3 className="velox-text-h3 text-blue-800 text-center mb-4 font-bold">
-                  Service-as-Software
-                </h3>
-                <div className="space-y-3 velox-text-body text-blue-800 text-center font-medium">
-                  <p className="flex items-center justify-center gap-2 hover:translate-x-1 transition-transform duration-200">
-                    <Zap className="w-4 h-4 text-blue-600" />
-                    You delegate process
-                  </p>
-                  <p className="flex items-center justify-center gap-2 hover:translate-x-1 transition-transform duration-200">
-                    <Shield className="w-4 h-4 text-blue-600" />
-                    We deliver guaranteed results
-                  </p>
-                  <p className="flex items-center justify-center gap-2 hover:translate-x-1 transition-transform duration-200">
-                    <TrendingUp className="w-4 h-4 text-blue-600" />
-                    We handle complexity for you
-                  </p>
-                </div>
-                <div className="mt-6 text-center">
-                  <motion.div 
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5 }}
-                  >
-                    <span className="text-sm font-semibold text-blue-800">
-                      Efficiency: 95%
-                    </span>
-                  </motion.div>
+          <div className="lg:col-span-5 animate-on-scroll" data-animation="fadeInRight" style={{animationDelay: '0.3s'}}>
+            <div className="card-solution relative">
+              <div className="icon-container-gradient mb-6 mx-auto">
+                <Check className="w-8 h-8 icon-accent" />
+              </div>
+              <h3 className="velox-text-h3 text-blue-800 text-center mb-4 font-bold">
+                Service-as-Software
+              </h3>
+              <div className="space-y-3 velox-text-body text-blue-800 text-center font-medium">
+                <p className="flex items-center justify-center gap-2 hover:translate-x-1 transition-transform duration-200">
+                  <Zap className="w-4 h-4 text-blue-600" />
+                  You delegate process
+                </p>
+                <p className="flex items-center justify-center gap-2 hover:translate-x-1 transition-transform duration-200">
+                  <Shield className="w-4 h-4 text-blue-600" />
+                  We deliver guaranteed results
+                </p>
+                <p className="flex items-center justify-center gap-2 hover:translate-x-1 transition-transform duration-200">
+                  <TrendingUp className="w-4 h-4 text-blue-600" />
+                  We handle complexity for you
+                </p>
+              </div>
+              <div className="mt-6 text-center">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.5s'}}>
+                  <span className="text-sm font-semibold text-blue-800">
+                    Efficiency: 95%
+                  </span>
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Industry Validation Badges */}
-        <motion.div 
-          className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
+        <div className="mb-16 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.5s'}}>
           <div className="flex flex-wrap justify-center items-center gap-8">
             <div className="validation-badge">
               <span className="text-sm text-gray-600">Validated by</span>
@@ -180,27 +115,14 @@ export function ServiceDifferentiationSection() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Key Message with Premium Glass Design */}
-        <motion.div 
-          className="bg-white/95 border border-blue-200 rounded-lg p-6 text-center relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          
+        {/* Key Message - Optimized */}
+        <div className="bg-white/95 border border-blue-200 rounded-lg p-6 text-center relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.4s'}}>
           <div className="relative z-10">
-            <motion.h3 
-              className="velox-text-h2 text-blue-900 mb-4"
-              initial={{ scale: 0.95 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-            >
+            <h3 className="velox-text-h2 text-blue-900 mb-4">
               You own the strategy. We own the execution.
-            </motion.h3>
+            </h3>
             <p className="velox-text-lead text-blue-800 mb-8">
               The perfect partnership for business growth
             </p>
@@ -223,13 +145,13 @@ export function ServiceDifferentiationSection() {
             
             <Link 
               href="/our-approach"
-              className="cta-magnetic inline-flex items-center gap-2 group hover:scale-[1.02] transition-transform duration-200"
+              className="inline-flex items-center gap-2 group hover:scale-[1.02] transition-transform duration-200"
             >
               <span>See How This Works</span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
-        </motion.div>
+        </div>
       </Container>
     </Section>
   )

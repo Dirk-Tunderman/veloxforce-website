@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
 import { Building2, Users, Clock, CheckCircle } from "lucide-react"
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 
 interface ProfileCategory {
   title: string
@@ -49,37 +50,54 @@ const profileCategories: ProfileCategory[] = [
 ]
 
 export function IdealPartnerProfileSection() {
+  const { ref: titleRef, isVisible: titleVisible } = useIntersectionObserver({ threshold: 0.3 })
+
   return (
     <Section padding="xl" background="light-to-white">
       <Container className="max-w-6xl">
-        <div className="text-center mb-12">
-          <Heading level="2" className="text-3xl md:text-4xl font-bold mb-4">
+        <div 
+          ref={titleRef as any}
+          className={`text-center mb-12 transition-all duration-800 ease-out ${
+            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <h2 className="velox-text-h1-premium mb-4">
             Who Thrives with Service-as-Software
-          </Heading>
-          <Text className="text-xl text-gray-600 max-w-3xl mx-auto">
+          </h2>
+          <p className="velox-text-lead max-w-3xl mx-auto">
             Success patterns we've observed across 200+ implementations
-          </Text>
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {profileCategories.map((category, index) => {
             const IconComponent = category.icon
+            const { ref: cardRef, isVisible: cardVisible } = useIntersectionObserver({ threshold: 0.2 })
+            const isBlue = category.color === 'blue'
+            
             return (
-              <div key={index} className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
+              <div 
+                key={index} 
+                ref={cardRef as any}
+                className={`card-elevated transition-all duration-1000 ease-out ${
+                  cardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className={`w-12 h-12 ${category.color === 'blue' ? 'bg-blue-600' : 'bg-gray-700'} rounded-full flex items-center justify-center`}>
-                    <IconComponent className="w-6 h-6 text-white" />
+                  <div className={isBlue ? 'icon-container-gradient' : 'icon-container'}>
+                    <IconComponent className={`w-6 h-6 ${isBlue ? 'text-blue-600' : 'text-gray-700'}`} />
                   </div>
-                  <Heading level="3" className="text-lg font-bold text-gray-900">
+                  <h3 className="velox-text-h3">
                     {category.title}
-                  </Heading>
+                  </h3>
                 </div>
                 
                 <ul className="space-y-3">
                   {category.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <Text className="text-gray-700">{item}</Text>
+                      <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <p className="velox-text-body">{item}</p>
                     </li>
                   ))}
                 </ul>
@@ -91,16 +109,16 @@ export function IdealPartnerProfileSection() {
         {/* Success Story Callout */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-8">
           <div className="max-w-4xl mx-auto text-center">
-            <Heading level="3" className="text-2xl font-bold mb-4">
+            <h3 className="text-2xl font-bold mb-4 text-white">
               The Common Thread
-            </Heading>
-            <Text className="text-lg text-blue-100 leading-relaxed">
+            </h3>
+            <p className="text-lg text-blue-100 leading-relaxed">
               Every successful Service-as-Software partnership shares one trait:{" "}
               <span className="font-bold text-white">
                 Leadership that values strategic work over operational control.
               </span>{" "}
               They understand that true growth comes from delegation, not micromanagement.
-            </Text>
+            </p>
           </div>
         </div>
       </Container>

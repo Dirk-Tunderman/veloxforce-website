@@ -75,9 +75,9 @@ export function ReadinessChecklistSection() {
     <Section padding="xl" background="white-to-light">
       <Container className="max-w-6xl">
         <div className="text-center mb-12">
-          <Heading level="2" className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="velox-text-h1-premium mb-4">
             Final Checklist: Are You Ready?
-          </Heading>
+          </h2>
           <Text className="text-xl text-gray-600 max-w-3xl mx-auto">
             Check all statements that apply to your business
           </Text>

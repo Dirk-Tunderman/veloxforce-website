@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useRef, useEffect } from "react"
+import React from "react"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { 
@@ -19,121 +19,15 @@ import {
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 
-// Animated Counter Component
-function AnimatedCounter({ end, duration = 2000, suffix = "", prefix = "" }: { 
-  end: number; 
-  duration?: number; 
-  suffix?: string;
-  prefix?: string;
-}) {
-  const [count, setCount] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-  const counterRef = useRef<HTMLSpanElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    if (counterRef.current) {
-      observer.observe(counterRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [isVisible])
-
-  useEffect(() => {
-    if (!isVisible) return
-
-    let startTime: number
-    let animationFrame: number
-
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp
-      const progress = Math.min((timestamp - startTime) / duration, 1)
-      
-      setCount(Math.floor(progress * end))
-
-      if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate)
-      }
-    }
-
-    animationFrame = requestAnimationFrame(animate)
-
-    return () => cancelAnimationFrame(animationFrame)
-  }, [end, duration, isVisible])
-
-  return <span ref={counterRef}>{prefix}{count}{suffix}</span>
-}
-
 export function ROICalculatorSection() {
-  const [headerVisible, setHeaderVisible] = useState(false)
-  const [cardsVisible, setCardsVisible] = useState(false)
-  const [metricsVisible, setMetricsVisible] = useState(false)
-  const [timingVisible, setTimingVisible] = useState(false)
-  const [warningVisible, setWarningVisible] = useState(false)
-  
-  const headerRef = useRef<HTMLDivElement>(null)
-  const cardsRef = useRef<HTMLDivElement>(null)
-  const metricsRef = useRef<HTMLDivElement>(null)
-  const timingRef = useRef<HTMLDivElement>(null)
-  const warningRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observers = [
-      { ref: headerRef, setter: setHeaderVisible },
-      { ref: cardsRef, setter: setCardsVisible },
-      { ref: metricsRef, setter: setMetricsVisible },
-      { ref: timingRef, setter: setTimingVisible },
-      { ref: warningRef, setter: setWarningVisible }
-    ]
-
-    const observerInstances = observers.map(({ ref, setter }) => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setter(true)
-            observer.disconnect()
-          }
-        },
-        { threshold: 0.1, rootMargin: '50px' }
-      )
-
-      if (ref.current) {
-        observer.observe(ref.current)
-      }
-
-      return observer
-    })
-
-    return () => {
-      observerInstances.forEach(observer => observer.disconnect())
-    }
-  }, [])
-  
   return (
     <Section padding="xl" background="transparent" className="relative overflow-hidden">
-      {/* Performance-Optimized Background */}
-      <div className="absolute inset-0 bg-gradient-simple" />
-      
-      {/* Static Grid Pattern */}
-      <div className="absolute inset-0 bg-grid opacity-20" />
+      {/* Simple Static Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20" />
       
       <Container className="relative z-10 max-w-7xl">
         {/* Section Header */}
-        <div 
-          ref={headerRef}
-          className={cn(
-            "text-center mb-20 opacity-0",
-            headerVisible && "animate-fadeIn"
-          )}
-        >
+        <div className="text-center mb-20 animate-on-scroll" data-animation="fadeInUp">
           {/* Design System Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-6">
             <Calculator className="w-4 h-4 icon-accent" />
@@ -151,15 +45,9 @@ export function ROICalculatorSection() {
         </div>
 
         {/* Core Value Methodology - Enhanced Cards */}
-        <div 
-          ref={cardsRef}
-          className={cn(
-            "grid lg:grid-cols-2 gap-12 mb-24 opacity-0",
-            cardsVisible && "animate-fadeIn"
-          )}
-        >
+        <div className="grid lg:grid-cols-2 gap-12 mb-24">
           {/* Cost Discovery Process - Left Card */}
-          <div className="group relative">
+          <div className="group relative animate-on-scroll" data-animation="fadeInLeft">
             <div className="card-elevated relative h-full">
               {/* Gradient Accent */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-3xl" />
@@ -214,7 +102,7 @@ export function ROICalculatorSection() {
           </div>
 
           {/* Investment Philosophy - Right Card */}
-          <div className="group relative">
+          <div className="group relative animate-on-scroll" data-animation="fadeInRight">
             <div className="card-premium relative h-full">
               {/* Gradient Accent */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-3xl" />
@@ -277,31 +165,24 @@ export function ROICalculatorSection() {
           </div>
         </div>
 
-        {/* ROI Metrics Showcase */}
-        <div 
-          ref={metricsRef}
-          className={cn(
-            "mb-24 opacity-0",
-            metricsVisible && "animate-fadeIn"
-          )}
-          style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
-        >
+        {/* ROI Metrics Showcase - CSS Only */}
+        <div className="mb-24 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.3s'}}>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { label: "Average ROI Timeline", value: 3, suffix: " months", icon: <Clock className="w-8 h-8" /> },
-              { label: "Cost Reduction", value: 70, suffix: "%", icon: <TrendingDown className="w-8 h-8" /> },
-              { label: "Implementation Speed", value: 10, suffix: "x faster", icon: <Zap className="w-8 h-8" /> },
-              { label: "Success Rate", value: 98, suffix: "%", icon: <CheckCircle className="w-8 h-8" /> }
+              { label: "Average ROI Timeline", value: "3", suffix: " months", icon: <Clock className="w-8 h-8" /> },
+              { label: "Cost Reduction", value: "70", suffix: "%", icon: <TrendingDown className="w-8 h-8" /> },
+              { label: "Implementation Speed", value: "10", suffix: "x faster", icon: <Zap className="w-8 h-8" /> },
+              { label: "Success Rate", value: "98", suffix: "%", icon: <CheckCircle className="w-8 h-8" /> }
             ].map((metric, idx) => (
               <div
                 key={idx}
-                className="card-elevated text-center group"
+                className="card-elevated text-center group hover:scale-105 transition-transform duration-200"
               >
-                <div className="icon-container-gradient w-16 h-16 mx-auto mb-4">
+                <div className="icon-container-gradient w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform">
                   {React.cloneElement(metric.icon, { className: "w-8 h-8 icon-accent" })}
                 </div>
                 <div className="text-4xl font-bold text-gray-900 mb-2">
-                  <AnimatedCounter end={metric.value} suffix={metric.suffix} />
+                  {metric.value}{metric.suffix}
                 </div>
                 <p className="velox-text-body font-medium text-gray-600">{metric.label}</p>
               </div>
@@ -309,18 +190,13 @@ export function ROICalculatorSection() {
           </div>
         </div>
 
-        {/* Why Timing Matters - Dark Premium Card */}
-        <div 
-          ref={timingRef}
-          className={cn(
-            "relative mb-24 opacity-0",
-            timingVisible && "animate-fadeIn"
-          )}
-          style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}
-        >
+        {/* Why Timing Matters - Simplified */}
+        <div className="relative mb-24 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.4s'}}>
           <div className="relative rounded-3xl p-12 md:p-16 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white overflow-hidden">
-            {/* Static Background Pattern */}
-            <div className="absolute inset-0 bg-mesh-static opacity-10" />
+            {/* Simple Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent" />
+            </div>
             
             <div className="relative z-10">
               <h3 className="velox-text-h2 text-center mb-16 text-white">
@@ -374,17 +250,12 @@ export function ROICalculatorSection() {
         </div>
 
         {/* Competitive Advantage Warning */}
-        <div 
-          ref={warningRef}
-          className={cn(
-            "text-center opacity-0",
-            warningVisible && "animate-fadeIn"
-          )}
-          style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}
-        >
+        <div className="text-center animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.5s'}}>
           <div className="card-elevated relative rounded-3xl p-12 bg-gradient-to-br from-orange-50/80 via-white/90 to-red-50/80 overflow-hidden">
-            {/* Static Warning Pattern */}
-            <div className="absolute inset-0 bg-dots opacity-10" />
+            {/* Simple Warning Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-400/20 to-red-400/20" />
+            </div>
             
             <div className="relative z-10">
               <div className="flex justify-center mb-8">

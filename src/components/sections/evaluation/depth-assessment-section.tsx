@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
 import { Clock, FileText, DollarSign, ArrowRight } from "lucide-react"
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 
 interface AssessmentQuestion {
   surface: string
@@ -50,66 +51,95 @@ const assessmentQuestions: AssessmentQuestion[] = [
 ]
 
 export function DepthAssessmentSection() {
+  const { ref: titleRef, isVisible: titleVisible } = useIntersectionObserver({ threshold: 0.3 })
+
   return (
     <Section padding="xl" background="white-to-light">
       <Container className="max-w-6xl">
-        <div className="text-center mb-12">
-          <Heading level="2" className="text-3xl md:text-4xl font-bold mb-4">
+        <div 
+          ref={titleRef as any}
+          className={`text-center mb-12 transition-all duration-800 ease-out ${
+            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <h2 className="velox-text-h1-premium mb-4">
             Beyond Basic Questions: The Real Indicators
-          </Heading>
-          <Text className="text-xl text-gray-600 max-w-3xl mx-auto">
+          </h2>
+          <p className="velox-text-lead max-w-3xl mx-auto">
             Surface-level questions miss the real opportunity. Here's what actually matters:
-          </Text>
+          </p>
         </div>
 
         <div className="space-y-8">
           {assessmentQuestions.map((question, index) => {
             const IconComponent = question.icon
+            const { ref: questionRef, isVisible: questionVisible } = useIntersectionObserver({ threshold: 0.2 })
+            
             return (
-              <div key={index} className="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden">
-                <div className="grid lg:grid-cols-2">
-                  {/* Surface Question */}
-                  <div className="p-8 bg-gray-50 border-r border-gray-200">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className={`w-10 h-10 ${question.color === 'blue' ? 'bg-blue-600' : 'bg-gray-700'} rounded-full flex items-center justify-center`}>
-                        <IconComponent className="w-5 h-5 text-white" />
+              <div 
+                key={index} 
+                ref={questionRef as any}
+                className={`transition-all duration-1000 ease-out ${
+                  questionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
+                <div className="grid lg:grid-cols-12 gap-8 items-center">
+                  {/* Challenge Card */}
+                  <div className="lg:col-span-5">
+                    <div className="card-base opacity-90">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="icon-container">
+                          <IconComponent className="w-5 h-5 text-gray-700" />
+                        </div>
+                        <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">
+                          Surface Question
+                        </p>
                       </div>
-                      <Text className="text-sm font-semibold text-gray-600 uppercase tracking-wide">
-                        Surface Question
-                      </Text>
+                      <h3 className="velox-text-h3 mb-2">
+                        {question.surface}
+                      </h3>
                     </div>
-                    <Heading level="3" className="text-xl font-bold text-gray-900 mb-2">
-                      {question.surface}
-                    </Heading>
                   </div>
 
-                  {/* Deeper Question */}
-                  <div className="p-8">
-                    <div className="flex items-center gap-3 mb-4">
-                      <ArrowRight className="w-6 h-6 text-blue-600" />
-                      <Text className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
-                        Deeper Question
-                      </Text>
+                  {/* Transformation Arrow */}
+                  <div className="lg:col-span-2 flex justify-center">
+                    <div className="transformation-arrow">
+                      <ArrowRight className="h-8 w-8 text-white" />
                     </div>
-                    <Heading level="3" className="text-xl font-bold text-gray-900 mb-4">
-                      {question.deeper}
-                    </Heading>
-                    
-                    <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                      <Text className="text-sm font-semibold text-green-900 mb-2">
-                        If your answer includes:
-                      </Text>
-                      <ul className="space-y-2">
-                        {question.indicators.map((indicator, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-1.5 flex-shrink-0" />
-                            <Text className="text-sm text-green-800">{indicator}</Text>
-                          </li>
-                        ))}
-                      </ul>
-                      <Text className="text-sm font-bold text-green-900 mt-3">
-                        → Strong fit indicator
-                      </Text>
+                  </div>
+
+                  {/* Solution Card */}
+                  <div className="lg:col-span-5">
+                    <div className="card-solution">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="icon-container-gradient">
+                          <IconComponent className="w-5 h-5 text-blue-600" />
+                        </div>
+                        <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
+                          Deeper Question
+                        </p>
+                      </div>
+                      <h3 className="velox-text-h3 text-blue-800 mb-4">
+                        {question.deeper}
+                      </h3>
+                      
+                      <div className="bg-blue-100 rounded-lg p-4 border border-blue-200">
+                        <p className="text-sm font-semibold text-blue-900 mb-2">
+                          If your answer includes:
+                        </p>
+                        <ul className="space-y-2">
+                          {question.indicators.map((indicator, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1.5 flex-shrink-0" />
+                              <p className="text-sm text-blue-800">{indicator}</p>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="text-sm font-bold text-blue-900 mt-3">
+                          → Strong fit indicator
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -118,14 +148,14 @@ export function DepthAssessmentSection() {
           })}
         </div>
 
-        <div className="mt-12 bg-blue-50 rounded-2xl p-8 border border-blue-200 text-center">
-          <Heading level="3" className="text-2xl font-bold text-blue-900 mb-4">
+        <div className="mt-12 card-elevated text-center">
+          <h3 className="velox-text-h3 text-blue-900 mb-4">
             The Pattern That Matters
-          </Heading>
-          <Text className="text-lg text-blue-800 max-w-3xl mx-auto">
+          </h3>
+          <p className="velox-text-lead text-blue-800 max-w-3xl mx-auto">
             If you found yourself nodding to the deeper questions, you're experiencing the hidden cost of operational drag. 
             <span className="font-bold"> That's exactly what Service-as-Software solves.</span>
-          </Text>
+          </p>
         </div>
       </Container>
     </Section>
