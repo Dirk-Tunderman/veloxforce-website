@@ -577,19 +577,6 @@ main,
     background: linear-gradient(180deg, var(--velox-bg-primary) 0%, var(--velox-bg-light-blue) 100%);
   }
 
-  .noise-overlay {
-    position: relative;
-  }
-
-  .noise-overlay::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--velox-bg-noise);
-    opacity: 0.03;
-    pointer-events: none;
-    mix-blend-mode: overlay;
-  }
 
   /* Simplified Transformation Pattern */
   .transformation-arrow-premium {
@@ -794,28 +781,6 @@ main,
   transform: translateY(-2px);
 }
 
-/* Smooth Number Counter Animation */
-@property --num {
-  syntax: '<integer>';
-  initial-value: 0;
-  inherits: false;
-}
-
-.counter {
-  animation: counter 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  counter-reset: num var(--num);
-  font-variant-numeric: tabular-nums;
-  font-weight: 700;
-  color: var(--velox-accent);
-}
-
-.counter::after {
-  content: counter(num);
-}
-
-@keyframes counter {
-  to { --num: 100; }
-}
 
 /* ===== SERVICE-AS-SOFTWARE REVOLUTION SPECIFIC STYLES ===== */
 /* Magnetic hover effect */
@@ -828,39 +793,7 @@ main,
   transform: perspective(1000px) translateZ(10px);
 }
 
-/* Simplified static effects */
-.particle-flow-container {
-  position: absolute;
-  width: 200px;
-  height: 2px;
-  overflow: hidden;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
 
-.particle-flow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(37, 99, 235, 0.4) 20%,
-    rgba(37, 99, 235, 0.8) 50%,
-    rgba(37, 99, 235, 0.4) 80%,
-    transparent 100%
-  );
-}
-
-/* Simplified gradient backgrounds */
-.bg-gradient-aurora {
-  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-}
-
-.bg-gradient-premium {
-  background: var(--velox-gradient-primary);
-}
 
 /* Validation badge styles */
 .validation-badge {
@@ -889,23 +822,6 @@ main,
   overflow: hidden;
 }
 
-.gear-strategic::before,
-.gear-execution::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(37, 99, 235, 0.2) 60deg,
-    transparent 120deg,
-    rgba(37, 99, 235, 0.2) 180deg,
-    transparent 240deg,
-    rgba(37, 99, 235, 0.2) 300deg,
-    transparent 360deg
-  );
-  border-radius: 50%;
-}
 
 .gear-execution::before {
   background: conic-gradient(
@@ -962,10 +878,6 @@ main,
   box-shadow: var(--velox-shadow-blue-lg);
 }
 
-/* Static gradient backgrounds */
-.animate-gradient-shift {
-  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-}
 
 /* ===== DECISION MAKING RELIEF SPECIFIC STYLES ===== */
 /* Brain network visualization */
@@ -1317,10 +1229,6 @@ main,
 
 /* ===== PREMIUM DESIGN SYSTEM ADDITIONS ===== */
 @layer components {
-  /* Simplified Mesh Gradient */
-  .bg-gradient-mesh {
-    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-  }
 
   @keyframes gradient-shift {
     0%, 100% { background-position: 0% 50%; }
@@ -1497,7 +1405,4 @@ main,
     animation: none;
   }
   
-  .bg-gradient-mesh {
-    animation: none;
-  }
 }

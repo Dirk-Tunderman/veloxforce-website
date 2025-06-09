@@ -29,7 +29,7 @@ export function Header() {
             <Link href="/" className="flex items-center group">
               <div className="relative">
                 <img
-                  src="/veloxforce-logo-deep-blue.svg"
+                  src="/veloxforce-logo-main.svg"
                   alt={siteConfig.name}
                   className="h-20 w-auto transition-all duration-300 group-hover:scale-105"
                   width={300}

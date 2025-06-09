@@ -248,13 +248,9 @@ export function EarlyAdoptersSection() {
         
         {/* Animated Gradient Mesh */}
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl animate-pulse" 
-            style={{ animationDelay: '2s' }} 
-          />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl animate-pulse" 
-            style={{ animationDelay: '4s' }} 
-          />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-200/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-300/10 rounded-full blur-3xl" />
         </div>
         
         {/* Grid Pattern */}
@@ -282,7 +278,7 @@ export function EarlyAdoptersSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 backdrop-blur-sm border border-blue-100/50 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100/50 mb-6"
           >
             <Zap className="w-4 h-4 text-blue-600" />
             <span className="text-sm font-medium text-blue-700">The Innovation Window</span>
@@ -315,7 +311,7 @@ export function EarlyAdoptersSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
               >
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg animate-pulse" />
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg" />
               </motion.div>
               <div className="absolute inset-0 flex items-center justify-between px-8 text-xs font-medium">
                 <span className="text-white relative z-10">Early Adopters (You)</span>
@@ -349,7 +345,6 @@ export function EarlyAdoptersSection() {
           <div className={cn(
             "relative rounded-3xl p-12",
             "bg-gradient-to-br from-white/80 via-blue-50/40 to-indigo-50/30",
-            "backdrop-blur-xl",
             "border border-blue-100/50",
             "shadow-[0_20px_60px_-15px_rgba(37,99,235,0.15)]",
             "overflow-hidden"
@@ -448,13 +443,12 @@ export function EarlyAdoptersSection() {
             <div className={cn(
               "relative rounded-2xl p-10",
               "bg-gradient-to-br from-white/70 to-blue-50/50",
-              "backdrop-blur-xl",
-              "border border-blue-100/50",
+                "border border-blue-100/50",
               "shadow-[0_20px_40px_-12px_rgba(37,99,235,0.1)]"
             )}>
               {/* Floating Quote Marks */}
-              <div className="absolute -top-4 -left-4 text-6xl text-blue-200 font-serif animate-pulse">"</div>
-              <div className="absolute -bottom-4 -right-4 text-6xl text-blue-200 font-serif rotate-180 animate-pulse">"</div>
+              <div className="absolute -top-4 -left-4 text-6xl text-blue-200 font-serif">"</div>
+              <div className="absolute -bottom-4 -right-4 text-6xl text-blue-200 font-serif rotate-180">"</div>
               
               <p className="text-2xl font-medium text-gray-800 italic relative z-10">
                 By 2025, AI-powered automation will handle 50% of repetitive tasks. 

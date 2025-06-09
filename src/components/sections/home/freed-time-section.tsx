@@ -41,13 +41,12 @@ const ActivityCard: React.FC<ActivityCardProps> = ({
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
       className="group relative"
     >
-      {/* Glass Card with Blue Tint */}
+      {/* Simple Card */}
       <div className={cn(
         "relative h-full rounded-2xl p-8",
-        "bg-gradient-to-br from-blue-50/80 via-white/90 to-blue-50/60",
-        "backdrop-blur-xl",
+        "bg-gradient-to-br from-blue-50/95 via-white to-blue-50/95",
         "border border-blue-100/50",
-        "shadow-[0_8px_32px_rgba(37,99,235,0.08)]",
+        "shadow-sm",
         "transition-all duration-300",
         "group-hover:shadow-[0_20px_48px_rgba(37,99,235,0.15)]",
         "group-hover:border-blue-200/60",
