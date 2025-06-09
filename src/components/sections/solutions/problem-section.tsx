@@ -1,12 +1,9 @@
 "use client"
 
-import { AlertTriangle } from "lucide-react"
-
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
-import { FadeIn, SlideUp, StaggeredChildren } from "@/components/ui/animated-element"
-import { IconByName } from "@/lib/icon-resolver"
+import { AlertTriangle, Clock, RefreshCw } from "lucide-react"
 
 interface PainPoint {
   icon: string
@@ -20,56 +17,43 @@ interface ProblemSectionProps {
   painPoints: PainPoint[]
 }
 
+const iconMap = {
+  Clock,
+  RefreshCw,
+  AlertTriangle,
+}
+
 export function ProblemSection({ title, description, painPoints }: ProblemSectionProps) {
   return (
-    <Section padding="lg">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <SlideUp delay={0.1} duration={0.6}>
-            <div className="bg-destructive/10 rounded-lg p-6 border border-destructive/20 shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-destructive/20">
-                  <AlertTriangle className="h-5 w-5 text-gray-700" />
-                </div>
-                <Heading level="2" className="text-destructive">
-                  {title}
-                </Heading>
-              </div>
-              <div className="space-y-4 text-muted-foreground">
-                {typeof description === "string" ? (
-                  <Text>{description}</Text>
-                ) : (
-                  description
-                )}
-              </div>
-            </div>
-          </SlideUp>
-
-          <div className="space-y-6">
-            {painPoints.map((point, index) => (
-              <SlideUp
-                key={index}
-                delay={0.3 + index * 0.15}
-                duration={0.5}
-              >
-                <div className="bg-background rounded-lg p-6 border border-border shadow-sm hover:shadow-md hover:border-border/80 transition-all duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-destructive/10">
-                      <IconByName name={point.icon} className="h-5 w-5 text-gray-700" />
-                    </div>
-                    <div>
-                      <Heading level="3" className="text-lg mb-2">
-                        {point.title}
-                      </Heading>
-                      <Text className="text-muted-foreground">
-                        {point.description}
-                      </Text>
-                    </div>
-                  </div>
-                </div>
-              </SlideUp>
-            ))}
+    <Section padding="xl" background="light-blue">
+      <Container className="max-w-6xl">
+        <div className="text-center mb-16">
+          <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            {title}
+          </Heading>
+          <div className="text-lg text-gray-700 max-w-4xl mx-auto">
+            {description}
           </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {painPoints.map((point, index) => {
+            const IconComponent = iconMap[point.icon as keyof typeof iconMap] || AlertTriangle
+            
+            return (
+              <div key={index} className="bg-white rounded-xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                  <IconComponent className="w-6 h-6 text-red-600" />
+                </div>
+                <Heading level="3" className="text-xl font-semibold text-gray-900 mb-4">
+                  {point.title}
+                </Heading>
+                <Text className="text-gray-600 leading-relaxed">
+                  {point.description}
+                </Text>
+              </div>
+            )
+          })}
         </div>
       </Container>
     </Section>
