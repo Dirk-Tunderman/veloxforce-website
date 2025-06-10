@@ -35,7 +35,7 @@ main,
 
 .animate-fadeIn {
   animation: fadeIn 0.6s ease-out forwards;
-  opacity: 0;
+  animation-fill-mode: both;
 }
 
 /* Fade In Up */
@@ -94,22 +94,27 @@ main,
 
 .animate-on-scroll[data-animation="fadeIn"] {
   animation: fadeIn 0.6s ease-out forwards;
+  animation-fill-mode: both;
 }
 
 .animate-on-scroll[data-animation="fadeInUp"] {
   animation: fadeInUp 0.8s ease-out forwards;
+  animation-fill-mode: both;
 }
 
 .animate-on-scroll[data-animation="fadeInLeft"] {
   animation: fadeInLeft 0.8s ease-out forwards;
+  animation-fill-mode: both;
 }
 
 .animate-on-scroll[data-animation="fadeInRight"] {
   animation: fadeInRight 0.8s ease-out forwards;
+  animation-fill-mode: both;
 }
 
 .animate-on-scroll[data-animation="scaleIn"] {
   animation: scaleIn 0.6s ease-out forwards;
+  animation-fill-mode: both;
 }
 
 .animate-on-scroll.animate {

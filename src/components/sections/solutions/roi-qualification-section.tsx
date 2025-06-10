@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { motion } from "framer-motion"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
@@ -38,18 +37,11 @@ const qualificationCriteria = [
 export function ROIQualificationSection() {
   return (
     <Section padding="xl" background="white">
-      {/* Performance-Optimized Background */}
-      <div className="absolute inset-0 bg-gradient-simple" />
-      <div className="absolute inset-0 bg-mesh-static opacity-30" />
+      {/* Simplified Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 via-white to-gray-50/30" />
 
       <Container className="relative z-10 max-w-6xl">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
           <Heading level="2" className="velox-text-h2 mb-6">
             <span className="text-gradient">
               First:
@@ -59,19 +51,17 @@ export function ROIQualificationSection() {
           <Text className="velox-text-lead max-w-4xl mx-auto">
             Service-as-Software works best when these align:
           </Text>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {qualificationCriteria.map((criteria, index) => {
             const IconComponent = criteria.icon
             return (
-              <motion.div
+              <div
                 key={index}
-                className="group card-base"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group card-base animate-on-scroll"
+                data-animation="fadeInUp"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start gap-4">
                   <div className="icon-container flex-shrink-0">
@@ -88,95 +78,70 @@ export function ROIQualificationSection() {
                     </Text>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             )
           })}
         </div>
 
         {/* Results Section */}
-        <motion.div
-          className="card-solution mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        <div 
+          className="card-solution mb-12 animate-on-scroll"
+          data-animation="fadeInUp"
         >
-          <div className="text-center">
-            <Heading level="3" className="velox-text-h3 text-blue-900 mb-8">
-              When these conditions exist, transformation begins in{" "}
-              <span className="text-gradient">
-                weeks, not months
-              </span>.
+          <div className="text-center space-y-6">
+            <Heading level="3" className="velox-text-h3 text-blue-800">
+              When these conditions meet, expect:
             </Heading>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <motion.div
-                className="card-base text-center"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <div className="text-4xl font-bold text-gradient mb-2">60-70%</div>
-                <Text className="text-blue-800 font-semibold text-lg mb-1">Cost Reduction</Text>
-                <Text className="text-sm text-blue-600">vs traditional staffing</Text>
-              </motion.div>
-
-              <motion.div
-                className="card-base text-center"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <div className="text-4xl font-bold text-gradient mb-2">2-6</div>
-                <Text className="text-blue-800 font-semibold text-lg mb-1">Months to ROI</Text>
-                <Text className="text-sm text-blue-600">varies by process complexity</Text>
-              </motion.div>
-
-              <motion.div
-                className="card-base text-center"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
-                <div className="text-4xl font-bold text-gradient mb-2">24/7</div>
-                <Text className="text-blue-800 font-semibold text-lg mb-1">Processing</Text>
-                <Text className="text-sm text-blue-600">no breaks, no sick days</Text>
-              </motion.div>
+            <div className="grid md:grid-cols-3 gap-8 py-6">
+              <div className="text-center">
+                <div className="velox-text-h1 text-blue-600 mb-2">50-80%</div>
+                <Text className="velox-text-body">
+                  Typical cost reduction from current state
+                </Text>
+              </div>
+              <div className="text-center">
+                <div className="velox-text-h1 text-blue-600 mb-2">3-6x</div>
+                <Text className="velox-text-body">
+                  Speed improvement with perfect accuracy
+                </Text>
+              </div>
+              <div className="text-center">
+                <div className="velox-text-h1 text-blue-600 mb-2">24/7</div>
+                <Text className="velox-text-body">
+                  Operations without human intervention
+                </Text>
+              </div>
             </div>
+
+            <Text className="velox-text-body max-w-3xl mx-auto text-gray-600">
+              <strong>The math is simple:</strong> If a process consumes 10 hours weekly at skilled rates,
+              that's €20,000-€40,000 annually. Our transformation typically pays for itself within months.
+            </Text>
           </div>
-        </motion.div>
+        </div>
 
-
-        {/* CTA */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+        {/* CTA Section */}
+        <div 
+          className="text-center animate-on-scroll"
+          data-animation="fadeInUp" 
+          style={{ animationDelay: "0.5s" }}
         >
           <Button
             size="lg"
-            className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-8 py-4 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
+            className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             asChild
           >
             <Link href="/tools/business-audit">
-              <div className="relative z-10 flex items-center gap-3">
-                <Calculator className="w-5 h-5" />
-                <span>Check if my process qualifies</span>
-                <ArrowRight className="w-5 h-5" />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              See Your Specific Savings
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </Button>
 
-          <Text className="text-sm text-gray-600 mt-4">
-            Free assessment • 8 minutes • Honest analysis
+          <Text className="velox-text-caption mt-6 text-gray-600">
+            Free ROI analysis • 8 minutes • No sales pressure
           </Text>
-        </motion.div>
+        </div>
       </Container>
     </Section>
   )

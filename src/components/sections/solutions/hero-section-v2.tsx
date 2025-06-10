@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { motion } from "framer-motion"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
@@ -15,19 +14,13 @@ export function HeroSectionV2() {
       background="white-to-light"
       className="relative min-h-[90vh] flex items-center overflow-hidden"
     >
-      {/* Performance-Optimized Background */}
-      <div className="absolute inset-0 bg-gradient-simple" />
-      <div className="absolute inset-0 bg-mesh-static opacity-30" />
+      {/* Simplified Background - removed mesh overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20" />
 
       <Container className="relative z-10 max-w-6xl">
-        <motion.div
-          className="text-center space-y-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          {/* Main Headline - Premium Typography */}
-          <div className="space-y-6 max-w-5xl mx-auto">
+        <div className="text-center space-y-12">
+          {/* Main Headline - CSS Animation */}
+          <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn">
             <Heading
               level="1"
               className="velox-text-h1-premium"
@@ -51,12 +44,10 @@ export function HeroSectionV2() {
             </Text>
           </div>
 
-          {/* Value Proposition Cards */}
-          <motion.div
-            className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+          {/* Value Proposition Cards - CSS Animation with delay */}
+          <div 
+            className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto animate-fadeIn"
+            style={{ animationDelay: '0.3s' }}
           >
             <div className="card-base">
               <div className="icon-container mx-auto mb-4">
@@ -93,18 +84,16 @@ export function HeroSectionV2() {
                 Savings typically exceed investment within months
               </Text>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Primary CTA - Premium Design */}
-          <motion.div
-            className="space-y-6 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+          {/* Primary CTA - Simplified hover effects */}
+          <div 
+            className="space-y-6 text-center animate-fadeIn"
+            style={{ animationDelay: '0.5s' }}
           >
             <Button
               size="lg"
-              className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-12 py-6 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 mx-auto overflow-hidden group"
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-12 py-6 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 mx-auto"
               asChild
             >
               <Link href="/tools/business-audit">
@@ -112,7 +101,6 @@ export function HeroSectionV2() {
                   <span className="text-lg">Check What I Can Delegate</span>
                   <span className="text-sm font-normal opacity-90 text-center">Free assessment • 8 minutes • Honest analysis</span>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               </Link>
             </Button>
 
@@ -121,12 +109,12 @@ export function HeroSectionV2() {
               These are just examples. We've transformed over 200 unique processes across every industry.<br />
               If it's repetitive and follows rules, we can automate it.
             </Text>
-          </motion.div>
+          </div>
 
-        </motion.div>
+        </div>
       </Container>
 
-      {/* Flowing Wave Divider */}
+      {/* Simplified Wave Divider */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg className="w-full h-20 text-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor" />

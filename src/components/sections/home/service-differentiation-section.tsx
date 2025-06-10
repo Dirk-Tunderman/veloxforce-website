@@ -3,7 +3,7 @@
 import React from "react"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
-import { Check, ArrowRight, Zap, Users, Cog, TrendingUp, Shield } from "lucide-react"
+import { Check, X, Zap, Users, Cog, Shield, ThumbsUp, ThumbsDown, ArrowRight, Brain } from "lucide-react"
 import Link from "next/link"
 
 export function ServiceDifferentiationSection() {
@@ -12,7 +12,7 @@ export function ServiceDifferentiationSection() {
       {/* Simple static background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20" />
       
-      <Container className="relative z-10 max-w-6xl">
+      <Container className="relative z-10 max-w-7xl">
         {/* Premium Section Header */}
         <div className="text-center mb-20 animate-on-scroll" data-animation="fadeInUp">
           <h2 className="velox-text-h1-premium mb-8">
@@ -24,75 +24,222 @@ export function ServiceDifferentiationSection() {
           </p>
         </div>
 
-        {/* Enhanced Three-Column Comparison - Optimized */}
+        {/* Enhanced Three-Column Comparison - Original Layout */}
         <div className="grid lg:grid-cols-12 gap-8 items-center mb-20">
-          {/* Traditional Approach + Human Services (Old Ways) - Subdued */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Traditional Approaches (Left Side) - Subdued */}
+          <div className="lg:col-span-5 space-y-4">
+            {/* Traditional Automation */}
             <div className="card-challenge relative group animate-on-scroll" data-animation="fadeInLeft">
-              <div className="icon-container mx-auto mb-6">
-                <Cog className="w-6 h-6 icon-primary" />
-              </div>
-              <h3 className="velox-text-h3 text-center mb-4 text-gray-700">Traditional Approach</h3>
-              <div className="space-y-3 velox-text-body text-center text-gray-600">
-                <p className="hover:translate-x-1 transition-transform duration-200">• You buy tools</p>
-                <p className="hover:translate-x-1 transition-transform duration-200">• You operate them</p>
-                <p className="hover:translate-x-1 transition-transform duration-200">• You handle complexity</p>
-              </div>
-              <div className="mt-4 text-center">
-                <span className="text-sm text-gray-500">Average efficiency: 20-30%</span>
+              <div className="flex items-start gap-4">
+                <div className="icon-container">
+                  <Cog className="w-5 h-5 icon-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="velox-text-h4 mb-3 text-gray-700">Traditional Automation</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* What Works */}
+                    <div>
+                      <div className="flex items-center gap-1 mb-2">
+                        <ThumbsUp className="w-3 h-3 text-gray-600" />
+                        <span className="text-xs font-semibold text-gray-700">What Works</span>
+                      </div>
+                      <div className="space-y-1 text-xs text-gray-600">
+                        <p className="flex items-start gap-1">
+                          <Check className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <span>Works 24/7</span>
+                        </p>
+                        <p className="flex items-start gap-1">
+                          <Check className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <span>Scales infinitely</span>
+                        </p>
+                      </div>
+                    </div>
+                    {/* The Reality */}
+                    <div>
+                      <div className="flex items-center gap-1 mb-2">
+                        <ThumbsDown className="w-3 h-3 text-gray-600" />
+                        <span className="text-xs font-semibold text-gray-700">The Reality</span>
+                      </div>
+                      <div className="space-y-1 text-xs text-gray-600">
+                        <p className="flex items-start gap-1">
+                          <X className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <span>You manage tools</span>
+                        </p>
+                        <p className="flex items-start gap-1">
+                          <X className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <span>Breaks easily</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             
+            {/* Human Teams */}
             <div className="card-challenge relative group animate-on-scroll" data-animation="fadeInLeft" style={{animationDelay: '0.1s'}}>
-              <div className="icon-container mx-auto mb-6">
-                <Users className="w-6 h-6 icon-primary" />
+              <div className="flex items-start gap-4">
+                <div className="icon-container">
+                  <Users className="w-5 h-5 icon-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="velox-text-h4 mb-3 text-gray-700">Human Teams</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* What Works */}
+                    <div>
+                      <div className="flex items-center gap-1 mb-2">
+                        <ThumbsUp className="w-3 h-3 text-gray-600" />
+                        <span className="text-xs font-semibold text-gray-700">What Works</span>
+                      </div>
+                      <div className="space-y-1 text-xs text-gray-600">
+                        <p className="flex items-start gap-1">
+                          <Check className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <span>Human judgment</span>
+                        </p>
+                        <p className="flex items-start gap-1">
+                          <Check className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <span>Handles exceptions</span>
+                        </p>
+                      </div>
+                    </div>
+                    {/* The Reality */}
+                    <div>
+                      <div className="flex items-center gap-1 mb-2">
+                        <ThumbsDown className="w-3 h-3 text-gray-600" />
+                        <span className="text-xs font-semibold text-gray-700">The Reality</span>
+                      </div>
+                      <div className="space-y-1 text-xs text-gray-600">
+                        <p className="flex items-start gap-1">
+                          <X className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <span>High costs</span>
+                        </p>
+                        <p className="flex items-start gap-1">
+                          <X className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <span>Limited hours</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="velox-text-h3 text-center mb-4 text-gray-700">Human Services</h3>
-              <div className="space-y-3 velox-text-body text-center text-gray-600">
-                <p className="hover:translate-x-1 transition-transform duration-200">• You hire people/consultants</p>
-                <p className="hover:translate-x-1 transition-transform duration-200">• Limited by human capacity</p>
-                <p className="hover:translate-x-1 transition-transform duration-200">• Quality varies by person</p>
-              </div>
-              <div className="mt-4 text-center">
-                <span className="text-sm text-gray-500">Average efficiency: 30-40%</span>
+            </div>
+
+            {/* AI Solutions */}
+            <div className="card-challenge relative group animate-on-scroll" data-animation="fadeInLeft" style={{animationDelay: '0.2s'}}>
+              <div className="flex items-start gap-4">
+                <div className="icon-container">
+                  <Brain className="w-5 h-5 icon-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="velox-text-h4 mb-3 text-gray-700">AI Solutions</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* What Works */}
+                    <div>
+                      <div className="flex items-center gap-1 mb-2">
+                        <ThumbsUp className="w-3 h-3 text-gray-600" />
+                        <span className="text-xs font-semibold text-gray-700">What Works</span>
+                      </div>
+                      <div className="space-y-1 text-xs text-gray-600">
+                        <p className="flex items-start gap-1">
+                          <Check className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <span>Learns & adapts</span>
+                        </p>
+                        <p className="flex items-start gap-1">
+                          <Check className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <span>Processes data</span>
+                        </p>
+                      </div>
+                    </div>
+                    {/* The Reality */}
+                    <div>
+                      <div className="flex items-center gap-1 mb-2">
+                        <ThumbsDown className="w-3 h-3 text-gray-600" />
+                        <span className="text-xs font-semibold text-gray-700">The Reality</span>
+                      </div>
+                      <div className="space-y-1 text-xs text-gray-600">
+                        <p className="flex items-start gap-1">
+                          <X className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <span>Needs oversight</span>
+                        </p>
+                        <p className="flex items-start gap-1">
+                          <X className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <span>Can hallucinate</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Simple Transformation Arrow */}
-          <div className="lg:col-span-2 flex justify-center relative">
-            <div className="transformation-arrow animate-on-scroll" data-animation="scaleIn" style={{animationDelay: '0.2s'}}>
+          {/* Transformation Arrow */}
+          <div className="lg:col-span-2 flex justify-center items-center relative">
+            <div className="transformation-arrow animate-on-scroll" data-animation="scaleIn" style={{animationDelay: '0.3s'}}>
               <ArrowRight className="h-8 w-8 text-white" />
             </div>
           </div>
 
-          {/* Service-as-Software (New Way) - Premium Elevated */}
-          <div className="lg:col-span-5 animate-on-scroll" data-animation="fadeInRight" style={{animationDelay: '0.3s'}}>
-            <div className="card-solution relative">
+          {/* Service-as-Software (Right Side) - Premium Elevated */}
+          <div className="lg:col-span-5 animate-on-scroll" data-animation="fadeInRight" style={{animationDelay: '0.4s'}}>
+            <div className="card-solution relative min-h-[400px] flex flex-col">
               <div className="icon-container-gradient mb-6 mx-auto">
                 <Check className="w-8 h-8 icon-accent" />
               </div>
-              <h3 className="velox-text-h3 text-blue-800 text-center mb-4 font-bold">
+              <h3 className="velox-text-h3 text-blue-800 text-center mb-6 font-bold">
                 Service-as-Software
               </h3>
-              <div className="space-y-3 velox-text-body text-blue-800 text-center font-medium">
-                <p className="flex items-center justify-center gap-2 hover:translate-x-1 transition-transform duration-200">
-                  <Zap className="w-4 h-4 text-blue-600" />
-                  You delegate process
-                </p>
-                <p className="flex items-center justify-center gap-2 hover:translate-x-1 transition-transform duration-200">
-                  <Shield className="w-4 h-4 text-blue-600" />
-                  We deliver guaranteed results
-                </p>
-                <p className="flex items-center justify-center gap-2 hover:translate-x-1 transition-transform duration-200">
-                  <TrendingUp className="w-4 h-4 text-blue-600" />
-                  We handle complexity for you
-                </p>
+              
+              <div className="space-y-6 flex-1">
+                {/* Best of All Worlds */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3 justify-center">
+                    <Zap className="w-4 h-4 text-blue-600" />
+                    <span className="text-sm font-semibold text-blue-800">Best of All Worlds</span>
+                  </div>
+                  <div className="space-y-2 velox-text-body text-blue-800">
+                    <p className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span>AI's intelligence + Human oversight</span>
+                    </p>
+                    <p className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span>Automation's scale + Custom solutions</span>
+                    </p>
+                    <p className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span>24/7 operations + Strategic thinking</span>
+                    </p>
+                  </div>
+                </div>
+                
+                {/* All Problems Solved */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3 justify-center">
+                    <Shield className="w-4 h-4 text-blue-600" />
+                    <span className="text-sm font-semibold text-blue-800">All Problems Solved</span>
+                  </div>
+                  <div className="space-y-2 velox-text-body text-blue-800">
+                    <p className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span>We manage the complexity</span>
+                    </p>
+                    <p className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span>We ensure quality & accuracy</span>
+                    </p>
+                    <p className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span>We handle scaling & improvements</span>
+                    </p>
+                  </div>
+                </div>
               </div>
+
               <div className="mt-6 text-center">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.5s'}}>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.6s'}}>
                   <span className="text-sm font-semibold text-blue-800">
-                    Efficiency: 95%
+                    Guaranteed Results, Not Tools
                   </span>
                 </div>
               </div>

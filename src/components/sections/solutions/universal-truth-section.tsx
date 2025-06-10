@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
@@ -24,55 +23,32 @@ export function UniversalTruthSection() {
       background="light-blue"
       className="relative overflow-hidden"
     >
-      {/* Premium Background Effects */}
-      <div className="absolute inset-0 bg-gradient-mesh opacity-40" />
-      <div className="absolute inset-0 noise-overlay" />
+      {/* Simplified Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/60 via-white to-blue-50/40" />
       
       <Container className="relative z-10 max-w-7xl">
         {/* Section Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
           <Heading level="2" className="velox-text-h2 mb-6">
             Your Process Matters.{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="text-gradient">
               Your Industry Doesn't.
             </span>
           </Heading>
           <Text className="velox-text-lead max-w-4xl mx-auto">
             Here's why Service-as-Software works for everyone
           </Text>
-        </motion.div>
+        </div>
 
-        {/* Core Truth - Enhanced Visual Design */}
-        <motion.div
-          className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        {/* Core Truth - Simplified Visual Design */}
+        <div className="mb-20">
           <div className="max-w-7xl mx-auto">
             {/* Main Visual Flow */}
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
 
               {/* Left: Business Processes */}
-              <motion.div 
-                className="lg:col-span-2"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <div className="card-challenge relative rounded-3xl p-8 elevation-2 hover:elevation-3 transition-all duration-300">
-                  {/* Decorative elements */}
-                  <div className="absolute top-4 right-4 w-20 h-20 bg-gray-200/50 rounded-full blur-xl"></div>
-                  <div className="absolute bottom-4 left-4 w-16 h-16 bg-gray-300/30 rounded-full blur-lg"></div>
-
+              <div className="lg:col-span-2 animate-on-scroll" data-animation="fadeInLeft">
+                <div className="card-challenge relative rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
                   <div className="relative z-10">
                     <div className="w-20 h-20 bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                       <Workflow className="w-10 h-10 text-gray-700" />
@@ -96,167 +72,112 @@ export function UniversalTruthSection() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              {/* Center: Enhanced Arrow and Connection */}
-              <motion.div 
-                className="lg:col-span-1 flex flex-col items-center justify-center py-8"
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                <div className="relative">
-                  {/* Main arrow container */}
-                  <div className="transformation-arrow-premium">
-                    <div className="hidden lg:block">
-                      <ArrowRight className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="lg:hidden">
-                      <ArrowRight className="w-8 h-8 text-white rotate-90" />
-                    </div>
+              {/* Center: Flow Arrow */}
+              <div className="lg:col-span-1 flex justify-center animate-on-scroll" data-animation="scaleIn" style={{ animationDelay: "0.3s" }}>
+                <div className="relative flex flex-col items-center gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
+                    <ArrowRight className="w-8 h-8 text-white" />
                   </div>
+                  <Text className="text-sm font-semibold text-blue-700">Universal Solution</Text>
                 </div>
+              </div>
 
-                <div className="mt-4 px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full border border-blue-200 elevation-1">
-                  <Text className="text-blue-700 font-bold text-sm text-center whitespace-nowrap">
-                    Perfect Match
-                  </Text>
-                </div>
-              </motion.div>
-
-              {/* Right: Digital Workforce */}
-              <motion.div 
-                className="lg:col-span-2"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <div className="card-solution relative rounded-3xl p-8 elevation-3 hover:elevation-4 transition-all duration-300">
-                  {/* Decorative elements */}
-                  <div className="absolute top-4 right-4 w-20 h-20 bg-blue-300/30 rounded-full blur-xl"></div>
-                  <div className="absolute bottom-4 left-4 w-16 h-16 bg-indigo-300/20 rounded-full blur-lg"></div>
-
+              {/* Right: Service-as-Software */}
+              <div className="lg:col-span-2 animate-on-scroll" data-animation="fadeInRight" style={{ animationDelay: "0.2s" }}>
+                <div className="card-solution relative rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
                   <div className="relative z-10">
-                    <div className="icon-container-gradient w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 elevation-2">
-                      <Cog className="w-10 h-10 text-white animate-spin-slow" />
+                    <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                      <Target className="w-10 h-10 text-white" />
                     </div>
                     <Heading level="3" className="text-2xl font-bold text-blue-900 mb-4 text-center">
-                      Digital Workforces
+                      Service-as-Software
                     </Heading>
                     <Text className="text-blue-800 mb-6 text-center leading-relaxed">
-                      Excel at following rules perfectly, every time
+                      One approach handles them all
                     </Text>
-                    <div className="bg-gradient-to-r from-blue-100 to-indigo-100 border-2 border-blue-300 rounded-2xl p-6 shadow-inner">
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                          <Text className="text-blue-900 font-semibold">Never miss a step</Text>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                          <Text className="text-blue-900 font-semibold">Never make errors</Text>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                          <Text className="text-blue-900 font-semibold">Never need breaks</Text>
-                        </div>
+                    <div className="space-y-3">
+                      <div className="bg-blue-50 rounded-xl p-4 border border-blue-200 shadow-sm">
+                        <Text className="text-sm font-medium text-blue-800">"We study your rules"</Text>
+                      </div>
+                      <div className="bg-blue-50 rounded-xl p-4 border border-blue-200 shadow-sm">
+                        <Text className="text-sm font-medium text-blue-800">"We build your solution"</Text>
+                      </div>
+                      <div className="bg-blue-50 rounded-xl p-4 border border-blue-200 shadow-sm">
+                        <Text className="text-sm font-medium text-blue-800">"We run it for you"</Text>
                       </div>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
-
-            {/* Integrated Industries - Compact */}
-            <motion.div 
-              className="mt-16 mb-16 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <Text className="velox-text-body text-gray-600 mb-8">
-                Proven across industries:
-              </Text>
-              
-              {/* Compact Industries Grid */}
-              <div className="grid grid-cols-4 md:grid-cols-8 gap-3 max-w-4xl mx-auto">
-                {industries.map((industry, index) => {
-                  const IconComponent = industry.icon
-                  return (
-                    <motion.div
-                      key={index}
-                      className="card-aurora group rounded-lg p-3 text-center hover:elevation-2 transition-all duration-300"
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: 0.7 + index * 0.05 }}
-                    >
-                      <div className="icon-container-glass w-8 h-8 mx-auto mb-2 group-hover:elevation-1">
-                        <IconComponent className="w-4 h-4 icon-primary group-hover:icon-accent transition-colors duration-300" />
-                      </div>
-                      <Text className="text-xs font-medium text-gray-700 group-hover:text-blue-900 transition-colors duration-300">
-                        {industry.name}
-                      </Text>
-                    </motion.div>
-                  )
-                })}
-              </div>
-            </motion.div>
-
-            {/* Enhanced Bottom Conclusion */}
-            <motion.div 
-              className="mt-16 text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              <div className="relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-10 text-white max-w-5xl mx-auto shadow-2xl overflow-hidden">
-                {/* Decorative background elements */}
-                <div className="absolute top-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-3xl -translate-x-20 -translate-y-20"></div>
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl translate-x-16 translate-y-16"></div>
-
-                <div className="relative z-10">
-                  <div className="flex items-center justify-center gap-4 mb-6">
-                    <Target className="w-10 h-10 text-white" />
-                    <Heading level="3" className="text-3xl font-bold">
-                      The Universal Truth
-                    </Heading>
-                    <Target className="w-10 h-10 text-white" />
-                  </div>
-                  <Text className="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
-                    If your process has rules, we can automate it.
-                    <span className="font-bold text-white block mt-2 text-2xl"> Your industry doesn't matter.</span>
-                  </Text>
-                </div>
-              </div>
-            </motion.div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Universal Formula */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-        >
-          <div className="card-aurora rounded-3xl p-8 border border-blue-200 max-w-4xl mx-auto elevation-2">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <CheckCircle className="w-8 h-8 text-blue-600" />
-              <Heading level="3" className="velox-text-h3 text-blue-900">
-                The Universal Formula
-              </Heading>
-            </div>
-            <Text className="velox-text-lead text-blue-800">
-              Your business knowledge + Our automation expertise = Guaranteed results
+        {/* Industry Examples Grid - Simplified */}
+        <div className="mb-16">
+          <div className="text-center mb-12 animate-on-scroll" data-animation="fadeInUp">
+            <Heading level="3" className="velox-text-h3 mb-4">
+              Works Across Every Industry
+            </Heading>
+            <Text className="velox-text-body max-w-3xl mx-auto">
+              The principles are universal. The applications are limitless.
             </Text>
           </div>
-        </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {industries.map((industry, index) => {
+              const IconComponent = industry.icon
+              return (
+                <div
+                  key={industry.name}
+                  className="card-base text-center p-6 animate-on-scroll"
+                  data-animation="fadeInUp"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="icon-container mx-auto mb-4">
+                    <IconComponent className="w-6 h-6 icon-primary" />
+                  </div>
+                  <Text className="font-semibold text-gray-900">
+                    {industry.name}
+                  </Text>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Core Promise */}
+        <div className="text-center animate-on-scroll" data-animation="fadeInUp">
+          <div className="card-solution p-8 max-w-4xl mx-auto">
+            <Heading level="3" className="velox-text-h3 mb-6 text-blue-800">
+              The Universal Truth
+            </Heading>
+            
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              <div className="text-center">
+                <CheckCircle className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+                <Text className="font-semibold text-blue-800 mb-2">If it follows rules</Text>
+                <Text className="text-sm text-blue-700">We can automate it</Text>
+              </div>
+              <div className="text-center">
+                <CheckCircle className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+                <Text className="font-semibold text-blue-800 mb-2">If it's repetitive</Text>
+                <Text className="text-sm text-blue-700">We can perfect it</Text>
+              </div>
+              <div className="text-center">
+                <CheckCircle className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+                <Text className="font-semibold text-blue-800 mb-2">If it takes time</Text>
+                <Text className="text-sm text-blue-700">We can return it to you</Text>
+              </div>
+            </div>
+
+            <Text className="velox-text-body text-blue-800">
+              <strong>Your industry expertise stays with you.</strong> Your operational burden comes to us.
+            </Text>
+          </div>
+        </div>
       </Container>
     </Section>
   )

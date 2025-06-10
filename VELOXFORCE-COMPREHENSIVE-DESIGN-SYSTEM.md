@@ -394,35 +394,32 @@ export const inter = Inter({
 
 ## 6. Advanced Button System (Optimized)
 
-### CRITICAL: Primary CTA Design Specification
-**All primary CTAs must use the deep blue gradient with sweep animation as shown below.**
+### CRITICAL: Primary CTA Color Specification
+**All primary CTAs must use the deep blue gradient. Size and padding should be contextual to their usage.**
 
-### High-Performance CTAs
+### Button Color Standards (MANDATORY)
 ```css
-/* Primary CTA - STANDARD DESIGN */
+/* Primary CTA - COLOR ONLY (Size flexible) */
 .cta-primary {
-  /* Deep Blue Gradient (MANDATORY) */
+  /* Deep Blue Gradient (MANDATORY FOR ALL PRIMARY CTAs) */
   background: linear-gradient(to right, #2563EB 0%, #1E40AF 100%);
   color: white;
-  padding: 24px 48px; /* Large size */
-  border-radius: 12px; /* Rounded corners */
   font-weight: 600;
-  font-size: 18px;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.10);
-  transform: translateY(0) scale(1);
+  
+  /* Corner radius - consistent across all buttons */
+  border-radius: 12px; /* rounded-xl */
 }
 
-/* Hover State - Darker Blues */
+/* Hover State - Darker Blues (MANDATORY) */
 .cta-primary:hover {
   background: linear-gradient(to right, #1E40AF 0%, #1E3A8A 100%);
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
 }
 
-/* Sweep Animation - Diagonal shine effect */
+/* Sweep Animation - Standard for all primary CTAs */
 .cta-primary::before {
   content: '';
   position: absolute;
@@ -444,80 +441,97 @@ export const inter = Inter({
   transform: skewX(-12deg) translateX(150%);
 }
 
-/* Large CTA Variant - For hero sections */
-.cta-primary-large {
-  padding: 24px 48px;
-  font-size: 18px;
-  line-height: 1.2;
+/* SIZE VARIANTS - Use based on context */
+
+/* Small - For inline CTAs, cards */
+.cta-primary-sm {
+  padding: 12px 24px;
+  font-size: 14px;
 }
 
-/* CTA with Subtitle */
-.cta-primary-detail {
-  padding: 20px 48px;
+/* Medium - Default size */
+.cta-primary-md {
+  padding: 16px 32px;
+  font-size: 16px;
+}
+
+/* Large - For hero sections, major CTAs */
+.cta-primary-lg {
+  padding: 20px 40px;
+  font-size: 18px;
+}
+
+/* XL - For primary hero CTA only */
+.cta-primary-xl {
+  padding: 24px 48px;
+  font-size: 18px;
+}
+
+/* WITH SUBTITLE - Any size */
+.cta-with-subtitle {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
 }
 
-.cta-primary-detail .cta-main-text {
-  font-size: 18px;
+.cta-main-text {
   font-weight: 600;
 }
 
-.cta-primary-detail .cta-sub-text {
-  font-size: 14px;
+.cta-sub-text {
+  font-size: 0.875em; /* Relative to button size */
   font-weight: 400;
   opacity: 0.9;
 }
+```
 
-/* Implementation Example in Tailwind */
-/* 
-<Button className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-12 py-6 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group">
-  <span className="relative z-10">Check What I Can Delegate</span>
+### Implementation Examples
+
+```tsx
+// Hero Section - Large/XL button
+<Button className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold px-12 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group">
+  <span className="relative z-10">Start My Analysis</span>
   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
 </Button>
-*/
 
-/* Secondary CTA - White background */
-.cta-secondary {
-  background: white;
-  color: var(--velox-accent);
-  padding: 16px 32px;
-  border-radius: 12px;
-  border: 2px solid var(--velox-accent);
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
+// Card CTA - Small/Medium button
+<Button className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium px-6 py-3 rounded-xl shadow hover:shadow-md transition-all duration-300 overflow-hidden group">
+  <span className="relative z-10">Learn More</span>
+  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+</Button>
 
-.cta-secondary:hover {
-  background: var(--velox-accent);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: var(--velox-shadow-md);
-}
-
-/* Ghost Button - Minimal */
-.cta-ghost {
-  background: transparent;
-  color: var(--velox-gray-700);
-  padding: 16px 32px;
-  border-radius: 12px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.cta-ghost:hover {
-  background: var(--velox-gray-100);
-  transform: translateY(-1px);
-}
-
-/* Button Color Reference */
-/* Primary: from-blue-600 (#2563EB) to-blue-700 (#1E40AF) */
-/* Primary Hover: from-blue-700 (#1E40AF) to-blue-800 (#1E3A8A) */
-/* Secondary: White with blue-600 border */
-/* Text: Always white on primary buttons */
+// Inline CTA - Small button
+<Button className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-sm font-medium px-4 py-2 rounded-xl transition-all duration-300 overflow-hidden group">
+  <span className="relative z-10">View Details</span>
+  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+</Button>
 ```
+
+### Button Sizing Guidelines
+
+| Context | Size Class | Padding | Font Size | Usage |
+|---------|------------|---------|-----------|--------|
+| **Hero Primary** | XL | px-12 py-6 | text-lg | Main hero CTA |
+| **Section CTA** | Large | px-10 py-5 | text-lg | Section primary actions |
+| **Card Actions** | Medium | px-8 py-4 | text-base | Card CTAs |
+| **Inline Actions** | Small | px-6 py-3 | text-sm | Inline/secondary CTAs |
+| **Compact** | XS | px-4 py-2 | text-sm | Table actions, dense UI |
+
+### Contextual Sizing Rules
+1. **Hero sections**: Use XL or Large for prominence
+2. **Card grids**: Use Medium to maintain proportion
+3. **Navigation/Header**: Use Medium for consistency
+4. **Inline with text**: Use Small to align with text flow
+5. **Mobile**: Consider reducing one size level for touch targets
+
+### Color Consistency Rules
+- **Primary Actions**: Always deep blue gradient
+- **Secondary Actions**: White with blue border
+- **Tertiary Actions**: Ghost style (transparent)
+- **Destructive Actions**: Red gradient (sparingly)
+
+**Remember**: The deep blue gradient is non-negotiable for primary CTAs, but size should always serve the design context.
 
 ---
 
