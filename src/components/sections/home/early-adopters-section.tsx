@@ -333,9 +333,7 @@ export function EarlyAdoptersSection() {
                   adoptionVisible ? "w-[35%]" : "w-0"
                 )}
                 style={{ transitionDelay: '0.5s' }}
-              >
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg" />
-              </div>
+              />
               <div className="absolute inset-0 flex items-center justify-between px-8 velox-text-caption font-medium">
                 <span className="text-white relative z-10">Early Adopters (You)</span>
                 <span className="text-gray-600">Early Majority</span>
@@ -423,9 +421,11 @@ export function EarlyAdoptersSection() {
               </div>
               
               {/* Partnership Badge - Design System Compliant */}
-              <div className="mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg">
-                <Award className="w-5 h-5" />
-                <span className="font-semibold">True Partnership Model</span>
+              <div className="mt-8 flex justify-center">
+                <div className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg">
+                  <Award className="w-5 h-5" />
+                  <span className="font-semibold">True Partnership Model</span>
+                </div>
               </div>
             </div>
           </div>
@@ -443,11 +443,7 @@ export function EarlyAdoptersSection() {
           <blockquote className="relative max-w-4xl mx-auto">
             {/* Design System Compliant Container */}
             <div className="card-elevated p-10">
-              {/* Floating Quote Marks */}
-              <div className="absolute -top-4 -left-4 text-6xl text-blue-200 font-serif">"</div>
-              <div className="absolute -bottom-4 -right-4 text-6xl text-blue-200 font-serif rotate-180">"</div>
-
-              <p className="velox-text-lead font-medium italic relative z-10 text-center">
+              <p className="velox-text-lead font-medium italic text-center text-gray-700">
                 By 2025, AI-powered automation will handle 50% of repetitive tasks.
                 The winners will be companies that implement without complexity.
               </p>

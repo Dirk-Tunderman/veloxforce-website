@@ -65,7 +65,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({
       }}
     >
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col h-full">
         {/* Icon Container - Design System Compliant */}
         <div className="icon-container-gradient mb-6">
           {React.cloneElement(icon as React.ReactElement, {
@@ -73,16 +73,18 @@ const ActivityCard: React.FC<ActivityCardProps> = ({
           })}
         </div>
         
-        <h3 className="velox-text-h3 mb-3">
+        <h3 className="velox-text-h3 mb-4">
           {title}
         </h3>
         
-        <p className="velox-text-body mb-4">
-          {description}
-        </p>
+        <div className="flex-1">
+          <p className="velox-text-body mb-4">
+            {description}
+          </p>
+        </div>
         
         {stats && (
-          <div className="pt-4 border-t border-gray-100">
+          <div className="pt-4 border-t border-gray-100 mt-auto">
             <p className="velox-text-caption font-semibold text-blue-600">
               {stats}
             </p>
@@ -205,7 +207,7 @@ export function FreedTimeSection() {
         </div>
         
         {/* Activity Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {activities.map((activity, index) => (
             <ActivityCard
               key={index}

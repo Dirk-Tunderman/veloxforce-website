@@ -35,39 +35,39 @@ export function ServiceDifferentiationSection() {
                   <Cog className="w-5 h-5 icon-primary" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="velox-text-h4 mb-3 text-gray-700">Traditional Automation</h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <h3 className="velox-text-h3 mb-4 text-gray-800 font-bold">Traditional Automation</h3>
+                  <div className="grid grid-cols-2 gap-6">
                     {/* What Works */}
                     <div>
-                      <div className="flex items-center gap-1 mb-2">
-                        <ThumbsUp className="w-3 h-3 text-gray-600" />
-                        <span className="text-xs font-semibold text-gray-700">What Works</span>
+                      <div className="flex items-center gap-2 mb-3">
+                        <ThumbsUp className="w-4 h-4 text-emerald-600" />
+                        <span className="text-sm font-bold text-emerald-700">What Works</span>
                       </div>
-                      <div className="space-y-1 text-xs text-gray-600">
-                        <p className="flex items-start gap-1">
-                          <Check className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
-                          <span>Works 24/7</span>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <p className="flex items-start gap-2">
+                          <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                          <span className="font-medium">Works 24/7</span>
                         </p>
-                        <p className="flex items-start gap-1">
-                          <Check className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
-                          <span>Scales infinitely</span>
+                        <p className="flex items-start gap-2">
+                          <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                          <span className="font-medium">Scales infinitely</span>
                         </p>
                       </div>
                     </div>
                     {/* The Reality */}
                     <div>
-                      <div className="flex items-center gap-1 mb-2">
-                        <ThumbsDown className="w-3 h-3 text-gray-600" />
-                        <span className="text-xs font-semibold text-gray-700">The Reality</span>
+                      <div className="flex items-center gap-2 mb-3">
+                        <ThumbsDown className="w-4 h-4 text-red-600" />
+                        <span className="text-sm font-bold text-red-700">The Reality</span>
                       </div>
-                      <div className="space-y-1 text-xs text-gray-600">
-                        <p className="flex items-start gap-1">
-                          <X className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
-                          <span>You manage tools</span>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <p className="flex items-start gap-2">
+                          <X className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                          <span className="font-medium">You manage tools</span>
                         </p>
-                        <p className="flex items-start gap-1">
-                          <X className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
-                          <span>Breaks easily</span>
+                        <p className="flex items-start gap-2">
+                          <X className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                          <span className="font-medium">Breaks easily</span>
                         </p>
                       </div>
                     </div>
@@ -83,39 +83,39 @@ export function ServiceDifferentiationSection() {
                   <Users className="w-5 h-5 icon-primary" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="velox-text-h4 mb-3 text-gray-700">Human Teams</h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <h3 className="velox-text-h3 mb-4 text-gray-800 font-bold">Human Teams</h3>
+                  <div className="grid grid-cols-2 gap-6">
                     {/* What Works */}
                     <div>
-                      <div className="flex items-center gap-1 mb-2">
-                        <ThumbsUp className="w-3 h-3 text-gray-600" />
-                        <span className="text-xs font-semibold text-gray-700">What Works</span>
+                      <div className="flex items-center gap-2 mb-3">
+                        <ThumbsUp className="w-4 h-4 text-emerald-600" />
+                        <span className="text-sm font-bold text-emerald-700">What Works</span>
                       </div>
-                      <div className="space-y-1 text-xs text-gray-600">
-                        <p className="flex items-start gap-1">
-                          <Check className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
-                          <span>Human judgment</span>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <p className="flex items-start gap-2">
+                          <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                          <span className="font-medium">Human judgment</span>
                         </p>
-                        <p className="flex items-start gap-1">
-                          <Check className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
-                          <span>Handles exceptions</span>
+                        <p className="flex items-start gap-2">
+                          <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                          <span className="font-medium">Handles exceptions</span>
                         </p>
                       </div>
                     </div>
                     {/* The Reality */}
                     <div>
-                      <div className="flex items-center gap-1 mb-2">
-                        <ThumbsDown className="w-3 h-3 text-gray-600" />
-                        <span className="text-xs font-semibold text-gray-700">The Reality</span>
+                      <div className="flex items-center gap-2 mb-3">
+                        <ThumbsDown className="w-4 h-4 text-red-600" />
+                        <span className="text-sm font-bold text-red-700">The Reality</span>
                       </div>
-                      <div className="space-y-1 text-xs text-gray-600">
-                        <p className="flex items-start gap-1">
-                          <X className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
-                          <span>High costs</span>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <p className="flex items-start gap-2">
+                          <X className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                          <span className="font-medium">High costs</span>
                         </p>
-                        <p className="flex items-start gap-1">
-                          <X className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
-                          <span>Limited hours</span>
+                        <p className="flex items-start gap-2">
+                          <X className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                          <span className="font-medium">Limited hours</span>
                         </p>
                       </div>
                     </div>
@@ -131,39 +131,39 @@ export function ServiceDifferentiationSection() {
                   <Brain className="w-5 h-5 icon-primary" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="velox-text-h4 mb-3 text-gray-700">AI Solutions</h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <h3 className="velox-text-h3 mb-4 text-gray-800 font-bold">AI Solutions</h3>
+                  <div className="grid grid-cols-2 gap-6">
                     {/* What Works */}
                     <div>
-                      <div className="flex items-center gap-1 mb-2">
-                        <ThumbsUp className="w-3 h-3 text-gray-600" />
-                        <span className="text-xs font-semibold text-gray-700">What Works</span>
+                      <div className="flex items-center gap-2 mb-3">
+                        <ThumbsUp className="w-4 h-4 text-emerald-600" />
+                        <span className="text-sm font-bold text-emerald-700">What Works</span>
                       </div>
-                      <div className="space-y-1 text-xs text-gray-600">
-                        <p className="flex items-start gap-1">
-                          <Check className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
-                          <span>Learns & adapts</span>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <p className="flex items-start gap-2">
+                          <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                          <span className="font-medium">Learns & adapts</span>
                         </p>
-                        <p className="flex items-start gap-1">
-                          <Check className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
-                          <span>Processes data</span>
+                        <p className="flex items-start gap-2">
+                          <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                          <span className="font-medium">Processes data</span>
                         </p>
                       </div>
                     </div>
                     {/* The Reality */}
                     <div>
-                      <div className="flex items-center gap-1 mb-2">
-                        <ThumbsDown className="w-3 h-3 text-gray-600" />
-                        <span className="text-xs font-semibold text-gray-700">The Reality</span>
+                      <div className="flex items-center gap-2 mb-3">
+                        <ThumbsDown className="w-4 h-4 text-red-600" />
+                        <span className="text-sm font-bold text-red-700">The Reality</span>
                       </div>
-                      <div className="space-y-1 text-xs text-gray-600">
-                        <p className="flex items-start gap-1">
-                          <X className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
-                          <span>Needs oversight</span>
+                      <div className="space-y-2 text-sm text-gray-700">
+                        <p className="flex items-start gap-2">
+                          <X className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                          <span className="font-medium">Needs oversight</span>
                         </p>
-                        <p className="flex items-start gap-1">
-                          <X className="w-3 h-3 text-gray-500 mt-0.5 flex-shrink-0" />
-                          <span>Can hallucinate</span>
+                        <p className="flex items-start gap-2">
+                          <X className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                          <span className="font-medium">Can hallucinate</span>
                         </p>
                       </div>
                     </div>
@@ -186,50 +186,50 @@ export function ServiceDifferentiationSection() {
               <div className="icon-container-gradient mb-6 mx-auto">
                 <Check className="w-8 h-8 icon-accent" />
               </div>
-              <h3 className="velox-text-h3 text-blue-800 text-center mb-6 font-bold">
+              <h3 className="velox-text-h2 text-blue-800 text-center mb-8 font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
                 Service-as-Software
               </h3>
               
-              <div className="space-y-6 flex-1">
+              <div className="space-y-8 flex-1">
                 {/* Best of All Worlds */}
-                <div>
-                  <div className="flex items-center gap-2 mb-3 justify-center">
-                    <Zap className="w-4 h-4 text-blue-600" />
-                    <span className="text-sm font-semibold text-blue-800">Best of All Worlds</span>
+                <div className="animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.5s'}}>
+                  <div className="flex items-center gap-3 mb-4 justify-center">
+                    <Zap className="w-5 h-5 text-blue-600" />
+                    <span className="text-lg font-bold text-blue-800">Best of All Worlds</span>
                   </div>
-                  <div className="space-y-2 velox-text-body text-blue-800">
-                    <p className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <div className="space-y-3 text-base text-blue-800 font-medium">
+                    <p className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                       <span>AI's intelligence + Human oversight</span>
                     </p>
-                    <p className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <p className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                       <span>Automation's scale + Custom solutions</span>
                     </p>
-                    <p className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <p className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                       <span>24/7 operations + Strategic thinking</span>
                     </p>
                   </div>
                 </div>
                 
                 {/* All Problems Solved */}
-                <div>
-                  <div className="flex items-center gap-2 mb-3 justify-center">
-                    <Shield className="w-4 h-4 text-blue-600" />
-                    <span className="text-sm font-semibold text-blue-800">All Problems Solved</span>
+                <div className="animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.6s'}}>
+                  <div className="flex items-center gap-3 mb-4 justify-center">
+                    <Shield className="w-5 h-5 text-blue-600" />
+                    <span className="text-lg font-bold text-blue-800">All Problems Solved</span>
                   </div>
-                  <div className="space-y-2 velox-text-body text-blue-800">
-                    <p className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <div className="space-y-3 text-base text-blue-800 font-medium">
+                    <p className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                       <span>We manage the complexity</span>
                     </p>
-                    <p className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <p className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                       <span>We ensure quality & accuracy</span>
                     </p>
-                    <p className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <p className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                       <span>We handle scaling & improvements</span>
                     </p>
                   </div>

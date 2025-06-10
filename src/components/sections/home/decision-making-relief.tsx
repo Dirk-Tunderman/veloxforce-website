@@ -8,84 +8,132 @@ import { Brain, Settings, AlertCircle, TrendingUp, ArrowRight, Zap, Shield, Gaug
 import { motion } from "framer-motion"
 import Link from "next/link"
 
-// Simplified Brain Network Component
+// Improved Decision Flow Visualization
 function BrainNetworkVisualization() {
+  // Organized node layout: complex decisions around the perimeter, simple solutions flowing to center
   const nodes = [
-    { id: 1, x: 50, y: 30, type: 'complex' },
-    { id: 2, x: 20, y: 60, type: 'complex' },
-    { id: 3, x: 80, y: 70, type: 'complex' },
-    { id: 4, x: 35, y: 85, type: 'simple' },
-    { id: 5, x: 65, y: 45, type: 'simple' },
+    // Complex decision nodes (scattered around perimeter)
+    { id: 1, x: 15, y: 20, type: 'complex', label: 'Tech Stack' },
+    { id: 2, x: 85, y: 25, type: 'complex', label: 'Architecture' },
+    { id: 3, x: 10, y: 75, type: 'complex', label: 'Scaling' },
+    { id: 4, x: 90, y: 80, type: 'complex', label: 'Security' },
+    // Solution nodes (organized flow toward center)
+    { id: 5, x: 35, y: 35, type: 'solution', label: 'Analysis' },
+    { id: 6, x: 65, y: 35, type: 'solution', label: 'Strategy' },
+    { id: 7, x: 35, y: 65, type: 'solution', label: 'Implementation' },
+    { id: 8, x: 65, y: 65, type: 'solution', label: 'Optimization' },
   ]
   
+  // Logical connections: complex decisions → solution nodes → central processor
   const connections = [
-    { from: 1, to: 2 }, { from: 1, to: 3 }, { from: 2, to: 4 }, { from: 3, to: 5 }, { from: 1, to: 5 }
+    // Complex decisions to solution nodes
+    { from: 1, to: 5, type: 'input' },
+    { from: 2, to: 6, type: 'input' },
+    { from: 3, to: 7, type: 'input' },
+    { from: 4, to: 8, type: 'input' },
+    // Solution nodes to center (processed flow)
+    { from: 5, to: 'center', type: 'processed' },
+    { from: 6, to: 'center', type: 'processed' },
+    { from: 7, to: 'center', type: 'processed' },
+    { from: 8, to: 'center', type: 'processed' },
   ]
+  
+  const centerPoint = { x: 50, y: 50 }
   
   return (
-    <div className="relative w-full h-64 mx-auto max-w-md">
+    <div className="relative w-full h-80 mx-auto max-w-lg">
       <svg className="absolute inset-0 w-full h-full">
-        {/* Static connections */}
+        <defs>
+          {/* Gradient for processed connections */}
+          <linearGradient id="processed-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#EF4444" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#2563EB" stopOpacity="0.8" />
+          </linearGradient>
+        </defs>
+        
+        {/* Connection lines */}
         {connections.map((conn, index) => {
-          const fromNode = nodes.find(n => n.id === conn.from)!
-          const toNode = nodes.find(n => n.id === conn.to)!
+          const fromNode = conn.from === 'center' ? centerPoint : nodes.find(n => n.id === conn.from)!
+          const toNode = conn.to === 'center' ? centerPoint : nodes.find(n => n.id === conn.to)!
+          
           return (
-            <line
+            <motion.line
               key={index}
               x1={`${fromNode.x}%`}
               y1={`${fromNode.y}%`}
               x2={`${toNode.x}%`}
               y2={`${toNode.y}%`}
-              stroke="#CBD5E1"
-              strokeWidth="2"
-              strokeDasharray="5 5"
-              opacity="0.6"
+              stroke={conn.type === 'processed' ? '#2563EB' : '#EF4444'}
+              strokeWidth={conn.type === 'processed' ? '3' : '2'}
+              strokeDasharray={conn.type === 'input' ? '8 4' : 'none'}
+              opacity={conn.type === 'processed' ? '0.8' : '0.4'}
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: conn.type === 'processed' ? 0.8 : 0.4 }}
+              transition={{ duration: 2, delay: index * 0.3 }}
             />
           )
         })}
-        
-        {/* Gradient definitions */}
-        <defs>
-          <linearGradient id="brain-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#EF4444" />
-            <stop offset="50%" stopColor="#F59E0B" />
-            <stop offset="100%" stopColor="#2563EB" />
-          </linearGradient>
-        </defs>
       </svg>
       
-      {/* Decision nodes */}
+      {/* Decision and solution nodes */}
       {nodes.map((node, index) => (
-        <div
+        <motion.div
           key={node.id}
-          className={`absolute w-8 h-8 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200
-            ${node.type === 'complex' ? 'bg-red-500' : 'bg-blue-500'}`}
+          className={`absolute rounded-full flex items-center justify-center cursor-pointer transition-all duration-300
+            ${node.type === 'complex' 
+              ? 'w-10 h-10 bg-red-500 hover:bg-red-600 shadow-lg' 
+              : 'w-8 h-8 bg-blue-500 hover:bg-blue-600 shadow-md'
+            }`}
           style={{ 
-            left: `calc(${node.x}% - 16px)`, 
-            top: `calc(${node.y}% - 16px)` 
+            left: `calc(${node.x}% - ${node.type === 'complex' ? '20px' : '16px'})`, 
+            top: `calc(${node.y}% - ${node.type === 'complex' ? '20px' : '16px'})` 
           }}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          whileHover={{ scale: 1.1 }}
         >
           {node.type === 'complex' ? (
-            <AlertCircle className="w-4 h-4 text-white" />
+            <AlertCircle className="w-5 h-5 text-white" />
           ) : (
-            <Brain className="w-4 h-4 text-white" />
+            <Settings className="w-4 h-4 text-white" />
           )}
-        </div>
+        </motion.div>
       ))}
       
-      {/* Central processing indicator */}
+      {/* Central Veloxforce processor */}
       <motion.div
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.8, 1, 0.8]
-        }}
-        transition={{ duration: 2, repeat: Infinity }}
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.8, delay: 1 }}
       >
-        <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg">
-          <Zap className="w-6 h-6 text-white" />
-        </div>
+        <motion.div
+          className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 flex items-center justify-center shadow-xl border-4 border-white"
+          animate={{ 
+            boxShadow: [
+              '0 0 20px rgba(37, 99, 235, 0.3)',
+              '0 0 40px rgba(37, 99, 235, 0.6)',
+              '0 0 20px rgba(37, 99, 235, 0.3)'
+            ]
+          }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <Zap className="w-8 h-8 text-white" />
+        </motion.div>
       </motion.div>
+      
+      {/* Flow indicators */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-4 text-xs text-gray-600">
+        <div className="flex items-center gap-1">
+          <div className="w-2 h-2 rounded-full bg-red-500"></div>
+          <span>Complex Decisions</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+          <span>Streamlined Process</span>
+        </div>
+      </div>
     </div>
   )
 }

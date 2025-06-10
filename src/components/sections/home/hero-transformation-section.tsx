@@ -33,9 +33,9 @@ export function HeroTransformationSection() {
             {/* Main Content Block - Properly Structured */}
             <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn">
               <h1 className="velox-text-h1-premium">
-                Other people buy Software, 
+                Stop Managing Processes.
                 <span className="block">
-                  your about to Create it
+                  Start Receiving Results.
                 </span>
               </h1>
 
@@ -57,7 +57,7 @@ export function HeroTransformationSection() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-12 py-6 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
+                  className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-10 py-5 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
                   asChild
                 >
                   <Link href="/tools/business-audit">
@@ -72,7 +72,7 @@ export function HeroTransformationSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="px-8 py-4 text-lg font-semibold border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+                  className="px-10 py-5 h-auto text-lg font-semibold border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
                   asChild
                 >
                   <Link href="/our-approach">
@@ -106,9 +106,9 @@ export function HeroTransformationSection() {
       <Section
         padding="xl"
         background="transparent"
-        className="relative"
+        className="relative overflow-visible"
       >
-        <Container className="relative z-10 max-w-7xl">
+        <Container className="relative z-10 max-w-7xl overflow-visible">
           <div className="text-center space-y-16">
             <div 
               className="space-y-6 animate-fadeIn"
@@ -119,23 +119,23 @@ export function HeroTransformationSection() {
               </h2>
             </div>
             
-            <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="grid lg:grid-cols-12 gap-8 items-center mt-12 overflow-visible">
               {/* Challenge Card */}
-              <div className="lg:col-span-5 animate-on-scroll" data-animation="fadeInLeft">
-                <div className="card-challenge relative">
-                  <div className="absolute -top-4 left-8 px-4 py-2 bg-gray-600 text-white rounded-full text-sm font-semibold">
+              <div className="lg:col-span-5 animate-on-scroll overflow-visible" data-animation="fadeInLeft">
+                <div className="card-challenge relative pt-12 mt-6 overflow-visible">
+                  <div className="absolute -top-3 left-8 px-4 py-2 bg-gray-600 text-white rounded-full text-sm font-semibold z-10 shadow-md">
                     Before Service-as-Software
                   </div>
                   <div className="icon-container mb-6">
                     <AlertTriangle className="h-6 w-6 icon-primary" />
                   </div>
-                  <h4 className="velox-text-h3 mb-4">
+                  <h4 className="velox-text-h3 mb-6">
                     Your Team Today
                   </h4>
-                  <div className="space-y-4">
-                    <div>
-                      <p className="velox-text-body font-semibold mb-2">Drowning in operational tasks</p>
-                      <p className="velox-text-body">No time for strategic work</p>
+                  <div className="space-y-6">
+                    <div className="text-center px-4">
+                      <p className="text-xl font-bold text-gray-800 mb-3 leading-tight">Drowning in operational tasks</p>
+                      <p className="text-lg text-gray-600 font-semibold">No time for strategic work</p>
                     </div>
                     <ul className="space-y-3">
                       <li className="flex items-start gap-2">
@@ -171,21 +171,21 @@ export function HeroTransformationSection() {
               </div>
               
               {/* Solution Card */}
-              <div className="lg:col-span-5 animate-on-scroll" data-animation="fadeInRight" style={{animationDelay: '0.2s'}}>
-                <div className="card-solution relative">
-                  <div className="absolute -top-4 left-8 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full text-sm font-semibold">
+              <div className="lg:col-span-5 animate-on-scroll overflow-visible" data-animation="fadeInRight" style={{animationDelay: '0.2s'}}>
+                <div className="card-solution relative pt-12 mt-6 overflow-visible">
+                  <div className="absolute -top-3 left-8 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full text-sm font-semibold z-10 shadow-md">
                     With Service-as-Software
                   </div>
                   <div className="icon-container-gradient mb-6">
                     <Target className="h-6 w-6 icon-accent" />
                   </div>
-                  <h4 className="velox-text-h3 text-blue-800 mb-4">
+                  <h4 className="velox-text-h3 text-blue-800 mb-6">
                     Your Team Tomorrow
                   </h4>
-                  <div className="space-y-4">
-                    <div>
-                      <p className="velox-text-body font-semibold mb-2">Focuses on strategic work</p>
-                      <p className="velox-text-body">Receives processed results and analyzes trends</p>
+                  <div className="space-y-6">
+                    <div className="text-center px-4">
+                      <p className="text-xl font-bold text-blue-800 mb-3 leading-tight">Focuses on strategic work</p>
+                      <p className="text-lg text-blue-600 font-semibold">Receives processed results and analyzes trends</p>
                     </div>
                     <ul className="space-y-3">
                       <li className="flex items-start gap-2">
@@ -234,41 +234,44 @@ export function HeroTransformationSection() {
               </h2>
             </div>
             
-            <div 
-              className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto animate-fadeIn"
-              style={{ animationDelay: '0.3s' }}
-            >
-              <div className="card-base text-center">
-                <div className="icon-container mx-auto mb-4">
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <div className="card-base text-center animate-on-scroll group hover:scale-105 transition-all duration-300 h-full flex flex-col" data-animation="fadeInUp" style={{animationDelay: '0.1s'}}>
+                <div className="icon-container-gradient mx-auto mb-6">
                   <BarChart3 className="w-6 h-6 icon-accent" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2 text-center">
+                <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
                   Scales with You
                 </h4>
-                <p className="velox-text-body mb-3">Investment proportional to value created</p>
-                <p className="velox-text-caption font-medium text-blue-600">Pricing aligned with your savings</p>
+                <div className="flex-1 flex flex-col justify-between">
+                  <p className="velox-text-body text-gray-700 mb-6 font-medium">Investment proportional to value created</p>
+                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Pricing aligned with your savings</p>
+                </div>
               </div>
 
-              <div className="card-base text-center">
-                <div className="icon-container mx-auto mb-4">
-                  <TrendingUp className="w-6 h-6 icon-success" />
+              <div className="card-elevated text-center animate-on-scroll group hover:scale-105 transition-all duration-300 h-full flex flex-col" data-animation="scaleIn" style={{animationDelay: '0.2s'}}>
+                <div className="icon-container-gradient mx-auto mb-6 bg-gradient-to-br from-emerald-500 to-emerald-600">
+                  <TrendingUp className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2 text-center">
+                <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
                   Fast Results
                 </h4>
-                <p className="velox-text-body mb-3">Most clients see positive ROI quickly</p>
-                <p className="velox-text-caption font-medium text-emerald-600">ROI timeline depends on process complexity</p>
+                <div className="flex-1 flex flex-col justify-between">
+                  <p className="velox-text-body text-gray-700 mb-6 font-medium">Most clients see positive ROI quickly</p>
+                  <p className="velox-text-caption font-semibold text-emerald-600 bg-emerald-50 px-3 py-2 rounded-lg mt-auto">ROI timeline depends on process complexity</p>
+                </div>
               </div>
 
-              <div className="card-base text-center">
-                <div className="icon-container mx-auto mb-4">
-                  <Zap className="w-6 h-6 icon-primary" />
+              <div className="card-solution text-center animate-on-scroll group hover:scale-105 transition-all duration-300 h-full flex flex-col" data-animation="fadeInLeft" style={{animationDelay: '0.3s'}}>
+                <div className="icon-container-gradient mx-auto mb-6">
+                  <Zap className="w-6 h-6 icon-accent" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2 text-center">
+                <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
                   Custom Built
                 </h4>
-                <p className="velox-text-body mb-3">Faster than any alternative</p>
-                <p className="velox-text-caption font-medium text-gray-600">Implementation speed varies by scope</p>
+                <div className="flex-1 flex flex-col justify-between">
+                  <p className="velox-text-body text-blue-700 mb-6 font-medium">Faster than any alternative</p>
+                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Implementation speed varies by scope</p>
+                </div>
               </div>
             </div>
           </div>
@@ -317,7 +320,7 @@ export function HeroTransformationSection() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="text-white border-2 border-white hover:bg-white hover:text-blue-900 px-10 py-4 text-lg font-semibold transition-all duration-300"
+                    className="text-white border-2 border-white hover:bg-white hover:text-blue-900 px-12 py-6 h-auto text-lg font-semibold transition-all duration-300"
                     asChild
                   >
                     <Link href="/our-approach">

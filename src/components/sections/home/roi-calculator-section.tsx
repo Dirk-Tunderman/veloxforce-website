@@ -45,10 +45,10 @@ export function ROICalculatorSection() {
         </div>
 
         {/* Core Value Methodology - Enhanced Cards */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-24">
+        <div className="grid lg:grid-cols-2 gap-12 mb-24 items-stretch">
           {/* Cost Discovery Process - Left Card */}
           <div className="group relative animate-on-scroll" data-animation="fadeInLeft">
-            <div className="card-elevated relative h-full">
+            <div className="card-elevated relative h-full flex flex-col">
               {/* Gradient Accent */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-3xl" />
               
@@ -59,7 +59,7 @@ export function ROICalculatorSection() {
                 <h3 className="velox-text-h3">We Analyze Your Hidden Costs</h3>
               </div>
               
-              <div className="space-y-8 mb-10">
+              <div className="space-y-8 mb-10 flex-1">
                 {[
                   {
                     step: "1",
@@ -84,8 +84,8 @@ export function ROICalculatorSection() {
                     <div className="icon-container flex-shrink-0">
                       <span className="text-lg font-bold text-blue-600">{item.step}</span>
                     </div>
-                    <div>
-                      <p className="velox-text-body font-semibold text-gray-900 mb-1">{item.title}</p>
+                    <div className="flex-1">
+                      <p className="velox-text-body font-semibold text-gray-900 mb-2">{item.title}</p>
                       <p className="velox-text-body text-gray-600">{item.desc}</p>
                     </div>
                   </div>
@@ -103,7 +103,7 @@ export function ROICalculatorSection() {
 
           {/* Investment Philosophy - Right Card */}
           <div className="group relative animate-on-scroll" data-animation="fadeInRight">
-            <div className="card-premium relative h-full">
+            <div className="card-premium relative h-full flex flex-col">
               {/* Gradient Accent */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-3xl" />
               
@@ -122,7 +122,7 @@ export function ROICalculatorSection() {
                 </p>
               </div>
               
-              <div className="space-y-8 mb-10">
+              <div className="space-y-8 mb-10 flex-1">
                 {[
                   {
                     title: "Investment scales with complexity",
@@ -147,8 +147,8 @@ export function ROICalculatorSection() {
                     <div className="icon-container flex-shrink-0">
                       {item.icon}
                     </div>
-                    <div>
-                      <p className="velox-text-body font-semibold text-gray-900 mb-1">{item.title}</p>
+                    <div className="flex-1">
+                      <p className="velox-text-body font-semibold text-gray-900 mb-2">{item.title}</p>
                       <p className="velox-text-body text-gray-600">{item.desc}</p>
                     </div>
                   </div>
@@ -176,72 +176,88 @@ export function ROICalculatorSection() {
             ].map((metric, idx) => (
               <div
                 key={idx}
-                className="card-elevated text-center group hover:scale-105 transition-transform duration-200"
+                className="card-elevated text-center group hover:scale-105 transition-transform duration-200 h-full flex flex-col items-center justify-center py-8"
               >
-                <div className="icon-container-gradient w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <div className="icon-container-gradient w-16 h-16 mx-auto mb-6 group-hover:scale-110 transition-transform">
                   {React.cloneElement(metric.icon, { className: "w-8 h-8 icon-accent" })}
                 </div>
-                <div className="text-4xl font-bold text-gray-900 mb-2">
+                <div className="text-4xl font-bold text-gray-900 mb-3">
                   {metric.value}{metric.suffix}
                 </div>
-                <p className="velox-text-body font-medium text-gray-600">{metric.label}</p>
+                <p className="velox-text-body font-medium text-gray-600 text-center">{metric.label}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Why Timing Matters - Simplified */}
+        {/* Why Timing Matters - Premium Redesign */}
         <div className="relative mb-24 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.4s'}}>
-          <div className="relative rounded-3xl p-12 md:p-16 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white overflow-hidden">
-            {/* Simple Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent" />
-            </div>
+          <div className="card-premium relative rounded-3xl p-12 md:p-16 bg-gradient-to-br from-white via-blue-50/30 to-white overflow-hidden border border-blue-100/50 shadow-xl">
+            {/* Subtle Background Pattern */}
+            <div className="absolute inset-0 bg-mesh-static opacity-20" />
             
             <div className="relative z-10">
-              <h3 className="velox-text-h2 text-center mb-16 text-white">
-                Why Timing Matters
-              </h3>
+              {/* Section Header */}
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 border border-blue-200 shadow-sm mb-6">
+                  <Clock className="w-4 h-4 text-blue-600" />
+                  <span className="velox-text-caption font-semibold text-blue-700">Strategic Timing</span>
+                </div>
+                
+                <h3 className="velox-text-h2 text-center mb-6 bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+                  Why Timing Matters
+                </h3>
+                
+                <p className="velox-text-lead text-gray-600 max-w-3xl mx-auto">
+                  Market leaders don't wait for perfect conditions—they create competitive advantage through strategic action.
+                </p>
+              </div>
               
-              <div className="grid md:grid-cols-3 gap-12 mb-12">
+              <div className="grid md:grid-cols-3 gap-8 mb-12">
                 {[
                   {
-                    step: "1",
+                    icon: <AlertTriangle className="w-6 h-6" />,
                     title: "Every Month You Wait",
                     desc: "Inefficiencies compound while competitors gain ground",
-                    gradient: "from-red-500 to-orange-500"
+                    color: "text-red-600",
+                    bgColor: "bg-red-50",
+                    borderColor: "border-red-200"
                   },
                   {
-                    step: "2",
+                    icon: <TrendingUp className="w-6 h-6" />,
                     title: "Early Adopters Win", 
                     desc: "First-mover advantage in operational efficiency",
-                    gradient: "from-blue-500 to-indigo-500"
+                    color: "text-blue-600",
+                    bgColor: "bg-blue-50",
+                    borderColor: "border-blue-200"
                   },
                   {
-                    step: "✓",
+                    icon: <CheckCircle className="w-6 h-6" />,
                     title: "Start Smart",
                     desc: "Free analysis shows your exact opportunity",
-                    gradient: "from-emerald-500 to-green-500"
+                    color: "text-emerald-600",
+                    bgColor: "bg-emerald-50",
+                    borderColor: "border-emerald-200"
                   }
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="text-center group"
+                    className="card-elevated group hover:scale-105 transition-all duration-300 text-center p-8"
                   >
-                    <div className={`w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform`}>
-                      <span className="text-3xl font-bold text-white">{item.step}</span>
+                    <div className={`icon-container-gradient w-16 h-16 mx-auto mb-6 ${item.bgColor} border ${item.borderColor}`}>
+                      {React.cloneElement(item.icon, { className: `w-6 h-6 ${item.color}` })}
                     </div>
-                    <h4 className="velox-text-h3 text-white mb-4">{item.title}</h4>
-                    <p className="velox-text-body text-gray-300 leading-relaxed">{item.desc}</p>
+                    <h4 className="velox-text-h3 text-gray-900 mb-4">{item.title}</h4>
+                    <p className="velox-text-body text-gray-600 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
               
-              <div className="text-center">
-                <p className="velox-text-lead text-gray-300 mb-4">
-                  The question isn't whether to automate - it's <span className="font-bold text-white">when</span> and <span className="font-bold text-white">how</span>.
+              <div className="text-center bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
+                <p className="velox-text-lead text-gray-700 mb-4">
+                  The question isn't whether to automate—it's <span className="font-bold text-blue-600">when</span> and <span className="font-bold text-blue-600">how</span>.
                 </p>
-                <p className="velox-text-lead text-blue-300 font-semibold">
+                <p className="velox-text-body text-blue-700 font-semibold">
                   Let's calculate your specific opportunity cost.
                 </p>
               </div>

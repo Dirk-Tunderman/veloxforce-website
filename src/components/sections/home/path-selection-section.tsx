@@ -102,14 +102,14 @@ export function PathSelectionSection() {
   }, [])
   
   return (
-    <Section padding="xl" background="transparent" className="relative overflow-hidden">
+    <Section padding="xl" background="transparent" className="relative overflow-visible">
       {/* Performance-Optimized Background */}
       <div className="absolute inset-0 bg-gradient-simple" />
       
       {/* Static Grid Pattern */}
       <div className="absolute inset-0 bg-grid opacity-10" />
       
-      <Container className="relative z-10 max-w-6xl">
+      <Container className="relative z-10 max-w-6xl overflow-visible">
         {/* Section Header */}
         <div 
           ref={headerRef}
@@ -137,22 +137,22 @@ export function PathSelectionSection() {
         <div 
           ref={cardsRef}
           className={cn(
-            "grid lg:grid-cols-2 gap-12 mb-24 opacity-0",
+            "grid lg:grid-cols-2 gap-12 mb-24 opacity-0 overflow-visible mt-8",
             cardsVisible && "animate-fadeIn"
           )}
         >
           {/* Primary Path - ROI Analysis */}
-          <div className="group relative">
-            <div className="card-premium relative h-full overflow-hidden">
+          <div className="group relative overflow-visible">
+            <div className="card-premium relative h-full overflow-visible pt-8 mt-4 min-h-[700px] flex flex-col">
               
               {/* Recommended Badge */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
                 <div className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-sm shadow-lg">
                   RECOMMENDED
                 </div>
               </div>
               
-              <div className="relative z-10 text-center pt-6">
+              <div className="relative z-10 text-center pt-6 flex-1 flex flex-col">
                 {/* Enhanced Icon */}
                 <div className="icon-container-gradient w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-blue-500 to-indigo-600">
                   <Calculator className="w-12 h-12 text-white" />
@@ -183,7 +183,7 @@ export function PathSelectionSection() {
                 </p>
 
                 {/* Feature List */}
-                <div className="space-y-6 text-left">
+                <div className="space-y-6 text-left mt-auto">
                   {[
                     "8-minute comprehensive assessment",
                     "See exact savings for YOUR volumes",
@@ -206,9 +206,9 @@ export function PathSelectionSection() {
 
           {/* Secondary Path - Free Audit */}
           <div className="group relative">
-            <div className="card-elevated relative h-full">
+            <div className="card-elevated relative h-full min-h-[700px] flex flex-col pt-8 mt-4">
               
-              <div className="relative z-10 text-center">
+              <div className="relative z-10 text-center pt-6 flex-1 flex flex-col">
                 {/* Icon Container */}
                 <div className="icon-container w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-gray-100 to-gray-200">
                   <Download className="w-12 h-12 text-gray-600" />
@@ -238,7 +238,7 @@ export function PathSelectionSection() {
                 </p>
 
                 {/* Feature List */}
-                <div className="space-y-6 text-left">
+                <div className="space-y-6 text-left mt-auto">
                   {[
                     "Instant clarity on timing",
                     "Real company examples",
