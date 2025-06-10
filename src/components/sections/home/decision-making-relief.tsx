@@ -4,41 +4,52 @@ import React from "react"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Button } from "@/components/ui/button"
-import { Brain, Settings, AlertCircle, TrendingUp, ArrowRight, Zap, Shield, Gauge, Network } from "lucide-react"
+import { Brain, Settings, AlertCircle, TrendingUp, ArrowRight, Zap, Shield, Gauge, Network, CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
-// Improved Decision Flow Visualization
+// Enhanced Decision Transformation Visualization
 function BrainNetworkVisualization() {
-  // Organized node layout: complex decisions around the perimeter, simple solutions flowing to center
+  // Multi-stage transformation layout: Complex inputs → Processing → Streamlined output
   const nodes = [
-    // Complex decision nodes (scattered around perimeter)
-    { id: 1, x: 15, y: 20, type: 'complex', label: 'Tech Stack' },
-    { id: 2, x: 85, y: 25, type: 'complex', label: 'Architecture' },
-    { id: 3, x: 10, y: 75, type: 'complex', label: 'Scaling' },
-    { id: 4, x: 90, y: 80, type: 'complex', label: 'Security' },
-    // Solution nodes (organized flow toward center)
-    { id: 5, x: 35, y: 35, type: 'solution', label: 'Analysis' },
-    { id: 6, x: 65, y: 35, type: 'solution', label: 'Strategy' },
-    { id: 7, x: 35, y: 65, type: 'solution', label: 'Implementation' },
-    { id: 8, x: 65, y: 65, type: 'solution', label: 'Optimization' },
+    // Stage 1: Complex decision inputs (left side - multiple scattered sources)
+    { id: 1, x: 5, y: 15, type: 'complex', label: 'Tech Decisions' },
+    { id: 2, x: 8, y: 35, type: 'complex', label: 'Architecture' },
+    { id: 3, x: 12, y: 55, type: 'complex', label: 'Security' },
+    { id: 4, x: 6, y: 75, type: 'complex', label: 'Scaling' },
+    
+    // Stage 2: Processing layer (center-left - consolidation)
+    { id: 5, x: 30, y: 25, type: 'processing', label: 'Analysis' },
+    { id: 6, x: 35, y: 50, type: 'processing', label: 'Integration' },
+    { id: 7, x: 32, y: 75, type: 'processing', label: 'Optimization' },
+    
+    // Stage 3: Unified processor (center)
+    { id: 8, x: 60, y: 50, type: 'processor', label: 'VeloxForce' },
+    
+    // Stage 4: Streamlined output (right side - single clean flow)
+    { id: 9, x: 85, y: 40, type: 'output', label: 'Automated' },
+    { id: 10, x: 90, y: 60, type: 'output', label: 'Streamlined' },
   ]
   
-  // Logical connections: complex decisions → solution nodes → central processor
+  // Multi-stage transformation connections
   const connections = [
-    // Complex decisions to solution nodes
+    // Stage 1 → Stage 2: Complex decisions to processing
     { from: 1, to: 5, type: 'input' },
+    { from: 2, to: 5, type: 'input' },
     { from: 2, to: 6, type: 'input' },
+    { from: 3, to: 6, type: 'input' },
     { from: 3, to: 7, type: 'input' },
-    { from: 4, to: 8, type: 'input' },
-    // Solution nodes to center (processed flow)
-    { from: 5, to: 'center', type: 'processed' },
-    { from: 6, to: 'center', type: 'processed' },
-    { from: 7, to: 'center', type: 'processed' },
-    { from: 8, to: 'center', type: 'processed' },
+    { from: 4, to: 7, type: 'input' },
+    
+    // Stage 2 → Stage 3: Processing to unified processor
+    { from: 5, to: 8, type: 'processing' },
+    { from: 6, to: 8, type: 'processing' },
+    { from: 7, to: 8, type: 'processing' },
+    
+    // Stage 3 → Stage 4: Processor to streamlined outputs
+    { from: 8, to: 9, type: 'output' },
+    { from: 8, to: 10, type: 'output' },
   ]
-  
-  const centerPoint = { x: 50, y: 50 }
   
   return (
     <div className="relative w-full h-80 mx-auto max-w-lg">
@@ -51,10 +62,26 @@ function BrainNetworkVisualization() {
           </linearGradient>
         </defs>
         
-        {/* Connection lines */}
+        {/* Connection lines - staged transformation flow */}
         {connections.map((conn, index) => {
-          const fromNode = conn.from === 'center' ? centerPoint : nodes.find(n => n.id === conn.from)!
-          const toNode = conn.to === 'center' ? centerPoint : nodes.find(n => n.id === conn.to)!
+          const fromNode = nodes.find(n => n.id === conn.from)!
+          const toNode = nodes.find(n => n.id === conn.to)!
+          
+          // Different visual styles for each transformation stage
+          const getConnectionStyle = (type: string) => {
+            switch(type) {
+              case 'input':
+                return { stroke: '#EF4444', strokeWidth: '2', opacity: 0.6, dashArray: '8 4' }
+              case 'processing':
+                return { stroke: '#F59E0B', strokeWidth: '3', opacity: 0.7, dashArray: 'none' }
+              case 'output':
+                return { stroke: '#10B981', strokeWidth: '4', opacity: 0.8, dashArray: 'none' }
+              default:
+                return { stroke: '#6B7280', strokeWidth: '2', opacity: 0.4, dashArray: 'none' }
+            }
+          }
+          
+          const style = getConnectionStyle(conn.type)
           
           return (
             <motion.line
@@ -63,75 +90,119 @@ function BrainNetworkVisualization() {
               y1={`${fromNode.y}%`}
               x2={`${toNode.x}%`}
               y2={`${toNode.y}%`}
-              stroke={conn.type === 'processed' ? '#2563EB' : '#EF4444'}
-              strokeWidth={conn.type === 'processed' ? '3' : '2'}
-              strokeDasharray={conn.type === 'input' ? '8 4' : 'none'}
-              opacity={conn.type === 'processed' ? '0.8' : '0.4'}
+              stroke={style.stroke}
+              strokeWidth={style.strokeWidth}
+              strokeDasharray={style.dashArray}
+              opacity={style.opacity}
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: conn.type === 'processed' ? 0.8 : 0.4 }}
-              transition={{ duration: 2, delay: index * 0.3 }}
+              animate={{ pathLength: 1, opacity: style.opacity }}
+              transition={{ 
+                duration: 1.5, 
+                delay: conn.type === 'input' ? index * 0.1 : 
+                       conn.type === 'processing' ? 0.8 + index * 0.1 : 
+                       1.6 + index * 0.2 
+              }}
             />
           )
         })}
       </svg>
       
-      {/* Decision and solution nodes */}
-      {nodes.map((node, index) => (
-        <motion.div
-          key={node.id}
-          className={`absolute rounded-full flex items-center justify-center cursor-pointer transition-all duration-300
-            ${node.type === 'complex' 
-              ? 'w-10 h-10 bg-red-500 hover:bg-red-600 shadow-lg' 
-              : 'w-8 h-8 bg-blue-500 hover:bg-blue-600 shadow-md'
-            }`}
-          style={{ 
-            left: `calc(${node.x}% - ${node.type === 'complex' ? '20px' : '16px'})`, 
-            top: `calc(${node.y}% - ${node.type === 'complex' ? '20px' : '16px'})` 
-          }}
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-          whileHover={{ scale: 1.1 }}
-        >
-          {node.type === 'complex' ? (
-            <AlertCircle className="w-5 h-5 text-white" />
-          ) : (
-            <Settings className="w-4 h-4 text-white" />
-          )}
-        </motion.div>
-      ))}
+      {/* Multi-stage transformation nodes */}
+      {nodes.map((node, index) => {
+        // Different sizes and styles for each stage
+        const getNodeStyle = (type: string) => {
+          switch(type) {
+            case 'complex':
+              return { 
+                size: 'w-10 h-10', 
+                bg: 'bg-red-500 hover:bg-red-600', 
+                icon: AlertCircle, 
+                iconSize: 'w-5 h-5',
+                offset: '20px'
+              }
+            case 'processing':
+              return { 
+                size: 'w-9 h-9', 
+                bg: 'bg-amber-500 hover:bg-amber-600', 
+                icon: Settings, 
+                iconSize: 'w-4 h-4',
+                offset: '18px'
+              }
+            case 'processor':
+              return { 
+                size: 'w-14 h-14', 
+                bg: 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800', 
+                icon: Zap, 
+                iconSize: 'w-7 h-7',
+                offset: '28px'
+              }
+            case 'output':
+              return { 
+                size: 'w-8 h-8', 
+                bg: 'bg-emerald-500 hover:bg-emerald-600', 
+                icon: CheckCircle, 
+                iconSize: 'w-4 h-4',
+                offset: '16px'
+              }
+            default:
+              return { 
+                size: 'w-8 h-8', 
+                bg: 'bg-gray-500', 
+                icon: Settings, 
+                iconSize: 'w-4 h-4',
+                offset: '16px'
+              }
+          }
+        }
+        
+        const nodeStyle = getNodeStyle(node.type)
+        const IconComponent = nodeStyle.icon
+        
+        return (
+          <motion.div
+            key={node.id}
+            className={`absolute rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 shadow-lg
+              ${nodeStyle.size} ${nodeStyle.bg}`}
+            style={{ 
+              left: `calc(${node.x}% - ${nodeStyle.offset})`, 
+              top: `calc(${node.y}% - ${nodeStyle.offset})` 
+            }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ 
+              duration: 0.6, 
+              delay: node.type === 'complex' ? index * 0.1 : 
+                     node.type === 'processing' ? 0.6 + index * 0.1 : 
+                     node.type === 'processor' ? 1.2 : 
+                     1.4 + index * 0.1 
+            }}
+            whileHover={{ scale: 1.1 }}
+          >
+            <IconComponent className={`${nodeStyle.iconSize} text-white`} />
+          </motion.div>
+        )
+      })}
       
-      {/* Central Veloxforce processor */}
-      <motion.div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.8, delay: 1 }}
-      >
-        <motion.div
-          className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 flex items-center justify-center shadow-xl border-4 border-white"
-          animate={{ 
-            boxShadow: [
-              '0 0 20px rgba(37, 99, 235, 0.3)',
-              '0 0 40px rgba(37, 99, 235, 0.6)',
-              '0 0 20px rgba(37, 99, 235, 0.3)'
-            ]
-          }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <Zap className="w-8 h-8 text-white" />
-        </motion.div>
-      </motion.div>
-      
-      {/* Flow indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-4 text-xs text-gray-600">
+      {/* Enhanced transformation flow indicators */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 text-xs text-gray-600">
         <div className="flex items-center gap-1">
           <div className="w-2 h-2 rounded-full bg-red-500"></div>
-          <span>Complex Decisions</span>
+          <span>Complex</span>
         </div>
+        <ArrowRight className="w-3 h-3 text-gray-400" />
         <div className="flex items-center gap-1">
-          <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-          <span>Streamlined Process</span>
+          <div className="w-2 h-2 rounded-full bg-amber-500"></div>
+          <span>Processing</span>
+        </div>
+        <ArrowRight className="w-3 h-3 text-gray-400" />
+        <div className="flex items-center gap-1">
+          <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+          <span>VeloxForce</span>
+        </div>
+        <ArrowRight className="w-3 h-3 text-gray-400" />
+        <div className="flex items-center gap-1">
+          <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+          <span>Automated</span>
         </div>
       </div>
     </div>
