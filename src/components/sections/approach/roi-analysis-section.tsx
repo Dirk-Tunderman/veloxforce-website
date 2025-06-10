@@ -8,9 +8,11 @@ export function ROIAnalysisSection() {
     <Section id="roi-analysis" padding="xl" background="light-to-white">
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
-          <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Phase 1: Partnership Validation
-          </Heading>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+              Phase 1: Partnership Validation
+            </span>
+          </h2>
           <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
             We evaluate mutual fit and value creation - <span className="font-bold">ensuring this partnership benefits both organizations</span>
           </Text>

@@ -8,9 +8,11 @@ export function CustomDevelopmentSection() {
     <Section padding="xl" background="white-to-light">
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
-          <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Phase 2: Collaborative Solution Design
-          </Heading>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+              Phase 2: Collaborative Solution Design
+            </span>
+          </h2>
           <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
             <span className="font-bold">Together, we design systems that align with your standards and goals.</span> Your expertise guides our development, ensuring perfect fit with your operations.
           </Text>

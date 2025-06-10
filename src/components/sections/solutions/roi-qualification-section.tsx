@@ -41,8 +41,8 @@ export function ROIQualificationSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 via-white to-gray-50/30" />
 
       <Container className="relative z-10 max-w-6xl">
-        <div className="text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
-          <Heading level="2" className="velox-text-h2 mb-6">
+        <div className="text-center mb-20 animate-on-scroll" data-animation="fadeInUp">
+          <Heading level="2" className="velox-text-h2 mb-8" style={{ lineHeight: '1.3' }}>
             <span className="text-gradient">
               First:
             </span>{" "}
@@ -95,19 +95,19 @@ export function ROIQualificationSection() {
 
             <div className="grid md:grid-cols-3 gap-8 py-6">
               <div className="text-center">
-                <div className="velox-text-h1 text-blue-600 mb-2">50-80%</div>
+                <div className="text-4xl font-bold text-blue-600 mb-3 leading-tight">50-80%</div>
                 <Text className="velox-text-body">
                   Typical cost reduction from current state
                 </Text>
               </div>
               <div className="text-center">
-                <div className="velox-text-h1 text-blue-600 mb-2">3-6x</div>
+                <div className="text-4xl font-bold text-blue-600 mb-3 leading-tight">3-6x</div>
                 <Text className="velox-text-body">
                   Speed improvement with perfect accuracy
                 </Text>
               </div>
               <div className="text-center">
-                <div className="velox-text-h1 text-blue-600 mb-2">24/7</div>
+                <div className="text-4xl font-bold text-blue-600 mb-3 leading-tight">24/7</div>
                 <Text className="velox-text-body">
                   Operations without human intervention
                 </Text>
@@ -123,7 +123,7 @@ export function ROIQualificationSection() {
 
         {/* CTA Section */}
         <div 
-          className="text-center animate-on-scroll"
+          className="text-center animate-on-scroll pb-8"
           data-animation="fadeInUp" 
           style={{ animationDelay: "0.5s" }}
         >
@@ -138,7 +138,7 @@ export function ROIQualificationSection() {
             </Link>
           </Button>
 
-          <Text className="velox-text-caption mt-6 text-gray-600">
+          <Text className="velox-text-caption mt-6 text-gray-600 text-center">
             Free ROI analysis • 8 minutes • No sales pressure
           </Text>
         </div>

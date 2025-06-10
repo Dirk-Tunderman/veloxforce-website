@@ -8,9 +8,11 @@ export function OngoingExcellenceSection() {
     <Section padding="xl" background="light-to-accent">
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
-          <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Phase 4: Continuous Partnership Excellence
-          </Heading>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+              Phase 4: Continuous Partnership Excellence
+            </span>
+          </h2>
           <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
             <span className="font-bold">Our partnership grows stronger over time.</span> We continuously optimize and evolve together, ensuring your operations scale seamlessly with your business.
           </Text>
@@ -79,7 +81,7 @@ export function OngoingExcellenceSection() {
           {/* Right: Results Card */}
           <div className="bg-white rounded-2xl p-8 border border-blue-200 shadow-lg">
             <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
               <Heading level="3" className="text-xl font-bold text-gray-900 mb-4">

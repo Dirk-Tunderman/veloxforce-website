@@ -24,6 +24,7 @@ export function HeroSectionV2() {
             <Heading
               level="1"
               className="velox-text-h1-premium"
+              style={{ lineHeight: '1.2' }}
             >
               Every Process You Hate Doing
               <span className="relative">

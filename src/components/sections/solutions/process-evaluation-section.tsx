@@ -6,7 +6,7 @@ import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, X, HelpCircle, Target, Clock, Zap, Shield, ArrowRight } from "lucide-react"
+import { CheckCircle, X, HelpCircle, Target, Clock, Zap, Shield, ArrowRight, Trophy } from "lucide-react"
 
 const questions = [
   {
@@ -64,22 +64,22 @@ export function ProcessEvaluationSection() {
   return (
     <Section 
       padding="xl" 
-      background="accent-blue"
+      background="light-blue"
       className="relative overflow-hidden"
     >
       {/* Simplified Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-blue-800/85 to-indigo-900/90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-blue-100/60 to-blue-50/40" />
       
       <Container className="relative z-10 max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
-          <Heading level="2" className="velox-text-h2 mb-6 text-white">
+          <Heading level="2" className="velox-text-h2 mb-6" style={{ lineHeight: '1.3' }}>
             Not Sure What to Delegate First?{" "}
-            <span className="text-blue-200">
+            <span className="text-gradient">
               Let's Find Out.
             </span>
           </Heading>
-          <Text className="velox-text-lead max-w-3xl mx-auto text-blue-100">
+          <Text className="velox-text-lead max-w-3xl mx-auto text-gray-700">
             The 5-Question Automation Readiness Assessment
           </Text>
         </div>
@@ -154,77 +154,92 @@ export function ProcessEvaluationSection() {
                   <div className="text-6xl font-bold text-blue-600 mb-2">
                     {score}/5
                   </div>
-                  <Text className="velox-text-h4 mb-4">
+                  <Text className="velox-text-h4 mb-4 text-center">
                     Automation Readiness Score
                   </Text>
                 </div>
 
                 {score >= 4 && (
                   <div className="space-y-4">
-                    <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                      <Text className="font-semibold text-green-800 mb-2">
-                        🎯 Excellent Automation Candidate
-                      </Text>
-                      <Text className="text-green-700">
+                    <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-center">
+                      <div className="flex items-center justify-center mb-2">
+                        <Trophy className="w-5 h-5 text-green-600 mr-2" />
+                        <Text className="font-semibold text-green-800">
+                          Excellent Automation Candidate
+                        </Text>
+                      </div>
+                      <Text className="text-green-700 text-center">
                         This process is ideal for Service-as-Software. You're likely to see significant time savings and ROI within months.
                       </Text>
                     </div>
-                    <Button
-                      size="lg"
-                      className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-10 py-4 rounded-xl"
-                      asChild
-                    >
-                      <Link href="/tools/business-audit">
-                        Get Your ROI Analysis
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                      </Link>
-                    </Button>
+                    <div className="flex justify-center">
+                      <Button
+                        size="lg"
+                        className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-10 py-4 rounded-xl"
+                        asChild
+                      >
+                        <Link href="/tools/business-audit">
+                          Get Your ROI Analysis
+                          <ArrowRight className="w-5 h-5 ml-2" />
+                        </Link>
+                      </Button>
+                    </div>
                   </div>
                 )}
 
                 {score === 3 && (
                   <div className="space-y-4">
-                    <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                      <Text className="font-semibold text-blue-800 mb-2">
-                        💡 Good Potential with Refinement
-                      </Text>
-                      <Text className="text-blue-700">
+                    <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg text-center">
+                      <div className="flex items-center justify-center mb-2">
+                        <Zap className="w-5 h-5 text-blue-600 mr-2" />
+                        <Text className="font-semibold text-blue-800">
+                          Good Potential with Refinement
+                        </Text>
+                      </div>
+                      <Text className="text-blue-700 text-center">
                         This process shows promise. A few adjustments could make it perfect for automation.
                       </Text>
                     </div>
-                    <Button
-                      size="lg"
-                      className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-4 rounded-xl"
-                      asChild
-                    >
-                      <Link href="/tools/business-audit">
-                        Explore Your Options
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                      </Link>
-                    </Button>
+                    <div className="flex justify-center">
+                      <Button
+                        size="lg"
+                        className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-4 rounded-xl"
+                        asChild
+                      >
+                        <Link href="/tools/business-audit">
+                          Explore Your Options
+                          <ArrowRight className="w-5 h-5 ml-2" />
+                        </Link>
+                      </Button>
+                    </div>
                   </div>
                 )}
 
                 {score <= 2 && (
                   <div className="space-y-4">
-                    <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                      <Text className="font-semibold text-yellow-800 mb-2">
-                        🔍 Needs More Structure
-                      </Text>
-                      <Text className="text-yellow-700">
+                    <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-center">
+                      <div className="flex items-center justify-center mb-2">
+                        <Target className="w-5 h-5 text-yellow-600 mr-2" />
+                        <Text className="font-semibold text-yellow-800">
+                          Needs More Structure
+                        </Text>
+                      </div>
+                      <Text className="text-yellow-700 text-center">
                         This process might need more definition before automation. Let's explore other opportunities in your business.
                       </Text>
                     </div>
-                    <Button
-                      size="lg"
-                      className="bg-gradient-to-r from-yellow-600 to-yellow-700 hover:from-yellow-700 hover:to-yellow-800 text-white px-10 py-4 rounded-xl"
-                      asChild
-                    >
-                      <Link href="/tools/business-audit">
-                        Find Better Opportunities
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                      </Link>
-                    </Button>
+                    <div className="flex justify-center">
+                      <Button
+                        size="lg"
+                        className="bg-gradient-to-r from-yellow-600 to-yellow-700 hover:from-yellow-700 hover:to-yellow-800 text-white px-10 py-4 rounded-xl"
+                        asChild
+                      >
+                        <Link href="/tools/business-audit">
+                          Find Better Opportunities
+                          <ArrowRight className="w-5 h-5 ml-2" />
+                        </Link>
+                      </Button>
+                    </div>
                   </div>
                 )}
               </div>
@@ -233,7 +248,7 @@ export function ProcessEvaluationSection() {
 
           {!allAnswered && (
             <div className="text-center">
-              <Text className="text-blue-200">
+              <Text className="text-gray-600">
                 Answer all questions to see your automation readiness score
               </Text>
             </div>

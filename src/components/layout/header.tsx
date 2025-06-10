@@ -68,9 +68,12 @@ export function Header() {
             {/* Primary CTA - Desktop */}
             <Button
               asChild
-              className="hidden md:flex velox-cta-primary text-sm font-semibold px-6 py-2.5 h-10 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+              className="hidden md:flex relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-sm font-semibold px-6 py-2.5 h-10 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 overflow-hidden group"
             >
-              <Link href="/tools/business-audit">Free Efficiency Audit</Link>
+              <Link href="/tools/business-audit">
+                <span className="relative z-10">Free Efficiency Audit</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              </Link>
             </Button>
 
             {/* Mobile Menu Button */}
@@ -118,10 +121,11 @@ export function Header() {
               <div className="mt-6 pt-4 border-t border-gray-200">
                 <Button
                   asChild
-                  className="w-full velox-cta-primary text-base font-semibold py-4 h-12 rounded-xl shadow-lg"
+                  className="w-full relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-base font-semibold py-4 h-12 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
                 >
                   <Link href="/tools/business-audit" onClick={() => setMobileMenuOpen(false)}>
-                    Free Efficiency Audit
+                    <span className="relative z-10">Free Efficiency Audit</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   </Link>
                 </Button>
               </div>

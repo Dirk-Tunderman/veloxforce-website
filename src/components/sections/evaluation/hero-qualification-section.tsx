@@ -45,26 +45,33 @@ export function HeroQualificationSection() {
         </div>
 
         {/* Trust Building Section */}
-        <div className="card-elevated max-w-4xl mx-auto">
+        <div className="bg-white rounded-2xl p-8 border border-blue-100 shadow-lg max-w-4xl mx-auto relative">
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-2xl"></div>
           <div className="flex items-start gap-6">
-            <div className="icon-container-gradient">
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center border border-blue-200 shadow-sm">
               <Shield className="w-6 h-6 text-blue-600" />
             </div>
             <div className="flex-1">
-              <h3 className="velox-text-h3 mb-3">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Before You Read Further
               </h3>
-              <p className="velox-text-body mb-4">
-                We've turned away <span className="font-bold text-blue-600">23% of potential clients</span> because the fit wasn't right.
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                We've turned away <span className="font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">23% of potential clients</span> because the fit wasn't right.
                 This guide helps you determine - honestly - if Service-as-Software makes sense for you.
               </p>
-              <div className="space-y-2">
-                <p className="velox-text-body">
-                  <span className="font-semibold text-gray-900">If it doesn't,</span> we'll tell you what to do instead.
-                </p>
-                <p className="velox-text-body">
-                  <span className="font-semibold text-gray-900">If it does,</span> you'll know exactly why and what to expect.
-                </p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                  <p className="text-gray-700">
+                    <span className="font-semibold text-gray-900">If it doesn't,</span> we'll tell you what to do instead.
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <p className="text-gray-700">
+                    <span className="font-semibold text-gray-900">If it does,</span> you'll know exactly why and what to expect.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

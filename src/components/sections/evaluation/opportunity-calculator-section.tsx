@@ -33,32 +33,36 @@ export function OpportunityCalculatorSection() {
           </Text>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
           {/* Calculator Inputs */}
-          <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                <Calculator className="w-6 h-6 text-white" />
+          <div className="bg-white rounded-2xl p-8 border border-blue-100 shadow-lg relative">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-2xl"></div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-md">
+                <Calculator className="w-7 h-7 text-white" />
               </div>
-              <Heading level="3" className="text-xl font-bold text-gray-900">
-                Process Cost Calculator
-              </Heading>
+              <div>
+                <Heading level="3" className="text-xl font-bold text-gray-900">
+                  Process Cost Calculator
+                </Heading>
+                <Text className="text-sm text-gray-600">Enter your current process details</Text>
+              </div>
             </div>
 
             <div className="space-y-6">
               {/* Hours Input */}
-              <div>
-                <Label htmlFor="hours" className="text-sm font-semibold text-gray-700">
+              <div className="bg-gray-50 rounded-xl p-4">
+                <Label htmlFor="hours" className="text-sm font-semibold text-gray-700 mb-2 block">
                   Hours spent weekly on this process
                 </Label>
-                <div className="mt-2 relative">
+                <div className="relative">
                   <Clock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
                   <Input
                     id="hours"
                     type="number"
                     value={hours}
                     onChange={(e) => setHours(Number(e.target.value))}
-                    className="pl-10"
+                    className="pl-10 border-gray-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
                     min="0"
                     max="168"
                   />
@@ -66,18 +70,18 @@ export function OpportunityCalculatorSection() {
               </div>
 
               {/* People Input */}
-              <div>
-                <Label htmlFor="people" className="text-sm font-semibold text-gray-700">
+              <div className="bg-gray-50 rounded-xl p-4">
+                <Label htmlFor="people" className="text-sm font-semibold text-gray-700 mb-2 block">
                   Number of people involved
                 </Label>
-                <div className="mt-2 relative">
+                <div className="relative">
                   <Users className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
                   <Input
                     id="people"
                     type="number"
                     value={people}
                     onChange={(e) => setPeople(Number(e.target.value))}
-                    className="pl-10"
+                    className="pl-10 border-gray-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
                     min="1"
                     max="100"
                   />
@@ -85,18 +89,18 @@ export function OpportunityCalculatorSection() {
               </div>
 
               {/* Hourly Value Input */}
-              <div>
-                <Label htmlFor="hourlyValue" className="text-sm font-semibold text-gray-700">
+              <div className="bg-gray-50 rounded-xl p-4">
+                <Label htmlFor="hourlyValue" className="text-sm font-semibold text-gray-700 mb-2 block">
                   Average hourly value of those people ($)
                 </Label>
-                <div className="mt-2 relative">
-                  <span className="absolute left-3 top-3 text-gray-400">$</span>
+                <div className="relative">
+                  <span className="absolute left-3 top-3 text-gray-400 font-medium">$</span>
                   <Input
                     id="hourlyValue"
                     type="number"
                     value={hourlyValue}
                     onChange={(e) => setHourlyValue(Number(e.target.value))}
-                    className="pl-8"
+                    className="pl-8 border-gray-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
                     min="0"
                     max="500"
                   />
@@ -104,18 +108,18 @@ export function OpportunityCalculatorSection() {
               </div>
 
               {/* Error Rate Input */}
-              <div>
-                <Label htmlFor="errorRate" className="text-sm font-semibold text-gray-700">
+              <div className="bg-gray-50 rounded-xl p-4">
+                <Label htmlFor="errorRate" className="text-sm font-semibold text-gray-700 mb-2 block">
                   Error rate requiring rework (%)
                 </Label>
-                <div className="mt-2 relative">
-                  <span className="absolute right-3 top-3 text-gray-400">%</span>
+                <div className="relative">
+                  <span className="absolute right-3 top-3 text-gray-400 font-medium">%</span>
                   <Input
                     id="errorRate"
                     type="number"
                     value={errorRate}
                     onChange={(e) => setErrorRate(Number(e.target.value))}
-                    className="pr-8"
+                    className="pr-8 border-gray-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
                     min="0"
                     max="100"
                   />
@@ -127,69 +131,87 @@ export function OpportunityCalculatorSection() {
           {/* Results Display */}
           <div className="space-y-6">
             {/* Current Cost Display */}
-            <div className="bg-red-50 rounded-2xl p-8 border border-red-200">
-              <Heading level="3" className="text-xl font-bold text-red-900 mb-4">
-                Your Current Cost
-              </Heading>
-              
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <Text className="text-gray-700">Weekly Cost:</Text>
-                  <Text className="text-xl font-bold text-red-600">
-                    ${weeklyDirectCost.toLocaleString()}
-                  </Text>
+            <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 border border-red-200 shadow-lg relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-red-200 rounded-full opacity-20 -translate-y-6 translate-x-6"></div>
+              <div className="relative">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <Heading level="3" className="text-xl font-bold text-red-900">
+                    Your Current Cost
+                  </Heading>
                 </div>
-                <div className="flex justify-between items-center">
-                  <Text className="text-gray-700">Annual Cost:</Text>
-                  <Text className="text-2xl font-bold text-red-700">
-                    ${totalAnnualCost.toLocaleString()}
-                  </Text>
+                
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center p-3 bg-white/60 rounded-lg">
+                    <Text className="text-gray-700 font-medium">Weekly Cost:</Text>
+                    <Text className="text-xl font-bold text-red-600">
+                      ${weeklyDirectCost.toLocaleString()}
+                    </Text>
+                  </div>
+                  <div className="flex justify-between items-center p-4 bg-white/80 rounded-lg border border-red-200">
+                    <Text className="text-gray-800 font-semibold">Annual Cost:</Text>
+                    <Text className="text-3xl font-bold text-red-700">
+                      ${totalAnnualCost.toLocaleString()}
+                    </Text>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Real Question */}
-            <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200">
-              <Heading level="3" className="text-xl font-bold text-blue-900 mb-4">
-                But the Real Question:
-              </Heading>
-              <Text className="text-lg text-blue-800 mb-4">
-                What would those {people} people accomplish with {hours * people} hours back each week?
-              </Text>
-              
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <TrendingUp className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <Text className="text-blue-800">New product development?</Text>
-                </li>
-                <li className="flex items-start gap-3">
-                  <TrendingUp className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <Text className="text-blue-800">Customer relationship deepening?</Text>
-                </li>
-                <li className="flex items-start gap-3">
-                  <TrendingUp className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <Text className="text-blue-800">Process innovation?</Text>
-                </li>
-                <li className="flex items-start gap-3">
-                  <TrendingUp className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <Text className="text-blue-800">Market expansion?</Text>
-                </li>
-              </ul>
-              
-              <Text className="text-lg font-bold text-blue-900 mt-6">
-                That's your true opportunity cost.
-              </Text>
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border border-blue-200 shadow-lg relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200 rounded-full opacity-20 -translate-y-8 translate-x-8"></div>
+              <div className="relative">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                  <Heading level="3" className="text-xl font-bold text-blue-900">
+                    But the Real Question:
+                  </Heading>
+                </div>
+                <div className="bg-white/60 rounded-lg p-4 mb-6">
+                  <Text className="text-lg text-blue-800 font-medium">
+                    What would those <span className="font-bold">{people} people</span> accomplish with{" "}
+                    <span className="font-bold">{hours * people} hours</span> back each week?
+                  </Text>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="flex items-center gap-2 p-3 bg-white/60 rounded-lg">
+                    <TrendingUp className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <Text className="text-sm text-blue-800">New products</Text>
+                  </div>
+                  <div className="flex items-center gap-2 p-3 bg-white/60 rounded-lg">
+                    <TrendingUp className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <Text className="text-sm text-blue-800">Customer growth</Text>
+                  </div>
+                  <div className="flex items-center gap-2 p-3 bg-white/60 rounded-lg">
+                    <TrendingUp className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <Text className="text-sm text-blue-800">Innovation</Text>
+                  </div>
+                  <div className="flex items-center gap-2 p-3 bg-white/60 rounded-lg">
+                    <TrendingUp className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <Text className="text-sm text-blue-800">Market expansion</Text>
+                  </div>
+                </div>
+                
+                <div className="mt-6 p-4 bg-blue-600 rounded-lg text-center">
+                  <Text className="text-lg font-bold text-white">
+                    That's your true opportunity cost.
+                  </Text>
+                </div>
+              </div>
             </div>
 
             {/* CTA */}
             <div className="text-center">
               <Button
                 size="lg"
-                className="velox-cta-primary text-lg font-semibold px-8 py-4 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-10 py-5 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
                 asChild
               >
                 <a href="/tools/business-audit">
-                  See Full Analysis
+                  <span className="relative z-10">See Full Analysis</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                 </a>
               </Button>
             </div>

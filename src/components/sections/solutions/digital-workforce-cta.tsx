@@ -10,7 +10,7 @@ const ctaOptions = [
   {
     icon: Target,
     title: "Start With Your Biggest Time Drain",
-    description: "Tell us which task hurts most",
+    description: "Tell us which task hurts your operations the most",
     buttonText: "Check What I Can Delegate",
     href: "/tools/business-audit"
   },
@@ -34,22 +34,22 @@ export function DigitalWorkforceCTA() {
   return (
     <Section 
       padding="xl" 
-      background="accent-blue"
+      background="light-blue"
       className="relative overflow-hidden"
     >
       {/* Simplified Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-blue-800/85 to-indigo-900/90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-blue-100/60 to-blue-50/40" />
       
       <Container className="relative z-10 max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
-          <Heading level="2" className="velox-text-h2 mb-6 text-white">
+          <Heading level="2" className="velox-text-h2 mb-6" style={{ lineHeight: '1.3' }}>
             Start Delegating Your{" "}
-            <span className="text-blue-200">
+            <span className="text-gradient">
               Processes Today
             </span>
           </Heading>
-          <Text className="velox-text-lead max-w-3xl mx-auto text-blue-100">
+          <Text className="velox-text-lead max-w-3xl mx-auto text-gray-700">
             Choose your preferred way to discover what you can delegate
           </Text>
         </div>
@@ -81,10 +81,10 @@ export function DigitalWorkforceCTA() {
 
                 {/* CTA Button */}
                 <Button 
-                  className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white w-full text-lg font-semibold px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white w-full text-lg font-semibold px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
                   asChild
                 >
-                  <a href={option.href}>
+                  <a href={option.href} className="block text-center">
                     {option.buttonText}
                   </a>
                 </Button>
@@ -96,10 +96,10 @@ export function DigitalWorkforceCTA() {
         {/* Bottom Message */}
         <div className="mt-20 text-center animate-on-scroll" data-animation="fadeInUp">
           <div className="card-base bg-white/95 backdrop-blur rounded-2xl p-8 max-w-4xl mx-auto shadow-lg">
-            <Text className="velox-text-lead text-blue-900 font-semibold">
+            <Text className="velox-text-lead text-blue-900 font-semibold text-center">
               Ready to transform your business operations through strategic delegation?
             </Text>
-            <Text className="velox-text-body text-blue-800 mt-4">
+            <Text className="velox-text-body text-blue-800 mt-4 text-center">
               Join hundreds of businesses that have reclaimed their time and scaled their impact.
             </Text>
           </div>

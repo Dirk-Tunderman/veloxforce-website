@@ -5,7 +5,6 @@ import { HeroQualificationSection } from "@/components/sections/evaluation/hero-
 import { ReadinessMatrixSection } from "@/components/sections/evaluation/readiness-matrix-section"
 import { DepthAssessmentSection } from "@/components/sections/evaluation/depth-assessment-section"
 import { IdealPartnerProfileSection } from "@/components/sections/evaluation/ideal-partner-profile-section"
-import { OpportunityCalculatorSection } from "@/components/sections/evaluation/opportunity-calculator-section"
 import { CommonScenariosSection } from "@/components/sections/evaluation/common-scenarios-section"
 import { ReadinessChecklistSection } from "@/components/sections/evaluation/readiness-checklist-section"
 import { PersonalizedNextStepsSection } from "@/components/sections/evaluation/personalized-next-steps-section"
@@ -33,8 +32,6 @@ export default function IsThisRightForMePage() {
       {/* 4. Ideal Partner Profile */}
       <IdealPartnerProfileSection />
 
-      {/* 5. Opportunity Calculator */}
-      <OpportunityCalculatorSection />
 
       {/* 6. Common Scenarios */}
       <CommonScenariosSection />

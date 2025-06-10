@@ -13,9 +13,11 @@ export function WhyServiceAsSoftwareWorks() {
       <Container className="max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Heading level="2" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Why Service-as-Software Works
-          </Heading>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+              Why Service-as-Software Works
+            </span>
+          </h2>
           <Text className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
             The fundamental advantages that make this model superior to traditional approaches
           </Text>

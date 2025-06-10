@@ -29,7 +29,7 @@ export function UniversalTruthSection() {
       <Container className="relative z-10 max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
-          <Heading level="2" className="velox-text-h2 mb-6">
+          <Heading level="2" className="velox-text-h2 mb-6" style={{ lineHeight: '1.3' }}>
             Your Process Matters.{" "}
             <span className="text-gradient">
               Your Industry Doesn't.
@@ -173,7 +173,7 @@ export function UniversalTruthSection() {
               </div>
             </div>
 
-            <Text className="velox-text-body text-blue-800">
+            <Text className="velox-text-body text-blue-800 text-center">
               <strong>Your industry expertise stays with you.</strong> Your operational burden comes to us.
             </Text>
           </div>

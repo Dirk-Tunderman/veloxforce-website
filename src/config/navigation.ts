@@ -12,10 +12,6 @@ export const mainNavItems = [
     href: "/is-this-right-for-me",
   },
   {
-    title: "Success Stories",
-    href: "/case-studies",
-  },
-  {
     title: "Blog",
     href: "/blog",
   },

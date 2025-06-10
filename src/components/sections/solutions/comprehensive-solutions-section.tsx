@@ -175,7 +175,7 @@ export function ComprehensiveSolutionsSection() {
 
       <Container className="relative z-10 max-w-7xl">
         <div className="text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
-          <Heading level="2" className="velox-text-h2 mb-6">
+          <Heading level="2" className="velox-text-h2 mb-6" style={{ lineHeight: '1.3' }}>
             Which Time-Drain Is{" "}
             <span className="text-gradient">Killing Your Growth?</span>
           </Heading>

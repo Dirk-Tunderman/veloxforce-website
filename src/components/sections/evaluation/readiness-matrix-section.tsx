@@ -83,14 +83,6 @@ export function ReadinessMatrixSection() {
             matrixVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}
         >
-          {/* Axis Labels */}
-          <div className="absolute -left-24 top-1/2 -translate-y-1/2 -rotate-90 hidden lg:block">
-            <p className="text-sm font-semibold text-gray-700">Process Maturity →</p>
-          </div>
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-8 hidden lg:block">
-            <p className="text-sm font-semibold text-gray-700">Strategic Pressure →</p>
-          </div>
-
           {/* Grid Container */}
           <div className="grid grid-cols-2 gap-6 h-[600px]">
             {/* Top Left - Prepare First */}
@@ -193,24 +185,12 @@ export function ReadinessMatrixSection() {
               </div>
             </div>
           </div>
-
-          {/* Axis Descriptions */}
-          <div className="absolute -top-12 left-0 right-0 flex justify-between px-4 text-sm text-gray-600">
-            <p>Low: "Still figuring out how things work"</p>
-            <p className="font-semibold">Process Maturity</p>
-            <p>High: "Documented and consistent"</p>
-          </div>
-          <div className="absolute top-4 bottom-4 -right-48 flex flex-col justify-between text-sm text-gray-600 hidden xl:block">
-            <p>High: "Growth constrained by capacity"</p>
-            <p className="font-semibold">Strategic Pressure</p>
-            <p>Low: "Have bandwidth for volume"</p>
-          </div>
         </div>
 
         {/* Mobile Legend */}
         <div className="block lg:hidden space-y-2 text-sm text-gray-600">
-          <p><span className="font-semibold">Y-Axis (Process Maturity):</span> Low = Still figuring out | High = Documented & consistent</p>
-          <p><span className="font-semibold">X-Axis (Strategic Pressure):</span> Low = Have bandwidth | High = Growth constrained</p>
+          <p><span className="font-semibold">Y-Axis:</span> Process Maturity (Low to High)</p>
+          <p><span className="font-semibold">X-Axis:</span> Strategic Pressure (Low to High)</p>
         </div>
       </Container>
     </Section>

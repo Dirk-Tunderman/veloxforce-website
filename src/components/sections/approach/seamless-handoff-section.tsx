@@ -8,9 +8,11 @@ export function SeamlessHandoffSection() {
     <Section padding="xl" background="light-blue">
       <Container className="max-w-6xl">
         <div className="text-center mb-16">
-          <Heading level="2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Phase 3: Smooth Transition to Partnership
-          </Heading>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+              Phase 3: Smooth Transition to Partnership
+            </span>
+          </h2>
           <Text className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
             <span className="font-bold">Your team maintains full visibility and control</span> while we handle the operational execution
           </Text>
