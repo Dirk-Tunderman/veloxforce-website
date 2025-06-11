@@ -1,8 +1,9 @@
 export interface ServiceQuizAnswers {
   // Opening Context
   company_size: string
-  user_role: string
+  role: string
   business_model: string
+  primary_challenge: string
   department_focus: string
   
   // Dynamic answers based on department selection
@@ -33,12 +34,11 @@ export interface QuizAnswers {
 }
 
 export interface ServiceContactDetails {
-  first_name: string
-  last_name: string
-  work_email: string
-  phone?: string
+  full_name: string
+  business_email: string
   company_name: string
-  preferred_contact: string
+  website: string
+  phone_number?: string
 }
 
 // Legacy interface for backward compatibility
@@ -120,8 +120,9 @@ export interface ApprovalMetric {
 export interface ContactField {
   id: string
   label: string
-  type: 'text' | 'email' | 'tel'
+  type: 'text' | 'email' | 'tel' | 'url'
   required: boolean
+  placeholder?: string
   options?: QuestionOption[]
 }
 
@@ -152,21 +153,27 @@ export interface PercentageCategory {
 }
 
 export interface SliderConfig {
+  // Volume sliders with timeframe switching
   timeframes?: string[]
   ranges?: {
     daily?: { min: number; max: number; markers: number[] }
     weekly?: { min: number; max: number; markers: number[] }
     monthly?: { min: number; max: number; markers: number[] }
   }
+  
+  // Basic sliders (time, money, numbers)
+  min?: number
+  max?: number
+  step?: number
+  unit?: string // 'minutes', 'hours', 'euros', 'conversations', etc.
+  markers?: number[]
+  
+  // Display options
   colors?: {
     low: string
     medium: string
     high: string
   }
-  min?: number
-  max?: number
-  step?: number
-  markers?: number[]
   labels?: string[]
 }
 
@@ -205,7 +212,7 @@ export interface VisualOption {
   label: string
   description: string
   icon: string
-  color: string
+  color: 'blue' | 'gray' // Simplified to 90/10 color rule
 }
 
 export interface TimeCategory {
@@ -251,55 +258,60 @@ export interface Question {
   title: string
   subtitle?: string
   description?: string
-  type: 'text' | 'radio' | 'checkbox' | 'select' | 'slider' | 'visual_grid' | 'conditional_checkbox' | 'time_breakdown' | 'team_breakdown' | 'dual_slider' | 'time_matrix' | 'system_count' | 'percentage_sliders' | 'contact_form' | 'multi_time_breakdown' | 'team_structure' | 'transaction_volumes' | 'approval_analysis' | 'textarea' | 'time_slider' | 'volume_slider' | 'service_team_efficiency'
-  options?: QuestionOption[]
+  
+  // Simplified to only 2 main types plus text/textarea/contact_form
+  type: 'visual_grid' | 'slider' | 'text' | 'textarea' | 'contact_form' | 'radio' | 'checkbox'
+  
+  // Visual Grid properties
   visualOptions?: VisualOption[]
-  conditionalOn?: string
-  conditionalOptions?: Record<string, QuestionOption[]>
-  timeCategories?: TimeCategory[]
-  teamCategories?: TeamCategory[]
-  sliders?: SliderDef[]
-  timeOptions?: string[]
-  tasks?: { id: string; label: string }[]
-  systems?: SystemConfig[]
-  categories?: PercentageCategory[]
-  mustTotal?: number
-  fields?: ContactField[]
-  required?: boolean
-  tooltip?: string
-  maxSelections?: number
+  multiple?: boolean // For visual_grid: single vs multiple selection
+  maxSelections?: number // For visual_grid: limit selections
+  
+  // Slider properties
+  sliderConfig?: SliderConfig
+  unitLabel?: string // For volume sliders: 'inquiries', 'transactions', etc.
+  
+  // Text/Textarea properties
   placeholder?: string
   maxLength?: number
+  
+  // Contact form properties
+  contactFields?: ContactField[]
+  preferenceField?: PreferenceField
+  
+  // Common properties
+  required?: boolean
+  tooltip?: string
   helpText?: string
   examples?: string[]
-  followUpText?: boolean
-  followUpPrompt?: string
-  followUpMaxLength?: number
-  sliderConfig?: SliderConfig
-  expandableCalculator?: ExpandableCalculator
-  calculationMessage?: string
-  conditionalMessage?: ConditionalMessage
-  identityTransformation?: boolean
-  dynamicMessage?: string
-  awayFromMotivation?: boolean
-  qualificationLogic?: QualificationLogic
-  urgencyFrame?: boolean
-  phaseId?: string
+  benchmark?: string
+  subtext?: string
   
-  // New question type properties
+  // Real-time calculation
+  realTimeCalculation?: boolean
+  calculationMessage?: string
+  hourlyRate?: number // For time-based calculations
+  
+  // Legacy properties (deprecated but kept for backward compatibility)
+  options?: QuestionOption[]
   timeBreakdowns?: TimeBreakdown[]
   teamInputs?: TeamInput[]
   booleanInputs?: BooleanInput[]
   volumeInputs?: VolumeInput[]
   approvalMetrics?: ApprovalMetric[]
-  contactFields?: ContactField[]
-  preferenceField?: PreferenceField
-  benchmark?: string
-  realTimeCalculation?: boolean
-  calculationText?: string
   teamRoles?: TeamRole[]
-  unitLabel?: string
-  multiple?: boolean
+  categories?: PercentageCategory[]
+  mustTotal?: number
+  followUpText?: boolean
+  followUpPrompt?: string
+  followUpMaxLength?: number
+  expandableCalculator?: ExpandableCalculator
+  conditionalMessage?: ConditionalMessage
+  qualificationLogic?: QualificationLogic
+  urgencyFrame?: boolean
+  awayFromMotivation?: boolean
+  dynamicMessage?: string
+  identityTransformation?: boolean
 }
 
 export interface QuizStep {

@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     // Validate required fields based on quiz type
     if (isServiceQuiz) {
       const serviceSubmission = submission as ServiceQuizSubmission
-      if (!serviceSubmission.contactDetails.work_email || !serviceSubmission.departmentRoute) {
+      if (!serviceSubmission.contactDetails.business_email || !serviceSubmission.departmentRoute) {
         return NextResponse.json(
           { success: false, error: 'Missing required fields' },
           { status: 400 }
@@ -47,10 +47,11 @@ export async function POST(request: NextRequest) {
     if (isServiceQuiz) {
       const serviceSubmission = submission as ServiceQuizSubmission
       clientData = {
-        email: serviceSubmission.contactDetails.work_email,
-        phone_number: serviceSubmission.contactDetails.phone,
-        name: `${serviceSubmission.contactDetails.first_name} ${serviceSubmission.contactDetails.last_name}`,
+        email: serviceSubmission.contactDetails.business_email,
+        phone_number: serviceSubmission.contactDetails.phone_number,
+        name: serviceSubmission.contactDetails.full_name,
         company_name: serviceSubmission.contactDetails.company_name,
+        website: serviceSubmission.contactDetails.website,
         updated_at: new Date().toISOString()
       }
     } else {

@@ -63,9 +63,10 @@ import {
   BarChart,
   Shuffle
 } from "lucide-react"
-import { SERVICE_QUIZ_PHASES, SALES_ROUTE_PHASES, FINANCE_ROUTE_PHASES, CUSTOMER_SERVICE_ROUTE_PHASES, FINAL_QUESTIONS } from "@/config/service-quiz"
+import { SERVICE_QUIZ_PHASES, SALES_ROUTE_PHASES, FINANCE_ROUTE_PHASES, CUSTOMER_SERVICE_ROUTE_PHASES, OPERATIONS_ROUTE_PHASES, MARKETING_ROUTE_PHASES, HR_ROUTE_PHASES, FINAL_QUESTIONS, DEPARTMENT_ROUTES } from "@/config/service-quiz"
 import { Question, QuizPhase } from "@/types/audit-tool"
 import { ServiceTeamEfficiencyBuilder } from "@/components/ui/service-team-efficiency-builder"
+import { QuestionRenderer as ExternalQuestionRenderer } from './question-renderer'
 
 type QuizStep = 'intro' | 'opening' | 'department' | 'route' | 'final' | 'results'
 
@@ -105,14 +106,8 @@ const BUSINESS_MODEL_ICONS = {
   'nonprofit': Heart
 }
 
-const DEPARTMENT_ROUTES = {
-  sales: SALES_ROUTE_PHASES,
-  finance: FINANCE_ROUTE_PHASES,
-  customer_service: CUSTOMER_SERVICE_ROUTE_PHASES,
-  operations: [], // TODO: Implement
-  marketing: [], // TODO: Implement
-  hr: [] // TODO: Implement
-}
+// Use the imported DEPARTMENT_ROUTES which now has complete implementations
+// const DEPARTMENT_ROUTES already imported from config
 
 interface QuestionRendererProps {
   question: Question
@@ -124,8 +119,9 @@ interface QuestionRendererProps {
 // Helper function to determine if question should use visual grid
 const shouldUseVisualGrid = (question: Question) => {
   return question.id === 'company_size' ||
-         question.id === 'user_role' ||
+         question.id === 'role' ||
          question.id === 'business_model' ||
+         question.id === 'primary_challenge' ||
          question.type === 'visual_grid'
 }
 
@@ -145,7 +141,7 @@ const getIconForOption = (questionId: string, optionValue: string, iconName?: st
   switch (questionId) {
     case 'company_size':
       return COMPANY_SIZE_ICONS[optionValue as keyof typeof COMPANY_SIZE_ICONS] || Building2
-    case 'user_role':
+    case 'role':
       return ROLE_ICONS[optionValue as keyof typeof ROLE_ICONS] || User
     case 'business_model':
       return BUSINESS_MODEL_ICONS[optionValue as keyof typeof BUSINESS_MODEL_ICONS] || Briefcase
@@ -647,100 +643,6 @@ function SalaryRangeSlider({ question, value, onChange }: { question: Question, 
   )
 }
 
-// Simplified Conversion Rate Slider Component
-function ConversionRateGauge({ question, value, onChange }: { question: Question, value: any, onChange: (value: any) => void }) {
-  const conversionRates = [
-    { value: 'poor', label: 'Under 10%', description: 'Less than 10% book meetings', rate: 5 },
-    { value: 'below-average', label: '10-15%', description: '10-15% book meetings', rate: 12.5 },
-    { value: 'average', label: '15-20%', description: '15-20% book meetings', rate: 17.5 },
-    { value: 'good', label: '20-30%', description: '20-30% book meetings', rate: 25 },
-    { value: 'strong', label: '30-40%', description: '30-40% book meetings', rate: 35 },
-    { value: 'excellent', label: '40%+', description: '40%+ book meetings', rate: 45 },
-    { value: 'wrong-people', label: 'Different Focus', description: 'Not reaching the right people', rate: 0 }
-  ]
-
-  const currentRateIndex = conversionRates.findIndex(r => r.value === value)
-  const validIndex = currentRateIndex >= 0 ? currentRateIndex : 0
-  const currentRate = conversionRates[validIndex]
-
-  // Set default value to first rate if no value is provided
-  useEffect(() => {
-    if (!value) {
-      onChange(conversionRates[0].value)
-    }
-  }, [value, onChange])
-
-  return (
-    <div className="space-y-8 text-center">
-      {/* Main Value Display */}
-      <div className="space-y-3">
-        <div className="text-6xl font-bold text-blue-600">
-          {currentRate?.rate === 0 ? 'N/A' : `${currentRate?.rate}%`}
-        </div>
-        <div className="text-lg text-gray-600">{currentRate?.label}</div>
-        <div className="text-sm text-gray-500">{currentRate?.description}</div>
-      </div>
-
-      {/* Simple Slider */}
-      <div className="space-y-6">
-        <div className="relative px-4">
-          {/* Track Background */}
-          <div className="relative h-3 bg-gray-200 rounded-full">
-            {/* Progress Fill */}
-            <div
-              className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-200"
-              style={{ width: `${(validIndex / (conversionRates.length - 1)) * 100}%` }}
-            />
-
-            {/* Draggable Slider Handle */}
-            <div
-              className="absolute top-1/2 w-6 h-6 bg-white rounded-full shadow-lg border-2 border-blue-600 transform -translate-y-1/2 cursor-pointer transition-all duration-200 hover:scale-110 hover:shadow-xl"
-              style={{
-                left: `calc(${(validIndex / (conversionRates.length - 1)) * 100}% - 12px)`
-              }}
-            />
-          </div>
-
-          {/* Hidden Range Input for Dragging */}
-          <input
-            type="range"
-            min="0"
-            max={conversionRates.length - 1}
-            value={validIndex}
-            onChange={(e) => {
-              const newIndex = parseInt(e.target.value)
-              onChange(conversionRates[newIndex].value)
-            }}
-            className="absolute inset-0 w-full h-6 opacity-0 cursor-pointer"
-            style={{ margin: 0 }}
-            aria-label="Select conversion rate range"
-          />
-        </div>
-      </div>
-
-      {/* Range Labels */}
-      <div className="flex justify-between text-xs text-gray-500 px-4">
-        {conversionRates.map((rate, i) => (
-          <span key={i} className={validIndex === i ? 'text-blue-600 font-medium' : ''}>
-            {rate.label}
-          </span>
-        ))}
-      </div>
-
-      {/* Conversion Context */}
-      {currentRate && currentRate.rate > 0 && (
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
-          <div className="text-center">
-            <h4 className="font-semibold text-blue-900 mb-2">Conversion Context</h4>
-            <div className="text-sm text-blue-700">
-              With 100 prospects: <span className="font-semibold">{currentRate.rate} meetings</span>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
 
 // Interactive Time Breakdown Slider Component
 function TimeBreakdownSlider({ question, value, onChange }: { question: Question, value: any, onChange: (value: any) => void }) {
@@ -870,190 +772,6 @@ function TimeBreakdownSlider({ question, value, onChange }: { question: Question
   )
 }
 
-// Interactive Priority Ranking Component for Scaling Obstacles
-function PriorityRankingSelector({ question, value, onChange }: { question: Question, value: any, onChange: (value: any) => void }) {
-  const selectedObstacles = value || []
-  const maxSelections = question.maxSelections || 3
-
-  const obstacleIcons = {
-    'not-enough-hours': Clock,
-    'finding-prospects': Target,
-    'contact-info': Database,
-    'personalization-time': Timer,
-    'crm-maintenance': Settings,
-    'inconsistent-followup': Calendar,
-    'poor-data-quality': Shield,
-    'team-burnout': Users2
-  }
-
-  const obstacleColors = {
-    'not-enough-hours': 'from-red-500 to-red-600',
-    'finding-prospects': 'from-blue-500 to-blue-600',
-    'contact-info': 'from-green-500 to-green-600',
-    'personalization-time': 'from-yellow-500 to-yellow-600',
-    'crm-maintenance': 'from-purple-500 to-purple-600',
-    'inconsistent-followup': 'from-pink-500 to-pink-600',
-    'poor-data-quality': 'from-indigo-500 to-indigo-600',
-    'team-burnout': 'from-orange-500 to-orange-600'
-  }
-
-  const handleObstacleToggle = (obstacleValue: string) => {
-    if (selectedObstacles.includes(obstacleValue)) {
-      // Remove obstacle
-      const newSelection = selectedObstacles.filter((o: string) => o !== obstacleValue)
-      onChange(newSelection)
-    } else if (selectedObstacles.length < maxSelections) {
-      // Add obstacle
-      const newSelection = [...selectedObstacles, obstacleValue]
-      onChange(newSelection)
-    }
-  }
-
-  const getObstaclePriority = (obstacleValue: string) => {
-    const index = selectedObstacles.indexOf(obstacleValue)
-    return index >= 0 ? index + 1 : null
-  }
-
-  return (
-    <div className="space-y-8">
-      {/* Selection Progress */}
-      <div className="text-center">
-        <div className="text-sm text-gray-600 mb-2">Select your top {maxSelections} scaling obstacles</div>
-        <div className="flex justify-center space-x-2">
-          {Array.from({ length: maxSelections }, (_, i) => (
-            <div
-              key={i}
-              className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                i < selectedObstacles.length
-                  ? 'bg-blue-600 scale-110'
-                  : 'bg-gray-200'
-              }`}
-            />
-          ))}
-        </div>
-        <div className="text-xs text-gray-500 mt-1">
-          {selectedObstacles.length}/{maxSelections} selected
-        </div>
-      </div>
-
-      {/* Obstacle Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {question.options?.map((option) => {
-          const IconComponent = obstacleIcons[option.value as keyof typeof obstacleIcons] || Settings
-          const isSelected = selectedObstacles.includes(option.value)
-          const priority = getObstaclePriority(option.value)
-          const colorClass = obstacleColors[option.value as keyof typeof obstacleColors] || 'from-gray-500 to-gray-600'
-          const canSelect = !isSelected && selectedObstacles.length < maxSelections
-
-          return (
-            <button
-              key={option.value}
-              type="button"
-              onClick={() => handleObstacleToggle(option.value)}
-              disabled={!isSelected && selectedObstacles.length >= maxSelections}
-              className={`
-                relative p-6 rounded-xl border-2 transition-all duration-300 text-left group overflow-hidden
-                ${isSelected
-                  ? 'border-blue-600 bg-white shadow-lg transform scale-105'
-                  : canSelect
-                    ? 'border-gray-200 bg-white hover:border-blue-300 hover:shadow-md hover:transform hover:scale-102'
-                    : 'border-gray-200 bg-gray-50 opacity-60 cursor-not-allowed'
-                }
-              `}
-            >
-              {/* Background Gradient */}
-              {isSelected && (
-                <div className={`absolute inset-0 bg-gradient-to-br ${colorClass} opacity-5`} />
-              )}
-
-              {/* Priority Badge */}
-              {isSelected && priority && (
-                <div className="absolute top-3 left-3">
-                  <div className={`
-                    w-8 h-8 rounded-full bg-gradient-to-br ${colorClass} text-white
-                    flex items-center justify-center text-sm font-bold shadow-lg
-                  `}>
-                    {priority}
-                  </div>
-                </div>
-              )}
-
-              <div className="relative flex items-start space-x-4">
-                <div className={`
-                  p-3 rounded-lg flex items-center justify-center transition-all duration-300 mt-1
-                  ${isSelected
-                    ? `bg-gradient-to-br ${colorClass} text-white shadow-md`
-                    : canSelect
-                      ? 'bg-gray-100 text-gray-700 group-hover:bg-blue-100 group-hover:text-blue-600'
-                      : 'bg-gray-200 text-gray-500'
-                  }
-                `}>
-                  <IconComponent className="w-6 h-6" />
-                </div>
-
-                <div className="flex-1 min-w-0">
-                  <div className={`font-semibold transition-colors duration-300 ${
-                    isSelected
-                      ? 'text-blue-900'
-                      : canSelect
-                        ? 'text-gray-900 group-hover:text-blue-800'
-                        : 'text-gray-500'
-                  }`}>
-                    {option.label}
-                  </div>
-                  {isSelected && (
-                    <div className="text-sm text-blue-600 mt-1 font-medium">
-                      Priority #{priority}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {isSelected && (
-                <div className="absolute top-3 right-3">
-                  <div className="bg-blue-600 rounded-full p-1">
-                    <CheckCircle2 className="w-4 h-4 text-white" />
-                  </div>
-                </div>
-              )}
-            </button>
-          )
-        })}
-      </div>
-
-      {/* Selected Obstacles Summary */}
-      {selectedObstacles.length > 0 && (
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
-          <h4 className="font-semibold text-blue-900 mb-4">Your Top Scaling Obstacles</h4>
-          <div className="space-y-2">
-            {selectedObstacles.map((obstacleValue: string, index: number) => {
-              const option = question.options?.find(o => o.value === obstacleValue)
-              const IconComponent = obstacleIcons[obstacleValue as keyof typeof obstacleIcons] || Settings
-              const colorClass = obstacleColors[obstacleValue as keyof typeof obstacleColors] || 'from-gray-500 to-gray-600'
-
-              return (
-                <div key={obstacleValue} className="flex items-center space-x-3">
-                  <div className={`
-                    w-8 h-8 rounded-full bg-gradient-to-br ${colorClass} text-white
-                    flex items-center justify-center text-sm font-bold
-                  `}>
-                    {index + 1}
-                  </div>
-                  <div className={`
-                    p-2 rounded-lg bg-gradient-to-br ${colorClass} text-white
-                  `}>
-                    <IconComponent className="w-4 h-4" />
-                  </div>
-                  <div className="text-blue-800 font-medium">{option?.label}</div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
 
 // Business Impact Assessment Component
 function BusinessImpactSelector({ question, value, onChange }: { question: Question, value: any, onChange: (value: any) => void }) {
@@ -1377,149 +1095,6 @@ function TimelineUrgencySelector({ question, value, onChange }: { question: Ques
   )
 }
 
-// Monthly Investment Selector Component
-function MonthlyInvestmentSelector({ question, value, onChange }: { question: Question, value: any, onChange: (value: any) => void }) {
-  const investmentRanges = {
-    'under-500': {
-      label: 'Under €500/month',
-      range: '€0-500',
-      level: 'Starter',
-      color: 'from-green-500 to-green-600'
-    },
-    '500-1000': {
-      label: '€500-1,000/month',
-      range: '€500-1K',
-      level: 'Basic',
-      color: 'from-blue-500 to-blue-600'
-    },
-    '1000-2500': {
-      label: '€1,000-2,500/month',
-      range: '€1K-2.5K',
-      level: 'Professional',
-      color: 'from-purple-500 to-purple-600'
-    },
-    '2500-5000': {
-      label: '€2,500-5,000/month',
-      range: '€2.5K-5K',
-      level: 'Advanced',
-      color: 'from-orange-500 to-orange-600'
-    },
-    '5000-7500': {
-      label: '€5,000-7,500/month',
-      range: '€5K-7.5K',
-      level: 'Premium',
-      color: 'from-red-500 to-red-600'
-    },
-    '7500-10000': {
-      label: '€7,500-10,000/month',
-      range: '€7.5K-10K',
-      level: 'Enterprise',
-      color: 'from-indigo-500 to-indigo-600'
-    },
-    '10000-15000': {
-      label: '€10,000-15,000/month',
-      range: '€10K-15K',
-      level: 'Enterprise+',
-      color: 'from-gray-700 to-gray-800'
-    },
-    'over-15000': {
-      label: 'Over €15,000/month',
-      range: '€15K+',
-      level: 'Custom',
-      color: 'from-gray-800 to-gray-900'
-    }
-  }
-
-  const selectedRange = investmentRanges[value as keyof typeof investmentRanges]
-
-  return (
-    <div className="space-y-8">
-      {/* Current Selection Display */}
-      {selectedRange && (
-        <div className="text-center">
-          <div className="space-y-3">
-            <div className="text-5xl font-bold text-blue-600">{selectedRange.range}</div>
-            <div className="text-lg text-gray-600">{selectedRange.level} Investment Level</div>
-          </div>
-        </div>
-      )}
-
-      {/* Investment Range Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {question.options?.map((option) => {
-          const rangeInfo = investmentRanges[option.value as keyof typeof investmentRanges]
-          const isSelected = value === option.value
-          const colorClass = rangeInfo?.color || 'from-gray-500 to-gray-600'
-
-          return (
-            <button
-              key={option.value}
-              type="button"
-              onClick={() => onChange(option.value)}
-              className={`
-                relative p-6 rounded-xl border-2 transition-all duration-300 text-center group overflow-hidden
-                ${isSelected
-                  ? 'border-blue-600 bg-white shadow-lg transform scale-105'
-                  : 'border-gray-200 bg-white hover:border-blue-300 hover:shadow-md hover:transform hover:scale-102'
-                }
-              `}
-            >
-              {/* Background Gradient */}
-              {isSelected && (
-                <div className={`absolute inset-0 bg-gradient-to-br ${colorClass} opacity-5`} />
-              )}
-
-              <div className="relative space-y-4">
-                {/* Investment Icon */}
-                <div className={`
-                  w-12 h-12 mx-auto rounded-lg flex items-center justify-center transition-all duration-300
-                  ${isSelected
-                    ? `bg-gradient-to-br ${colorClass} text-white shadow-md`
-                    : 'bg-gray-100 text-gray-700 group-hover:bg-blue-100 group-hover:text-blue-600'
-                  }
-                `}>
-                  <DollarSign className="w-6 h-6" />
-                </div>
-
-                {/* Investment Details */}
-                <div className="space-y-2">
-                  <div className={`text-xs font-medium uppercase tracking-wide transition-colors duration-300 ${
-                    isSelected ? 'text-blue-600' : 'text-gray-500 group-hover:text-blue-500'
-                  }`}>
-                    {rangeInfo?.level || 'Investment'}
-                  </div>
-                  <div className={`font-semibold text-sm transition-colors duration-300 ${
-                    isSelected ? 'text-blue-900' : 'text-gray-900 group-hover:text-blue-800'
-                  }`}>
-                    {rangeInfo?.range || option.label}
-                  </div>
-                </div>
-
-                {isSelected && (
-                  <div className="absolute top-3 right-3">
-                    <div className="bg-blue-600 rounded-full p-1">
-                      <CheckCircle2 className="w-4 h-4 text-white" />
-                    </div>
-                  </div>
-                )}
-              </div>
-            </button>
-          )
-        })}
-      </div>
-
-      {/* Benchmark Info */}
-      {question.benchmark && (
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-200">
-          <div className="flex items-center space-x-3">
-            <Target className="w-5 h-5 text-blue-600" />
-            <span className="text-sm text-blue-700 font-medium">💡 {question.benchmark}</span>
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
 
 // Success Vision Component
 function SuccessVisionTextarea({ question, value, onChange }: { question: Question, value: any, onChange: (value: any) => void }) {
@@ -3141,170 +2716,6 @@ function FinanceTeamStructureBuilder({ question, value, onChange }: { question: 
   )
 }
 
-// Interactive Tech Stack Builder Component
-function TechStackBuilder({ question, value, onChange }: { question: Question, value: any, onChange: (value: any) => void }) {
-  const selectedTools = value || []
-
-  const toolCategories = {
-    'crm': { category: 'CRM & Pipeline', icon: Database, color: 'from-blue-500 to-blue-600' },
-    'linkedin-sales-nav': { category: 'Prospecting', icon: Linkedin, color: 'from-blue-400 to-blue-500' },
-    'email-automation': { category: 'Outreach', icon: Mail, color: 'from-green-500 to-green-600' },
-    'data-providers': { category: 'Data & Intelligence', icon: Target, color: 'from-purple-500 to-purple-600' },
-    'calendar-scheduling': { category: 'Scheduling', icon: Calendar, color: 'from-orange-500 to-orange-600' },
-    'call-recording': { category: 'Communication', icon: Phone, color: 'from-red-500 to-red-600' },
-    'proposal-software': { category: 'Closing', icon: FileText, color: 'from-indigo-500 to-indigo-600' },
-    'spreadsheets-email': { category: 'Basic Tools', icon: Settings, color: 'from-gray-500 to-gray-600' }
-  }
-
-  const handleToolToggle = (toolValue: string) => {
-    const newSelection = selectedTools.includes(toolValue)
-      ? selectedTools.filter((t: string) => t !== toolValue)
-      : [...selectedTools, toolValue]
-    onChange(newSelection)
-  }
-
-  const getStackComplexity = () => {
-    if (selectedTools.length === 0) return { level: 'None', description: 'No tools selected', color: 'text-gray-600' }
-    if (selectedTools.length <= 2) return { level: 'Minimal', description: 'Focused setup', color: 'text-blue-600' }
-    if (selectedTools.length <= 4) return { level: 'Moderate', description: 'Balanced stack', color: 'text-blue-600' }
-    if (selectedTools.length <= 6) return { level: 'Comprehensive', description: 'Full-featured setup', color: 'text-blue-700' }
-    return { level: 'Extensive', description: 'Multi-platform approach', color: 'text-blue-800' }
-  }
-
-  const complexity = getStackComplexity()
-
-  return (
-    <div className="space-y-8">
-      {/* Stack Overview */}
-      <div className="text-center">
-        <div className="text-sm text-gray-600 mb-4">Build your current sales tech stack</div>
-        <div className="inline-flex items-center space-x-4 bg-white rounded-xl border-2 border-gray-200 px-6 py-4">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-gray-900">{selectedTools.length}</div>
-            <div className="text-xs text-gray-600">Tools</div>
-          </div>
-          <div className="w-px h-8 bg-gray-300" />
-          <div className="text-center">
-            <div className={`text-lg font-semibold ${complexity.color}`}>{complexity.level}</div>
-            <div className="text-xs text-gray-600">{complexity.description}</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Tool Selection Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {question.options?.map((option) => {
-          const toolInfo = toolCategories[option.value as keyof typeof toolCategories]
-          const IconComponent = toolInfo?.icon || Settings
-          const isSelected = selectedTools.includes(option.value)
-          const colorClass = toolInfo?.color || 'from-gray-500 to-gray-600'
-
-          return (
-            <button
-              key={option.value}
-              type="button"
-              onClick={() => handleToolToggle(option.value)}
-              className={`
-                relative p-6 rounded-xl border-2 transition-all duration-300 text-left group overflow-hidden
-                ${isSelected
-                  ? 'border-blue-600 bg-white shadow-lg transform scale-105'
-                  : 'border-gray-200 bg-white hover:border-blue-300 hover:shadow-md hover:transform hover:scale-102'
-                }
-              `}
-            >
-              {/* Background Gradient */}
-              {isSelected && (
-                <div className={`absolute inset-0 bg-gradient-to-br ${colorClass} opacity-5`} />
-              )}
-
-              <div className="relative space-y-4">
-                {/* Tool Icon and Category */}
-                <div className="flex items-center justify-between">
-                  <div className={`
-                    p-3 rounded-lg flex items-center justify-center transition-all duration-300
-                    ${isSelected
-                      ? `bg-gradient-to-br ${colorClass} text-white shadow-md`
-                      : 'bg-gray-100 text-gray-700 group-hover:bg-blue-100 group-hover:text-blue-600'
-                    }
-                  `}>
-                    <IconComponent className="w-6 h-6" />
-                  </div>
-                  {isSelected && (
-                    <div className="bg-blue-600 rounded-full p-1">
-                      <CheckCircle2 className="w-4 h-4 text-white" />
-                    </div>
-                  )}
-                </div>
-
-                {/* Tool Details */}
-                <div className="space-y-2">
-                  <div className={`text-xs font-medium uppercase tracking-wide transition-colors duration-300 ${
-                    isSelected ? 'text-blue-600' : 'text-gray-500 group-hover:text-blue-500'
-                  }`}>
-                    {toolInfo?.category || 'Tool'}
-                  </div>
-                  <div className={`font-semibold transition-colors duration-300 ${
-                    isSelected ? 'text-blue-900' : 'text-gray-900 group-hover:text-blue-800'
-                  }`}>
-                    {option.label}
-                  </div>
-                </div>
-              </div>
-            </button>
-          )
-        })}
-      </div>
-
-      {/* Tech Stack Visualization */}
-      {selectedTools.length > 0 && (
-        <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-6 border border-gray-200">
-          <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
-            <Settings className="w-5 h-5 mr-2 text-blue-600" />
-            Your Current Tech Stack
-          </h4>
-
-          {/* Stack Flow Visualization */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {selectedTools.map((toolValue: string, index: number) => {
-              const option = question.options?.find(o => o.value === toolValue)
-              const toolInfo = toolCategories[toolValue as keyof typeof toolCategories]
-              const IconComponent = toolInfo?.icon || Settings
-              const colorClass = toolInfo?.color || 'from-gray-500 to-gray-600'
-
-              return (
-                <div key={toolValue} className="text-center">
-                  <div className={`
-                    w-12 h-12 mx-auto rounded-lg bg-gradient-to-br ${colorClass}
-                    flex items-center justify-center text-white shadow-md mb-2
-                  `}>
-                    <IconComponent className="w-6 h-6" />
-                  </div>
-                  <div className="text-xs text-gray-700 font-medium">{toolInfo?.category}</div>
-                </div>
-              )
-            })}
-          </div>
-
-          {/* Integration Complexity Indicator */}
-          <div className="mt-6 pt-4 border-t border-gray-200">
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-600">Integration Complexity:</span>
-              <span className={`font-semibold ${complexity.color}`}>
-                {complexity.level} ({selectedTools.length} tools)
-              </span>
-            </div>
-            <div className="mt-2 h-2 bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-500"
-                style={{ width: `${Math.min((selectedTools.length / 8) * 100, 100)}%` }}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
 
 function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendererProps) {
   const handleChange = (newValue: any) => {
@@ -3316,10 +2727,6 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
   console.log('Rendering question:', question.type, question.id)
 
   // Enhanced question rendering for specific sales questions
-  if (question.id === 'lead_generation_methods') {
-    return <LeadGenerationMethodsSelector question={question} value={value} onChange={onChange} />
-  }
-
   if (question.id === 'weekly_conversations') {
     return <ConversationVolumeSlider question={question} value={value} onChange={onChange} />
   }
@@ -3332,47 +2739,17 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
     return <SalaryRangeSlider question={question} value={value} onChange={onChange} />
   }
 
-  if (question.id === 'prospect_outcomes') {
-    return <ConversionRateGauge question={question} value={value} onChange={onChange} />
-  }
-
-  if (question.id === 'scaling_obstacles') {
-    return <PriorityRankingSelector question={question} value={value} onChange={onChange} />
-  }
-
-  if (question.id === 'current_sales_tools') {
-    return <TechStackBuilder question={question} value={value} onChange={onChange} />
-  }
-
-  if (question.id === 'transformation_priorities') {
-    return <PriorityRankingSelector question={question} value={value} onChange={onChange} />
-  }
 
   if (question.id === 'time_breakdown_per_prospect') {
     return <TimeBreakdownSlider question={question} value={value} onChange={onChange} />
   }
 
-  if (question.id === 'operational_impact') {
-    return <BusinessImpactSelector question={question} value={value} onChange={onChange} />
-  }
-
-  if (question.id === 'timeline_urgency') {
-    return <TimelineUrgencySelector question={question} value={value} onChange={onChange} />
-  }
-
-  if (question.id === 'monthly_investment') {
-    return <MonthlyInvestmentSelector question={question} value={value} onChange={onChange} />
-  }
 
   if (question.id === 'success_vision') {
     return <SuccessVisionTextarea question={question} value={value} onChange={onChange} />
   }
 
   // Finance Route Questions
-  if (question.id === 'main_time_consumers') {
-    return <FinanceTimeConsumersSelector question={question} value={value} onChange={onChange} />
-  }
-
   if (question.id === 'invoice_processing_time') {
     return <InvoiceProcessingTimeSelector question={question} value={value} onChange={onChange} />
   }
@@ -3496,76 +2873,9 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
         </div>
       )
 
-    case 'multi_time_breakdown':
-      return (
-        <div className="space-y-8">
-          {question.timeBreakdowns?.map((breakdown, index) => (
-            <div key={index} className="space-y-4">
-              <h4 className="font-semibold text-lg text-gray-900 mb-4">{breakdown.category}:</h4>
-              <RadioGroup
-                value={value?.[breakdown.category] || ""}
-                onValueChange={(newValue) => {
-                  onChange({
-                    ...value,
-                    [breakdown.category]: newValue
-                  })
-                }}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {breakdown.options.map((option) => {
-                    const isSelected = value?.[breakdown.category] === option.value
-                    return (
-                      <div
-                        key={option.value}
-                        className={`
-                          relative p-4 rounded-lg border-2 transition-all duration-300 cursor-pointer group
-                          ${isSelected
-                            ? 'border-blue-600 bg-gradient-to-r from-blue-50 to-blue-100 shadow-md'
-                            : 'border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50/50 hover:shadow-sm'
-                          }
-                        `}
-                      >
-                        <div className="flex items-center space-x-3">
-                          <RadioGroupItem
-                            value={option.value}
-                            id={`${index}-${option.value}`}
-                            className="data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600"
-                          />
-                          <Label
-                            htmlFor={`${index}-${option.value}`}
-                            className={`cursor-pointer font-medium transition-colors duration-300 ${
-                              isSelected ? 'text-blue-900' : 'text-gray-900 group-hover:text-blue-800'
-                            }`}
-                          >
-                            {option.label}
-                          </Label>
-                        </div>
-                        {isSelected && (
-                          <div className="absolute top-3 right-3">
-                            <CheckCircle2 className="w-5 h-5 text-blue-600" />
-                          </div>
-                        )}
-                      </div>
-                    )
-                  })}
-                </div>
-              </RadioGroup>
-            </div>
-          ))}
-          {question.realTimeCalculation && question.calculationText && (
-            <div className="mt-6 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-green-100 rounded-full">
-                  <Calculator className="w-5 h-5 text-green-600" />
-                </div>
-                <Text className="text-sm text-green-700 font-medium">💡 {question.calculationText}</Text>
-              </div>
-            </div>
-          )}
-        </div>
-      )
+    // Removed obsolete case 'multi_time_breakdown' - now handled as visual_grid or slider
 
-    case 'radio':
+    // case 'radio': // Deprecated - converted to visual_grid
       // Use visual grid for specific questions
       if (shouldUseVisualGrid(question)) {
         const gridCols = question.id === 'company_size' ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-2'
@@ -3652,7 +2962,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
         </div>
       )
 
-    case 'checkbox':
+    // case 'checkbox': // Deprecated:
       return (
         <div className="space-y-4">
           <div className="grid gap-3">
@@ -3733,7 +3043,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
         </div>
       )
 
-    case 'visual_grid':
+    // case 'visual_grid': // Duplicate:
       return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {question.visualOptions?.map((option) => {
@@ -3795,7 +3105,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
         </div>
       )
 
-    case 'multi_time_breakdown':
+    // case 'multi_time_breakdown': // Duplicate:
       return (
         <div className="space-y-8">
           {question.timeBreakdowns?.map((breakdown, index) => (
@@ -3866,7 +3176,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
         </div>
       )
 
-    case 'team_structure':
+    // case 'team_structure': // Deprecated:
       return (
         <div className="space-y-8">
           {question.teamInputs?.map((input) => (
@@ -3941,7 +3251,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
         </div>
       )
 
-    case 'transaction_volumes':
+    // case 'transaction_volumes': // Deprecated:
       return (
         <div className="space-y-8">
           {question.volumeInputs?.map((volumeInput, index) => (
@@ -4010,7 +3320,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
         </div>
       )
 
-    case 'approval_analysis':
+    // case 'approval_analysis': // Deprecated:
       return (
         <div className="space-y-8">
           {question.approvalMetrics?.map((metric, index) => (
@@ -4069,7 +3379,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
         </div>
       )
 
-    case 'percentage_sliders':
+    // case 'percentage_sliders': // Deprecated:
       return (
         <div className="space-y-6">
           {question.categories?.map((category) => {
@@ -4180,7 +3490,16 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
         </div>
       )
 
-    case 'service_team_efficiency':
+    case 'slider':
+      return (
+        <ExternalQuestionRenderer
+          question={question}
+          value={value}
+          onChange={onChange}
+        />
+      )
+
+    // case 'service_team_efficiency': // Deprecated:
       return (
         <ServiceTeamEfficiencyBuilder
           teamRoles={question.teamRoles || []}
@@ -4389,7 +3708,7 @@ export function EnhancedWorkingServiceQuiz() {
     const answer = answers[currentQuestion.id]
     
     if (currentQuestion.required) {
-      if (currentQuestion.type === 'checkbox') {
+      if (currentQuestion.type === 'visual_grid' && currentQuestion.multiple) {
         return Array.isArray(answer) && answer.length > 0
       }
       if (currentQuestion.type === 'contact_form') {
@@ -4589,6 +3908,11 @@ export function EnhancedWorkingServiceQuiz() {
                 {currentQuestion.subtitle && (
                   <Text className="text-gray-600">
                     {currentQuestion.subtitle}
+                  </Text>
+                )}
+                {currentQuestion.subtext && (
+                  <Text className="text-sm text-gray-500 italic">
+                    {currentQuestion.subtext}
                   </Text>
                 )}
               </div>
