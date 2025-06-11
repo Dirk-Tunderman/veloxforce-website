@@ -2,7 +2,32 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Info, CheckCircle } from "lucide-react"
+import { 
+  Info, 
+  CheckCircle, 
+  Mail, 
+  Phone, 
+  MessageSquare, 
+  FileText, 
+  Share2, 
+  MessageCircle, 
+  Users, 
+  Building,
+  Gauge,
+  BarChart3,
+  TrendingUp,
+  BarChart,
+  Zap,
+  Clock,
+  Timer,
+  Calendar,
+  AlertTriangle,
+  Target,
+  PieChart,
+  TrendingDown,
+  Shuffle,
+  Lightbulb
+} from "lucide-react"
 import { Question, PREDEFINED_PROCESSES } from "@/types/audit-tool"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -14,6 +39,38 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { Heading, Text } from "@/components/ui/typography"
 import { VolumeSlider } from "@/components/ui/volume-slider"
 import { TimeSlider } from "@/components/ui/time-slider"
+import { PercentageSliders } from "@/components/ui/percentage-sliders"
+import { ServiceTeamEfficiencyBuilder } from "@/components/ui/service-team-efficiency-builder"
+
+// Icon resolver for visual grid questions
+const getIconComponent = (iconName: string) => {
+  const iconMap: Record<string, any> = {
+    Mail,
+    Phone,
+    MessageSquare,
+    FileText,
+    Share2,
+    MessageCircle,
+    Users,
+    Building,
+    Gauge,
+    BarChart3,
+    TrendingUp,
+    BarChart,
+    Zap,
+    Clock,
+    Timer,
+    Calendar,
+    AlertTriangle,
+    Target,
+    PieChart,
+    TrendingDown,
+    Shuffle,
+    Lightbulb
+  }
+  
+  return iconMap[iconName] || Info
+}
 
 interface QuestionRendererProps {
   question: Question
@@ -309,6 +366,137 @@ export function QuestionRenderer({
           </div>
         )}
 
+        {question.type === 'percentage_sliders' && question.categories && (
+          <PercentageSliders
+            categories={question.categories}
+            value={value || {}}
+            onChange={onChange}
+            mustTotal100={question.mustTotal === 100}
+            realTimeCalculation={question.realTimeCalculation}
+            calculationMessage={question.calculationMessage}
+          />
+        )}
+
+        {question.type === 'visual_grid' && question.options && (
+          <div className="space-y-6">
+            {question.maxSelections && (
+              <div className="text-center">
+                <Text className="velox-text-body text-blue-700 font-medium bg-blue-50 px-4 py-2 rounded-lg inline-block">
+                  {question.multiple ? `Select all that apply` : 'Select one option'}
+                </Text>
+              </div>
+            )}
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {question.options.map((option) => {
+                const IconComponent = getIconComponent(option.icon || 'Info')
+                const currentValues = Array.isArray(value) ? value : []
+                const isSelected = question.multiple 
+                  ? currentValues.includes(option.value)
+                  : value === option.value
+                
+                const handleClick = () => {
+                  if (question.multiple) {
+                    if (isSelected) {
+                      onChange(currentValues.filter((v: string) => v !== option.value))
+                    } else {
+                      onChange([...currentValues, option.value])
+                    }
+                  } else {
+                    onChange(option.value)
+                  }
+                }
+
+                return (
+                  <motion.div
+                    key={option.value}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`
+                      relative p-6 rounded-lg border-2 cursor-pointer transition-all duration-200
+                      ${isSelected 
+                        ? 'border-blue-500 bg-blue-50 shadow-lg transform scale-105' 
+                        : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50/50'
+                      }
+                    `}
+                    onClick={handleClick}
+                  >
+                    <div className="flex flex-col items-center text-center space-y-3">
+                      <IconComponent 
+                        className={`h-8 w-8 transition-all duration-200 ${
+                          isSelected ? 'text-blue-600' : 'text-gray-700'
+                        }`} 
+                      />
+                      <div>
+                        <Text className="font-medium text-gray-800">{option.label}</Text>
+                        {option.description && (
+                          <Text className="text-sm text-gray-600 mt-1">{option.description}</Text>
+                        )}
+                      </div>
+                    </div>
+                    
+                    {isSelected && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="absolute top-2 right-2"
+                      >
+                        <CheckCircle className="h-5 w-5 text-blue-600" />
+                      </motion.div>
+                    )}
+                  </motion.div>
+                )
+              })}
+            </div>
+
+            {/* Selection Counter for Multiple Selection */}
+            {question.multiple && Array.isArray(value) && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-center bg-blue-50 border border-blue-200 rounded-lg p-3"
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <BarChart3 className="h-4 w-4 text-blue-600" />
+                  <Text className="text-blue-800 font-medium">
+                    {value.length} {value.length === 1 ? 'method' : 'methods'} selected
+                  </Text>
+                </div>
+              </motion.div>
+            )}
+          </div>
+        )}
+
+        {question.type === 'service_team_efficiency' && question.teamRoles && (
+          <ServiceTeamEfficiencyBuilder
+            teamRoles={question.teamRoles}
+            value={value || {}}
+            onChange={onChange}
+            realTimeCalculation={question.realTimeCalculation}
+            calculationMessage={question.calculationMessage}
+          />
+        )}
+
+      {/* Customer Service Specific Handlers */}
+      {question.id === 'response_time_breakdown' && question.type === 'time_slider' && question.sliderConfig && (
+        <TimeSlider
+          config={question.sliderConfig}
+          value={value || 15}
+          onChange={onChange}
+          showCalculation={question.realTimeCalculation}
+          executiveHourlyRate={60} // Customer service rate
+        />
+      )}
+
+      {question.id === 'inquiry_volume_analysis' && question.type === 'volume_slider' && question.sliderConfig && (
+        <VolumeSlider
+          config={question.sliderConfig}
+          value={value || { amount: 50, timeframe: 'monthly' }}
+          onChange={onChange}
+          unitLabel={question.unitLabel || 'inquiries'}
+        />
+      )}
+
       {/* New Slider Question Types */}
       {question.type === 'slider' && question.sliderConfig && (
         <div className="space-y-4">
@@ -334,9 +522,9 @@ export function QuestionRenderer({
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-orange-50 border border-orange-200 rounded-lg p-4"
+              className="bg-blue-50 border border-blue-200 rounded-lg p-4"
             >
-              <Text className="text-sm text-orange-800">
+              <Text className="text-sm text-blue-800">
                 {question.conditionalMessage.message
                   .replace('[X]', value.toString())
                   .replace('[Amount]', `€${(value * 4.33 * 100).toLocaleString()}`)}
@@ -366,9 +554,9 @@ export function QuestionRenderer({
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-center"
+          className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center"
         >
-          <Text className="text-yellow-800">
+          <Text className="text-blue-800">
             {question.dynamicMessage
               .replace('[X]', value.length.toString())
               .replace('[Y]', Math.ceil(value.length * 0.8).toString())}
@@ -378,7 +566,7 @@ export function QuestionRenderer({
 
         {error && (
           <div className="text-center mt-4">
-            <Text className="velox-text-body text-red-600 font-medium bg-red-50 px-4 py-2 rounded-lg inline-block">
+            <Text className="velox-text-body text-blue-800 font-medium bg-blue-50 px-4 py-2 rounded-lg inline-block">
               {error}
             </Text>
           </div>

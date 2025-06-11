@@ -34,10 +34,10 @@ export function TimeSlider({
   }
 
   const getImpactColor = (hours: number): string => {
-    if (hours === 0) return '#10B981' // Green - good
-    if (hours <= 2) return '#F59E0B' // Yellow - moderate
-    if (hours <= 5) return '#EF4444' // Red - concerning
-    return '#DC2626' // Dark red - critical
+    if (hours === 0) return '#2563EB' // Blue - excellent
+    if (hours <= 2) return '#1D4ED8' // Dark blue - good
+    if (hours <= 5) return '#1E40AF' // Darker blue - concerning
+    return '#1E3A8A' // Darkest blue - critical
   }
 
   const getImpactMessage = (hours: number): string => {
@@ -99,17 +99,17 @@ export function TimeSlider({
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-orange-50 border border-orange-200 rounded-lg p-4"
+          className="bg-blue-50 border border-blue-200 rounded-lg p-4"
         >
           <div className="flex items-center gap-2 justify-center mb-2">
             <BarChart3 className="h-5 w-5 text-gray-700 transition-all duration-200" />
-            <div className="text-lg font-semibold text-orange-800">
+            <div className="text-lg font-semibold text-blue-800">
               That's {value} hours of strategic time worth €{calculateMonthlyCost(value).toLocaleString()}/month
             </div>
           </div>
           <div className="flex items-center gap-2 justify-center">
             <Target className="h-4 w-4 text-blue-600 transition-all duration-200" />
-            <div className="text-sm text-orange-600">
+            <div className="text-sm text-blue-600">
               Time you could spend on growth initiatives instead
             </div>
           </div>

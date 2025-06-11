@@ -85,6 +85,8 @@ export interface QuestionOption {
   label: string
   score?: number
   allowCustom?: boolean
+  icon?: string
+  description?: string
 }
 
 export interface TeamInput {
@@ -129,10 +131,24 @@ export interface PreferenceField {
   options: QuestionOption[]
 }
 
+export interface TeamRole {
+  id: string
+  label: string
+  hourlyRate: number
+  description?: string
+}
+
+export interface Category {
+  id: string
+  label: string
+  description?: string
+}
+
 export interface PercentageCategory {
   id: string
   label: string
-  max: number
+  max?: number
+  description?: string
 }
 
 export interface SliderConfig {
@@ -235,7 +251,7 @@ export interface Question {
   title: string
   subtitle?: string
   description?: string
-  type: 'text' | 'radio' | 'checkbox' | 'select' | 'slider' | 'visual_grid' | 'conditional_checkbox' | 'time_breakdown' | 'team_breakdown' | 'dual_slider' | 'time_matrix' | 'system_count' | 'percentage_sliders' | 'contact_form' | 'multi_time_breakdown' | 'team_structure' | 'transaction_volumes' | 'approval_analysis' | 'textarea'
+  type: 'text' | 'radio' | 'checkbox' | 'select' | 'slider' | 'visual_grid' | 'conditional_checkbox' | 'time_breakdown' | 'team_breakdown' | 'dual_slider' | 'time_matrix' | 'system_count' | 'percentage_sliders' | 'contact_form' | 'multi_time_breakdown' | 'team_structure' | 'transaction_volumes' | 'approval_analysis' | 'textarea' | 'time_slider' | 'volume_slider' | 'service_team_efficiency'
   options?: QuestionOption[]
   visualOptions?: VisualOption[]
   conditionalOn?: string
@@ -281,6 +297,9 @@ export interface Question {
   benchmark?: string
   realTimeCalculation?: boolean
   calculationText?: string
+  teamRoles?: TeamRole[]
+  unitLabel?: string
+  multiple?: boolean
 }
 
 export interface QuizStep {

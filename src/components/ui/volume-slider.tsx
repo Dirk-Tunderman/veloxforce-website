@@ -50,9 +50,9 @@ export function VolumeSlider({ config, value, onChange, unitLabel = "units" }: V
 
   const getVolumeColor = (amount: number, timeframe: string): string => {
     const monthlyEquivalent = convertBetweenTimeframes(amount, timeframe, 'monthly')
-    if (monthlyEquivalent < 50) return config.colors?.low || '#EF4444'
-    if (monthlyEquivalent < 100) return config.colors?.medium || '#F59E0B'
-    return config.colors?.high || '#10B981'
+    if (monthlyEquivalent < 50) return config.colors?.low || '#1E40AF'
+    if (monthlyEquivalent < 100) return config.colors?.medium || '#1D4ED8'
+    return config.colors?.high || '#2563EB'
   }
 
   const getVolumeLabel = (amount: number, timeframe: string): string => {

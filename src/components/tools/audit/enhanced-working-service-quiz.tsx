@@ -57,10 +57,15 @@ import {
   Minus,
   TrendingDown,
   AlertTriangle,
-  CreditCard
+  CreditCard,
+  Share2,
+  MessageCircle,
+  BarChart,
+  Shuffle
 } from "lucide-react"
 import { SERVICE_QUIZ_PHASES, SALES_ROUTE_PHASES, FINANCE_ROUTE_PHASES, CUSTOMER_SERVICE_ROUTE_PHASES, FINAL_QUESTIONS } from "@/config/service-quiz"
 import { Question, QuizPhase } from "@/types/audit-tool"
+import { ServiceTeamEfficiencyBuilder } from "@/components/ui/service-team-efficiency-builder"
 
 type QuizStep = 'intro' | 'opening' | 'department' | 'route' | 'final' | 'results'
 
@@ -125,7 +130,18 @@ const shouldUseVisualGrid = (question: Question) => {
 }
 
 // Helper function to get icon for question option
-const getIconForOption = (questionId: string, optionValue: string) => {
+const getIconForOption = (questionId: string, optionValue: string, iconName?: string) => {
+  // First check if a specific icon name is provided (for visual_grid questions)
+  if (iconName) {
+    const iconMap: Record<string, any> = {
+      Mail, Phone, MessageSquare, FileText, Share2, MessageCircle, Users, Building,
+      Gauge, BarChart3, TrendingUp, BarChart, Zap, Clock, Timer, Calendar, 
+      AlertTriangle, Target, PieChart, TrendingDown, Shuffle, Lightbulb
+    }
+    return iconMap[iconName] || Settings
+  }
+
+  // Fall back to hardcoded mappings for legacy questions
   switch (questionId) {
     case 'company_size':
       return COMPANY_SIZE_ICONS[optionValue as keyof typeof COMPANY_SIZE_ICONS] || Building2
@@ -3394,6 +3410,92 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
   }
 
   switch (question.type) {
+    case 'visual_grid':
+      const gridCols = question.visualOptions && question.visualOptions.length > 6 
+        ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
+        : 'grid-cols-1 md:grid-cols-2'
+
+      return (
+        <div className="space-y-6">
+          {question.maxSelections && (
+            <div className="text-center">
+              <div className="velox-text-body text-blue-700 font-medium bg-blue-50 px-4 py-2 rounded-lg inline-block">
+                {question.multiple ? `Select all that apply` : 'Select one option'}
+              </div>
+            </div>
+          )}
+          
+          <div className={`grid ${gridCols} gap-4 max-w-5xl mx-auto`}>
+            {question.visualOptions?.map((option) => {
+              const IconComponent = getIconForOption(question.id, option.value, option.icon)
+              const currentValues = Array.isArray(value) ? value : []
+              const isSelected = question.multiple 
+                ? currentValues.includes(option.value)
+                : value === option.value
+              
+              const handleClick = () => {
+                if (question.multiple) {
+                  if (isSelected) {
+                    handleChange(currentValues.filter((v: string) => v !== option.value))
+                  } else {
+                    handleChange([...currentValues, option.value])
+                  }
+                } else {
+                  handleChange(option.value)
+                }
+              }
+
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={handleClick}
+                  className={`
+                    relative p-6 rounded-xl border-2 transition-all duration-300 text-left group
+                    ${isSelected
+                      ? 'border-blue-600 bg-gradient-to-br from-blue-50 to-blue-100 shadow-lg transform scale-105'
+                      : 'border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50/50 hover:shadow-md hover:transform hover:scale-102'
+                    }
+                  `}
+                >
+                  <div className="flex flex-col items-center text-center space-y-3">
+                    <IconComponent 
+                      className={`h-8 w-8 transition-all duration-200 ${
+                        isSelected ? 'text-blue-600' : 'text-gray-700'
+                      }`} 
+                    />
+                    <div>
+                      <div className="font-medium text-gray-800 text-sm">{option.label}</div>
+                      {option.description && (
+                        <div className="text-xs text-gray-600 mt-1">{option.description}</div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {isSelected && (
+                    <div className="absolute top-3 right-3">
+                      <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                    </div>
+                  )}
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Selection Counter for Multiple Selection */}
+          {question.multiple && Array.isArray(value) && value.length > 0 && (
+            <div className="text-center bg-blue-50 border border-blue-200 rounded-lg p-3 max-w-md mx-auto">
+              <div className="flex items-center justify-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                <div className="text-blue-800 font-medium text-sm">
+                  {value.length} {value.length === 1 ? 'option' : 'options'} selected
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )
+
     case 'multi_time_breakdown':
       return (
         <div className="space-y-8">
@@ -4076,6 +4178,17 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
             </div>
           )}
         </div>
+      )
+
+    case 'service_team_efficiency':
+      return (
+        <ServiceTeamEfficiencyBuilder
+          teamRoles={question.teamRoles || []}
+          value={value || {}}
+          onChange={onChange}
+          realTimeCalculation={question.realTimeCalculation}
+          calculationMessage={question.calculationMessage}
+        />
       )
 
     default:

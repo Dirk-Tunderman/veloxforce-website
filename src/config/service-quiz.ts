@@ -558,52 +558,54 @@ export const CUSTOMER_SERVICE_ROUTE_PHASES: QuizPhase[] = [
         id: 'customer_channels',
         title: 'Through which channels do customers reach you?',
         subtitle: 'Select all active channels',
-        type: 'checkbox',
+        type: 'visual_grid',
         required: true,
-        options: [
-          { value: 'email', label: 'Email' },
-          { value: 'phone', label: 'Phone' },
-          { value: 'live-chat', label: 'Live chat (website)' },
-          { value: 'ticket-system', label: 'Support ticket system' },
-          { value: 'social-media', label: 'Social media (Facebook, Twitter, etc.)' },
-          { value: 'whatsapp-sms', label: 'WhatsApp/SMS' },
-          { value: 'community-forum', label: 'Community forum' },
-          { value: 'in-person', label: 'In-person/walk-in' }
+        multiple: true,
+        visualOptions: [
+          { value: 'email', label: 'Email', description: 'Email support', icon: 'Mail', color: 'blue' },
+          { value: 'phone', label: 'Phone', description: 'Phone support', icon: 'Phone', color: 'green' },
+          { value: 'live-chat', label: 'Live chat (website)', description: 'Website chat', icon: 'MessageSquare', color: 'purple' },
+          { value: 'ticket-system', label: 'Support ticket system', description: 'Ticketing system', icon: 'FileText', color: 'orange' },
+          { value: 'social-media', label: 'Social media (Facebook, Twitter, etc.)', description: 'Social platforms', icon: 'Share2', color: 'pink' },
+          { value: 'whatsapp-sms', label: 'WhatsApp/SMS', description: 'Messaging apps', icon: 'MessageCircle', color: 'teal' },
+          { value: 'community-forum', label: 'Community forum', description: 'Online forum', icon: 'Users', color: 'indigo' },
+          { value: 'in-person', label: 'In-person/walk-in', description: 'Physical location', icon: 'Building', color: 'gray' }
         ]
       },
       {
         id: 'daily_inquiry_volume',
         title: 'What\'s your average daily volume of customer inquiries?',
         subtitle: 'Across all channels',
-        type: 'radio',
+        type: 'visual_grid',
         required: true,
-        options: [
-          { value: 'less-than-10', label: 'Less than 10' },
-          { value: '10-25', label: '10-25' },
-          { value: '26-50', label: '26-50' },
-          { value: '51-100', label: '51-100' },
-          { value: '101-200', label: '101-200' },
-          { value: '201-500', label: '201-500' },
-          { value: '501-1000', label: '501-1000' },
-          { value: 'more-than-1000', label: 'More than 1000' }
+        visualOptions: [
+          { value: 'less-than-10', label: 'Less than 10', icon: 'Gauge', description: 'Low volume', color: 'blue' },
+          { value: '10-25', label: '10-25', icon: 'BarChart3', description: 'Light volume', color: 'green' },
+          { value: '26-50', label: '26-50', icon: 'TrendingUp', description: 'Moderate volume', color: 'purple' },
+          { value: '51-100', label: '51-100', icon: 'BarChart', description: 'Good volume', color: 'orange' },
+          { value: '101-200', label: '101-200', icon: 'TrendingUp', description: 'High volume', color: 'pink' },
+          { value: '201-500', label: '201-500', icon: 'BarChart3', description: 'Very high volume', color: 'teal' },
+          { value: '501-1000', label: '501-1000', icon: 'TrendingUp', description: 'Enterprise volume', color: 'indigo' },
+          { value: 'more-than-1000', label: 'More than 1000', icon: 'Zap', description: 'Scale volume', color: 'red' }
         ]
       },
       {
         id: 'inquiry_type_breakdown',
-        title: 'Breaking down inquiry types - what percentage fall into each category?',
-        subtitle: 'Must total 100%',
+        title: 'How do you categorize your customer inquiries?',
+        subtitle: 'Break down by inquiry type - must total 100%',
         type: 'percentage_sliders',
         required: true,
         categories: [
-          { id: 'order_status', label: 'Order status/tracking', max: 100 },
-          { id: 'product_info', label: 'Product information/how-to', max: 100 },
-          { id: 'technical_support', label: 'Technical support', max: 100 },
-          { id: 'billing_payment', label: 'Billing/payment issues', max: 100 },
-          { id: 'returns_complaints', label: 'Returns/complaints', max: 100 },
-          { id: 'account_management', label: 'Account management', max: 100 },
-          { id: 'other_complex', label: 'Other/complex issues', max: 100 }
+          { id: 'technical_support', label: 'Technical Support', description: 'Product issues, troubleshooting, how-to questions' },
+          { id: 'billing_payment', label: 'Billing & Account', description: 'Payment issues, subscription questions, account changes' },
+          { id: 'order_status', label: 'Order & Shipping', description: 'Order status, tracking, delivery questions' },
+          { id: 'product_info', label: 'Product Information', description: 'Features, specifications, pre-sales questions' },
+          { id: 'returns_complaints', label: 'Returns & Complaints', description: 'Refunds, exchanges, dissatisfaction issues' },
+          { id: 'account_management', label: 'Account Management', description: 'Profile changes, preferences, general account help' }
         ],
-        mustTotal: 100
+        mustTotal: 100,
+        realTimeCalculation: true,
+        calculationMessage: 'Primary category: [TOP_CATEGORY] ([TOP_PERCENTAGE]%) - Focus automation here first'
       }
     ]
   },
@@ -616,44 +618,191 @@ export const CUSTOMER_SERVICE_ROUTE_PHASES: QuizPhase[] = [
       {
         id: 'first_response_time',
         title: 'What\'s your current average first response time?',
-        type: 'radio',
+        type: 'visual_grid',
         required: true,
-        options: [
-          { value: 'under-15-min', label: 'Under 15 minutes' },
-          { value: '15-30-min', label: '15-30 minutes' },
-          { value: '30-60-min', label: '30-60 minutes' },
-          { value: '1-2-hours', label: '1-2 hours' },
-          { value: '2-4-hours', label: '2-4 hours' },
-          { value: '4-8-hours', label: '4-8 hours' },
-          { value: '8-24-hours', label: '8-24 hours' },
-          { value: 'over-24-hours', label: 'Over 24 hours' }
+        visualOptions: [
+          { value: 'under-15-min', label: 'Under 15 minutes', icon: 'Zap', description: 'Excellent', color: 'green' },
+          { value: '15-30-min', label: '15-30 minutes', icon: 'Clock', description: 'Very good', color: 'blue' },
+          { value: '30-60-min', label: '30-60 minutes', icon: 'Clock', description: 'Good', color: 'purple' },
+          { value: '1-2-hours', label: '1-2 hours', icon: 'Timer', description: 'Standard', color: 'orange' },
+          { value: '2-4-hours', label: '2-4 hours', icon: 'Timer', description: 'Slow', color: 'pink' },
+          { value: '4-8-hours', label: '4-8 hours', icon: 'Clock', description: 'Poor', color: 'red' },
+          { value: '8-24-hours', label: '8-24 hours', icon: 'Calendar', description: 'Very poor', color: 'red' },
+          { value: 'over-24-hours', label: 'Over 24 hours', icon: 'AlertTriangle', description: 'Critical', color: 'red' }
         ],
         benchmark: "Industry best practice: Under 2 hours for initial response"
       },
       {
         id: 'inquiry_repetitiveness',
         title: 'How would you rate the repetitiveness of inquiries?',
-        type: 'radio',
+        type: 'visual_grid',
         required: true,
-        options: [
-          { value: '80-plus', label: '80%+ are the same questions' },
-          { value: '60-80', label: '60-80% repetitive' },
-          { value: '40-60', label: '40-60% repetitive' },
-          { value: '20-40', label: '20-40% repetitive' },
-          { value: 'less-than-20', label: 'Less than 20% repetitive' },
-          { value: 'every-unique', label: 'Every inquiry is unique' }
+        visualOptions: [
+          { value: '80-plus', label: '80%+ are the same questions', icon: 'Target', description: 'High automation potential', color: 'green' },
+          { value: '60-80', label: '60-80% repetitive', icon: 'PieChart', description: 'Good automation potential', color: 'blue' },
+          { value: '40-60', label: '40-60% repetitive', icon: 'BarChart3', description: 'Moderate automation potential', color: 'purple' },
+          { value: '20-40', label: '20-40% repetitive', icon: 'TrendingDown', description: 'Some automation potential', color: 'orange' },
+          { value: 'less-than-20', label: 'Less than 20% repetitive', icon: 'Shuffle', description: 'Limited automation potential', color: 'pink' },
+          { value: 'every-unique', label: 'Every inquiry is unique', icon: 'Lightbulb', description: 'Minimal automation potential', color: 'red' }
         ]
       },
       {
         id: 'service_team_structure',
-        title: 'Describe your customer service team',
-        type: 'team_structure',
+        title: 'What does your customer service team look like?',
+        subtitle: 'Build your team structure for cost analysis',
+        type: 'service_team_efficiency',
         required: true,
-        teamInputs: [
-          { id: 'full_time_agents', label: 'Full-time agents', type: 'dropdown', max: 50 },
-          { id: 'part_time_overflow', label: 'Part-time/overflow', type: 'dropdown', max: 20 },
-          { id: 'your_involvement', label: 'Your involvement (hours/week)', type: 'dropdown', max: 40 },
-          { id: 'other_departments', label: 'Other departments helping', type: 'dropdown', max: 20 }
+        teamRoles: [
+          { id: 'cs_manager', label: 'Customer Service Manager', hourlyRate: 75, description: 'Team leadership and escalation handling' },
+          { id: 'senior_agent', label: 'Senior Support Agent', hourlyRate: 55, description: 'Complex issues and training junior staff' },
+          { id: 'junior_agent', label: 'Junior Support Agent', hourlyRate: 40, description: 'Standard customer inquiries and support' },
+          { id: 'technical_specialist', label: 'Technical Specialist', hourlyRate: 70, description: 'Technical troubleshooting and product expertise' },
+          { id: 'part_time_support', label: 'Part-time/Overflow Support', hourlyRate: 35, description: 'Peak time coverage and backup support' }
+        ],
+        realTimeCalculation: true,
+        calculationMessage: 'Total team cost: €[MONTHLY_COST]/month with [TEAM_SIZE] team members ([FTE] FTE)'
+      }
+    ]
+  },
+  {
+    id: 'service_efficiency_metrics',
+    title: 'Service Efficiency & Performance',
+    description: 'Analyzing your service delivery and customer satisfaction',
+    estimatedTime: 2,
+    questions: [
+      {
+        id: 'response_time_breakdown',
+        title: 'How much time does your team spend per customer inquiry?',
+        subtitle: 'Average time from initial contact to resolution',
+        type: 'time_slider',
+        sliderConfig: {
+          min: 5,
+          max: 180,
+          step: 5,
+          markers: [5, 15, 30, 60, 120, 180],
+          labels: ['5min', '15min', '30min', '1hr', '2hr', '3hr+']
+        },
+        realTimeCalculation: true,
+        calculationMessage: 'That\'s [X] minutes per inquiry worth €[MONTHLY_COST]/month across all inquiries',
+        required: true
+      },
+      {
+        id: 'inquiry_volume_analysis',
+        title: 'What\'s your customer inquiry volume?',
+        subtitle: 'Total customer contact volume across all channels',
+        type: 'volume_slider',
+        sliderConfig: {
+          timeframes: ['daily', 'weekly', 'monthly'],
+          ranges: {
+            daily: { min: 1, max: 100, markers: [1, 10, 25, 50, 100] },
+            weekly: { min: 5, max: 500, markers: [5, 50, 150, 300, 500] },
+            monthly: { min: 20, max: 2000, markers: [20, 200, 600, 1200, 2000] }
+          },
+          colors: {
+            low: '#1E40AF',
+            medium: '#1D4ED8', 
+            high: '#2563EB'
+          }
+        },
+        unitLabel: 'inquiries',
+        realTimeCalculation: true,
+        calculationMessage: 'Monthly equivalent: [MONTHLY] inquiries - [RATING]',
+        required: true
+      },
+      {
+        id: 'customer_satisfaction_analysis',
+        title: 'How do you measure customer satisfaction?',
+        subtitle: 'Select your current satisfaction tracking methods',
+        type: 'checkbox',
+        required: true,
+        maxSelections: 4,
+        options: [
+          { value: 'survey_ratings', label: 'Post-interaction survey ratings' },
+          { value: 'nps_tracking', label: 'Net Promoter Score (NPS) tracking' },
+          { value: 'csat_scores', label: 'Customer Satisfaction (CSAT) scores' },
+          { value: 'resolution_time', label: 'First-call/contact resolution rates' },
+          { value: 'escalation_rates', label: 'Escalation and complaint rates' },
+          { value: 'repeat_contact', label: 'Repeat contact frequency' },
+          { value: 'informal_feedback', label: 'Informal feedback and reviews' },
+          { value: 'no_tracking', label: 'No formal satisfaction tracking' }
+        ]
+      },
+      {
+        id: 'resolution_rate_analysis',
+        title: 'What percentage of inquiries are resolved on first contact?',
+        subtitle: 'First-contact resolution rate without escalation or follow-up',
+        type: 'radio',
+        required: true,
+        options: [
+          { value: '90-100', label: '90-100% (Excellent)' },
+          { value: '80-89', label: '80-89% (Very Good)' },
+          { value: '70-79', label: '70-79% (Good)' },
+          { value: '60-69', label: '60-69% (Fair)' },
+          { value: '50-59', label: '50-59% (Below Average)' },
+          { value: 'under-50', label: 'Under 50% (Needs Improvement)' },
+          { value: 'unknown', label: 'I don\'t track this metric' }
+        ],
+        benchmark: "Industry best practice: 75-85% first-contact resolution rate"
+      }
+    ]
+  },
+  {
+    id: 'service_automation_opportunities',
+    title: 'Automation & Efficiency Opportunities',
+    description: 'Identifying processes ready for automation',
+    estimatedTime: 2,
+    questions: [
+      {
+        id: 'repetitive_tasks_breakdown',
+        title: 'How does your customer service time break down across activities?',
+        subtitle: 'Percentage of time spent on different service activities',
+        type: 'percentage_sliders',
+        required: true,
+        categories: [
+          { id: 'answering_questions', label: 'Answering Common Questions', description: 'FAQ-type responses, product info, how-to guidance' },
+          { id: 'status_updates', label: 'Status Updates & Tracking', description: 'Order status, delivery tracking, progress updates' },
+          { id: 'issue_resolution', label: 'Complex Issue Resolution', description: 'Technical troubleshooting, unique problem solving' },
+          { id: 'escalation_handling', label: 'Escalation Management', description: 'Complaints, refunds, manager-level issues' },
+          { id: 'data_entry', label: 'Data Entry & Documentation', description: 'Updating records, creating tickets, note-taking' },
+          { id: 'coordination', label: 'Internal Coordination', description: 'Working with other departments, follow-ups' }
+        ],
+        mustTotal: 100,
+        realTimeCalculation: true,
+        calculationMessage: 'Primary activity: [TOP_CATEGORY] ([TOP_PERCENTAGE]%) - High automation potential'
+      },
+      {
+        id: 'knowledge_base_usage',
+        title: 'How often do customers use self-service options?',
+        subtitle: 'Current self-service adoption rate',
+        type: 'radio',
+        required: true,
+        options: [
+          { value: '75-plus', label: '75%+ customers try self-service first' },
+          { value: '50-74', label: '50-74% use self-service sometimes' },
+          { value: '25-49', label: '25-49% occasionally use self-service' },
+          { value: '10-24', label: '10-24% rarely use self-service' },
+          { value: 'under-10', label: 'Under 10% use self-service' },
+          { value: 'no-self-service', label: 'No self-service options available' }
+        ]
+      },
+      {
+        id: 'automation_readiness_score',
+        title: 'Which service processes could be partially automated?',
+        subtitle: 'Select processes with automation potential',
+        type: 'checkbox',
+        required: true,
+        maxSelections: 5,
+        options: [
+          { value: 'initial_triage', label: 'Initial inquiry triage and routing' },
+          { value: 'common_questions', label: 'Answering frequently asked questions' },
+          { value: 'order_status', label: 'Order status and tracking updates' },
+          { value: 'appointment_scheduling', label: 'Appointment and callback scheduling' },
+          { value: 'basic_troubleshooting', label: 'Basic troubleshooting guidance' },
+          { value: 'data_collection', label: 'Customer information collection' },
+          { value: 'follow_up_surveys', label: 'Follow-up satisfaction surveys' },
+          { value: 'escalation_routing', label: 'Smart escalation routing' },
+          { value: 'knowledge_suggestions', label: 'Suggesting relevant help articles' },
+          { value: 'none_suitable', label: 'None of our processes suit automation' }
         ]
       }
     ]
