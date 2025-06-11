@@ -16,7 +16,7 @@ import { PathSelectionSection } from "@/components/sections/home/path-selection-
 import { constructMetadata } from "@/components/seo"
 
 export const metadata: Metadata = constructMetadata({
-  title: "Stop Managing Processes. Start Receiving Results | Veloxforce Service-as-Software",
+  title: "Other people buy Software, your about to Create it| Veloxforce Service-as-Software",
   description: "Service-as-Software: You delegate your process, we deliver perfect results forever. You own the strategy. We own the execution. No software to learn.",
   keywords: ["service as software", "process delegation", "business process outsourcing", "outcome-based services", "strategic delegation"],
 })

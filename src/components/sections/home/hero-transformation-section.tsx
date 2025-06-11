@@ -33,9 +33,9 @@ export function HeroTransformationSection() {
             {/* Main Content Block - Properly Structured */}
             <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn">
               <h1 className="velox-text-h1-premium">
-                Stop Managing Processes.
+                Other people buy Software,
                 <span className="block">
-                  Start Receiving Results.
+                   your about to Create it.
                 </span>
               </h1>
 
