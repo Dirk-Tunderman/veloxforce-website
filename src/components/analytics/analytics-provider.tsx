@@ -3,6 +3,7 @@
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
 import { useEffect, Suspense } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GA_MEASUREMENT_ID, GA_EVENTS, GA_PARAMETERS } from '@/lib/analytics';
 
 function AnalyticsTracker() {
@@ -109,6 +110,10 @@ export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
           `,
         }}
       />
+
+      {/* Vercel Speed Insights - Performance Monitoring */}
+      <SpeedInsights />
+
       <Suspense fallback={null}>
         <AnalyticsTracker />
       </Suspense>
