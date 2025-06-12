@@ -40,11 +40,10 @@ export function HeroTransformationSection() {
               </h1>
 
               <p className="velox-text-lead text-center max-w-4xl mx-auto">
-                <strong>You delegate operations once. We deliver outcomes forever.</strong>
-                <span className="block mt-2 font-semibold text-gradient">Your team leads. Technology serves. Business grows.</span>
+                <span className="block text-2xl font-semibold text-gradient">Your team leads. Technology serves. Business grows.</span>
               </p>
 
-              <p className="velox-text-body max-w-3xl mx-auto text-center">
+              <p className="velox-text-body text-xl max-w-3xl mx-auto text-center mt-6 text-gray-700">
                 No software to learn. No systems to manage. Just perfect results delivered to your inbox.
               </p>
             </div>

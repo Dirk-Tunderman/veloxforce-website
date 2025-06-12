@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import { QuizSubmission, ServiceQuizSubmission } from '@/types/audit-tool'
+import { questionMapper } from '@/lib/quiz-question-mapper'
 
 // Initialize Supabase client
 const supabase = createClient(
@@ -17,6 +18,9 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       )
     }
+
+    // Log question mapper statistics for debugging
+    console.log(`Question mapper loaded with ${questionMapper.getTotalQuestionCount()} questions`)
 
     const submission: QuizSubmission | ServiceQuizSubmission = await request.json()
     
@@ -123,12 +127,30 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Create quiz answers
-    const answersToInsert = Object.entries(submission.quizAnswers).map(([questionId, answerValue]) => ({
-      submission_id: quizSubmission.id,
-      question_id: questionId,
-      answer_value: Array.isArray(answerValue) ? JSON.stringify(answerValue) : String(answerValue)
-    }))
+    // Create quiz answers with enhanced question text mapping
+    const answersToInsert = Object.entries(submission.quizAnswers).map(([questionId, answerValue]) => {
+      const questionText = questionMapper.getQuestionText(questionId)
+      
+      // Log mapping status for debugging
+      if (!questionText) {
+        console.warn(`Question text not found for ID: ${questionId}`)
+      }
+      
+      return {
+        submission_id: quizSubmission.id,
+        question_id: questionId,
+        question_text: questionText || `Unknown question: ${questionId}`,
+        answer_value: Array.isArray(answerValue) ? JSON.stringify(answerValue) : String(answerValue)
+      }
+    })
+
+    // Log submission details for debugging
+    if (isServiceQuiz) {
+      const serviceSubmission = submission as ServiceQuizSubmission
+      console.log(`Service quiz submission for department: ${serviceSubmission.departmentRoute}`)
+      console.log(`Questions being stored: ${answersToInsert.length}`)
+      console.log(`Question IDs: ${answersToInsert.map(a => a.question_id).join(', ')}`)
+    }
 
     const { error: answersError } = await supabase
       .from('audit_quiz_answers')
@@ -150,9 +172,21 @@ export async function POST(request: NextRequest) {
       .update({ ai_analysis_status: 'processing' })
       .eq('id', quizSubmission.id)
 
+    // Create enriched response with question text for client-side debugging
+    const enrichedAnswers = questionMapper.enrichAnswersWithQuestionText(submission.quizAnswers)
+
     return NextResponse.json({
       success: true,
-      submissionId: quizSubmission.id
+      submissionId: quizSubmission.id,
+      questionsProcessed: answersToInsert.length,
+      // Include enriched answers in development mode for debugging
+      ...(process.env.NODE_ENV === 'development' && { 
+        enrichedAnswers,
+        debug: {
+          totalQuestionsInMapper: questionMapper.getTotalQuestionCount(),
+          departmentRoute: isServiceQuiz ? (submission as ServiceQuizSubmission).departmentRoute : 'legacy'
+        }
+      })
     })
 
   } catch (error) {

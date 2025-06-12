@@ -1,0 +1,25 @@
+{
+  "contactDetails": {
+    "full_name": "Test User",
+    "business_email": "test@example.com", 
+    "company_name": "Test Company"
+  },
+  "quizAnswers": {
+    "company_size": "26-50",
+    "role": "owner-ceo",
+    "department_focus": "hr",
+    "hr_main_activities": ["recruiting-hiring", "compliance-regulations"],
+    "hr_biggest_challenge": "onboarding-efficiency"
+  },
+  "departmentRoute": "hr",
+  "summary": {
+    "selectedDepartment": "hr",
+    "calculatedScore": 85,
+    "estimatedSavings": {
+      "timePerWeek": 20,
+      "costPerWeek": 1200,
+      "annualSavings": 62400
+    },
+    "recommendations": ["Test recommendation"]
+  }
+}

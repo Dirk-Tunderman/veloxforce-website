@@ -13,46 +13,60 @@ function BrainNetworkVisualization() {
   // Multi-stage transformation layout: Complex inputs → Processing → Streamlined output
   const nodes = [
     // Stage 1: Complex decision inputs (left side - multiple scattered sources)
-    { id: 1, x: 5, y: 15, type: 'complex', label: 'Tech Decisions' },
-    { id: 2, x: 8, y: 35, type: 'complex', label: 'Architecture' },
-    { id: 3, x: 12, y: 55, type: 'complex', label: 'Security' },
-    { id: 4, x: 6, y: 75, type: 'complex', label: 'Scaling' },
+    { id: 1, x: 5, y: 10, type: 'complex', label: 'Tech Decisions' },
+    { id: 2, x: 8, y: 25, type: 'complex', label: 'Architecture' },
+    { id: 3, x: 12, y: 40, type: 'complex', label: 'Security' },
+    { id: 4, x: 6, y: 55, type: 'complex', label: 'Scaling' },
+    { id: 5, x: 10, y: 70, type: 'complex', label: 'Compliance' },
+    { id: 6, x: 4, y: 85, type: 'complex', label: 'Integration' },
+    { id: 7, x: 15, y: 90, type: 'complex', label: 'Performance' },
     
     // Stage 2: Processing layer (center-left - consolidation)
-    { id: 5, x: 30, y: 25, type: 'processing', label: 'Analysis' },
-    { id: 6, x: 35, y: 50, type: 'processing', label: 'Integration' },
-    { id: 7, x: 32, y: 75, type: 'processing', label: 'Optimization' },
+    { id: 8, x: 30, y: 20, type: 'processing', label: 'Analysis' },
+    { id: 9, x: 35, y: 40, type: 'processing', label: 'Integration' },
+    { id: 10, x: 32, y: 60, type: 'processing', label: 'Optimization' },
+    { id: 11, x: 38, y: 80, type: 'processing', label: 'Validation' },
     
     // Stage 3: Unified processor (center)
-    { id: 8, x: 60, y: 50, type: 'processor', label: 'VeloxForce' },
+    { id: 12, x: 55, y: 50, type: 'processor', label: 'VeloxForce' },
     
     // Stage 4: Streamlined output (right side - single clean flow)
-    { id: 9, x: 85, y: 40, type: 'output', label: 'Automated' },
-    { id: 10, x: 90, y: 60, type: 'output', label: 'Streamlined' },
+    { id: 13, x: 85, y: 20, type: 'output', label: 'Automated' },
+    { id: 14, x: 85, y: 40, type: 'output', label: 'Streamlined' },
+    { id: 15, x: 85, y: 60, type: 'output', label: 'Optimized' },
+    { id: 16, x: 85, y: 80, type: 'output', label: 'Compliant' },
   ]
   
   // Multi-stage transformation connections
   const connections = [
     // Stage 1 → Stage 2: Complex decisions to processing
-    { from: 1, to: 5, type: 'input' },
-    { from: 2, to: 5, type: 'input' },
-    { from: 2, to: 6, type: 'input' },
-    { from: 3, to: 6, type: 'input' },
-    { from: 3, to: 7, type: 'input' },
-    { from: 4, to: 7, type: 'input' },
+    { from: 1, to: 8, type: 'input' },
+    { from: 2, to: 8, type: 'input' },
+    { from: 2, to: 9, type: 'input' },
+    { from: 3, to: 9, type: 'input' },
+    { from: 3, to: 10, type: 'input' },
+    { from: 4, to: 10, type: 'input' },
+    { from: 5, to: 10, type: 'input' },
+    { from: 5, to: 11, type: 'input' },
+    { from: 6, to: 9, type: 'input' },
+    { from: 6, to: 11, type: 'input' },
+    { from: 7, to: 11, type: 'input' },
     
     // Stage 2 → Stage 3: Processing to unified processor
-    { from: 5, to: 8, type: 'processing' },
-    { from: 6, to: 8, type: 'processing' },
-    { from: 7, to: 8, type: 'processing' },
+    { from: 8, to: 12, type: 'processing' },
+    { from: 9, to: 12, type: 'processing' },
+    { from: 10, to: 12, type: 'processing' },
+    { from: 11, to: 12, type: 'processing' },
     
     // Stage 3 → Stage 4: Processor to streamlined outputs
-    { from: 8, to: 9, type: 'output' },
-    { from: 8, to: 10, type: 'output' },
+    { from: 12, to: 13, type: 'output' },
+    { from: 12, to: 14, type: 'output' },
+    { from: 12, to: 15, type: 'output' },
+    { from: 12, to: 16, type: 'output' },
   ]
   
   return (
-    <div className="relative w-full h-80 mx-auto max-w-lg">
+    <div className="relative w-full h-80 mx-auto max-w-4xl">
       <svg className="absolute inset-0 w-full h-full">
         <defs>
           {/* Gradient for processed connections */}
@@ -114,35 +128,35 @@ function BrainNetworkVisualization() {
           switch(type) {
             case 'complex':
               return { 
-                size: 'w-10 h-10', 
+                size: 'w-12 h-12', 
                 bg: 'bg-red-500 hover:bg-red-600', 
                 icon: AlertCircle, 
-                iconSize: 'w-5 h-5',
-                offset: '20px'
+                iconSize: 'w-6 h-6',
+                offset: '24px'
               }
             case 'processing':
               return { 
-                size: 'w-9 h-9', 
+                size: 'w-11 h-11', 
                 bg: 'bg-amber-500 hover:bg-amber-600', 
                 icon: Settings, 
-                iconSize: 'w-4 h-4',
-                offset: '18px'
+                iconSize: 'w-5 h-5',
+                offset: '22px'
               }
             case 'processor':
               return { 
-                size: 'w-14 h-14', 
+                size: 'w-16 h-16', 
                 bg: 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800', 
                 icon: Zap, 
-                iconSize: 'w-7 h-7',
-                offset: '28px'
+                iconSize: 'w-8 h-8',
+                offset: '32px'
               }
             case 'output':
               return { 
-                size: 'w-8 h-8', 
+                size: 'w-10 h-10', 
                 bg: 'bg-emerald-500 hover:bg-emerald-600', 
                 icon: CheckCircle, 
-                iconSize: 'w-4 h-4',
-                offset: '16px'
+                iconSize: 'w-5 h-5',
+                offset: '20px'
               }
             default:
               return { 
@@ -168,23 +182,35 @@ function BrainNetworkVisualization() {
               top: `calc(${node.y}% - ${nodeStyle.offset})` 
             }}
             initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ 
-              duration: 0.6, 
-              delay: node.type === 'complex' ? index * 0.1 : 
-                     node.type === 'processing' ? 0.6 + index * 0.1 : 
-                     node.type === 'processor' ? 1.2 : 
-                     1.4 + index * 0.1 
+            animate={{ 
+              scale: node.type === 'processor' ? [1, 1.05, 1] : 1, 
+              opacity: 1 
             }}
-            whileHover={{ scale: 1.1 }}
+            transition={{ 
+              duration: node.type === 'processor' ? 2 : 0.6, 
+              delay: node.type === 'complex' ? index * 0.08 : 
+                     node.type === 'processing' ? 0.6 + index * 0.08 : 
+                     node.type === 'processor' ? 1.2 : 
+                     1.4 + index * 0.08,
+              repeat: node.type === 'processor' ? Infinity : 0,
+              repeatType: 'loop'
+            }}
+            whileHover={{ scale: node.type === 'processor' ? 1.15 : 1.1 }}
           >
             <IconComponent className={`${nodeStyle.iconSize} text-white`} />
+            {node.type === 'processor' && (
+              <motion.div
+                className="absolute inset-0 rounded-full bg-white opacity-20"
+                animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            )}
           </motion.div>
         )
       })}
       
       {/* Enhanced transformation flow indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 text-xs text-gray-600">
+      <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3 text-xs text-gray-600">
         <div className="flex items-center gap-1">
           <div className="w-2 h-2 rounded-full bg-red-500"></div>
           <span>Complex</span>
@@ -264,7 +290,7 @@ export function DecisionMakingRelief() {
             </p>
           </div>
           
-          <div className="card-base max-w-lg mx-auto">
+          <div className="card-base max-w-4xl mx-auto">
             <BrainNetworkVisualization />
             
             {/* Decision metrics */}
