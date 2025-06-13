@@ -3529,6 +3529,63 @@ export function EnhancedWorkingServiceQuiz() {
 
   // Scroll management
   const quizContainerRef = useRef<HTMLDivElement>(null)
+  
+  // Browser history management for back button support
+  const isRestoringFromHistoryRef = useRef(false)
+
+  const pushQuizState = () => {
+    
+    const state = {
+      currentStep,
+      currentPhaseIndex,
+      currentQuestionIndex,
+      selectedDepartment,
+      answers
+    }
+    
+    if (typeof window !== 'undefined') {
+      // Create unique URL with question identifier to create separate history entries
+      const url = new URL(window.location.href)
+      url.searchParams.set('s', currentStep)
+      url.searchParams.set('p', currentPhaseIndex.toString())
+      url.searchParams.set('q', currentQuestionIndex.toString())
+      if (selectedDepartment) {
+        url.searchParams.set('d', selectedDepartment)
+      }
+      
+      window.history.pushState(state, '', url.toString())
+    }
+  }
+
+  const handlePopState = (event: PopStateEvent) => {
+    if (event.state && validateHistoryState(event.state)) {
+      // Set flag to prevent pushing new state during restoration
+      isRestoringFromHistoryRef.current = true
+      
+      // Restore quiz state from history
+      setCurrentStep(event.state.currentStep)
+      setCurrentPhaseIndex(event.state.currentPhaseIndex)
+      setCurrentQuestionIndex(event.state.currentQuestionIndex)
+      setSelectedDepartment(event.state.selectedDepartment)
+      setAnswers(event.state.answers)
+      
+      // Reset flag after restoration completes
+      setTimeout(() => {
+        isRestoringFromHistoryRef.current = false
+      }, 0)
+    }
+  }
+
+  const validateHistoryState = (state: any) => {
+    // Ensure state is valid and consistent
+    if (!state || !state.currentStep) {
+      return false
+    }
+    
+    // Validate step values
+    const validSteps = ['intro', 'opening', 'route', 'final', 'results']
+    return validSteps.includes(state.currentStep)
+  }
 
   // Get current phases based on step and department
   const getCurrentPhases = (): QuizPhase[] => {
@@ -3807,6 +3864,37 @@ export function EnhancedWorkingServiceQuiz() {
       })
     }
   }, [currentQuestionIndex, currentPhaseIndex, currentStep])
+
+  // Browser history management
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Add event listener for browser back/forward buttons
+      window.addEventListener('popstate', handlePopState)
+      
+      // Set initial history state (replace current entry, don't push)
+      const initialState = {
+        currentStep,
+        currentPhaseIndex,
+        currentQuestionIndex,
+        selectedDepartment,
+        answers
+      }
+      window.history.replaceState(initialState, '', window.location.href)
+      
+      // Cleanup listener on unmount
+      return () => {
+        window.removeEventListener('popstate', handlePopState)
+      }
+    }
+  }, [])
+
+  // Update history state when quiz state changes
+  useEffect(() => {
+    // Only push state if we're not restoring from history
+    if (!isRestoringFromHistoryRef.current) {
+      pushQuizState()
+    }
+  }, [currentStep, currentPhaseIndex, currentQuestionIndex, selectedDepartment])
 
   const canProceed = () => {
     if (!currentQuestion) return false

@@ -52,7 +52,7 @@ export const SERVICE_QUIZ_PHASES: QuizPhase[] = [
           { value: 'b2c-services', label: 'B2C Services', description: 'Consumer services', icon: 'Users', color: 'gray' },
           { value: 'marketplace', label: 'Marketplace/Platform', description: 'Platform business model', icon: 'Shuffle', color: 'gray' },
           { value: 'saas', label: 'SaaS/Software', description: 'Software as a service', icon: 'Zap', color: 'gray' },
-          { value: 'other', label: 'Other', description: 'Different business model', icon: 'MoreHorizontal', color: 'gray' }
+          { value: 'other', label: 'Other', description: 'Different business model', icon: 'MoreHorizontal', color: 'gray', allowCustom: true }
         ]
       },
       {

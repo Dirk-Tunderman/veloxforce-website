@@ -433,9 +433,11 @@ export function QuestionRenderer({
               {question.visualOptions.map((option) => {
                 const IconComponent = getIconComponent(option.icon || 'Info')
                 const currentValues = Array.isArray(value) ? value : []
+                
+                // Handle selection state for both simple values and objects with custom input
                 const isSelected = question.multiple 
                   ? currentValues.includes(option.value)
-                  : value === option.value
+                  : (typeof value === 'object' && value?.value === option.value) || value === option.value
                 
                 const canSelect = question.multiple && question.maxSelections 
                   ? currentValues.length < question.maxSelections || isSelected
@@ -444,6 +446,8 @@ export function QuestionRenderer({
                 const handleClick = () => {
                   if (!canSelect && !isSelected) return
                   
+                  console.log(`[DEBUG] Clicking option: ${option.value}, allowCustom: ${option.allowCustom}`)
+                  
                   if (question.multiple) {
                     if (isSelected) {
                       onChange(currentValues.filter((v: string) => v !== option.value))
@@ -451,7 +455,19 @@ export function QuestionRenderer({
                       onChange([...currentValues, option.value])
                     }
                   } else {
-                    onChange(option.value)
+                    // For single selection with custom input capability, preserve existing custom input
+                    if (option.allowCustom) {
+                      const existingCustom = typeof value === 'object' && value?.[`${option.value}_custom`] || ''
+                      const newValue = {
+                        value: option.value,
+                        [`${option.value}_custom`]: existingCustom
+                      }
+                      console.log(`[DEBUG] Setting value for allowCustom option:`, newValue)
+                      onChange(newValue)
+                    } else {
+                      console.log(`[DEBUG] Setting simple value:`, option.value)
+                      onChange(option.value)
+                    }
                   }
                 }
 
@@ -511,6 +527,67 @@ export function QuestionRenderer({
                 </div>
               </motion.div>
             )}
+
+            {/* Custom input for options with allowCustom */}
+            {(() => {
+              // Helper function to check if an option is selected
+              const isOptionSelected = (optionValue: string) => {
+                if (question.multiple) {
+                  return Array.isArray(value) && value.includes(optionValue)
+                } else {
+                  // For single selection, check both object format and simple string format
+                  if (typeof value === 'object' && value !== null) {
+                    return value.value === optionValue
+                  }
+                  return value === optionValue
+                }
+              }
+
+              // Find options that have allowCustom and are currently selected
+              const selectedCustomOptions = question.visualOptions?.filter(option => 
+                option.allowCustom && isOptionSelected(option.value)
+              ) || []
+
+              console.log(`[DEBUG] Selected custom options:`, selectedCustomOptions.map(o => o.value))
+              console.log(`[DEBUG] Current value:`, value, typeof value)
+
+              return selectedCustomOptions.length > 0 ? (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="space-y-4"
+                >
+                  {selectedCustomOptions.map(option => (
+                    <div key={`${option.value}_custom`} className="max-w-md mx-auto">
+                      <Label className="text-sm font-medium text-gray-700 mb-2 block">
+                        Please specify your {option.label.toLowerCase()}:
+                      </Label>
+                      <Input
+                        placeholder="Please specify..."
+                        value={typeof value === 'object' && value?.[`${option.value}_custom`] || ''}
+                        onChange={(e) => {
+                          console.log(`[DEBUG] Custom input changed:`, e.target.value)
+                          if (question.multiple) {
+                            // For multiple selection, maintain array structure
+                            onChange({
+                              ...value,
+                              [`${option.value}_custom`]: e.target.value
+                            })
+                          } else {
+                            // For single selection, create object with both value and custom input
+                            onChange({
+                              value: option.value,
+                              [`${option.value}_custom`]: e.target.value
+                            })
+                          }
+                        }}
+                        className="p-3 border-2 border-blue-200 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all duration-300"
+                      />
+                    </div>
+                  ))}
+                </motion.div>
+              ) : null
+            })()}
           </div>
         )}
 
