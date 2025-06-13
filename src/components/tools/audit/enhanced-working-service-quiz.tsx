@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -2750,13 +2750,9 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
   }
 
   // Finance Route Questions
-  if (question.id === 'invoice_processing_time') {
-    return <InvoiceProcessingTimeSelector question={question} value={value} onChange={onChange} />
-  }
+  // Removed custom handler for invoice_processing_time - now uses normal slider logic
 
-  if (question.id === 'error_frequency') {
-    return <ErrorFrequencySelector question={question} value={value} onChange={onChange} />
-  }
+  // Removed custom handler for error_frequency - now uses normal visual_grid logic
 
   if (question.id === 'systems_count') {
     return <SystemsCountSelector question={question} value={value} onChange={onChange} />
@@ -3531,6 +3527,9 @@ export function EnhancedWorkingServiceQuiz() {
   const [submissionSuccess, setSubmissionSuccess] = useState(false)
   const [submissionError, setSubmissionError] = useState<string | null>(null)
 
+  // Scroll management
+  const quizContainerRef = useRef<HTMLDivElement>(null)
+
   // Get current phases based on step and department
   const getCurrentPhases = (): QuizPhase[] => {
     switch (currentStep) {
@@ -3798,6 +3797,16 @@ export function EnhancedWorkingServiceQuiz() {
       setSelectedDepartment(answers.department_focus)
     }
   }, [answers.department_focus, currentQuestion?.id])
+
+  // Scroll to top when question changes
+  useEffect(() => {
+    if (quizContainerRef.current) {
+      quizContainerRef.current.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      })
+    }
+  }, [currentQuestionIndex, currentPhaseIndex, currentStep])
 
   const canProceed = () => {
     if (!currentQuestion) return false
@@ -4067,7 +4076,7 @@ export function EnhancedWorkingServiceQuiz() {
   }
 
   return (
-    <div className="py-20 bg-white">
+    <div ref={quizContainerRef} className="py-20 bg-white">
       <Container>
         <div className="max-w-3xl mx-auto">
           {/* Progress Bar */}

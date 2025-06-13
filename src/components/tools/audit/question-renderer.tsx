@@ -526,8 +526,8 @@ export function QuestionRenderer({
                 onChange={onChange}
                 unitLabel={question.unitLabel || 'units'}
               />
-            ) : question.sliderConfig.unit === 'minutes' || question.sliderConfig.unit === 'hours' ? (
-              /* Time-based slider */
+            ) : question.sliderConfig.unit === 'hours' ? (
+              /* Time-based slider for hours */
               <TimeSlider
                 config={question.sliderConfig}
                 value={value || question.sliderConfig.min || 0}
@@ -535,6 +535,48 @@ export function QuestionRenderer({
                 showCalculation={question.realTimeCalculation}
                 executiveHourlyRate={question.hourlyRate || 100}
               />
+            ) : question.sliderConfig.unit === 'minutes' ? (
+              /* Enhanced slider for minutes */
+              <div className="space-y-6">
+                <div className="text-center space-y-4">
+                  <div className="text-4xl font-bold text-blue-600">
+                    {value || question.sliderConfig.min || 0} minutes
+                  </div>
+                  {question.realTimeCalculation && (
+                    <div className="text-lg text-gray-600">
+                      {question.calculationMessage?.replace('[X]', (value || question.sliderConfig.min || 0).toString())}
+                    </div>
+                  )}
+                </div>
+                
+                <div className="px-4">
+                  <input
+                    type="range"
+                    min={question.sliderConfig.min}
+                    max={question.sliderConfig.max}
+                    step={question.sliderConfig.step || 1}
+                    value={value || question.sliderConfig.min || 0}
+                    onChange={(e) => onChange(Number(e.target.value))}
+                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                    style={{
+                      background: `linear-gradient(to right, #2563EB 0%, #2563EB ${((value || question.sliderConfig.min || 0) - question.sliderConfig.min) / (question.sliderConfig.max - question.sliderConfig.min) * 100}%, #E5E7EB ${((value || question.sliderConfig.min || 0) - question.sliderConfig.min) / (question.sliderConfig.max - question.sliderConfig.min) * 100}%, #E5E7EB 100%)`
+                    }}
+                  />
+                  <div className="flex justify-between text-sm text-gray-500 mt-2">
+                    <span>{question.sliderConfig.min} min</span>
+                    <span>{question.sliderConfig.max} min</span>
+                  </div>
+                </div>
+                
+                {/* Show markers if available */}
+                {question.sliderConfig.markers && (
+                  <div className="flex justify-between text-xs text-gray-400 px-4">
+                    {question.sliderConfig.markers.map((marker, index) => (
+                      <span key={index}>{marker}m</span>
+                    ))}
+                  </div>
+                )}
+              </div>
             ) : (
               /* Basic numeric slider */
               <div className="space-y-4">
