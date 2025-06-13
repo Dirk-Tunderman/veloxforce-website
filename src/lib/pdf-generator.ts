@@ -131,8 +131,13 @@ export class PDFReportGenerator {
       }
       
       if (trimmedLine.startsWith('#')) {
-        // This is a heading
-        this.addHeading(trimmedLine.replace(/^#+\s*/, ''))
+        // This is a heading - determine the level
+        const headingMatch = trimmedLine.match(/^(#+)\s*(.*)/)
+        if (headingMatch) {
+          const level = headingMatch[1].length
+          const headingText = headingMatch[2]
+          this.addHeading(headingText, level)
+        }
       } else if (trimmedLine.startsWith('**') && trimmedLine.endsWith('**')) {
         // This is bold text
         this.addBoldText(trimmedLine.replace(/\*\*/g, ''))
@@ -144,15 +149,43 @@ export class PDFReportGenerator {
   }
 
   /**
-   * Add heading text
+   * Add heading text with widow/orphan protection
    */
-  private addHeading(text: string): void {
+  private addHeading(text: string, level: number = 1): void {
+    // Calculate required space based on heading level
+    // Level 1 (#): Need space for heading + 8 lines (approx 48mm)
+    // Level 2 (##): Need space for heading + 5 lines (approx 30mm)
+    // Level 3+ (###): Need space for heading + 3 lines (approx 18mm)
+    let requiredSpace: number
+    let fontSize: number
+    
+    if (level === 1) {
+      requiredSpace = 48
+      fontSize = 16
+    } else if (level === 2) {
+      requiredSpace = 30
+      fontSize = 14
+    } else {
+      requiredSpace = 18
+      fontSize = 12
+    }
+    
+    // Check if we have enough space on current page
+    const spaceRemaining = this.pageHeight - this.currentY - 40 // 40mm bottom margin
+    if (spaceRemaining < requiredSpace) {
+      // Not enough space, move to next page
+      this.addNewPage()
+    }
+    
+    // Add some space before heading
     this.currentY += 5
-    this.doc.setFontSize(14)
+    
+    // Set heading style
+    this.doc.setFontSize(fontSize)
     this.doc.setFont('helvetica', 'bold')
     this.doc.setTextColor(10, 42, 79) // Deep blue
     this.addText(text, this.margin, this.currentY)
-    this.currentY += 10
+    this.currentY += fontSize * 0.7 // Dynamic spacing based on font size
     
     // Reset to normal text
     this.doc.setFontSize(11)
@@ -161,9 +194,18 @@ export class PDFReportGenerator {
   }
 
   /**
-   * Add bold text
+   * Add bold text with widow protection
    */
   private addBoldText(text: string): void {
+    // Check if we have enough space for bold text + 3 lines (approx 18mm)
+    const requiredSpace = 18
+    const spaceRemaining = this.pageHeight - this.currentY - 40
+    
+    if (spaceRemaining < requiredSpace) {
+      // Not enough space, move to next page
+      this.addNewPage()
+    }
+    
     this.doc.setFont('helvetica', 'bold')
     this.addText(text, this.margin, this.currentY)
     this.currentY += 7
@@ -221,6 +263,15 @@ export class PDFReportGenerator {
   }
 
   private addSectionHeader(title: string): void {
+    // Check if we have enough space for section header + content (approx 48mm)
+    const requiredSpace = 48
+    const spaceRemaining = this.pageHeight - this.currentY - 40
+    
+    if (spaceRemaining < requiredSpace) {
+      // Not enough space, move to next page
+      this.addNewPage()
+    }
+    
     this.doc.setFontSize(16)
     this.doc.setFont('helvetica', 'bold')
     this.doc.setTextColor(10, 42, 79)
