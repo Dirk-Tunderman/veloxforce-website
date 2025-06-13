@@ -29,8 +29,8 @@ export async function POST(request: NextRequest) {
     let debugSession = null
     try {
       debugSession = await debugLogger.initSession({
-        company_name: submission.contactDetails.company_name || submission.contactDetails.companyName || 'Unknown',
-        business_email: submission.contactDetails.business_email || submission.contactDetails.email || 'unknown@email.com'
+        company_name: (submission.contactDetails as any).company_name || (submission.contactDetails as any).companyName || 'Unknown',
+        business_email: (submission.contactDetails as any).business_email || (submission.contactDetails as any).email || 'unknown@email.com'
       })
       console.log(`🎯 Debug session initialized: ${debugSession.sessionId}`)
     } catch (debugError) {

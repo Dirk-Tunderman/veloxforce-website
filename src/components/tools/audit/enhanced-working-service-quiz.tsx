@@ -2722,7 +2722,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
     // Check if this is for a visual grid question with custom options
     if (typeof newValue === 'string' && (question.visualOptions || question.options)) {
       const options = question.visualOptions || question.options
-      const option = options.find(opt => opt.value === newValue)
+      const option = options?.find(opt => opt.value === newValue)
       if (option?.allowCustom) {
         // For custom options, create object format with existing custom input
         const existingCustom = typeof value === 'object' && value?.[`${newValue}_custom`] || ''

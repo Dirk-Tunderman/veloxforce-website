@@ -267,20 +267,34 @@ export class DebugLogger {
 
     try {
       const filepath = path.join(this.session.debugPath, '5_business_analysis.json')
+      
+      // Extract metadata from markdown content if available
+      let metadata = {
+        reportLength: 0,
+        hasExecutiveSummary: false,
+        hasAutomationOpportunities: false,
+        hasROIProjections: false,
+        hasRoadmap: false
+      }
+      
+      if (data.reportContent) {
+        const content = data.reportContent.toString()
+        metadata.reportLength = content.length
+        metadata.hasExecutiveSummary = content.includes('# Executive Summary')
+        metadata.hasAutomationOpportunities = content.includes('# Automation Opportunities')
+        metadata.hasROIProjections = content.includes('# ROI Projections')
+        metadata.hasRoadmap = content.includes('# Implementation Roadmap')
+      }
+      
       const logData = {
         timestamp: new Date().toISOString(),
         sessionId: this.session.sessionId,
         businessAnalysis: data,
-        metadata: {
-          automationOpportunities: data.automationOpportunities?.length || 0,
-          totalEstimatedSavings: data.automationOpportunities?.reduce((sum: number, opp: any) => 
-            sum + (opp.estimatedSavings?.annualSavings || 0), 0) || 0,
-          implementationPhases: data.implementationRoadmap?.length || 0
-        }
+        metadata
       }
 
       await fs.writeFile(filepath, JSON.stringify(logData, null, 2))
-      console.log(`📊 Business analysis logged: ${logData.metadata.automationOpportunities} opportunities, $${logData.metadata.totalEstimatedSavings} estimated annual savings`)
+      console.log(`📊 Business analysis logged: ${metadata.reportLength} chars, Sections: ${Object.entries(metadata).filter(([k, v]) => k.startsWith('has') && v).length}`)
     } catch (error) {
       console.error('Failed to log business analysis:', error)
     }

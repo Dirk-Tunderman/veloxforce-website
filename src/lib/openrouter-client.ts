@@ -501,7 +501,7 @@ IMPORTANT: The goal is gratitude and voluntary engagement, not pressure or fear
         throw new Error('No response from Sonnet 4.0')
       }
 
-      // Return the raw business report content (text/markdown)
+      // Return the markdown report content directly
       const reportContent = responseContent.trim()
 
       // Log AI response for debugging
@@ -648,49 +648,39 @@ CRITICAL INSTRUCTIONS:
 - Calculate ROI conservatively: Time Investment × 70% efficiency gain, with 25% service fee
 - Every insight must provide genuine value even if they never contact us
 
-Return a comprehensive business analysis as a JSON object with this exact structure:
+Generate a comprehensive business analysis report in markdown format following the structure outlined in your system prompt. The report should include:
 
-{
-  "executiveSummary": "3-4 sentence summary of the business, challenges, and opportunities",
-  "currentStateAnalysis": {
-    "industryPositioning": "Analysis of their market position and competitive landscape",
-    "businessModel": "Description of their business model and revenue streams",
-    "currentChallenges": ["List of 3-5 key operational challenges identified"],
-    "strengths": ["List of 3-5 business strengths"],
-    "opportunities": ["List of 3-5 automation/improvement opportunities"]
-  },
-  "automationOpportunities": [
-    {
-      "priority": "high|medium|low",
-      "area": "Specific business area (e.g., Customer Onboarding, Invoice Processing)",
-      "description": "Detailed description of the automation opportunity",
-      "complexity": "Implementation complexity assessment",
-      "timeToImplement": "Estimated implementation timeline",
-      "estimatedSavings": {
-        "hoursPerWeek": 20,
-        "costPerMonth": 3200,
-        "annualSavings": 38400
-      }
-    }
-  ],
-  "roiProjections": {
-    "implementationCost": "Estimated investment range",
-    "paybackPeriod": "Time to break even",
-    "yearOneROI": "First year return percentage",
-    "threeYearROI": "Three year cumulative return"
-  },
-  "implementationRoadmap": [
-    {
-      "phase": "Phase name (e.g., Discovery & Planning)",
-      "duration": "Timeline for this phase",
-      "objectives": ["Key objectives for this phase"],
-      "deliverables": ["Expected deliverables"]
-    }
-  ],
-  "nextSteps": [
-    "Specific actionable next steps for the client"
-  ]
-}
+1. **Executive Summary** - A compelling 3-4 sentence overview of the business situation, key challenges, and transformation opportunities
+
+2. **Current State Analysis** - Including:
+   - Industry positioning and competitive landscape
+   - Business model insights
+   - Key operational challenges (3-5 specific pain points)
+   - Core strengths to build upon
+   - Automation/improvement opportunities
+
+3. **Automation Opportunities** - For each opportunity include:
+   - Priority level (high/medium/low)
+   - Specific business area
+   - Detailed description
+   - Implementation complexity
+   - Timeline estimates
+   - Estimated savings (hours per week, monthly cost savings, annual impact)
+
+4. **ROI Projections** - Conservative estimates including:
+   - Implementation investment range
+   - Payback period
+   - First year ROI percentage
+   - Three year cumulative return
+
+5. **Implementation Roadmap** - Phased approach with:
+   - Phase names and durations
+   - Key objectives for each phase
+   - Expected deliverables
+
+6. **Next Steps** - Specific, actionable recommendations for the client
+
+Format the report using proper markdown with headers (#, ##), bullet points, and **bold** text for emphasis. Make it visually scannable and professional.
 
 ## DEPARTMENT-SPECIFIC FOCUS FOR ${departmentRoute.toUpperCase()}:
 
@@ -712,11 +702,12 @@ ${this.getDepartmentGuidelines(departmentRoute)}
 Generate an analysis that provides such value that the recipient feels compelled to reach out with gratitude.`
   }
 
+
   /**
    * Get department-specific analysis guidelines
    */
   private getDepartmentGuidelines(departmentRoute: string): string {
-    const guidelines = {
+    const guidelines: Record<string, string> = {
       'sales': `**Sales & Business Development Focus:**
 - Emphasize conversation volume and quality metrics
 - Focus on time per prospect and conversion rates  

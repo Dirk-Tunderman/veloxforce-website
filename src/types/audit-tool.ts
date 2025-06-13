@@ -86,6 +86,7 @@ export interface QuestionOption {
   score?: number
   icon?: string
   description?: string
+  allowCustom?: boolean
 }
 
 export interface TeamInput {
@@ -212,6 +213,7 @@ export interface VisualOption {
   description: string
   icon: string
   color: 'blue' | 'gray' // Simplified to 90/10 color rule
+  allowCustom?: boolean
 }
 
 export interface TimeCategory {
