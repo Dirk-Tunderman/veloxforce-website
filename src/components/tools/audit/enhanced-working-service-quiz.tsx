@@ -3525,6 +3525,11 @@ export function EnhancedWorkingServiceQuiz() {
   const [currentPhaseIndex, setCurrentPhaseIndex] = useState(0)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [answers, setAnswers] = useState<Record<string, any>>({})
+  
+  // Submission state management
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submissionSuccess, setSubmissionSuccess] = useState(false)
+  const [submissionError, setSubmissionError] = useState<string | null>(null)
 
   // Get current phases based on step and department
   const getCurrentPhases = (): QuizPhase[] => {
@@ -3604,6 +3609,91 @@ export function EnhancedWorkingServiceQuiz() {
     }
   }
 
+  // Handle quiz submission when contact form is completed
+  const handleQuizSubmission = async () => {
+    setIsSubmitting(true)
+    setSubmissionError(null)
+
+    try {
+      // Extract contact details from the contact_details answer
+      const contactDetails = answers.contact_details
+      if (!contactDetails) {
+        throw new Error('Contact details are required')
+      }
+
+      // Calculate basic summary based on quiz answers
+      const calculateSummary = () => {
+        // Extract department from answers
+        const selectedDept = answers.department_focus || selectedDepartment
+        
+        // Basic scoring calculation (simplified)
+        const totalQuestions = getTotalQuestions()
+        const answeredQuestions = Object.keys(answers).length
+        const calculatedScore = Math.round((answeredQuestions / totalQuestions) * 100)
+
+        // Basic ROI estimation (this would be enhanced with actual business logic)
+        const estimatedSavings = {
+          timePerWeek: 15, // Conservative estimate
+          costPerWeek: 900, // Based on typical hourly costs
+          annualSavings: 46800 // Weekly * 52
+        }
+
+        return {
+          selectedDepartment: selectedDept,
+          calculatedScore,
+          estimatedSavings,
+          recommendations: [
+            `Streamline ${selectedDept} processes`,
+            "Implement automation workflows",
+            "Reduce manual administrative tasks"
+          ]
+        }
+      }
+
+      // Prepare submission data in ServiceQuizSubmission format
+      const submissionData = {
+        contactDetails: {
+          full_name: contactDetails.full_name,
+          business_email: contactDetails.business_email,
+          company_name: contactDetails.company_name,
+          website: contactDetails.website,
+          phone_number: contactDetails.phone_number
+        },
+        quizAnswers: answers,
+        departmentRoute: selectedDepartment || answers.department_focus,
+        summary: calculateSummary()
+      }
+
+      console.log('Submitting quiz data:', submissionData)
+
+      // Submit to the API
+      const response = await fetch('/api/submit-quiz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData)
+      })
+
+      if (!response.ok) {
+        const errorData = await response.text()
+        throw new Error(`Submission failed: ${errorData}`)
+      }
+
+      const result = await response.json()
+      console.log('Quiz submission successful:', result)
+      
+      setSubmissionSuccess(true)
+      setCurrentStep('results')
+      
+    } catch (error) {
+      console.error('Quiz submission error:', error)
+      setSubmissionError(error instanceof Error ? error.message : 'Submission failed')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   const handleNext = () => {
     if (!currentPhase?.questions) {
       console.error('No current phase or questions available')
@@ -3651,7 +3741,13 @@ export function EnhancedWorkingServiceQuiz() {
       setCurrentPhaseIndex(0)
       setCurrentQuestionIndex(0)
     } else if (currentStep === 'final') {
-      setCurrentStep('results')
+      // Check if we just completed the contact form
+      if (currentQuestion?.type === 'contact_form') {
+        // Trigger quiz submission instead of just moving to results
+        handleQuizSubmission()
+      } else {
+        setCurrentStep('results')
+      }
     }
   }
 
@@ -3808,20 +3904,123 @@ export function EnhancedWorkingServiceQuiz() {
       <div className="py-20 bg-white">
         <Container>
           <div className="max-w-2xl mx-auto text-center">
-            <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-6" />
-            <Heading level="1" className="mb-4 text-4xl font-bold">
-              Assessment Complete!
-            </Heading>
-            <Text className="text-lg text-gray-600 mb-8">
-              Thank you for completing the assessment. Your personalized automation 
-              roadmap will be sent to your email shortly.
-            </Text>
-            <div className="bg-gray-50 rounded-lg p-6 text-left">
-              <h3 className="font-semibold mb-2">Your Responses:</h3>
-              <pre className="text-sm text-gray-600 whitespace-pre-wrap">
-                {JSON.stringify(answers, null, 2)}
-              </pre>
-            </div>
+            {isSubmitting && (
+              <>
+                <div className="flex justify-center mb-6">
+                  <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600"></div>
+                </div>
+                <Heading level="1" className="mb-4 text-4xl font-bold">
+                  Generating Your Analysis...
+                </Heading>
+                <Text className="text-lg text-gray-600 mb-8">
+                  We're analyzing your responses and scraping your website to create a personalized business analysis report.
+                </Text>
+                <div className="bg-blue-50 rounded-lg p-6 text-left">
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                      <Text className="text-sm text-blue-800">Analyzing your quiz responses...</Text>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                      <Text className="text-sm text-blue-800">Scraping your website for business insights...</Text>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                      <Text className="text-sm text-blue-800">Generating AI-powered analysis...</Text>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                      <Text className="text-sm text-blue-800">Creating your PDF report...</Text>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {submissionError && (
+              <>
+                <div className="flex justify-center mb-6">
+                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+                    <AlertTriangle className="w-8 h-8 text-red-600" />
+                  </div>
+                </div>
+                <Heading level="1" className="mb-4 text-4xl font-bold text-red-600">
+                  Submission Error
+                </Heading>
+                <Text className="text-lg text-gray-600 mb-8">
+                  We encountered an issue processing your submission. Please try again.
+                </Text>
+                <div className="bg-red-50 rounded-lg p-6 text-left">
+                  <Text className="text-sm text-red-800">{submissionError}</Text>
+                </div>
+                <Button 
+                  onClick={() => {
+                    setSubmissionError(null)
+                    setCurrentStep('final')
+                    // Go back to the contact form
+                    const finalQuestionIndex = FINAL_QUESTIONS.findIndex(phase => 
+                      phase.questions?.some(q => q.type === 'contact_form')
+                    )
+                    if (finalQuestionIndex !== -1) {
+                      setCurrentPhaseIndex(finalQuestionIndex)
+                      const contactQuestionIndex = FINAL_QUESTIONS[finalQuestionIndex].questions?.findIndex(q => q.type === 'contact_form') || 0
+                      setCurrentQuestionIndex(contactQuestionIndex)
+                    }
+                  }}
+                  className="mt-6 bg-blue-600 hover:bg-blue-700"
+                >
+                  Try Again
+                </Button>
+              </>
+            )}
+
+            {submissionSuccess && !isSubmitting && (
+              <>
+                <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-6" />
+                <Heading level="1" className="mb-4 text-4xl font-bold">
+                  Analysis Complete!
+                </Heading>
+                <Text className="text-lg text-gray-600 mb-8">
+                  Thank you for completing the assessment. Your personalized business analysis report is being generated and will be delivered to your email within the next 5-10 minutes.
+                </Text>
+                <div className="bg-green-50 rounded-lg p-6 text-left space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600" />
+                    <Text className="text-sm text-green-800 font-medium">Quiz responses analyzed and stored</Text>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600" />
+                    <Text className="text-sm text-green-800 font-medium">Website analysis initiated</Text>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600" />
+                    <Text className="text-sm text-green-800 font-medium">AI-powered business report generation started</Text>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600" />
+                    <Text className="text-sm text-green-800 font-medium">Email delivery scheduled</Text>
+                  </div>
+                </div>
+                <div className="mt-8 p-6 bg-blue-50 rounded-lg">
+                  <Heading level="3" className="text-lg font-semibold text-blue-900 mb-2">
+                    What's Next?
+                  </Heading>
+                  <Text className="text-sm text-blue-800 mb-4">
+                    Your comprehensive business analysis report will include:
+                  </Text>
+                  <div className="text-left space-y-2">
+                    <Text className="text-sm text-blue-800">• Executive summary of automation opportunities</Text>
+                    <Text className="text-sm text-blue-800">• ROI projections and time savings analysis</Text>
+                    <Text className="text-sm text-blue-800">• Custom recommendations for your {selectedDepartment || answers.department_focus} department</Text>
+                    <Text className="text-sm text-blue-800">• Implementation roadmap and next steps</Text>
+                  </div>
+                </div>
+                <Text className="text-sm text-gray-500 mt-6">
+                  Email: {answers.contact_details?.business_email}
+                </Text>
+              </>
+            )}
           </div>
         </Container>
       </div>
@@ -3872,29 +4071,31 @@ export function EnhancedWorkingServiceQuiz() {
       <Container>
         <div className="max-w-3xl mx-auto">
           {/* Progress Bar */}
-          <div className="mb-8 text-center">
+          <div className="mb-8">
             <div className="flex justify-between items-center mb-2">
-              <Text className="text-sm text-gray-600">
+              <span className="text-sm font-medium text-gray-700">
                 Question {getCurrentQuestionNumber()} of {getTotalQuestions()}
-              </Text>
-              <Text className="text-sm text-gray-600">
+              </span>
+              <span className="text-sm font-semibold text-blue-900">
                 {Math.round(progress)}% complete
-              </Text>
+              </span>
             </div>
-            <Progress value={progress} className="h-2" />
+            <Progress value={progress} className="h-3" />
           </div>
 
           {/* Phase Info */}
           {currentPhase && (
-            <div className="mb-6 text-center">
-              <Text className="text-sm text-blue-600 font-medium">
-                {currentPhase.title}
-              </Text>
-              {currentPhase.description && (
-                <Text className="text-sm text-gray-500 mt-1">
-                  {currentPhase.description}
-                </Text>
-              )}
+            <div className="mb-8 text-center">
+              <div className="space-y-4">
+                <h2 className="text-3xl lg:text-4xl font-bold text-blue-900">
+                  {currentPhase.title}
+                </h2>
+                {currentPhase.description && (
+                  <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    {currentPhase.description}
+                  </p>
+                )}
+              </div>
             </div>
           )}
 

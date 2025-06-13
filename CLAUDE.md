@@ -25,11 +25,51 @@ node scripts/split-landing-screenshot.js          # Split landing page screensho
 node scripts/split-screenshots-compressed.js      # Compress and split screenshots
 ```
 
+### Debug & Testing Tools
+```bash
+node scripts/test-debug-logging.js                # Test debug logging system for quiz/report flow
+```
+
+**Note**: All development test files have been cleaned up. The debug logging test script is the only remaining test utility.
+
+### Debug Logging System
+
+The application includes a comprehensive debug logging system that captures all inputs and outputs during the quiz submission and report generation process.
+
+#### Debug Directory Structure
+```
+debug-logs/
+├── 2024-12-20_14-30-15_CompanyName/
+│   ├── 1_input_quiz_data.json          # Quiz answers, contact details, department route
+│   ├── 2_input_website_data.json       # Scraped website content, sitemap analysis
+│   ├── 3_ai_prompts.json               # Exact prompts sent to AI models
+│   ├── 4_ai_responses.json             # Raw responses from Gemini & Sonnet
+│   ├── 5_business_analysis.json        # Business report content (text/markdown)
+│   ├── 6_pdf_report_data.json          # Data used for PDF generation
+│   ├── 7_email_data.json               # Email content and metadata
+│   └── debug_log.txt                   # Timing summary and session overview
+```
+
+#### Usage
+- Debug logging is automatically enabled for all quiz submissions
+- Each submission creates a timestamped folder with company name
+- All sensitive data is automatically added to `.gitignore`
+- Console output includes real-time progress with timing information
+- Use the test script to verify functionality: `node scripts/test-debug-logging.js`
+
+#### Benefits
+- Complete visibility into AI prompt engineering
+- Ability to compare email content with PDF content
+- Performance monitoring with timing data
+- Error tracking and debugging capabilities
+- Input validation and data flow verification
+
 ### Environment Setup
 Ensure you have a `.env.local` file with:
 - `NEXT_PUBLIC_SUPABASE_URL` - Supabase project URL
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Supabase anonymous key
 - `RESEND_API_KEY` - Resend API key for email functionality
+- `OPENROUTER_API_KEY` - OpenRouter API key for AI models
 
 ## Architecture Overview
 

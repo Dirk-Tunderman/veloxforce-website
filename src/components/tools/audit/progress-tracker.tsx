@@ -41,17 +41,17 @@ export function ProgressTracker({
   return (
     <div className="space-y-2">
       <div className="flex justify-between items-center">
-        <Text className="text-sm font-medium">
+        <Text className="text-sm font-medium text-gray-700">
           Question {currentStep} of {totalSteps}
           {showBonus && currentStep > 12 && (
-            <span className="text-primary ml-1">(Bonus)</span>
+            <span className="text-blue-600 ml-1">(Bonus)</span>
           )}
         </Text>
-        <Text className="text-sm text-muted-foreground">
+        <Text className="text-sm font-semibold text-blue-900">
           {Math.round(progress)}% complete
         </Text>
       </div>
-      <Progress value={progress} className="h-2" />
+      <Progress value={progress} className="h-3" />
     </div>
   )
 }
@@ -74,27 +74,29 @@ function PhaseBasedProgress({ phases, currentPhase, currentPhaseStep, totalPhase
   return (
     <div className="space-y-6">
       {/* Enhanced Progress Header */}
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div className="flex items-center gap-4 text-center sm:text-left">
-          <Text className="velox-text-h3 text-blue-900 font-bold">
+      <div className="text-center space-y-6">
+        <div className="space-y-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-blue-900">
             {currentPhaseData.title}
-          </Text>
-          <span className="text-sm font-medium text-blue-700 bg-blue-100 px-3 py-1 rounded-full">
-            Step {currentPhaseStep} of {totalPhaseSteps}
-          </span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            {currentPhaseData.description}
+          </p>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="w-3 h-3 bg-blue-600 rounded-full animate-pulse" />
-          <Text className="velox-text-body font-semibold text-blue-900">
-            {Math.round(overallProgress)}% Complete
-          </Text>
+        <div className="flex justify-between items-center">
+          <span className="text-sm font-medium text-gray-700">
+            Question {currentPhaseStep} of {totalPhaseSteps}
+          </span>
+          <span className="text-sm font-semibold text-blue-900">
+            {Math.round(overallProgress)}% complete
+          </span>
         </div>
       </div>
 
       {/* Enhanced Progress Bar */}
       <div className="relative h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
         <motion.div
-          className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-600 to-blue-800 rounded-full shadow-sm"
+          className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-600 to-blue-700 rounded-full shadow-sm"
           initial={{ width: 0 }}
           animate={{ width: `${overallProgress}%` }}
           transition={{ duration: 0.8, ease: "easeOut" }}

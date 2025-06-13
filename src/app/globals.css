@@ -462,13 +462,13 @@ main,
   --popover: 0 0% 100%;
   --popover-foreground: 215 50% 23%;
 
-  /* Primary colors - Deep Blue */
-  --primary: 215 50% 23%;
+  /* Primary colors - VeloxForce Blue */
+  --primary: 215 71% 48%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary colors - Teal */
-  --secondary: 173 85% 32%;
-  --secondary-foreground: 0 0% 100%;
+  /* Secondary colors - Light Gray */
+  --secondary: 220 14% 96%;
+  --secondary-foreground: 215 50% 23%;
 
   /* Muted colors */
   --muted: 210 40% 96.1%;
@@ -501,13 +501,13 @@ main,
   --popover: 217 33% 17%;
   --popover-foreground: 210 40% 98%;
 
-  /* Primary colors - Deep Blue (lighter in dark mode) */
+  /* Primary colors - VeloxForce Blue (lighter in dark mode) */
   --primary: 217 91% 68%;
   --primary-foreground: 222 47% 11%;
 
-  /* Secondary colors - Teal (lighter in dark mode) */
-  --secondary: 173 70% 50%;
-  --secondary-foreground: 222 47% 11%;
+  /* Secondary colors - Light Gray (darker in dark mode) */
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 210 40% 98%;
 
   /* Muted colors */
   --muted: 217 33% 17%;
