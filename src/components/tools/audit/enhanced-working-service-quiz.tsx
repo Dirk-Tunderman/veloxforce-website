@@ -2719,12 +2719,40 @@ function FinanceTeamStructureBuilder({ question, value, onChange }: { question: 
 
 function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendererProps) {
   const handleChange = (newValue: any) => {
+    // Check if this is for a visual grid question with custom options
+    if (typeof newValue === 'string' && (question.visualOptions || question.options)) {
+      const options = question.visualOptions || question.options
+      const option = options.find(opt => opt.value === newValue)
+      if (option?.allowCustom) {
+        // For custom options, create object format with existing custom input
+        const existingCustom = typeof value === 'object' && value?.[`${newValue}_custom`] || ''
+        const customValue = {
+          value: newValue,
+          [`${newValue}_custom`]: existingCustom
+        }
+        console.log(`[DEBUG] Creating custom value for ${newValue}:`, customValue)
+        onChange(customValue)
+        return
+      }
+    }
+    
     onChange(newValue)
     // No auto-advance - user must always click Next button
   }
 
   // Debug logging for question rendering (simplified)
   console.log('Rendering question:', question.type, question.id)
+  
+  // Comprehensive value logging
+  if (question.id === 'business_model') {
+    console.log(`[DEBUG] Business model question value:`, {
+      value,
+      valueType: typeof value,
+      isObject: typeof value === 'object',
+      hasValueProperty: typeof value === 'object' && value?.value,
+      otherCustom: typeof value === 'object' && value?.other_custom
+    })
+  }
 
   // Enhanced question rendering for specific sales questions
   if (question.id === 'weekly_conversations') {
@@ -2879,9 +2907,10 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
         return (
           <div className="space-y-4">
             <div className={`grid ${gridCols} gap-4 max-w-4xl mx-auto`}>
-              {question.options?.map((option) => {
-                const IconComponent = getIconForOption(question.id, option.value)
+              {(question.visualOptions || question.options)?.map((option) => {
+                const IconComponent = getIconForOption(question.id, option.value, option.icon)
                 const isSelected = value === option.value
+
 
                 return (
                   <button
@@ -2923,6 +2952,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
                 )
               })}
             </div>
+            
             {question.benchmark && (
               <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
                 <div className="flex items-start space-x-3">
