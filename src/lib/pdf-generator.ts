@@ -262,7 +262,8 @@ export class PDFReportGenerator {
   private addNewPage(): void {
     this.doc.addPage()
     this.pageNumber++
-    this.currentY = this.margin
+    // Increased top margin for content pages to avoid logo overlap
+    this.currentY = this.margin + 25 // Additional 25mm to clear the logo area
   }
 
   private addSectionHeader(title: string): void {
