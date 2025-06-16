@@ -1,6 +1,20 @@
 // Performance-optimized Intersection Observer for animations
 // Replaces heavy Framer Motion usage with lightweight CSS animations
 
+// Extend window interface for Next.js router
+declare global {
+  interface Window {
+    next?: {
+      router?: {
+        events?: {
+          on: (event: string, handler: () => void) => void
+          off: (event: string, handler: () => void) => void
+        }
+      }
+    }
+  }
+}
+
 export class AnimationObserver {
   private observer: IntersectionObserver | null = null
   private maxAnimations = 5
@@ -84,9 +98,20 @@ export class AnimationObserver {
 // Auto-initialize when DOM is ready
 if (typeof window !== 'undefined') {
   let animationObserver: AnimationObserver | null = null
+  let isInitialized = false
   
   function initAnimations() {
+    if (isInitialized && animationObserver) {
+      // Only observe new elements, don't recreate observer
+      animationObserver.reconnect()
+      return
+    }
+    
     animationObserver = new AnimationObserver(5)
+    isInitialized = true
+    
+    // Mark HTML as hydrated to prevent flicker
+    document.documentElement.classList.add('hydrated')
   }
   
   if (document.readyState === 'loading') {
@@ -95,13 +120,21 @@ if (typeof window !== 'undefined') {
     initAnimations()
   }
   
-  // Re-initialize on route changes (for SPA behavior)
-  if ('navigation' in window) {
-    // @ts-ignore - Navigation API is experimental
-    window.navigation.addEventListener('navigate', () => {
-      setTimeout(() => {
-        animationObserver?.reconnect()
-      }, 100)
-    })
+  // Handle Next.js route changes without flickering
+  if (typeof window !== 'undefined') {
+    // Listen for Next.js route changes
+    const handleRouteChange = () => {
+      // Use requestAnimationFrame to ensure DOM is ready
+      requestAnimationFrame(() => {
+        if (animationObserver) {
+          animationObserver.reconnect()
+        }
+      })
+    }
+    
+    // Next.js specific route change detection
+    if (window.next?.router?.events) {
+      window.next.router.events.on('routeChangeComplete', handleRouteChange)
+    }
   }
 }

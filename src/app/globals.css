@@ -34,6 +34,7 @@ main,
 }
 
 .animate-fadeIn {
+  opacity: 0; /* Explicit initial state to prevent flicker */
   animation: fadeIn 0.6s ease-out forwards;
   animation-fill-mode: both;
 }
@@ -90,6 +91,19 @@ main,
 .animate-on-scroll {
   opacity: 0;
   transition: opacity 0.6s ease-out;
+}
+
+/* Critical: Prevent flicker on initial page load */
+.animate-fadeIn:not(.animate) {
+  opacity: 0 !important;
+}
+
+/* Ensure animations don't flicker during hydration */
+html:not(.hydrated) .animate-fadeIn,
+html:not(.hydrated) .animate-on-scroll {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
 }
 
 .animate-on-scroll[data-animation="fadeIn"] {
@@ -149,6 +163,23 @@ main,
   );
 }
 
+/* Performance optimization for animated sections */
+section {
+  contain: layout style;
+}
+
+/* Prevent layout shift during animations */
+.animate-fadeIn,
+.animate-on-scroll {
+  will-change: opacity, transform;
+}
+
+/* Remove will-change after animation completes */
+.animate-fadeIn.animate,
+.animate-on-scroll.animate {
+  will-change: auto;
+}
+
 /* ===== DESIGN SYSTEM CLASSES ===== */
 /* Performance-optimized design system components */
 
@@ -185,6 +216,8 @@ main,
   padding: 32px;
   border: 1px solid rgba(209, 213, 219, 0.6);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  contain: layout style; /* Prevent layout thrashing during animations */
+  will-change: transform; /* Optimize for animations */
 }
 
 .card-base:hover {
@@ -198,6 +231,7 @@ main,
   padding: 32px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(37, 99, 235, 0.06);
+  contain: layout style; /* Prevent layout thrashing during animations */
   transition: all 0.2s ease;
 }
 

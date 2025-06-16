@@ -636,7 +636,7 @@ export function QuestionRenderer({
                     onChange={(e) => onChange(Number(e.target.value))}
                     className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                     style={{
-                      background: `linear-gradient(to right, #2563EB 0%, #2563EB ${((value || question.sliderConfig.min || 0) - question.sliderConfig.min) / (question.sliderConfig.max - question.sliderConfig.min) * 100}%, #E5E7EB ${((value || question.sliderConfig.min || 0) - question.sliderConfig.min) / (question.sliderConfig.max - question.sliderConfig.min) * 100}%, #E5E7EB 100%)`
+                      background: `linear-gradient(to right, #2563EB 0%, #2563EB ${((value || question.sliderConfig.min || 0) - (question.sliderConfig.min || 0)) / ((question.sliderConfig.max || 100) - (question.sliderConfig.min || 0)) * 100}%, #E5E7EB ${((value || question.sliderConfig.min || 0) - (question.sliderConfig.min || 0)) / ((question.sliderConfig.max || 100) - (question.sliderConfig.min || 0)) * 100}%, #E5E7EB 100%)`
                     }}
                   />
                   <div className="flex justify-between text-sm text-gray-500 mt-2">

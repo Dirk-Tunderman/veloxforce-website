@@ -36,6 +36,13 @@ export function constructMetadata({
     alternates: {
       canonical: metaUrl,
     },
+    icons: {
+      icon: [
+        { url: '/favicon.ico', sizes: 'any' },
+        { url: '/icon.svg', type: 'image/svg+xml' },
+      ],
+      apple: '/veloxforce-logo-gradient.png',
+    },
     openGraph: {
       title: metaTitle,
       description: metaDescription,
