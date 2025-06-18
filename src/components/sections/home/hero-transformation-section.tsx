@@ -53,19 +53,24 @@ export function HeroTransformationSection() {
             {/* Main Content Block - Elegant Glass Morphism */}
             <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn p-10 rounded-3xl bg-black/40 backdrop-blur-xl shadow-2xl border border-white/15">
               <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight [text-shadow:_0_4px_30px_rgb(0_0_0_/_90%),_0_2px_12px_rgb(0_0_0_/_80%),_0_1px_4px_rgb(0_0_0_/_70%)] [color:white!important] [background:none!important] [-webkit-text-fill-color:white!important]">
-                What If AI Could Build Custom Software
+                Once You Delegate Your Most Painful Manual Processes,
                 <span className="block">
-                   for Your Exact Business Processes?
+                   You'll Transform From Overwhelmed Operator to Strategic Leader
                 </span>
               </h1>
 
               <p className="velox-text-lead text-center max-w-4xl mx-auto">
-                <span className="block text-xl md:text-2xl font-semibold text-white [text-shadow:_0_3px_20px_rgb(0_0_0_/_85%),_0_2px_8px_rgb(0_0_0_/_75%),_0_1px_3px_rgb(0_0_0_/_65%)] [color:white!important]">Stop adapting to generic tools. AI now builds software specifically for how YOUR business works.</span>
+                <span className="block text-xl md:text-2xl font-semibold text-white [text-shadow:_0_3px_20px_rgb(0_0_0_/_85%),_0_2px_8px_rgb(0_0_0_/_75%),_0_1px_3px_rgb(0_0_0_/_65%)] [color:white!important]">AI creates custom software for your exact processes. We run it perfectly. You get outcomes, not tools to manage.</span>
               </p>
 
-              <p className="text-lg md:text-xl max-w-3xl mx-auto text-center mt-6 text-white font-medium [text-shadow:_0_3px_20px_rgb(0_0_0_/_80%),_0_2px_8px_rgb(0_0_0_/_70%),_0_1px_3px_rgb(0_0_0_/_60%)] [color:white!important]">
-                Describe your process. AI creates the software. It runs forever. Welcome to Service-as-Software.
-              </p>
+              {/* Social Proof Bar */}
+              <div className="bg-white/90 backdrop-blur-md border border-white/25 rounded-full shadow-lg px-6 py-3 inline-flex items-center gap-6 text-gray-800 text-sm">
+                <span className="font-semibold">[Client Logos]</span>
+                <span className="text-gray-400">|</span>
+                <span className="font-medium">200+ Processes Automated</span>
+                <span className="text-gray-400">|</span>
+                <span className="font-medium">95% Success Rate</span>
+              </div>
             </div>
 
             {/* Primary CTAs - Design System Compliant */}
@@ -81,7 +86,7 @@ export function HeroTransformationSection() {
                 >
                   <Link href="/tools/business-audit">
                     <span className="relative z-10 flex items-center gap-2">
-                      Calculate My Savings
+                      See My Transformation Potential
                       <Calculator className="w-5 h-5" />
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
@@ -94,28 +99,15 @@ export function HeroTransformationSection() {
                   className="px-10 py-5 h-auto text-lg font-semibold border-2 border-white text-white hover:bg-white hover:text-blue-900 bg-white/15 backdrop-blur-md rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-lg [text-shadow:_0_2px_10px_rgb(0_0_0_/_70%)] [color:white!important]"
                   asChild
                 >
-                  <Link href="/our-approach">
+                  <Link href="/is-this-right-for-me">
                     <span className="flex items-center gap-2">
-                      What's Possible
+                      Is This Right for Me?
                       <ArrowRight className="w-5 h-5" />
                     </span>
                   </Link>
                 </Button>
               </div>
 
-              {/* Social Proof Banner */}
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/90 backdrop-blur-md border border-white/25 rounded-full shadow-lg">
-                <span className="velox-text-caption text-gray-800">
-                  Most automation projects fail because <span className="font-bold text-gray-900">you're left managing complex tools</span>.
-                </span>
-                <Link
-                  href="#transformation"
-                  className="velox-text-caption font-semibold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1 transition-colors duration-200"
-                >
-                  See the difference
-                  <ArrowDown className="h-4 w-4" />
-                </Link>
-              </div>
             </div>
           </div>
         </Container>
@@ -128,7 +120,7 @@ export function HeroTransformationSection() {
         className="relative overflow-visible"
       >
         <Container className="relative z-10 max-w-7xl overflow-visible">
-          <div className="text-center space-y-16">
+          <div className="text-center space-y-12">
             <div 
               className="space-y-6 animate-fadeIn"
               style={{ animationDelay: '0.2s' }}
@@ -141,12 +133,12 @@ export function HeroTransformationSection() {
               </p>
             </div>
             
-            <div className="grid lg:grid-cols-12 gap-8 items-center mt-12 overflow-visible">
+            <div className="grid lg:grid-cols-12 gap-8 items-center mt-8 overflow-visible">
               {/* Challenge Card */}
               <div className="lg:col-span-5 animate-on-scroll overflow-visible" data-animation="fadeInLeft">
                 <div className="card-challenge relative pt-12 mt-6 overflow-visible">
                   <div className="absolute -top-3 left-8 px-4 py-2 bg-gray-600 text-white rounded-full text-sm font-semibold z-10 shadow-md">
-                    Before Service-as-Software
+                    Your Team Today
                   </div>
                   <div className="icon-container mb-6">
                     <AlertTriangle className="h-6 w-6 icon-primary" />
@@ -156,29 +148,29 @@ export function HeroTransformationSection() {
                   </h4>
                   <div className="space-y-6">
                     <div className="text-center px-4">
-                      <p className="text-xl font-bold text-gray-800 mb-3 leading-tight">Drowning in operational tasks</p>
-                      <p className="text-lg text-gray-600 font-semibold">No time for strategic work</p>
+                      <p className="text-xl font-bold text-gray-800 mb-3 leading-tight">😓 Drowning in manual processes</p>
+                      <p className="text-lg text-gray-600 font-semibold">❌ Strategic meetings cancelled (again)</p>
                     </div>
                     <ul className="space-y-3">
                       <li className="flex items-start gap-2">
                         <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
-                        <span className="velox-text-body">Opens laptop to 47 unprocessed requests</span>
+                        <span className="velox-text-body">Sarah: Opens laptop to 47 invoices to process</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
-                        <span className="velox-text-body">Three systems need manual updates (again)</span>
+                        <span className="velox-text-body">Tom: Three hours answering "where's my order?"</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
-                        <span className="velox-text-body">Two hours copying data between platforms</span>
+                        <span className="velox-text-body">Maria: Two hours copying between systems</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
-                        <span className="velox-text-body">Strategic planning meeting? Cancelled (again)</span>
+                        <span className="velox-text-body">You: Strategic planning cancelled (again)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
-                        <span className="velox-text-body">Leaves at 7 PM, further behind than morning</span>
+                        <span className="velox-text-body">Everyone: Leaves at 7 PM, further behind</span>
                       </li>
                     </ul>
                   </div>
@@ -235,6 +227,18 @@ export function HeroTransformationSection() {
                 </div>
               </div>
             </div>
+            
+            {/* Industry Quote */}
+            <div className="text-center mt-16 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.4s'}}>
+              <div className="card-base max-w-4xl mx-auto p-8">
+                <p className="text-xl italic text-gray-700 mb-4 leading-relaxed">
+                  "We're entering a service as software era... customers will no longer buy software, they'll just make their own."
+                </p>
+                <p className="text-sm font-semibold text-gray-600">
+                  — Industry Executive, BestPin Global
+                </p>
+              </div>
+            </div>
           </div>
         </Container>
       </Section>
@@ -252,21 +256,21 @@ export function HeroTransformationSection() {
               style={{ animationDelay: '0.1s' }}
             >
               <h2 className="velox-text-h2 text-center">
-                A New Way to Think About Software
+                The Service-as-Software Revolution
               </h2>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
               <div className="card-base text-center animate-on-scroll group hover:scale-105 transition-all duration-300 h-full flex flex-col" data-animation="fadeInUp" style={{animationDelay: '0.1s'}}>
                 <div className="icon-container-gradient mx-auto mb-6">
                   <BarChart3 className="w-6 h-6 icon-accent" />
                 </div>
                 <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
-                  AI Creates It
+                  You Describe
                 </h4>
                 <div className="flex-1 flex flex-col justify-between">
-                  <p className="velox-text-body text-gray-700 mb-6 font-medium">Custom software built for your exact processes</p>
-                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Your unique workflows become intelligent software</p>
+                  <p className="velox-text-body text-gray-700 mb-6 font-medium">Your exact process</p>
+                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Tell us how you work today</p>
                 </div>
               </div>
 
@@ -275,24 +279,37 @@ export function HeroTransformationSection() {
                   <TrendingUp className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
-                  It Runs Itself
+                  AI Creates
                 </h4>
                 <div className="flex-1 flex flex-col justify-between">
-                  <p className="velox-text-body text-gray-700 mb-6 font-medium">Zero management overhead</p>
-                  <p className="velox-text-caption font-semibold text-emerald-600 bg-emerald-50 px-3 py-2 rounded-lg mt-auto">No updates, maintenance, or monitoring needed</p>
+                  <p className="velox-text-body text-gray-700 mb-6 font-medium">Custom software in weeks</p>
+                  <p className="velox-text-caption font-semibold text-emerald-600 bg-emerald-50 px-3 py-2 rounded-lg mt-auto">AI builds it specifically for you</p>
                 </div>
               </div>
 
-              <div className="card-solution text-center animate-on-scroll group hover:scale-105 transition-all duration-300 h-full flex flex-col" data-animation="fadeInLeft" style={{animationDelay: '0.3s'}}>
+              <div className="card-elevated text-center animate-on-scroll group hover:scale-105 transition-all duration-300 h-full flex flex-col" data-animation="fadeInLeft" style={{animationDelay: '0.3s'}}>
                 <div className="icon-container-gradient mx-auto mb-6">
                   <Zap className="w-6 h-6 icon-accent" />
                 </div>
                 <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
-                  It Evolves With You
+                  We Perfect
                 </h4>
                 <div className="flex-1 flex flex-col justify-between">
-                  <p className="velox-text-body text-blue-700 mb-6 font-medium">Adapts as you grow</p>
-                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Changes with your business needs automatically</p>
+                  <p className="velox-text-body text-blue-700 mb-6 font-medium">Human oversight on every output</p>
+                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">We ensure quality and accuracy</p>
+                </div>
+              </div>
+
+              <div className="card-solution text-center animate-on-scroll group hover:scale-105 transition-all duration-300 h-full flex flex-col" data-animation="fadeInRight" style={{animationDelay: '0.4s'}}>
+                <div className="icon-container-gradient mx-auto mb-6 bg-gradient-to-br from-green-500 to-green-600">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
+                  You Receive
+                </h4>
+                <div className="flex-1 flex flex-col justify-between">
+                  <p className="velox-text-body text-blue-700 mb-6 font-medium">Guaranteed outcomes</p>
+                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Results, not tools to manage</p>
                 </div>
               </div>
             </div>

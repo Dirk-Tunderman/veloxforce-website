@@ -11,7 +11,7 @@ export function RealExamplesSection() {
       <Container className="relative z-10 max-w-6xl">
         <div className="text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
           <h2 className="velox-text-h2 text-center mb-8">
-            See It In Action: Real Examples
+            Which Process Is Stealing Your Strategic Time?
           </h2>
         </div>
         
@@ -34,9 +34,14 @@ export function RealExamplesSection() {
                 </p>
               </div>
               <div className="mt-auto">
-                <p className="velox-text-caption font-semibold text-emerald-600 bg-emerald-50 px-3 py-2 rounded-lg">
-                  <span className="font-bold">Result:</span> 3 hours → 5 minutes daily
-                </p>
+                <div className="space-y-2">
+                  <p className="velox-text-caption font-semibold text-emerald-600 bg-emerald-50 px-3 py-2 rounded-lg">
+                    <span className="font-bold">Result:</span> 3 hours → 5 minutes daily
+                  </p>
+                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg">
+                    Saves €40-60K annually
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -59,9 +64,14 @@ export function RealExamplesSection() {
                 </p>
               </div>
               <div className="mt-auto">
-                <p className="velox-text-caption font-semibold text-emerald-600 bg-emerald-50 px-3 py-2 rounded-lg">
-                  <span className="font-bold">Result:</span> 50 emails → 3 strategic conversations
-                </p>
+                <div className="space-y-2">
+                  <p className="velox-text-caption font-semibold text-emerald-600 bg-emerald-50 px-3 py-2 rounded-lg">
+                    <span className="font-bold">Result:</span> 50 emails → 3 strategic conversations
+                  </p>
+                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg">
+                    3x faster resolution
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -84,9 +94,14 @@ export function RealExamplesSection() {
                 </p>
               </div>
               <div className="mt-auto">
-                <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg">
-                  <span className="font-bold">Result:</span> Manual Excel work → Real-time dashboards
-                </p>
+                <div className="space-y-2">
+                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg">
+                    <span className="font-bold">Result:</span> Manual Excel work → Real-time dashboards
+                  </p>
+                  <p className="velox-text-caption font-semibold text-emerald-600 bg-emerald-50 px-3 py-2 rounded-lg">
+                    Decisions in minutes, not days
+                  </p>
+                </div>
               </div>
             </div>
           </div>

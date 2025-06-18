@@ -30,11 +30,31 @@ export function ROICalculatorSection() {
         <div className="text-center mb-20 animate-on-scroll" data-animation="fadeInUp">
           <div className="card-elevated max-w-4xl mx-auto p-12">
             <h2 className="velox-text-h2 mb-8">
-              Our Investment Philosophy
+              Transparent Economics That Make Sense
             </h2>
-            <p className="velox-text-lead text-gray-700">
-              Your cost scales with the value we create. We only succeed when you save money.
-            </p>
+            <div className="space-y-6">
+              <div className="text-left max-w-3xl mx-auto">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Investment scales with:</h3>
+                <ul className="space-y-2 text-gray-700 text-lg">
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                    <span>Process complexity</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                    <span>Volume handled</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                    <span>Value delivered</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="text-center">
+                <p className="text-xl font-bold text-blue-600 mb-2">Always less than your current costs.</p>
+                <p className="text-lg font-semibold text-gray-700">ROI positive within 3-6 months.</p>
+              </div>
+            </div>
           </div>
         </div>
 

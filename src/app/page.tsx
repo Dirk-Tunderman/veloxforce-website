@@ -6,13 +6,12 @@ import { Metadata } from "next"
 
 import { MainLayout } from "@/components/layout/main-layout"
 import { HeroTransformationSection } from "@/components/sections/home/hero-transformation-section"
+import { HiddenCostSection } from "@/components/sections/home/hidden-cost-section"
 import { ServiceDifferentiationSection } from "@/components/sections/home/service-differentiation-section"
-import { PartnershipModel } from "@/components/sections/home/partnership-model"
-import { DecisionMakingRelief } from "@/components/sections/home/decision-making-relief"
-import { WhyImpossibleSection } from "@/components/sections/home/why-impossible-section"
 import { RealExamplesSection } from "@/components/sections/home/real-examples-section"
+import { CommonQuestionsSection } from "@/components/sections/home/common-questions-section"
 import { ROICalculatorSection } from "@/components/sections/home/roi-calculator-section"
-import { PathSelectionSection } from "@/components/sections/home/path-selection-section"
+import { ReadyToReclaimSection } from "@/components/sections/home/ready-to-reclaim-section"
 import { constructMetadata } from "@/components/seo"
 
 export const metadata: Metadata = constructMetadata({
@@ -24,36 +23,26 @@ export const metadata: Metadata = constructMetadata({
 export default function HomePage() {
   return (
     <MainLayout>
-      {/* Section 1: Hero + Immediate Transformation */}
+      {/* Section 1: Hero + Transformation */}
       <HeroTransformationSection />
 
-      {/* Section 2: Clear Differentiation - What Makes This Different */}
+      {/* Section 2: Hidden Cost of Business as Usual */}
+      <HiddenCostSection />
+
+      {/* Section 3: Service-as-Software Revolution */}
       <ServiceDifferentiationSection />
 
-      {/* Section 3: The Multiplication Effect */}
-      {/* <MultiplicationEffectSection /> */}
-
-
-      {/* Section 3.5: Why This Seems Impossible */}
-      <WhyImpossibleSection />
-
-      {/* Section 4.5: Real Examples */}
+      {/* Section 4: Which Process Is Stealing Your Strategic Time */}
       <RealExamplesSection />
 
-      {/* Section 5: Partnership Model */}
-      <PartnershipModel />
+      {/* Section 5: Common Questions, Honest Answers */}
+      <CommonQuestionsSection />
 
-      {/* Section 6: Decision-Making Relief */}
-      <DecisionMakingRelief />
-
-      {/* Section 10: Your Economics & ROI */}
+      {/* Section 6: Transparent Economics */}
       <ROICalculatorSection />
 
-      {/* Section 11: Service Guarantee */}
-      {/* <ServiceGuarantee /> */}
-
-      {/* Section 12: Clear Next Step */}
-      <PathSelectionSection />
+      {/* Section 7: Ready to Reclaim Your Time */}
+      <ReadyToReclaimSection />
     </MainLayout>
   )
 }
