@@ -25,14 +25,34 @@ export function HeroTransformationSection() {
         background="white-to-light"
         className="relative min-h-[90vh] flex items-center overflow-hidden"
       >
-        {/* Simplified Background - matching solutions page */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20" />
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover brightness-75 contrast-90"
+            poster="/images/hero/freepik__hero-section-promptabstract-visualization-of-autom__60674.png"
+          >
+            <source
+              src="/images/illustrations/freepik__slow-push-in-laptop-displaying-holographic-data-in__53646.mp4"
+              type="video/mp4"
+            />
+          </video>
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/50" />
+          {/* Radial gradient darker in center */}
+          <div className="absolute inset-0 bg-radial-gradient from-black/50 via-black/30 to-transparent" />
+          {/* Additional blue tint overlay */}
+          <div className="absolute inset-0 bg-blue-900/10" />
+        </div>
 
-        <Container className="relative z-10 max-w-6xl">
-          <div className="text-center space-y-12">
+        <Container className="relative z-20 max-w-6xl">
+          <div className="text-center space-y-12 relative z-30">
             {/* Main Content Block - Properly Structured */}
-            <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn">
-              <h1 className="velox-text-h1-premium">
+            <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn p-10 rounded-3xl bg-black/30 backdrop-blur-md shadow-2xl">
+              <h1 className="velox-text-h1-premium text-white [text-shadow:_0_4px_30px_rgb(0_0_0_/_90%),_0_2px_10px_rgb(0_0_0_/_80%)]">
                 Other people buy Software,
                 <span className="block">
                    your about to Create it.
@@ -40,10 +60,10 @@ export function HeroTransformationSection() {
               </h1>
 
               <p className="velox-text-lead text-center max-w-4xl mx-auto">
-                <span className="block text-2xl font-semibold text-gradient">Your team leads. Technology serves. Business grows.</span>
+                <span className="block text-2xl font-semibold text-white [text-shadow:_0_3px_20px_rgb(0_0_0_/_80%),_0_1px_5px_rgb(0_0_0_/_70%)]">Your team leads. Technology serves. Business grows.</span>
               </p>
 
-              <p className="velox-text-body text-xl max-w-3xl mx-auto text-center mt-6 text-gray-700">
+              <p className="velox-text-body text-xl max-w-3xl mx-auto text-center mt-6 text-gray-100 [text-shadow:_0_2px_15px_rgb(0_0_0_/_70%),_0_1px_3px_rgb(0_0_0_/_60%)]">
                 No software to learn. No systems to manage. Just perfect results delivered to your inbox.
               </p>
             </div>
@@ -71,7 +91,7 @@ export function HeroTransformationSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="px-10 py-5 h-auto text-lg font-semibold border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
+                  className="px-10 py-5 h-auto text-lg font-semibold border-2 border-white text-white hover:bg-white hover:text-blue-900 bg-white/10 backdrop-blur-sm rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
                   asChild
                 >
                   <Link href="/our-approach">
@@ -84,9 +104,9 @@ export function HeroTransformationSection() {
               </div>
 
               {/* Social Proof Banner */}
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-full shadow-sm">
-                <span className="velox-text-caption">
-                  Most automation projects fail because <span className="font-bold text-gray-700">you're left managing complex tools</span>.
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/20 rounded-full shadow-lg">
+                <span className="velox-text-caption text-gray-800">
+                  Most automation projects fail because <span className="font-bold text-gray-900">you're left managing complex tools</span>.
                 </span>
                 <Link
                   href="#transformation"

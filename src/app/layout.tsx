@@ -4,10 +4,8 @@ import { constructMetadata } from "@/components/seo";
 import { SchemaOrg } from "@/components/schema-org";
 import { Toaster } from "@/components/ui/toaster";
 import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
+import { AnimationProvider } from "@/components/animation-provider";
 import "./globals.css";
-
-// Import animation observer for performance-optimized animations
-import "@/lib/animation-observer";
 
 export const metadata: Metadata = constructMetadata({
   title: "End Operational Chaos. Reclaim Your Growth.",
@@ -35,13 +33,15 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen bg-background font-sans antialiased">
         <AnalyticsProvider>
-          <SchemaOrg
-            type="WebSite"
-            title="End Operational Chaos. Reclaim Your Growth."
-            description="Once Your Toughest Manual Processes Are Transformed by This Hybrid AI-Human Model, Costs Typically Slash by up to 50%, Execution Speed Triples, and Your Leadership is Freed to Drive the Business Forward—Guaranteed."
-          />
-          {children}
-          <Toaster />
+          <AnimationProvider>
+            <SchemaOrg
+              type="WebSite"
+              title="End Operational Chaos. Reclaim Your Growth."
+              description="Once Your Toughest Manual Processes Are Transformed by This Hybrid AI-Human Model, Costs Typically Slash by up to 50%, Execution Speed Triples, and Your Leadership is Freed to Drive the Business Forward—Guaranteed."
+            />
+            {children}
+            <Toaster />
+          </AnimationProvider>
         </AnalyticsProvider>
       </body>
     </html>

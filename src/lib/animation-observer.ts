@@ -44,7 +44,7 @@ export class AnimationObserver {
             
             // Add animation class
             element.style.animationDelay = element.style.animationDelay || '0s'
-            element.classList.add('animate')
+            element.classList.add('animated')
             element.style.opacity = '1'
             
             this.activeAnimations++
@@ -109,9 +109,6 @@ if (typeof window !== 'undefined') {
     
     animationObserver = new AnimationObserver(5)
     isInitialized = true
-    
-    // Mark HTML as hydrated to prevent flicker
-    document.documentElement.classList.add('hydrated')
   }
   
   if (document.readyState === 'loading') {

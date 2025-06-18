@@ -93,17 +93,17 @@ main,
   transition: opacity 0.6s ease-out;
 }
 
-/* Critical: Prevent flicker on initial page load */
-.animate-fadeIn:not(.animate) {
-  opacity: 0 !important;
+/* Animation states - ensure visibility */
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-fill-mode: both;
 }
 
-/* Ensure animations don't flicker during hydration */
-html:not(.hydrated) .animate-fadeIn,
-html:not(.hydrated) .animate-on-scroll {
+/* Completed animation state */
+.animate-fadeIn.animated,
+.animate-on-scroll.animated {
   opacity: 1 !important;
-  transform: none !important;
-  animation: none !important;
+  animation-play-state: paused;
 }
 
 .animate-on-scroll[data-animation="fadeIn"] {
@@ -131,7 +131,7 @@ html:not(.hydrated) .animate-on-scroll {
   animation-fill-mode: both;
 }
 
-.animate-on-scroll.animate {
+.animate-on-scroll.animated {
   opacity: 1;
 }
 
@@ -149,6 +149,11 @@ html:not(.hydrated) .animate-on-scroll {
   .animate-on-scroll {
     opacity: 1 !important;
     animation: none !important;
+  }
+  
+  /* Hide video backgrounds for users who prefer reduced motion */
+  video {
+    display: none !important;
   }
 }
 
@@ -186,6 +191,11 @@ section {
 /* Simple gradient backgrounds */
 .bg-gradient-simple {
   background: linear-gradient(180deg, #F7F9FC 0%, #FAFBFC 100%);
+}
+
+/* Radial gradient for video overlay */
+.bg-radial-gradient {
+  background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
 }
 
 /* Static mesh pattern */
