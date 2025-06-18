@@ -16,7 +16,7 @@ export function ServiceDifferentiationSection() {
         {/* Premium Section Header */}
         <div className="text-center mb-20 animate-on-scroll" data-animation="fadeInUp">
           <h2 className="velox-text-h1-premium mb-8">
-            This Isn't Automation. It Isn't Consulting. <span className="text-gradient">It's Something New</span>.
+            Why Generic Software Fails Most Businesses
           </h2>
           <p className="velox-text-lead max-w-4xl mx-auto text-blue-800">
             <span className="font-bold">AI made custom software affordable.</span> We made it accessible by <span className="font-bold">running it for you</span>. 

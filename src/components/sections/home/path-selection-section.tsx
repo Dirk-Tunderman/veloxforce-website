@@ -125,7 +125,7 @@ export function PathSelectionSection() {
           </div>
           
           <h2 className="velox-text-h2 mb-8">
-            Ready to Stop Managing and Start Delegating?
+            Two Ways to Explore Service-as-Software
           </h2>
           
           <p className="velox-text-lead max-w-3xl mx-auto">
@@ -172,7 +172,7 @@ export function PathSelectionSection() {
                     href="/tools/business-audit"
                     className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-12 py-6 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group inline-flex items-center gap-3"
                   >
-                    <span className="relative z-10">Calculate My Savings</span>
+                    <span className="relative z-10">See Process Demo</span>
                     <ArrowRight className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                   </Link>
@@ -228,7 +228,7 @@ export function PathSelectionSection() {
                     href="/tools/business-audit"
                     className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-white border-2 border-blue-600 text-blue-600 font-bold text-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105"
                   >
-                    <span>Get Free Audit</span>
+                    <span>Download Guide</span>
                     <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>

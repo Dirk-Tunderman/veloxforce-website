@@ -268,6 +268,15 @@ export function DecisionMakingRelief() {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
+            Every 'if this, then that' in your business becomes intelligent software
+          </motion.p>
+          <motion.p 
+            className="velox-text-body max-w-3xl mx-auto text-gray-600 mt-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
             Stop wrestling with technical complexity. Focus on what only you can do.
             <span className="font-semibold"> We eliminate decision fatigue.</span>
           </motion.p>
@@ -293,8 +302,15 @@ export function DecisionMakingRelief() {
           <div className="card-base max-w-4xl mx-auto">
             <BrainNetworkVisualization />
             
+            {/* Explanation text */}
+            <div className="mt-8 pt-6 border-t border-blue-200 text-center">
+              <p className="velox-text-body text-gray-700 font-medium">
+                How it works: Your decisions → Our AI → Your custom software
+              </p>
+            </div>
+            
             {/* Decision metrics */}
-            <div className="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-blue-200">
+            <div className="grid grid-cols-3 gap-4 mt-6">
               <motion.div 
                 className="text-center"
                 whileHover={{ scale: 1.05 }}

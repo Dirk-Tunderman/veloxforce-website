@@ -26,142 +26,15 @@ export function ROICalculatorSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20" />
       
       <Container className="relative z-10 max-w-7xl">
-        {/* Section Header */}
+        {/* Investment Philosophy */}
         <div className="text-center mb-20 animate-on-scroll" data-animation="fadeInUp">
-          {/* Design System Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-6">
-            <Calculator className="w-4 h-4 icon-accent" />
-            <span className="velox-text-caption font-medium text-blue-700">Economics Explained</span>
-          </div>
-          
-          <h2 className="velox-text-h2 mb-6">
-            How Service-as-Software Economics Work
-          </h2>
-          
-          <p className="velox-text-lead max-w-4xl mx-auto">
-            <span className="font-bold">Investment scales with complexity.</span> Pricing aligned with your savings. 
-            <span className="font-semibold text-gray-900"> Each solution custom-priced for guaranteed ROI.</span>
-          </p>
-        </div>
-
-        {/* Core Value Methodology - Enhanced Cards */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-24 items-stretch">
-          {/* Cost Discovery Process - Left Card */}
-          <div className="group relative animate-on-scroll" data-animation="fadeInLeft">
-            <div className="card-elevated relative h-full flex flex-col">
-              {/* Gradient Accent */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-3xl" />
-              
-              <div className="flex items-center gap-4 mb-10">
-                <div className="icon-container-gradient w-16 h-16">
-                  <TrendingDown className="w-8 h-8 text-red-600" />
-                </div>
-                <h3 className="velox-text-h3">We Analyze Your Hidden Costs</h3>
-              </div>
-              
-              <div className="space-y-8 mb-10 flex-1">
-                {[
-                  {
-                    step: "1",
-                    title: "Operational inefficiency assessment",
-                    desc: "Map current time, errors, and manual work"
-                  },
-                  {
-                    step: "2", 
-                    title: "Opportunity cost calculation",
-                    desc: "What your team could focus on instead"
-                  },
-                  {
-                    step: "3",
-                    title: "Error and rework costs",
-                    desc: "Hidden costs of manual processes"
-                  }
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="icon-container flex-shrink-0">
-                      <span className="text-lg font-bold text-blue-600">{item.step}</span>
-                    </div>
-                    <div className="flex-1">
-                      <p className="velox-text-body font-semibold text-gray-900 mb-2">{item.title}</p>
-                      <p className="velox-text-body text-gray-600">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="pt-8 border-t border-gray-100 text-center">
-                <p className="velox-text-body font-semibold text-gray-900 mb-2">Free ROI Analysis Shows</p>
-                <p className="text-3xl font-bold text-gradient">
-                  Your Specific Numbers
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Investment Philosophy - Right Card */}
-          <div className="group relative animate-on-scroll" data-animation="fadeInRight">
-            <div className="card-premium relative h-full flex flex-col">
-              {/* Gradient Accent */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-3xl" />
-              
-              <div className="flex items-center gap-4 mb-10">
-                <div className="icon-container-gradient w-16 h-16">
-                  <Calculator className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="velox-text-h3">Investment Philosophy</h3>
-              </div>
-              
-              {/* Core Principle Box */}
-              <div className="card-elevated p-8 mb-10 bg-gradient-to-br from-blue-100/80 to-indigo-100/60">
-                <h4 className="text-2xl font-bold text-blue-900 mb-4">Our Pricing Principle:</h4>
-                <p className="velox-text-lead text-blue-800 text-center font-semibold italic">
-                  "Savings typically exceed investment within months"
-                </p>
-              </div>
-              
-              <div className="space-y-8 mb-10 flex-1">
-                {[
-                  {
-                    title: "Investment scales with complexity",
-                    desc: "More complex processes = higher value created",
-                    icon: <BarChart3 className="w-5 h-5 icon-accent" />
-                  },
-                  {
-                    title: "Pricing aligned with your savings",
-                    desc: "We only succeed when you save money",
-                    icon: <Target className="w-5 h-5 icon-accent" />
-                  },
-                  {
-                    title: "Faster than any alternative",
-                    desc: "Implementation speed varies by scope",
-                    icon: <Zap className="w-5 h-5 icon-accent" />
-                  }
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="icon-container flex-shrink-0">
-                      {item.icon}
-                    </div>
-                    <div className="flex-1">
-                      <p className="velox-text-body font-semibold text-gray-900 mb-2">{item.title}</p>
-                      <p className="velox-text-body text-gray-600">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="pt-8 border-t border-blue-200/50 text-center">
-                <p className="velox-text-body font-semibold text-gray-900 mb-2">Timeline Philosophy:</p>
-                <p className="text-3xl font-bold text-gradient">
-                  Paced to Your Needs
-                </p>
-              </div>
-            </div>
+          <div className="card-elevated max-w-4xl mx-auto p-12">
+            <h2 className="velox-text-h2 mb-8">
+              Our Investment Philosophy
+            </h2>
+            <p className="velox-text-lead text-gray-700">
+              Your cost scales with the value we create. We only succeed when you save money.
+            </p>
           </div>
         </div>
 
@@ -169,7 +42,7 @@ export function ROICalculatorSection() {
         <div className="mb-24 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.3s'}}>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { label: "Average ROI Timeline", value: "3", suffix: " months", icon: <Clock className="w-8 h-8" /> },
+              { label: "ROI Varies by Scope", value: "Custom", suffix: "", icon: <Clock className="w-8 h-8" /> },
               { label: "Cost Reduction", value: "70", suffix: "%", icon: <TrendingDown className="w-8 h-8" /> },
               { label: "Implementation Speed", value: "10", suffix: "x faster", icon: <Zap className="w-8 h-8" /> },
               { label: "Success Rate", value: "98", suffix: "%", icon: <CheckCircle className="w-8 h-8" /> }
@@ -187,6 +60,13 @@ export function ROICalculatorSection() {
                 <p className="velox-text-body font-medium text-gray-600 text-center">{metric.label}</p>
               </div>
             ))}
+          </div>
+          
+          {/* Disclaimer */}
+          <div className="mt-8 text-center">
+            <p className="velox-text-caption text-gray-500 max-w-3xl mx-auto">
+              *Results based on single-process implementations. Full transformation timelines vary.
+            </p>
           </div>
         </div>
 
@@ -209,7 +89,7 @@ export function ROICalculatorSection() {
                 </h3>
                 
                 <p className="velox-text-lead text-gray-600 max-w-3xl mx-auto">
-                  Market leaders don't wait for perfect conditions—they create competitive advantage through strategic action.
+                  The sooner you start transforming processes into software, the faster you gain competitive advantage.
                 </p>
               </div>
               
@@ -217,7 +97,7 @@ export function ROICalculatorSection() {
                 {[
                   {
                     icon: <AlertTriangle className="w-6 h-6" />,
-                    title: "Every Month You Wait",
+                    title: "Delayed Action",
                     desc: "Inefficiencies compound while competitors gain ground",
                     color: "text-red-600",
                     bgColor: "bg-red-50",

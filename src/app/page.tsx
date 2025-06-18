@@ -9,8 +9,8 @@ import { HeroTransformationSection } from "@/components/sections/home/hero-trans
 import { ServiceDifferentiationSection } from "@/components/sections/home/service-differentiation-section"
 import { PartnershipModel } from "@/components/sections/home/partnership-model"
 import { DecisionMakingRelief } from "@/components/sections/home/decision-making-relief"
-import { FreedTimeSection } from "@/components/sections/home/freed-time-section"
-import { EarlyAdoptersSection } from "@/components/sections/home/early-adopters-section"
+import { WhyImpossibleSection } from "@/components/sections/home/why-impossible-section"
+import { RealExamplesSection } from "@/components/sections/home/real-examples-section"
 import { ROICalculatorSection } from "@/components/sections/home/roi-calculator-section"
 import { PathSelectionSection } from "@/components/sections/home/path-selection-section"
 import { constructMetadata } from "@/components/seo"
@@ -33,23 +33,18 @@ export default function HomePage() {
       {/* Section 3: The Multiplication Effect */}
       {/* <MultiplicationEffectSection /> */}
 
-      {/* Section 4: Partnership Model */}
+
+      {/* Section 3.5: Why This Seems Impossible */}
+      <WhyImpossibleSection />
+
+      {/* Section 4.5: Real Examples */}
+      <RealExamplesSection />
+
+      {/* Section 5: Partnership Model */}
       <PartnershipModel />
 
-      {/* Section 5: Decision-Making Relief */}
+      {/* Section 6: Decision-Making Relief */}
       <DecisionMakingRelief />
-
-      {/* Section 6: Strategic Elevation */}
-      {/* <StrategicElevation /> */}
-
-      {/* Section 7: What Our Clients Do With Their Freed Time */}
-      <FreedTimeSection />
-
-      {/* Section 8: Service Promise */}
-      {/* <ServicePromise /> */}
-
-      {/* Section 9: Early Adopters Are Already Winning */}
-      <EarlyAdoptersSection />
 
       {/* Section 10: Your Economics & ROI */}
       <ROICalculatorSection />

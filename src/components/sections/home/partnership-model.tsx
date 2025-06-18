@@ -76,7 +76,7 @@ export function PartnershipModel() {
                 {[
                   {
                     icon: Target,
-                    title: "Your business knowledge and expertise",
+                    title: "Business strategy and vision",
                     description: "You understand your customers and market"
                   },
                   {
@@ -88,11 +88,6 @@ export function PartnershipModel() {
                     icon: Shield,
                     title: "Quality standards and requirements",
                     description: "You set the bar for excellence"
-                  },
-                  {
-                    icon: Building,
-                    title: "Continuous optimization of what works",
-                    description: "You guide strategic improvements"
                   }
                 ].map((item, index) => (
                   <div
@@ -132,11 +127,6 @@ export function PartnershipModel() {
 
               <div className="space-y-6">
                 {[
-                  {
-                    icon: Settings,
-                    title: "All technical complexity and decisions",
-                    description: "We handle the technical implementation"
-                  },
                   {
                     icon: Shield,
                     title: "Ensuring processes run perfectly 24/7",

@@ -32,7 +32,7 @@ export function HeroTransformationSection() {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover brightness-75 contrast-90"
+            className="absolute inset-0 w-full h-full object-cover brightness-75 contrast-95"
             poster="/images/hero/freepik__hero-section-promptabstract-visualization-of-autom__60674.png"
           >
             <source
@@ -40,31 +40,31 @@ export function HeroTransformationSection() {
               type="video/mp4"
             />
           </video>
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/50" />
-          {/* Radial gradient darker in center */}
-          <div className="absolute inset-0 bg-radial-gradient from-black/50 via-black/30 to-transparent" />
-          {/* Additional blue tint overlay */}
-          <div className="absolute inset-0 bg-blue-900/10" />
+          {/* Balanced dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/55" />
+          {/* Smart radial gradient focused on text area */}
+          <div className="absolute inset-0 bg-radial-gradient from-black/20 via-black/10 to-transparent" />
+          {/* Localized darkening behind main content only */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-2/3 bg-radial-gradient from-black/60 via-black/30 to-transparent" />
         </div>
 
         <Container className="relative z-20 max-w-6xl">
           <div className="text-center space-y-12 relative z-30">
-            {/* Main Content Block - Properly Structured */}
-            <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn p-10 rounded-3xl bg-black/30 backdrop-blur-md shadow-2xl">
-              <h1 className="velox-text-h1-premium text-white [text-shadow:_0_4px_30px_rgb(0_0_0_/_90%),_0_2px_10px_rgb(0_0_0_/_80%)]">
-                Other people buy Software,
+            {/* Main Content Block - Elegant Glass Morphism */}
+            <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn p-10 rounded-3xl bg-black/40 backdrop-blur-xl shadow-2xl border border-white/15">
+              <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight [text-shadow:_0_4px_30px_rgb(0_0_0_/_90%),_0_2px_12px_rgb(0_0_0_/_80%),_0_1px_4px_rgb(0_0_0_/_70%)] [color:white!important] [background:none!important] [-webkit-text-fill-color:white!important]">
+                What If AI Could Build Custom Software
                 <span className="block">
-                   your about to Create it.
+                   for Your Exact Business Processes?
                 </span>
               </h1>
 
               <p className="velox-text-lead text-center max-w-4xl mx-auto">
-                <span className="block text-2xl font-semibold text-white [text-shadow:_0_3px_20px_rgb(0_0_0_/_80%),_0_1px_5px_rgb(0_0_0_/_70%)]">Your team leads. Technology serves. Business grows.</span>
+                <span className="block text-xl md:text-2xl font-semibold text-white [text-shadow:_0_3px_20px_rgb(0_0_0_/_85%),_0_2px_8px_rgb(0_0_0_/_75%),_0_1px_3px_rgb(0_0_0_/_65%)] [color:white!important]">Stop adapting to generic tools. AI now builds software specifically for how YOUR business works.</span>
               </p>
 
-              <p className="velox-text-body text-xl max-w-3xl mx-auto text-center mt-6 text-gray-100 [text-shadow:_0_2px_15px_rgb(0_0_0_/_70%),_0_1px_3px_rgb(0_0_0_/_60%)]">
-                No software to learn. No systems to manage. Just perfect results delivered to your inbox.
+              <p className="text-lg md:text-xl max-w-3xl mx-auto text-center mt-6 text-white font-medium [text-shadow:_0_3px_20px_rgb(0_0_0_/_80%),_0_2px_8px_rgb(0_0_0_/_70%),_0_1px_3px_rgb(0_0_0_/_60%)] [color:white!important]">
+                Describe your process. AI creates the software. It runs forever. Welcome to Service-as-Software.
               </p>
             </div>
 
@@ -91,12 +91,12 @@ export function HeroTransformationSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="px-10 py-5 h-auto text-lg font-semibold border-2 border-white text-white hover:bg-white hover:text-blue-900 bg-white/10 backdrop-blur-sm rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
+                  className="px-10 py-5 h-auto text-lg font-semibold border-2 border-white text-white hover:bg-white hover:text-blue-900 bg-white/15 backdrop-blur-md rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-lg [text-shadow:_0_2px_10px_rgb(0_0_0_/_70%)] [color:white!important]"
                   asChild
                 >
                   <Link href="/our-approach">
                     <span className="flex items-center gap-2">
-                      How It Works
+                      What's Possible
                       <ArrowRight className="w-5 h-5" />
                     </span>
                   </Link>
@@ -104,7 +104,7 @@ export function HeroTransformationSection() {
               </div>
 
               {/* Social Proof Banner */}
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/20 rounded-full shadow-lg">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/90 backdrop-blur-md border border-white/25 rounded-full shadow-lg">
                 <span className="velox-text-caption text-gray-800">
                   Most automation projects fail because <span className="font-bold text-gray-900">you're left managing complex tools</span>.
                 </span>
@@ -136,6 +136,9 @@ export function HeroTransformationSection() {
               <h2 className="velox-text-h2 text-center" id="transformation">
                 From Operational Overwhelm to Strategic Leadership
               </h2>
+              <p className="velox-text-lead text-center text-gray-700 mt-4">
+                The transformation is real. The timeline depends on your scope.
+              </p>
             </div>
             
             <div className="grid lg:grid-cols-12 gap-8 items-center mt-12 overflow-visible">
@@ -249,7 +252,7 @@ export function HeroTransformationSection() {
               style={{ animationDelay: '0.1s' }}
             >
               <h2 className="velox-text-h2 text-center">
-                Why Service-as-Software Works
+                A New Way to Think About Software
               </h2>
             </div>
             
@@ -259,11 +262,11 @@ export function HeroTransformationSection() {
                   <BarChart3 className="w-6 h-6 icon-accent" />
                 </div>
                 <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
-                  Scales with You
+                  AI Creates It
                 </h4>
                 <div className="flex-1 flex flex-col justify-between">
-                  <p className="velox-text-body text-gray-700 mb-6 font-medium">Investment proportional to value created</p>
-                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Pricing aligned with your savings</p>
+                  <p className="velox-text-body text-gray-700 mb-6 font-medium">Custom software built for your exact processes</p>
+                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Your unique workflows become intelligent software</p>
                 </div>
               </div>
 
@@ -272,11 +275,11 @@ export function HeroTransformationSection() {
                   <TrendingUp className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
-                  Fast Results
+                  It Runs Itself
                 </h4>
                 <div className="flex-1 flex flex-col justify-between">
-                  <p className="velox-text-body text-gray-700 mb-6 font-medium">Most clients see positive ROI quickly</p>
-                  <p className="velox-text-caption font-semibold text-emerald-600 bg-emerald-50 px-3 py-2 rounded-lg mt-auto">ROI timeline depends on process complexity</p>
+                  <p className="velox-text-body text-gray-700 mb-6 font-medium">Zero management overhead</p>
+                  <p className="velox-text-caption font-semibold text-emerald-600 bg-emerald-50 px-3 py-2 rounded-lg mt-auto">No updates, maintenance, or monitoring needed</p>
                 </div>
               </div>
 
@@ -285,11 +288,11 @@ export function HeroTransformationSection() {
                   <Zap className="w-6 h-6 icon-accent" />
                 </div>
                 <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
-                  Custom Built
+                  It Evolves With You
                 </h4>
                 <div className="flex-1 flex flex-col justify-between">
-                  <p className="velox-text-body text-blue-700 mb-6 font-medium">Faster than any alternative</p>
-                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Implementation speed varies by scope</p>
+                  <p className="velox-text-body text-blue-700 mb-6 font-medium">Adapts as you grow</p>
+                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Changes with your business needs automatically</p>
                 </div>
               </div>
             </div>
@@ -297,71 +300,6 @@ export function HeroTransformationSection() {
         </Container>
       </Section>
 
-      {/* Final CTA Section */}
-      <Section
-        padding="xl"
-        background="transparent"
-        className="relative"
-      >
-        <Container className="relative z-10 max-w-4xl">
-          <div 
-            className="text-center animate-fadeIn"
-            style={{ animationDelay: '0.2s' }}
-          >
-            <div className="p-12 bg-gradient-to-br from-blue-900 to-blue-800 text-white rounded-3xl relative overflow-hidden">
-              {/* Simplified Background Pattern */}
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent" />
-              </div>
-
-              <div className="relative z-10 space-y-8">
-                <div className="space-y-4">
-                  <h2 className="text-3xl font-bold text-white">Ready to Transform Your Operations?</h2>
-                  <p className="text-lg text-blue-100 max-w-2xl mx-auto">
-                    Start with our free business audit to see your specific savings potential
-                  </p>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button
-                    size="lg"
-                    className="relative bg-white text-blue-900 text-lg font-semibold px-12 py-6 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
-                    asChild
-                  >
-                    <Link href="/tools/business-audit">
-                      <span className="relative z-10 flex items-center gap-2">
-                        Get Your Free ROI Analysis
-                        <Calculator className="w-5 h-5" />
-                      </span>
-                    </Link>
-                  </Button>
-
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="text-white border-2 border-white hover:bg-white hover:text-blue-900 px-12 py-6 h-auto text-lg font-semibold transition-all duration-300"
-                    asChild
-                  >
-                    <Link href="/our-approach">
-                      <span className="flex items-center gap-2">
-                        Learn Our Process
-                        <ArrowRight className="w-5 h-5" />
-                      </span>
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Credibility Reference */}
-            <div className="mt-8">
-              <p className="velox-text-caption max-w-md mx-auto">
-                Based on research from McKinsey, MIT Technology Review, and Harvard Business Review
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
     </div>
   )
 }
