@@ -39,10 +39,9 @@ export function HeroTransformationSection() {
             loop
             playsInline
             className="absolute inset-0 w-full h-full object-cover brightness-75 contrast-95"
-            poster="/images/hero/freepik__hero-section-promptabstract-visualization-of-autom__60674.png"
           >
             <source
-              src="/images/illustrations/freepik__slow-push-in-laptop-displaying-holographic-data-in__53646.mp4"
+              src="/images/illustrations/0_Hi_tech_Round_3840x2160.mp4"
               type="video/mp4"
             />
           </video>
@@ -56,9 +55,9 @@ export function HeroTransformationSection() {
 
         <Container className="relative z-20 max-w-6xl">
           <div className="text-center space-y-12 relative z-30">
-            {/* Main Content Block - Elegant Glass Morphism */}
-            <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn p-10 rounded-3xl bg-black/40 backdrop-blur-xl shadow-2xl border border-white/15">
-              <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight [text-shadow:_0_4px_30px_rgb(0_0_0_/_90%),_0_2px_12px_rgb(0_0_0_/_80%),_0_1px_4px_rgb(0_0_0_/_70%)] [color:white!important] [background:none!important] [-webkit-text-fill-color:white!important]">
+            {/* Main Content Block */}
+            <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent [text-shadow:_0_2px_8px_rgb(255_255_255_/_80%),_0_1px_3px_rgb(255_255_255_/_60%)]">
                 Once You Delegate Your Most Painful Manual Processes,
                 <span className="block">
                    You'll Transform From Overwhelmed Operator to Strategic Leader
@@ -66,7 +65,7 @@ export function HeroTransformationSection() {
               </h1>
 
               <p className="velox-text-lead text-center max-w-4xl mx-auto">
-                <span className="block text-xl md:text-2xl font-semibold text-white [text-shadow:_0_3px_20px_rgb(0_0_0_/_85%),_0_2px_8px_rgb(0_0_0_/_75%),_0_1px_3px_rgb(0_0_0_/_65%)] [color:white!important]">AI creates custom software for your exact processes. We run it perfectly. You get outcomes, not tools to manage.</span>
+                <span className="block text-xl md:text-2xl font-semibold text-blue-800 [text-shadow:_0_2px_6px_rgb(255_255_255_/_70%),_0_1px_2px_rgb(255_255_255_/_50%)]">AI creates custom software for your exact processes. We run it perfectly. You get outcomes, not tools to manage.</span>
               </p>
 
               {/* Social Proof Bar */}
@@ -163,25 +162,25 @@ export function HeroTransformationSection() {
                         <p className="text-lg text-gray-600 font-semibold">Strategic meetings cancelled (again)</p>
                       </div>
                     </div>
-                    <ul className="space-y-3 text-center">
-                      <li className="flex items-center justify-center gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
                         <span className="velox-text-body">Sarah: Opens laptop to 47 invoices to process</span>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                      <li className="flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
                         <span className="velox-text-body">Tom: Three hours answering "where's my order?"</span>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                      <li className="flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
                         <span className="velox-text-body">Maria: Two hours copying between systems</span>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                      <li className="flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
                         <span className="velox-text-body">You: Strategic planning cancelled (again)</span>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                      <li className="flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
                         <span className="velox-text-body">Everyone: Leaves at 7 PM, further behind</span>
                       </li>
                     </ul>
@@ -213,25 +212,25 @@ export function HeroTransformationSection() {
                       <p className="text-xl font-bold text-blue-800 mb-3 leading-tight">Focuses on strategic work</p>
                       <p className="text-lg text-blue-600 font-semibold">Receives processed results and analyzes trends</p>
                     </div>
-                    <ul className="space-y-3 text-center">
-                      <li className="flex items-center justify-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                         <span className="velox-text-body">Opens laptop to completed work awaiting review</span>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                         <span className="velox-text-body">Reviews three exceptions needing her expertise</span>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                         <span className="velox-text-body">Leads strategic session on market expansion</span>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                         <span className="velox-text-body">Mentors junior team member on analysis</span>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                         <span className="velox-text-body">Leaves at 4 PM for daughter's recital</span>
                       </li>
                     </ul>
@@ -255,126 +254,6 @@ export function HeroTransformationSection() {
         </Container>
       </Section>
 
-      {/* Value Proposition Section */}
-      <Section
-        padding="xl"
-        background="transparent"
-        className="relative"
-      >
-        <Container className="relative z-10 max-w-6xl">
-          <div className="text-center space-y-12">
-            <div 
-              className="space-y-6 animate-fadeIn"
-              style={{ animationDelay: '0.1s' }}
-            >
-              <h2 className="velox-text-h2 text-center">
-                The Service-as-Software Revolution
-              </h2>
-            </div>
-            
-            <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              <div className="card-base text-center animate-on-scroll group hover:scale-105 transition-all duration-300 h-full flex flex-col" data-animation="fadeInUp" style={{animationDelay: '0.1s'}}>
-                <div className="icon-container-gradient mx-auto mb-6">
-                  <BarChart3 className="w-6 h-6 icon-accent" />
-                </div>
-                <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
-                  You Describe
-                </h4>
-                <div className="flex-1 flex flex-col justify-between">
-                  <p className="velox-text-body text-gray-700 mb-6 font-medium">Your exact process</p>
-                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Tell us how you work today</p>
-                </div>
-              </div>
-
-              <div className="card-elevated text-center animate-on-scroll group hover:scale-105 transition-all duration-300 h-full flex flex-col" data-animation="scaleIn" style={{animationDelay: '0.2s'}}>
-                <div className="icon-container-gradient mx-auto mb-6 bg-gradient-to-br from-emerald-500 to-emerald-600">
-                  <TrendingUp className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
-                  AI Creates
-                </h4>
-                <div className="flex-1 flex flex-col justify-between">
-                  <p className="velox-text-body text-gray-700 mb-6 font-medium">Custom software in weeks</p>
-                  <p className="velox-text-caption font-semibold text-emerald-600 bg-emerald-50 px-3 py-2 rounded-lg mt-auto">AI builds it specifically for you</p>
-                </div>
-              </div>
-
-              <div className="card-elevated text-center animate-on-scroll group hover:scale-105 transition-all duration-300 h-full flex flex-col" data-animation="fadeInLeft" style={{animationDelay: '0.3s'}}>
-                <div className="icon-container-gradient mx-auto mb-6">
-                  <Zap className="w-6 h-6 icon-accent" />
-                </div>
-                <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
-                  We Perfect
-                </h4>
-                <div className="flex-1 flex flex-col justify-between">
-                  <p className="velox-text-body text-blue-700 mb-6 font-medium">Human oversight on every output</p>
-                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">We ensure quality and accuracy</p>
-                </div>
-              </div>
-
-              <div className="card-solution text-center animate-on-scroll group hover:scale-105 transition-all duration-300 h-full flex flex-col" data-animation="fadeInRight" style={{animationDelay: '0.4s'}}>
-                <div className="icon-container-gradient mx-auto mb-6 bg-gradient-to-br from-green-500 to-green-600">
-                  <CheckCircle className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="velox-text-h3 text-blue-800 mb-4 text-center">
-                  You Receive
-                </h4>
-                <div className="flex-1 flex flex-col justify-between">
-                  <p className="velox-text-body text-blue-700 mb-6 font-medium">Guaranteed outcomes</p>
-                  <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Results, not tools to manage</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Complex Decisions We Handle */}
-            <div className="text-center mt-20 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.5s'}}>
-              <h3 className="velox-text-h3 text-blue-900 mb-12">
-                Complex Decisions We Handle for You
-              </h3>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-                {[
-                  {
-                    icon: Settings,
-                    title: "Which technology works best",
-                    description: "Tech stack selection and optimization"
-                  },
-                  {
-                    icon: AlertTriangle,
-                    title: "How to handle exceptions",
-                    description: "Edge case management and resolution"
-                  },
-                  {
-                    icon: Gauge,
-                    title: "When to scale up",
-                    description: "Performance monitoring and scaling"
-                  },
-                  {
-                    icon: RefreshCw,
-                    title: "What to do with updates",
-                    description: "System maintenance and evolution"
-                  }
-                ].map((decision, index) => (
-                  <div
-                    key={index}
-                    className="card-base text-center p-4 group hover:scale-105 transition-all duration-300"
-                  >
-                    <div className="icon-container mx-auto mb-4 bg-gray-100">
-                      <decision.icon className="w-5 h-5 icon-primary" />
-                    </div>
-                    <h4 className="text-sm font-bold text-gray-900 mb-2">{decision.title}</h4>
-                    <p className="text-xs text-gray-600">{decision.description}</p>
-                  </div>
-                ))}
-              </div>
-              
-              <p className="text-sm text-gray-600 mt-8 max-w-2xl mx-auto">
-                Every 'if this, then that' in your business becomes intelligent automation.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
 
     </div>
   )

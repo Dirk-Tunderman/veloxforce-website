@@ -24,9 +24,6 @@ export function JourneyTimelineSection() {
 
         {/* Timeline */}
         <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute top-20 left-0 right-0 h-2 bg-gradient-to-r from-blue-400 via-blue-500 to-emerald-500 hidden lg:block rounded-full shadow-sm z-0"></div>
-          
           {/* Timeline Steps */}
           <div className="grid lg:grid-cols-4 gap-8 items-stretch">
             {[
@@ -77,24 +74,31 @@ export function JourneyTimelineSection() {
                 data-animation="fadeInUp"
                 style={{animationDelay: step.delay}}
               >
-                {/* Timeline Dot */}
-                <div className={`absolute top-20 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white border-4 ${index >= 2 ? 'border-emerald-500' : 'border-blue-500'} rounded-full z-10 hidden lg:block shadow-lg`}></div>
                 
                 {/* Card */}
-                <div className={`card-base text-center p-8 group hover:scale-105 transition-all duration-300 border ${step.borderColor} lg:mt-8 h-full flex flex-col min-h-[400px] relative z-20`}>
-                  <div className={`icon-container-gradient w-20 h-20 mx-auto mb-6 ${step.bgColor} border-2 ${step.borderColor} shadow-lg`}>
-                    <step.icon className={`w-10 h-10 ${step.iconColor}`} />
+                <div className={`card-base text-center p-8 group hover:scale-105 transition-all duration-300 border ${step.borderColor} lg:mt-8 h-[26rem] relative z-20`}>
+                  {/* Icon */}
+                  <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
+                    <div className={`icon-container-gradient w-20 h-20 ${step.bgColor} border-2 ${step.borderColor} shadow-lg`}>
+                      <step.icon className={`w-10 h-10 ${step.iconColor}`} />
+                    </div>
                   </div>
                   
-                  <div className="mb-6">
+                  {/* Week Badge */}
+                  <div className="absolute top-28 left-1/2 transform -translate-x-1/2">
                     <span className={`inline-block px-4 py-2 ${index >= 2 ? 'bg-emerald-600' : 'bg-blue-600'} text-white rounded-full text-sm font-bold tracking-wide shadow-md`}>
                       {step.week}
                     </span>
                   </div>
                   
-                  <h3 className="velox-text-h3 text-gray-900 mb-6 font-bold leading-tight">{step.title}</h3>
-                  <div className="flex-1 flex items-start">
-                    <p className="velox-text-body text-gray-600 leading-relaxed">{step.description}</p>
+                  {/* Title */}
+                  <div className="absolute top-40 left-4 right-4 h-20 flex items-start justify-center">
+                    <h3 className="velox-text-h3 text-gray-900 font-bold leading-tight text-center">{step.title}</h3>
+                  </div>
+                  
+                  {/* Description */}
+                  <div className="absolute top-72 left-4 right-4 h-24 flex items-start justify-center">
+                    <p className="velox-text-body text-gray-600 leading-relaxed text-center">{step.description}</p>
                   </div>
                 </div>
 
@@ -107,6 +111,9 @@ export function JourneyTimelineSection() {
               </div>
             ))}
           </div>
+          
+          {/* Timeline Line */}
+          <div className="w-full h-1 bg-gradient-to-r from-blue-500 via-blue-600 to-emerald-600 rounded-full shadow-md mt-12 ml-0 mr-2 hidden lg:block opacity-80"></div>
         </div>
 
         {/* Footer Note */}
