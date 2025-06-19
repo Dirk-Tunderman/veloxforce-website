@@ -7,17 +7,10 @@ import { Button } from "@/components/ui/button"
 import {
   ArrowRight,
   Target,
-  TrendingUp,
   ArrowDown,
   Calculator,
   CheckCircle,
   AlertTriangle,
-  BarChart3,
-  Zap,
-  Settings,
-  Shield,
-  Gauge,
-  RefreshCw,
   AlertCircle,
   X
 } from "lucide-react"

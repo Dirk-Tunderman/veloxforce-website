@@ -198,16 +198,16 @@ export function ServiceDifferentiationSection() {
                     <span className="text-lg font-bold text-blue-800">Best of All Worlds</span>
                   </div>
                   <div className="space-y-3 text-base text-blue-800 font-medium">
-                    <p className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <p className="flex items-center gap-3 justify-center">
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
                       <span>AI's intelligence + Human oversight</span>
                     </p>
-                    <p className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <p className="flex items-center gap-3 justify-center">
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
                       <span>Automation's scale + Custom solutions</span>
                     </p>
-                    <p className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <p className="flex items-center gap-3 justify-center">
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
                       <span>24/7 operations + Strategic thinking</span>
                     </p>
                   </div>
@@ -220,16 +220,16 @@ export function ServiceDifferentiationSection() {
                     <span className="text-lg font-bold text-blue-800">All Problems Solved</span>
                   </div>
                   <div className="space-y-3 text-base text-blue-800 font-medium">
-                    <p className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <p className="flex items-center gap-3 justify-center">
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
                       <span>We manage the complexity</span>
                     </p>
-                    <p className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <p className="flex items-center gap-3 justify-center">
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
                       <span>We ensure quality & accuracy</span>
                     </p>
-                    <p className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <p className="flex items-center gap-3 justify-center">
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
                       <span>We handle scaling & improvements</span>
                     </p>
                   </div>
