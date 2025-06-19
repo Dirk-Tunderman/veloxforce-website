@@ -1,7 +1,8 @@
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
-import { Play, Mail, Globe, Zap, TrendingUp } from "lucide-react"
+import { Play, Mail, Zap, TrendingUp } from "lucide-react"
+import Image from "next/image"
 
 export function SeamlessHandoffSection() {
   return (
@@ -18,9 +19,9 @@ export function SeamlessHandoffSection() {
           </Text>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left: Process Steps */}
-          <div className="space-y-8">
+          <div className="h-[520px] flex flex-col justify-between">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                 <Play className="w-6 h-6 text-white" />
@@ -78,54 +79,15 @@ export function SeamlessHandoffSection() {
             </div>
           </div>
 
-          {/* Right: Delegation Interface Examples */}
-          <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200">
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Play className="w-8 h-8 text-white" />
-              </div>
-              <Text className="text-lg font-semibold text-blue-900 mb-4">
-                Three Ways to Delegate
-              </Text>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="bg-white rounded-lg p-4 border border-blue-300">
-                <div className="flex items-center gap-3 mb-2">
-                  <Mail className="w-5 h-5 text-blue-600" />
-                  <Text className="font-semibold text-blue-900">Email Delegation</Text>
-                </div>
-                <Text className="text-sm text-blue-700">
-                  invoices@yourcompany.veloxforce.ai → Results in your inbox
-                </Text>
-              </div>
-
-              <div className="bg-white rounded-lg p-4 border border-blue-300">
-                <div className="flex items-center gap-3 mb-2">
-                  <Globe className="w-5 h-5 text-blue-600" />
-                  <Text className="font-semibold text-blue-900">Portal Interface</Text>
-                </div>
-                <Text className="text-sm text-blue-700">
-                  Web dashboard for batch uploads and real-time tracking
-                </Text>
-              </div>
-
-              <div className="bg-white rounded-lg p-4 border border-blue-300">
-                <div className="flex items-center gap-3 mb-2">
-                  <Zap className="w-5 h-5 text-blue-600" />
-                  <Text className="font-semibold text-blue-900">API Integration</Text>
-                </div>
-                <Text className="text-sm text-blue-700">
-                  Direct system-to-system automation triggers
-                </Text>
-              </div>
-            </div>
-
-            <div className="mt-6 pt-6 border-t border-blue-200">
-              <Text className="text-center text-base text-blue-700 italic">
-                "Choose what works best for your workflow - <span className="font-semibold">we adapt to you</span>."
-              </Text>
-            </div>
+          {/* Right: Visual Representation */}
+          <div className="relative h-[520px]">
+            <Image
+              src="/3d-rendering-abstract-black-white.jpg"
+              alt="Seamless integration - abstract geometric forms representing the smooth transition and integration of systems"
+              width={600}
+              height={800}
+              className="w-full h-full object-cover rounded-2xl shadow-lg"
+            />
           </div>
         </div>
       </Container>

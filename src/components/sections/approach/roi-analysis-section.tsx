@@ -1,7 +1,8 @@
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
-import { Calculator, TrendingUp, DollarSign, Target, CheckCircle } from "lucide-react"
+import { Calculator, TrendingUp, DollarSign, Target } from "lucide-react"
+import Image from "next/image"
 
 export function ROIAnalysisSection() {
   return (
@@ -18,9 +19,9 @@ export function ROIAnalysisSection() {
           </Text>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left: Process Steps */}
-          <div className="space-y-8">
+          <div className="h-[520px] flex flex-col justify-between">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                 <Calculator className="w-6 h-6 text-white" />
@@ -78,49 +79,16 @@ export function ROIAnalysisSection() {
             </div>
           </div>
 
-          {/* Right: Quote Card */}
-          <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200">
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-white" />
-              </div>
-              <Text className="text-lg font-semibold text-blue-900 mb-4">
-                Our Commitment to Honesty
-              </Text>
-            </div>
-            
-            <div className="bg-white rounded-lg p-6 border border-blue-300">
-              <Text className="text-lg text-gray-700 italic mb-4">
-                "We've walked away from opportunities that didn't make financial sense. 
-                That's how you know when we move forward, it's the right decision."
-              </Text>
-              
-              <div className="space-y-3 mt-6">
-                <Text className="text-sm font-semibold text-gray-900">We've turned down businesses where:</Text>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                    <Text className="text-sm text-gray-700">Process volumes were too low</Text>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                    <Text className="text-sm text-gray-700">Complexity exceeded ROI potential</Text>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                    <Text className="text-sm text-gray-700">Human judgment was irreplaceable</Text>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                    <Text className="text-sm text-gray-700">Better solutions already existed</Text>
-                  </li>
-                </ul>
-                
-                <Text className="text-sm font-semibold text-blue-900 mt-4">
-                  This selectivity is why our success rate is 95%
-                </Text>
-              </div>
-            </div>
+          {/* Right: Visual Representation */}
+          <div className="relative h-[520px]">
+            <Image
+              src="/beautiful-black-white-minimal-design.jpg"
+              alt="Partnership validation - elegant black and white design representing precision and clarity in business analysis"
+              width={600}
+              height={800}
+              className="w-full h-full object-cover rounded-2xl shadow-lg"
+              priority
+            />
           </div>
         </div>
       </Container>

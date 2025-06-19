@@ -29,11 +29,11 @@ export function Header() {
             <Link href="/" className="flex items-center group">
               <div className="relative">
                 <img
-                  src="/veloxforce-logo-gradient.svg"
+                  src="/veloxforce-logo-navbar.svg"
                   alt={siteConfig.name}
-                  className="h-20 w-auto transition-all duration-300 group-hover:scale-105"
-                  width={300}
-                  height={80}
+                  className="h-16 w-auto transition-all duration-300 group-hover:scale-105"
+                  width={120}
+                  height={64}
                 />
                 {/* Subtle glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-blue-700/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>

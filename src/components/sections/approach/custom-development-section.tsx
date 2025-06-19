@@ -1,7 +1,8 @@
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
-import { Zap, Code, Clock, DollarSign, ArrowRight } from "lucide-react"
+import { Code, Clock, DollarSign, ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 export function CustomDevelopmentSection() {
   return (
@@ -18,9 +19,9 @@ export function CustomDevelopmentSection() {
           </Text>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left: The Process */}
-          <div className="space-y-8">
+          <div className="h-[520px] flex flex-col justify-between">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                 <Code className="w-6 h-6 text-white" />
@@ -78,37 +79,15 @@ export function CustomDevelopmentSection() {
             </div>
           </div>
 
-          {/* Right: Why This Matters */}
-          <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="w-8 h-8 text-white" />
-              </div>
-              <Heading level="3" className="text-xl font-bold text-gray-900 mb-4">
-                Why This Matters
-              </Heading>
-            </div>
-            
-            <div className="space-y-6">
-              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                <Text className="font-semibold text-gray-900 mb-2">Traditional timeline:</Text>
-                <Text className="text-sm text-gray-700">Years to months for custom development</Text>
-              </div>
-
-              <div className="flex justify-center">
-                <ArrowRight className="w-8 h-8 text-blue-400" />
-              </div>
-
-              <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                <Text className="font-semibold text-blue-900 mb-2">With AI acceleration:</Text>
-                <Text className="text-sm text-blue-700"><span className="font-bold">Weeks to months</span> - and getting faster every year</Text>
-              </div>
-
-              <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                <Text className="font-semibold text-green-900 mb-2">The breakthrough:</Text>
-                <Text className="text-sm text-green-700">Custom solutions now <span className="font-bold">make financial sense</span></Text>
-              </div>
-            </div>
+          {/* Right: Visual Representation */}
+          <div className="relative h-[520px]">
+            <Image
+              src="/binary-code-magic-solid-black-background-portrait-mode.jpg"
+              alt="AI-powered development - binary code streams representing the technological foundation of modern automation"
+              width={600}
+              height={800}
+              className="w-full h-full object-cover rounded-2xl shadow-lg"
+            />
           </div>
         </div>
       </Container>

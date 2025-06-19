@@ -1,7 +1,8 @@
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
-import { Shield, Clock, TrendingUp, BarChart3, CheckCircle } from "lucide-react"
+import { Shield, Clock, TrendingUp, BarChart3 } from "lucide-react"
+import Image from "next/image"
 
 export function OngoingExcellenceSection() {
   return (
@@ -18,9 +19,9 @@ export function OngoingExcellenceSection() {
           </Text>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left: Service Features */}
-          <div className="space-y-8">
+          <div className="h-[520px] flex flex-col justify-between">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                 <Clock className="w-6 h-6 text-white" />
@@ -78,44 +79,15 @@ export function OngoingExcellenceSection() {
             </div>
           </div>
 
-          {/* Right: Results Card */}
-          <div className="bg-white rounded-2xl p-8 border border-blue-200 shadow-lg">
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-white" />
-              </div>
-              <Heading level="3" className="text-xl font-bold text-gray-900 mb-4">
-                When It DOES Work, the Results Speak
-              </Heading>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                <Text className="font-semibold text-blue-900 mb-1">Investment Recovery:</Text>
-                <Text className="text-sm text-blue-700">Most clients see positive ROI quickly - timeline depends on process complexity</Text>
-              </div>
-
-              <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                <Text className="font-semibold text-green-900 mb-1">Operational Excellence:</Text>
-                <Text className="text-sm text-green-700">Savings typically exceed investment within months</Text>
-              </div>
-
-              <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
-                <Text className="font-semibold text-purple-900 mb-1">Time Liberation:</Text>
-                <Text className="text-sm text-purple-700">Immediate focus shift to strategic work</Text>
-              </div>
-
-              <div className="bg-indigo-50 rounded-lg p-4 border border-indigo-200">
-                <Text className="font-semibold text-indigo-900 mb-1">Scalability:</Text>
-                <Text className="text-sm text-indigo-700">Growth without proportional cost increases</Text>
-              </div>
-            </div>
-
-            <div className="mt-6 pt-6 border-t border-blue-200">
-              <Text className="text-center text-base text-gray-700 italic">
-                "<span className="font-semibold">The Partnership Model:</span> We invest in building your solution because we believe in its long-term value. When you grow, we grow. When you save, we succeed."
-              </Text>
-            </div>
+          {/* Right: Visual Representation */}
+          <div className="relative h-[520px]">
+            <Image
+              src="/abstract-front-view-black-white-prism-rainbow-light.jpg"
+              alt="Continuous excellence - prism refracting light representing the transformation and refinement of business processes"
+              width={600}
+              height={800}
+              className="w-full h-full object-cover rounded-2xl shadow-lg"
+            />
           </div>
         </div>
       </Container>

@@ -247,22 +247,6 @@ export function ServiceDifferentiationSection() {
           </div>
         </div>
 
-        {/* Industry Validation Badges */}
-        <div className="mb-16 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.5s'}}>
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            <div className="validation-badge">
-              <span className="text-sm text-gray-600">Validated by</span>
-              <div className="flex items-center gap-4 mt-2">
-                <div className="px-4 py-2 bg-white/80 backdrop-blur rounded-lg border border-gray-200">
-                  <span className="font-semibold text-gray-700">MIT Technology Review</span>
-                </div>
-                <div className="px-4 py-2 bg-white/80 backdrop-blur rounded-lg border border-gray-200">
-                  <span className="font-semibold text-gray-700">Harvard Business Review</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Key Message - Optimized */}
         <div className="bg-white/95 border border-blue-200 rounded-lg p-6 text-center relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.4s'}}>

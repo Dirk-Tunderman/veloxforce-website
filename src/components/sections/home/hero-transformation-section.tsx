@@ -155,25 +155,25 @@ export function HeroTransformationSection() {
                         <p className="text-lg text-gray-600 font-semibold">Strategic meetings cancelled (again)</p>
                       </div>
                     </div>
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                    <ul className="space-y-3 text-center">
+                      <li className="flex items-center justify-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
                         <span className="velox-text-body">Sarah: Opens laptop to 47 invoices to process</span>
                       </li>
-                      <li className="flex items-start gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
                         <span className="velox-text-body">Tom: Three hours answering "where's my order?"</span>
                       </li>
-                      <li className="flex items-start gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
                         <span className="velox-text-body">Maria: Two hours copying between systems</span>
                       </li>
-                      <li className="flex items-start gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
                         <span className="velox-text-body">You: Strategic planning cancelled (again)</span>
                       </li>
-                      <li className="flex items-start gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
                         <span className="velox-text-body">Everyone: Leaves at 7 PM, further behind</span>
                       </li>
                     </ul>
@@ -205,25 +205,25 @@ export function HeroTransformationSection() {
                       <p className="text-xl font-bold text-blue-800 mb-3 leading-tight">Focuses on strategic work</p>
                       <p className="text-lg text-blue-600 font-semibold">Receives processed results and analyzes trends</p>
                     </div>
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                    <ul className="space-y-3 text-center">
+                      <li className="flex items-center justify-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span className="velox-text-body">Opens laptop to completed work awaiting review</span>
                       </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span className="velox-text-body">Reviews three exceptions needing her expertise</span>
                       </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span className="velox-text-body">Leads strategic session on market expansion</span>
                       </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span className="velox-text-body">Mentors junior team member on analysis</span>
                       </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span className="velox-text-body">Leaves at 4 PM for daughter's recital</span>
                       </li>
                     </ul>
