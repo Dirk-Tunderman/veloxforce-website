@@ -33,18 +33,18 @@ export function ROICalculatorSection() {
               Transparent Economics That Make Sense
             </h2>
             <div className="space-y-6">
-              <div className="text-left max-w-3xl mx-auto">
+              <div className="text-center max-w-3xl mx-auto">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Investment scales with:</h3>
                 <ul className="space-y-2 text-gray-700 text-lg">
-                  <li className="flex items-center gap-3">
+                  <li className="flex items-center justify-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                     <span>Process complexity</span>
                   </li>
-                  <li className="flex items-center gap-3">
+                  <li className="flex items-center justify-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                     <span>Volume handled</span>
                   </li>
-                  <li className="flex items-center gap-3">
+                  <li className="flex items-center justify-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                     <span>Value delivered</span>
                   </li>

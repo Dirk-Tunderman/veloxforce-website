@@ -80,13 +80,22 @@ export function ReadyToReclaimSection() {
         {/* Contact Information */}
         <div className="text-center animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.3s'}}>
           <div className="card-base max-w-4xl mx-auto p-8">
+            <div className="mb-8">
+              <p className="text-lg font-bold text-gray-900 mb-4">
+                Every week you wait costs money, opportunities, and quality of life.
+              </p>
+              <p className="velox-text-body text-gray-700 mb-6">
+                But jumping into the wrong solution creates bigger problems.
+              </p>
+            </div>
+            
             <p className="velox-text-lead text-gray-700 mb-6">
               Questions? We're here to help.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <div className="flex items-center gap-2 text-blue-600">
                 <Phone className="w-5 h-5" />
-                <span className="font-semibold">Call: +49 XXX XXX XXXX</span>
+                <span className="font-semibold">Call: +49 157 123 45678</span>
               </div>
               <div className="hidden sm:block text-gray-400">|</div>
               <div className="flex items-center gap-2 text-blue-600">

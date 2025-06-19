@@ -13,7 +13,13 @@ import {
   CheckCircle,
   AlertTriangle,
   BarChart3,
-  Zap
+  Zap,
+  Settings,
+  Shield,
+  Gauge,
+  RefreshCw,
+  AlertCircle,
+  X
 } from "lucide-react"
 import Link from "next/link"
 
@@ -133,10 +139,10 @@ export function HeroTransformationSection() {
               </p>
             </div>
             
-            <div className="grid lg:grid-cols-12 gap-8 items-center mt-8 overflow-visible">
+            <div className="grid lg:grid-cols-12 gap-8 items-stretch mt-8 overflow-visible">
               {/* Challenge Card */}
               <div className="lg:col-span-5 animate-on-scroll overflow-visible" data-animation="fadeInLeft">
-                <div className="card-challenge relative pt-12 mt-6 overflow-visible">
+                <div className="card-challenge relative pt-12 mt-6 overflow-visible h-full flex flex-col">
                   <div className="absolute -top-3 left-8 px-4 py-2 bg-gray-600 text-white rounded-full text-sm font-semibold z-10 shadow-md">
                     Your Team Today
                   </div>
@@ -146,30 +152,36 @@ export function HeroTransformationSection() {
                   <h4 className="velox-text-h3 mb-6">
                     Your Team Today
                   </h4>
-                  <div className="space-y-6">
+                  <div className="space-y-6 flex-1">
                     <div className="text-center px-4">
-                      <p className="text-xl font-bold text-gray-800 mb-3 leading-tight">😓 Drowning in manual processes</p>
-                      <p className="text-lg text-gray-600 font-semibold">❌ Strategic meetings cancelled (again)</p>
+                      <div className="flex items-center justify-center gap-3 mb-3">
+                        <AlertCircle className="w-6 h-6 text-red-500" />
+                        <p className="text-xl font-bold text-gray-800 leading-tight">Drowning in manual processes</p>
+                      </div>
+                      <div className="flex items-center justify-center gap-3">
+                        <X className="w-6 h-6 text-red-500" />
+                        <p className="text-lg text-gray-600 font-semibold">Strategic meetings cancelled (again)</p>
+                      </div>
                     </div>
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
+                    <ul className="space-y-3 text-center">
+                      <li className="flex items-center justify-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
                         <span className="velox-text-body">Sarah: Opens laptop to 47 invoices to process</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
                         <span className="velox-text-body">Tom: Three hours answering "where's my order?"</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
                         <span className="velox-text-body">Maria: Two hours copying between systems</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
                         <span className="velox-text-body">You: Strategic planning cancelled (again)</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
                         <span className="velox-text-body">Everyone: Leaves at 7 PM, further behind</span>
                       </li>
                     </ul>
@@ -178,7 +190,7 @@ export function HeroTransformationSection() {
               </div>
               
               {/* Transformation Arrow */}
-              <div className="lg:col-span-2 flex justify-center animate-on-scroll" data-animation="scaleIn" style={{animationDelay: '0.3s'}}>
+              <div className="lg:col-span-2 flex items-center justify-center animate-on-scroll" data-animation="scaleIn" style={{animationDelay: '0.3s'}}>
                 <div className="transformation-arrow">
                   <ArrowRight className="h-8 w-8 text-white" />
                 </div>
@@ -186,7 +198,7 @@ export function HeroTransformationSection() {
               
               {/* Solution Card */}
               <div className="lg:col-span-5 animate-on-scroll overflow-visible" data-animation="fadeInRight" style={{animationDelay: '0.2s'}}>
-                <div className="card-solution relative pt-12 mt-6 overflow-visible">
+                <div className="card-solution relative pt-12 mt-6 overflow-visible h-full flex flex-col">
                   <div className="absolute -top-3 left-8 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full text-sm font-semibold z-10 shadow-md">
                     With Service-as-Software
                   </div>
@@ -196,30 +208,30 @@ export function HeroTransformationSection() {
                   <h4 className="velox-text-h3 text-blue-800 mb-6">
                     Your Team Tomorrow
                   </h4>
-                  <div className="space-y-6">
+                  <div className="space-y-6 flex-1">
                     <div className="text-center px-4">
                       <p className="text-xl font-bold text-blue-800 mb-3 leading-tight">Focuses on strategic work</p>
                       <p className="text-lg text-blue-600 font-semibold">Receives processed results and analyzes trends</p>
                     </div>
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                    <ul className="space-y-3 text-center">
+                      <li className="flex items-center justify-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span className="velox-text-body">Opens laptop to completed work awaiting review</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span className="velox-text-body">Reviews three exceptions needing her expertise</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span className="velox-text-body">Leads strategic session on market expansion</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span className="velox-text-body">Mentors junior team member on analysis</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      <li className="flex items-center justify-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                         <span className="velox-text-body">Leaves at 4 PM for daughter's recital</span>
                       </li>
                     </ul>
@@ -312,6 +324,53 @@ export function HeroTransformationSection() {
                   <p className="velox-text-caption font-semibold text-blue-600 bg-blue-50 px-3 py-2 rounded-lg mt-auto">Results, not tools to manage</p>
                 </div>
               </div>
+            </div>
+            
+            {/* Complex Decisions We Handle */}
+            <div className="text-center mt-20 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.5s'}}>
+              <h3 className="velox-text-h3 text-blue-900 mb-12">
+                Complex Decisions We Handle for You
+              </h3>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                {[
+                  {
+                    icon: Settings,
+                    title: "Which technology works best",
+                    description: "Tech stack selection and optimization"
+                  },
+                  {
+                    icon: AlertTriangle,
+                    title: "How to handle exceptions",
+                    description: "Edge case management and resolution"
+                  },
+                  {
+                    icon: Gauge,
+                    title: "When to scale up",
+                    description: "Performance monitoring and scaling"
+                  },
+                  {
+                    icon: RefreshCw,
+                    title: "What to do with updates",
+                    description: "System maintenance and evolution"
+                  }
+                ].map((decision, index) => (
+                  <div
+                    key={index}
+                    className="card-base text-center p-4 group hover:scale-105 transition-all duration-300"
+                  >
+                    <div className="icon-container mx-auto mb-4 bg-gray-100">
+                      <decision.icon className="w-5 h-5 icon-primary" />
+                    </div>
+                    <h4 className="text-sm font-bold text-gray-900 mb-2">{decision.title}</h4>
+                    <p className="text-xs text-gray-600">{decision.description}</p>
+                  </div>
+                ))}
+              </div>
+              
+              <p className="text-sm text-gray-600 mt-8 max-w-2xl mx-auto">
+                Every 'if this, then that' in your business becomes intelligent automation.
+              </p>
             </div>
           </div>
         </Container>

@@ -23,20 +23,20 @@ export function CommonQuestionsSection() {
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {[
             {
-              question: "How is this different from RPA?",
-              answer: "RPA breaks. Our AI adapts. Plus humans ensure perfection."
+              question: "How is this different from RPA or traditional automation?",
+              answer: "RPA breaks when anything changes. Our AI adapts. Plus, human oversight ensures perfection."
             },
             {
-              question: "What about edge cases?",
-              answer: "AI handles 95%, humans perfect the rest."
+              question: "What about our unique edge cases?",
+              answer: "That's exactly why we combine AI with humans. AI handles 95%, humans perfect the exceptions."
             },
             {
               question: "Will this work with our systems?",
-              answer: "Yes. We integrate with what you have."
+              answer: "Yes. We integrate with what you have. No rip-and-replace required."
             },
             {
-              question: "How quickly can you implement?",
-              answer: "Most processes are live within 4-6 weeks."
+              question: "What if we're not ready?",
+              answer: "We'll tell you honestly. 23% of prospects aren't ready—we help them prepare first."
             }
           ].map((faq, index) => (
             <div
