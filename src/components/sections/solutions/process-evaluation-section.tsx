@@ -247,10 +247,18 @@ export function ProcessEvaluationSection() {
           )}
 
           {!allAnswered && (
-            <div className="text-center">
-              <Text className="text-gray-600">
-                Answer all questions to see your automation readiness score
-              </Text>
+            <div className="text-center animate-on-scroll" data-animation="fadeInUp">
+              <div className="card-base max-w-md mx-auto p-6 bg-blue-50/80 border border-blue-200">
+                <div className="flex items-center justify-center mb-3">
+                  <Trophy className="w-6 h-6 text-blue-600 mr-2" />
+                  <Text className="text-lg font-bold text-blue-800">
+                    Almost There!
+                  </Text>
+                </div>
+                <Text className="text-base font-semibold text-blue-700 leading-relaxed">
+                  Answer all questions to see your automation readiness score
+                </Text>
+              </div>
             </div>
           )}
         </div>

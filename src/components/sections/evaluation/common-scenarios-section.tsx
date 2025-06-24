@@ -22,10 +22,10 @@ const scenarios: Scenario[] = [
     icon: Briefcase
   },
   {
-    title: "The Early Startup",
-    description: "Our processes change daily as we figure out what works.",
-    fit: false,
-    reason: "Not yet - stabilize first, automate later",
+    title: "The Funded Startup",
+    description: "We've received funding but need technical leadership to implement our platform without hiring a full technical team.",
+    fit: true,
+    reason: "Perfect fit - Technical co-founder as a service for funded startups",
     icon: Rocket
   },
   {

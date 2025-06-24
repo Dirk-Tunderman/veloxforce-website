@@ -18,21 +18,19 @@ export default function BlogPage() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <Section padding="xl" background="white-to-light" className="py-20">
+      <Section padding="lg" background="white" className="pt-16 pb-8">
         <Container className="max-w-6xl">
-          <div className="text-center space-y-8">
-            <div className="space-y-6">
-              <Heading level="1" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Insights on{" "}
-                <span className="text-gradient">
-                  Business Transformation
-                </span>
-              </Heading>
+          <div className="text-center space-y-4">
+            <Heading level="1" className="text-4xl md:text-5xl font-bold leading-tight">
+              Insights on{" "}
+              <span className="text-gradient">
+                Business Transformation
+              </span>
+            </Heading>
 
-              <Text className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                Discover the latest trends in business automation, AI integration, and Service-as-Software innovation.
-              </Text>
-            </div>
+            <Text className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              Discover the latest trends in business automation, AI integration, and Service-as-Software innovation.
+            </Text>
           </div>
         </Container>
       </Section>

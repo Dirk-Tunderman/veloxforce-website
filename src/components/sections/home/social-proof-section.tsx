@@ -21,14 +21,39 @@ export function SocialProofSection() {
 
         {/* Client Logos Grid */}
         <div className="mb-16 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.1s'}}>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-center">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="flex items-center justify-center">
-                <div className="w-24 h-16 bg-gray-200 rounded-lg flex items-center justify-center border border-gray-300">
-                  <span className="text-gray-500 text-sm font-medium">Logo {i}</span>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center justify-center max-w-2xl mx-auto">
+            {/* FemRide Logo */}
+            <div className="flex items-center justify-center">
+              <div className="w-32 h-20 flex items-center justify-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <img
+                  src="/images/companies/femride-logo.png"
+                  alt="FemRide"
+                  className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
               </div>
-            ))}
+            </div>
+            
+            {/* Wilsch Logo */}
+            <div className="flex items-center justify-center">
+              <div className="w-32 h-20 flex items-center justify-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <img
+                  src="/images/companies/wilsch-logo.png"
+                  alt="Wilsch"
+                  className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            </div>
+            
+            {/* WPH Logo */}
+            <div className="flex items-center justify-center">
+              <div className="w-32 h-20 flex items-center justify-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <img
+                  src="/images/companies/wph-logo.svg"
+                  alt="WPH"
+                  className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -42,11 +67,11 @@ export function SocialProofSection() {
               </div>
               <div className="flex-1">
                 <p className="velox-text-body text-gray-700 leading-relaxed mb-6 italic">
-                  "Once we delegated invoice processing to Veloxforce, our finance team finally had time to negotiate better vendor terms. Saved €200K in the first year alone."
+                  "We expect that accounting will no longer need 10 hours per week for daily business, but perhaps half."
                 </p>
                 <div className="border-t border-gray-200 pt-4">
-                  <p className="font-semibold text-gray-900">Michael Schmidt</p>
-                  <p className="text-sm text-gray-600">CFO, Manufacturing Company (150 employees)</p>
+                  <p className="font-semibold text-gray-900">Ulrich Wilsch</p>
+                  <p className="text-sm text-gray-600">CEO, Wilsch GmbH</p>
                 </div>
               </div>
             </div>
@@ -60,11 +85,11 @@ export function SocialProofSection() {
               </div>
               <div className="flex-1">
                 <p className="velox-text-body text-gray-700 leading-relaxed mb-6 italic">
-                  "Our customer service transformation was incredible. From 50 daily emails to 5 strategic conversations. Customer satisfaction up 40%."
+                  "I would say at least 50% - the time has been cut in half. And only 50% in our case because I was able to delegate so much."
                 </p>
                 <div className="border-t border-gray-200 pt-4">
-                  <p className="font-semibold text-gray-900">Sarah Chen</p>
-                  <p className="text-sm text-gray-600">COO, E-commerce Platform</p>
+                  <p className="font-semibold text-gray-900">Aykut Atli</p>
+                  <p className="text-sm text-gray-600">Founder, FemRide</p>
                 </div>
               </div>
             </div>

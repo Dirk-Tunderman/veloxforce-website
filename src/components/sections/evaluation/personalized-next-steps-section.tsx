@@ -2,170 +2,122 @@
 
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
-import { Heading, Text } from "@/components/ui/typography"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, AlertTriangle, XCircle, ArrowRight, Download, Calendar } from "lucide-react"
+import { Target, BarChart3, Clock, CheckCircle, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
 
-interface PathOption {
-  title: string
-  subtitle: string
-  description: string
-  cta: string
-  href: string
-  includes: string[]
-  icon: any
-  color: string
-}
-
-const pathOptions: PathOption[] = [
-  {
-    title: "Strong Fit",
-    subtitle: "See exactly how Service-as-Software would transform your specific process",
-    description: "You're ready for Service-as-Software. Let's show you exactly what that transformation looks like.",
-    cta: "Get Transformation Analysis →",
-    href: "/tools/business-audit",
-    includes: [
-      "ROI calculation based on your process",
-      "Implementation timeline",
-      "Team impact assessment",
-      "Risk mitigation plan"
-    ],
-    icon: CheckCircle,
-    color: "green"
-  },
-  {
-    title: "Potential Fit",
-    subtitle: "Explore which processes make most sense to delegate first",
-    description: "You have potential, but need clarity on priorities. Let's find your best starting point.",
-    cta: "Process Prioritization Session →",
-    href: "/contact",
-    includes: [
-      "Process audit and mapping",
-      "Readiness assessment",
-      "Roadmap development",
-      "Foundation building steps"
-    ],
-    icon: AlertTriangle,
-    color: "yellow"
-  },
-  {
-    title: "Not Ready Yet",
-    subtitle: "Get resources to prepare for future automation",
-    description: "Build your foundation first. We'll give you the tools to prepare for when you're ready.",
-    cta: "Download Readiness Guide →",
-    href: "/resources/readiness-guide",
-    includes: [
-      "Process documentation templates",
-      "Standardization best practices",
-      "Timing indicators to watch for",
-      "Preparation roadmap"
-    ],
-    icon: XCircle,
-    color: "blue"
-  }
-]
-
 export function PersonalizedNextStepsSection() {
   const { ref: titleRef, isVisible: titleVisible } = useIntersectionObserver({ threshold: 0.3 })
+  const { ref: cardRef, isVisible: cardVisible } = useIntersectionObserver({ threshold: 0.2 })
 
   return (
     <Section padding="xl" background="light-to-white">
-      <Container className="max-w-6xl">
+      <Container className="max-w-5xl">
+        {/* Section Header */}
         <div 
           ref={titleRef as any}
-          className={`text-center mb-12 transition-all duration-800 ease-out ${
+          className={`text-center mb-16 transition-all duration-800 ease-out ${
             titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <h2 className="velox-text-h1-premium mb-4">
-            Your Personalized Path Forward
+          <h2 className="velox-text-h1-premium mb-6">
+            Discover Your Automation Readiness
           </h2>
-          <p className="velox-text-lead max-w-3xl mx-auto">
-            Based on your readiness level, here's your recommended next step
+          <p className="velox-text-lead max-w-4xl mx-auto text-gray-700">
+            Whether you're just exploring automation or ready to scale, our assessment reveals exactly where you stand and what's possible for your business.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
-          {pathOptions.map((option, index) => {
-            const IconComponent = option.icon
-            const { ref: cardRef, isVisible: cardVisible } = useIntersectionObserver({ threshold: 0.2 })
-            
-            // Determine card styling based on option
-            const isStrongFit = option.color === 'green'
-            const cardClass = isStrongFit ? 'card-solution' : 'card-elevated'
-            const iconClass = isStrongFit ? 'icon-container-gradient' : 'icon-container'
-            const iconColor = isStrongFit ? 'text-blue-600' : 'text-gray-700'
-            const titleColor = isStrongFit ? 'text-blue-800' : 'text-gray-900'
-            const ctaType = isStrongFit ? 'primary' : 'secondary'
-            
-            return (
-              <div 
-                key={index} 
-                ref={cardRef as any}
-                className={`${cardClass} transition-all duration-1000 ease-out ${
-                  cardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                {/* Header */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={iconClass}>
-                    <IconComponent className={`w-6 h-6 ${iconColor}`} />
-                  </div>
-                  <h3 className={`velox-text-h3 ${titleColor}`}>
-                    If You're a {option.title}
-                  </h3>
-                </div>
+        {/* Main Assessment Card */}
+        <div 
+          ref={cardRef as any}
+          className={`card-solution max-w-4xl mx-auto transition-all duration-1000 ease-out ${
+            cardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}
+        >
+          {/* Card Header */}
+          <div className="text-center mb-8">
+            <div className="icon-container-gradient mx-auto mb-4">
+              <Target className="w-8 h-8 text-blue-600" />
+            </div>
+            <h3 className="velox-text-h2 text-blue-800 mb-4">
+              8-Minute Business Assessment
+            </h3>
+            <p className="text-xl text-blue-700 font-medium">
+              Get a personalized readiness score and transformation roadmap
+            </p>
+          </div>
 
-                {/* Description */}
-                <p className="text-lg font-semibold text-gray-900 mb-2">
-                  {option.subtitle}
-                </p>
-                <p className="velox-text-body mb-6">
-                  {option.description}
-                </p>
-
-                {/* Includes */}
-                <div className="mb-6">
-                  <p className="text-sm font-semibold text-gray-900 mb-3">
-                    Includes:
-                  </p>
-                  <ul className="space-y-2">
-                    {option.includes.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-gray-600 rounded-full mt-1.5 flex-shrink-0" />
-                        <p className="text-sm text-gray-700">{item}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* CTA */}
-                {ctaType === 'primary' ? (
-                  <Button
-                    className="w-full relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
-                    asChild
-                  >
-                    <Link href={option.href}>
-                      <span className="relative z-10">{option.cta}</span>
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                    </Link>
-                  </Button>
-                ) : (
-                  <Button
-                    className="w-full bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-1"
-                    asChild
-                  >
-                    <Link href={option.href}>
-                      {option.cta}
-                    </Link>
-                  </Button>
-                )}
+          {/* Benefits Grid */}
+          <div className="grid md:grid-cols-3 gap-8 mb-10">
+            <div className="text-center">
+              <div className="icon-container mx-auto mb-4">
+                <BarChart3 className="w-6 h-6 text-blue-600" />
               </div>
-            )
-          })}
+              <h4 className="font-bold text-gray-900 mb-2">Your Readiness Score</h4>
+              <p className="text-sm text-gray-700">See exactly how ready your business is for automation</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="icon-container mx-auto mb-4">
+                <CheckCircle className="w-6 h-6 text-blue-600" />
+              </div>
+              <h4 className="font-bold text-gray-900 mb-2">ROI Calculation</h4>
+              <p className="text-sm text-gray-700">Get estimated savings and timeline for your processes</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="icon-container mx-auto mb-4">
+                <Clock className="w-6 h-6 text-blue-600" />
+              </div>
+              <h4 className="font-bold text-gray-900 mb-2">Next Steps Plan</h4>
+              <p className="text-sm text-gray-700">Receive a customized roadmap for your situation</p>
+            </div>
+          </div>
+
+          {/* What You'll Discover */}
+          <div className="bg-blue-50 rounded-xl p-6 mb-8">
+            <h4 className="font-bold text-blue-900 mb-4 text-center">What You'll Discover:</h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <p className="text-blue-800 text-sm">Which processes are best suited for automation</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <p className="text-blue-800 text-sm">Potential time and cost savings for your team</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <p className="text-blue-800 text-sm">Implementation timeline and investment required</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <p className="text-blue-800 text-sm">Whether Service-as-Software is right for you</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Main CTA */}
+          <div className="text-center">
+            <Button
+              size="lg"
+              className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-bold px-12 py-4 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
+              asChild
+            >
+              <Link href="/tools/business-audit">
+                <span className="relative z-10 flex items-center gap-3">
+                  Start Your Assessment
+                  <ArrowRight className="w-6 h-6" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              </Link>
+            </Button>
+            <p className="text-sm text-gray-600 mt-4">
+              Takes 5 minutes • No email required • Instant results
+            </p>
+          </div>
         </div>
 
         {/* Bottom Message */}
@@ -180,7 +132,7 @@ export function PersonalizedNextStepsSection() {
               The Truth About Timing
             </h4>
             
-            <div className="grid md:grid-cols-2 gap-8 text-left">
+            <div className="grid md:grid-cols-2 gap-8 text-center">
               <div>
                 <p className="font-semibold text-blue-300 mb-2">Better Times:</p>
                 <ul className="space-y-1 text-blue-100">

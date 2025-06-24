@@ -12,183 +12,247 @@ import {
   FileText,
   DollarSign,
   Users,
-  CheckCircle,
   ArrowRight,
-  ChevronDown,
-  ChevronUp
+  Sparkles,
+  Clock,
+  TrendingUp,
+  Shield,
+  ShoppingCart,
+  Monitor,
+  Briefcase,
+  Factory,
+  Zap,
+  Target,
+  CheckCircle
 } from "lucide-react"
 
 const operations = [
   {
     id: "financial",
     title: "Financial Operations",
-    subtitle: "I'm drowning in data entry and reporting",
+    subtitle: "Hours lost to invoicing & reporting",
     icon: BarChart3,
-    color: "blue",
-    struggles: [
-      "Your accounting people spend hours on invoice processing instead of financial analysis",
-      "Team tracks payments manually instead of analyzing cash flow trends",
-      "Financial reports take hours instead of strategic planning time",
-      "Pricing calculations prone to errors instead of optimization",
-      "Expense management chaos instead of budget analysis"
+    color: "bg-blue-600",
+    currentState: "Your team spends 15+ hours/week on manual financial tasks",
+    transformation: "We handle all data entry, reporting, and reconciliation",
+    timeReclaimed: "20+ hours/week",
+    errorReduction: "95%",
+    costSavings: "40-60%",
+    industries: [
+      {
+        name: "E-commerce",
+        icon: ShoppingCart,
+        examples: ["Order processing & reconciliation", "Refund management & tracking", "Multi-channel financial reporting", "Tax compliance automation"]
+      },
+      {
+        name: "SaaS",
+        icon: Monitor,
+        examples: ["Subscription billing automation", "Usage tracking & invoicing", "Revenue recognition", "Churn analysis reporting"]
+      },
+      {
+        name: "Professional Services",
+        icon: Briefcase,
+        examples: ["Time-based billing automation", "Project expense tracking", "Client invoice generation", "Profitability analysis"]
+      },
+      {
+        name: "Manufacturing",
+        icon: Factory,
+        examples: ["Purchase order processing", "Vendor payment automation", "Cost accounting", "Inventory financial tracking"]
+      }
     ],
-    transformation: [
-      "You send invoices → We deliver organized financial data",
-      "You request reports → We deliver them on schedule",
-      "You set pricing rules → We apply them perfectly",
-      "You submit expenses → We categorize and report them",
-      "You delegate the process → We handle all complexity"
-    ],
-    realityHandled: [
-      "Complex approval workflows? Built in.",
-      "Multiple currencies? No problem.",
-      "Legacy accounting system? We integrate.",
-      "Compliance requirements? Followed perfectly."
-    ],
-    cta: "Transform Financial Operations"
+    timeline: [
+      { phase: "Analysis & Setup", duration: "1-2 weeks", description: "Process mapping & system integration" },
+      { phase: "Automation Implementation", duration: "2-3 weeks", description: "AI-powered workflow creation" },
+      { phase: "Full Operation", duration: "Week 4+", description: "Complete hands-off financial operations" }
+    ]
   },
   {
     id: "customer",
     title: "Customer Operations",
-    subtitle: "Customer service is eating all our time",
+    subtitle: "Drowning in support tickets",
     icon: MessageCircle,
-    color: "green",
-    struggles: [
-      "Your service team answers routine questions instead of building relationships",
-      "Customer data scattered instead of strategic analysis",
-      "Response delays instead of proactive service improvements",
-      "Tracking issues manually instead of optimizing customer experience",
-      "Follow-up tasks instead of complex problem-solving"
+    color: "bg-purple-600",
+    currentState: "Your team handles 100+ routine inquiries daily",
+    transformation: "We manage all first-line support and ticket routing",
+    timeReclaimed: "30+ hours/week",
+    errorReduction: "90%",
+    costSavings: "50-70%",
+    industries: [
+      {
+        name: "E-commerce",
+        icon: ShoppingCart,
+        examples: ["Order status inquiries", "Shipping & delivery questions", "Return & refund processing", "Product information requests"]
+      },
+      {
+        name: "SaaS",
+        icon: Monitor,
+        examples: ["Account setup & onboarding", "Feature usage guidance", "Billing inquiries", "Technical troubleshooting"]
+      },
+      {
+        name: "Professional Services",
+        icon: Briefcase,
+        examples: ["Appointment scheduling", "Project status updates", "Service inquiries", "Client communication"]
+      },
+      {
+        name: "Manufacturing",
+        icon: Factory,
+        examples: ["Product specifications", "Warranty claim processing", "Technical support", "Order tracking"]
+      }
     ],
-    transformation: [
-      "You forward customer inquiries → We deliver responses",
-      "You receive escalated complex cases → We handle routine ones",
-      "You set response standards → We meet them 24/7",
-      "You define service levels → We deliver consistently",
-      "You delegate customer operations → We ensure nothing falls through cracks"
-    ],
-    realityHandled: [
-      "Multiple support channels? Unified.",
-      "Complex product questions? Scripted.",
-      "Escalation rules? Followed.",
-      "Different customer tiers? Recognized."
-    ],
-    cta: "Transform Customer Operations"
+    timeline: [
+      { phase: "Support Setup", duration: "1-2 weeks", description: "Knowledge base & response templates" },
+      { phase: "AI Training", duration: "2-3 weeks", description: "Custom AI agent development" },
+      { phase: "24/7 Operation", duration: "Week 4+", description: "Full customer support automation" }
+    ]
   },
   {
     id: "administrative",
     title: "Administrative Operations",
-    subtitle: "Documents and paperwork never end",
+    subtitle: "Endless paperwork & filing",
     icon: FileText,
-    color: "purple",
-    struggles: [
-      "Your team drowns in document processing instead of workflow optimization",
-      "Data entry between systems instead of process improvement",
-      "Filing chaos instead of efficiency analysis",
-      "Compliance documentation burden instead of strategic compliance planning",
-      "Manual report generation instead of insights analysis"
+    color: "bg-indigo-600",
+    currentState: "Documents scattered across systems and formats",
+    transformation: "We digitize, organize, and manage all documentation",
+    timeReclaimed: "15+ hours/week",
+    errorReduction: "98%",
+    costSavings: "35-50%",
+    industries: [
+      {
+        name: "E-commerce",
+        icon: ShoppingCart,
+        examples: ["Vendor contract management", "Compliance documentation", "Inventory records", "Supplier communication"]
+      },
+      {
+        name: "SaaS",
+        icon: Monitor,
+        examples: ["User data management", "Compliance reporting", "Contract processing", "Legal document filing"]
+      },
+      {
+        name: "Professional Services",
+        icon: Briefcase,
+        examples: ["Client file management", "Proposal generation", "Contract administration", "Regulatory compliance"]
+      },
+      {
+        name: "Manufacturing",
+        icon: Factory,
+        examples: ["Quality documentation", "Safety compliance records", "Supplier paperwork", "Regulatory filings"]
+      }
     ],
-    transformation: [
-      "You send documents → We deliver structured data",
-      "You request filing → We organize and store everything",
-      "You need compliance → We handle all requirements",
-      "You want reports → We create them automatically",
-      "You delegate admin work → We deliver organized results"
-    ],
-    realityHandled: [
-      "Paper documents? Digitized.",
-      "Multiple formats? Standardized.",
-      "Regulatory requirements? Met.",
-      "Audit trails? Complete."
-    ],
-    cta: "Transform Administrative Operations"
+    timeline: [
+      { phase: "Document Audit", duration: "1-2 weeks", description: "Current system analysis & digitization plan" },
+      { phase: "System Migration", duration: "2-4 weeks", description: "Document digitization & organization" },
+      { phase: "Automated Management", duration: "Week 5+", description: "Ongoing document processing & filing" }
+    ]
   },
   {
     id: "revenue",
     title: "Revenue Operations",
-    subtitle: "Our invoicing and billing is a mess",
+    subtitle: "Manual billing nightmares",
     icon: DollarSign,
-    color: "orange",
-    struggles: [
-      "Your finance people manage invoicing manually instead of analyzing revenue trends",
-      "Pricing inconsistencies instead of strategic pricing optimization",
-      "Quote creation delays instead of growth opportunity analysis",
-      "Payment reconciliation headaches instead of cash flow planning",
-      "Revenue reporting delays instead of growth strategy development"
+    color: "bg-green-600",
+    currentState: "Invoicing delays impact cash flow and growth",
+    transformation: "We automate your entire revenue cycle",
+    timeReclaimed: "25+ hours/week",
+    errorReduction: "99%",
+    costSavings: "45-65%",
+    industries: [
+      {
+        name: "E-commerce",
+        icon: ShoppingCart,
+        examples: ["Automated order invoicing", "Payment processing", "Marketplace reconciliation", "Revenue analytics"]
+      },
+      {
+        name: "SaaS",
+        icon: Monitor,
+        examples: ["Subscription management", "Usage-based billing", "Proration calculations", "Revenue recognition"]
+      },
+      {
+        name: "Professional Services",
+        icon: Briefcase,
+        examples: ["Time & materials billing", "Project milestone invoicing", "Retainer management", "Client payment tracking"]
+      },
+      {
+        name: "Manufacturing",
+        icon: Factory,
+        examples: ["Quote generation", "Order-to-cash automation", "Contract billing", "Payment collection"]
+      }
     ],
-    transformation: [
-      "You deliver service → We send invoices automatically",
-      "You set pricing rules → We apply them consistently",
-      "You need quotes → We generate them in minutes",
-      "You track payments → We handle all reconciliation",
-      "You delegate revenue ops → We deliver real-time visibility"
-    ],
-    realityHandled: [
-      "Complex pricing rules? Programmed.",
-      "Multiple payment methods? Tracked.",
-      "Subscription billing? Automated.",
-      "International complexity? Managed."
-    ],
-    cta: "Transform Revenue Operations"
+    timeline: [
+      { phase: "Revenue Analysis", duration: "1-2 weeks", description: "Current billing process mapping" },
+      { phase: "Automation Setup", duration: "2-3 weeks", description: "Payment & invoicing system integration" },
+      { phase: "Full Revenue Cycle", duration: "Week 4+", description: "Complete automated revenue operations" }
+    ]
   },
   {
     id: "sales",
     title: "Sales Operations",
-    subtitle: "Sales follow-up falls through the cracks",
+    subtitle: "CRM chaos & follow-up failures",
     icon: Users,
-    color: "indigo",
-    struggles: [
-      "Your team does manual data entry instead of building relationships",
-      "Lead scoring manually instead of strategic outreach planning",
-      "Follow-up reminders instead of creative campaign development",
-      "Data entry between platforms instead of analyzing pipeline trends",
-      "Routine qualification tasks instead of closing deals"
+    color: "bg-orange-500",
+    currentState: "Sales data entry takes time from selling",
+    transformation: "We maintain your CRM and execute follow-ups",
+    timeReclaimed: "20+ hours/week",
+    errorReduction: "95%",
+    costSavings: "40-55%",
+    industries: [
+      {
+        name: "E-commerce",
+        icon: ShoppingCart,
+        examples: ["Lead scoring & qualification", "Customer journey tracking", "Abandoned cart recovery", "Upsell automation"]
+      },
+      {
+        name: "SaaS",
+        icon: Monitor,
+        examples: ["Trial-to-paid conversion", "Feature adoption tracking", "Expansion opportunity identification", "Renewal management"]
+      },
+      {
+        name: "Professional Services",
+        icon: Briefcase,
+        examples: ["Proposal tracking", "Client relationship management", "Referral program automation", "Pipeline reporting"]
+      },
+      {
+        name: "Manufacturing",
+        icon: Factory,
+        examples: ["Distributor relationship management", "Quote follow-up automation", "Territory management", "Sales forecasting"]
+      }
     ],
-    transformation: [
-      "You talk to prospects → We log everything",
-      "You close deals → We handle the paperwork",
-      "You set follow-up rules → We execute them perfectly",
-      "You focus on strategy → We ensure nothing drops",
-      "You delegate sales ops → We deliver organized pipeline"
-    ],
-    realityHandled: [
-      "CRM data entry? Handled.",
-      "Lead distribution? Optimized.",
-      "Follow-up sequences? Executed.",
-      "Sales reporting? Real-time."
-    ],
-    cta: "Transform Sales Operations"
+    timeline: [
+      { phase: "CRM Optimization", duration: "1-2 weeks", description: "Data cleanup & process standardization" },
+      { phase: "Automation Implementation", duration: "2-3 weeks", description: "Follow-up sequences & lead scoring" },
+      { phase: "Full Sales Support", duration: "Week 4+", description: "Complete sales operations automation" }
+    ]
   }
 ]
 
 export function ComprehensiveSolutionsSection() {
-  const [expandedCard, setExpandedCard] = useState<string | null>(null)
-
-  const toggleExpand = (id: string) => {
-    setExpandedCard(expandedCard === id ? null : id)
-  }
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null)
+  const [selectedCard, setSelectedCard] = useState<string | null>(null)
+  const [activeTab, setActiveTab] = useState<string>("industries")
 
   return (
     <Section padding="xl" background="white">
-      {/* Simplified Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/70 via-white to-gray-50/50" />
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-gray-50/20" />
 
-      <Container className="relative z-10 max-w-7xl">
+      <Container className="relative z-10 max-w-6xl">
+        {/* Section Header */}
         <div className="text-center mb-16 animate-on-scroll" data-animation="fadeInUp">
-          <Heading level="2" className="velox-text-h2 mb-6" style={{ lineHeight: '1.3' }}>
+          <Heading level="2" className="velox-text-h2 mb-6" style={{ lineHeight: '1.2' }}>
             Which Time-Drain Is{" "}
             <span className="text-gradient">Killing Your Growth?</span>
           </Heading>
-          <Text className="velox-text-lead max-w-4xl mx-auto">
-            Every operation below steals strategic time from your best people. Click any to see your transformation path.
+          <Text className="velox-text-lead max-w-3xl mx-auto text-gray-600">
+            Every hour spent on these operations is an hour stolen from strategy. 
+            See how we transform time-drains into competitive advantages.
           </Text>
         </div>
 
-        {/* Operation Cards Grid - Simplified without heavy animations */}
-        <div className="grid gap-6 mb-16">
+        {/* Operation Cards Grid - 2x3 on desktop, 1 column on mobile */}
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
           {operations.map((operation, index) => {
             const IconComponent = operation.icon
-            const isExpanded = expandedCard === operation.id
+            const isHovered = hoveredCard === operation.id
+            const isSelected = selectedCard === operation.id
             
             return (
               <div
@@ -197,123 +261,178 @@ export function ComprehensiveSolutionsSection() {
                 data-animation="fadeInUp"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className={`card-base cursor-pointer transition-all duration-300 ${
-                  isExpanded ? 'shadow-xl' : 'hover:shadow-lg'
-                }`}>
-                  <button
-                    onClick={() => toggleExpand(operation.id)}
-                    className="w-full text-left"
-                  >
-                    <div className="flex items-center justify-between p-6">
-                      <div className="flex items-center gap-4">
-                        <div className="icon-container-gradient">
-                          <IconComponent className="w-6 h-6 icon-accent" />
-                        </div>
-                        <div>
-                          <Heading level="3" className="velox-text-h3">
-                            {operation.title}
-                          </Heading>
-                          <Text className="velox-text-body text-gray-600">
-                            {operation.subtitle}
-                          </Text>
-                        </div>
+                <div 
+                  className={`card-elevated group cursor-pointer transition-all duration-300 ${
+                    isHovered ? 'transform -translate-y-1' : ''
+                  } ${isSelected ? 'ring-2 ring-blue-500' : ''}`}
+                  onMouseEnter={() => setHoveredCard(operation.id)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => {
+                    setSelectedCard(selectedCard === operation.id ? null : operation.id)
+                    setActiveTab("industries")
+                  }}
+                >
+                  {/* Card Header */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex items-center gap-4">
+                      <div className={`w-12 h-12 ${operation.color} rounded-full flex items-center justify-center flex-shrink-0`}>
+                        <IconComponent className="w-6 h-6 text-white" />
                       </div>
-                      {isExpanded ? (
-                        <ChevronUp className="w-5 h-5 text-gray-500" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-500" />
-                      )}
+                      <div>
+                        <Heading level="4" className="text-xl font-semibold text-gray-900 mb-1">
+                          {operation.title}
+                        </Heading>
+                        <Text className="text-sm text-gray-500">
+                          {operation.subtitle}
+                        </Text>
+                      </div>
                     </div>
-                  </button>
+                    <div className={`transition-all duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+                      <Sparkles className="w-5 h-5 text-blue-500" />
+                    </div>
+                  </div>
 
-                  {/* Expanded Content - CSS transitions instead of Framer Motion */}
-                  <div 
-                    className={`overflow-hidden transition-all duration-500 ${
-                      isExpanded ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                  >
-                    <div className="px-6 pb-6 space-y-8">
-                      {/* Three Column Layout */}
-                      <div className="grid md:grid-cols-3 gap-8">
-                        {/* Current Reality */}
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center">
-                              <Text className="text-red-600 font-bold">1</Text>
-                            </div>
-                            <Heading level="4" className="velox-text-h4 text-red-700">
-                              Your Reality Today
-                            </Heading>
-                          </div>
-                          <ul className="space-y-3">
-                            {operation.struggles.map((struggle, i) => (
-                              <li key={i} className="flex items-start gap-2">
-                                <CheckCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
-                                <Text className="velox-text-body text-sm">
-                                  {struggle}
-                                </Text>
-                              </li>
-                            ))}
-                          </ul>
+                  {/* Current State - Always visible */}
+                  <div className="mb-4">
+                    <Text className="text-gray-700 font-medium">
+                      {operation.currentState}
+                    </Text>
+                  </div>
+
+                  {/* Hover Preview - Shows transformation and metrics */}
+                  <div className={`transition-all duration-300 ${
+                    isHovered || isSelected ? 'opacity-100 max-h-32' : 'opacity-0 max-h-0'
+                  } overflow-hidden`}>
+                    <div className="pt-4 border-t border-gray-200">
+                      <div className="flex items-center gap-2 mb-3">
+                        <ArrowRight className="w-4 h-4 text-blue-500" />
+                        <Text className="text-blue-700 font-semibold">
+                          After Transformation:
+                        </Text>
+                      </div>
+                      <Text className="text-gray-600 mb-3 text-sm">
+                        {operation.transformation}
+                      </Text>
+                      
+                      {/* Quick Metrics */}
+                      <div className="grid grid-cols-3 gap-3 text-center">
+                        <div className="bg-blue-50 rounded-lg p-2">
+                          <div className="text-blue-600 font-bold text-sm">{operation.timeReclaimed}</div>
+                          <div className="text-xs text-gray-600">Time Saved</div>
                         </div>
-
-                        {/* The Transformation */}
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                              <Text className="text-blue-600 font-bold">2</Text>
-                            </div>
-                            <Heading level="4" className="velox-text-h4 text-blue-700">
-                              The Transformation
-                            </Heading>
-                          </div>
-                          <ul className="space-y-3">
-                            {operation.transformation.map((item, i) => (
-                              <li key={i} className="flex items-start gap-2">
-                                <ArrowRight className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
-                                <Text className="velox-text-body text-sm">
-                                  {item}
-                                </Text>
-                              </li>
-                            ))}
-                          </ul>
+                        <div className="bg-green-50 rounded-lg p-2">
+                          <div className="text-green-600 font-bold text-sm">{operation.errorReduction}</div>
+                          <div className="text-xs text-gray-600">Error Reduction</div>
                         </div>
-
-                        {/* Reality Handled */}
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
-                              <Text className="text-green-600 font-bold">3</Text>
-                            </div>
-                            <Heading level="4" className="velox-text-h4 text-green-700">
-                              Reality Handled
-                            </Heading>
-                          </div>
-                          <ul className="space-y-3">
-                            {operation.realityHandled.map((item, i) => (
-                              <li key={i} className="flex items-start gap-2">
-                                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                <Text className="velox-text-body text-sm">
-                                  {item}
-                                </Text>
-                              </li>
-                            ))}
-                          </ul>
+                        <div className="bg-purple-50 rounded-lg p-2">
+                          <div className="text-purple-600 font-bold text-sm">{operation.costSavings}</div>
+                          <div className="text-xs text-gray-600">Cost Savings</div>
                         </div>
                       </div>
+                    </div>
+                  </div>
 
-                      {/* CTA Button */}
-                      <div className="text-center pt-6">
-                        <Button
-                          className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                          asChild
+                  {/* Selected State - Shows full details with tabs */}
+                  <div className={`transition-all duration-500 ${
+                    isSelected ? 'opacity-100 max-h-[600px] mt-6' : 'opacity-0 max-h-0'
+                  } overflow-hidden`}>
+                    <div className="pt-6 border-t-2 border-blue-200">
+                      {/* Tab Navigation */}
+                      <div className="flex gap-2 mb-6">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setActiveTab("industries")
+                          }}
+                          className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                            activeTab === "industries" 
+                              ? "bg-blue-100 text-blue-700" 
+                              : "text-gray-600 hover:text-gray-800"
+                          }`}
                         >
-                          <Link href="/tools/business-audit">
-                            {operation.cta}
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                          </Link>
-                        </Button>
+                          Industry Examples
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setActiveTab("timeline")
+                          }}
+                          className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                            activeTab === "timeline" 
+                              ? "bg-blue-100 text-blue-700" 
+                              : "text-gray-600 hover:text-gray-800"
+                          }`}
+                        >
+                          Implementation
+                        </button>
                       </div>
+
+                      {/* Tab Content */}
+                      {activeTab === "industries" && (
+                        <div className="space-y-4 mb-6">
+                          {operation.industries.map((industry, i) => {
+                            const IndustryIcon = industry.icon
+                            return (
+                              <div key={i} className="border border-gray-200 rounded-lg p-4">
+                                <div className="flex items-center gap-3 mb-3">
+                                  <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <IndustryIcon className="w-5 h-5 text-gray-600" />
+                                  </div>
+                                  <Text className="font-semibold text-gray-900">
+                                    {industry.name}
+                                  </Text>
+                                </div>
+                                <ul className="space-y-1">
+                                  {industry.examples.map((example, j) => (
+                                    <li key={j} className="flex items-start gap-2">
+                                      <CheckCircle className="w-3 h-3 text-green-500 mt-1 flex-shrink-0" />
+                                      <Text className="text-sm text-gray-700">
+                                        {example}
+                                      </Text>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      )}
+
+                      {activeTab === "timeline" && (
+                        <div className="space-y-4 mb-6">
+                          {operation.timeline.map((phase, i) => (
+                            <div key={i} className="flex gap-4 items-start">
+                              <div className={`w-8 h-8 ${operation.color} rounded-full flex items-center justify-center flex-shrink-0`}>
+                                <Text className="text-white font-bold text-sm">{i + 1}</Text>
+                              </div>
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <Text className="font-semibold text-gray-900">
+                                    {phase.phase}
+                                  </Text>
+                                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${operation.color} bg-opacity-20 text-gray-700`}>
+                                    {phase.duration}
+                                  </span>
+                                </div>
+                                <Text className="text-sm text-gray-600">
+                                  {phase.description}
+                                </Text>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      
+                      <Button
+                        size="sm"
+                        className={`w-full text-white ${operation.color} hover:opacity-90 transition-opacity`}
+                        asChild
+                      >
+                        <Link href="/tools/business-audit">
+                          Calculate Your ROI
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Link>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -322,22 +441,43 @@ export function ComprehensiveSolutionsSection() {
           })}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA - Enhanced */}
         <div className="text-center animate-on-scroll" data-animation="fadeInUp">
-          <div className="card-solution p-8">
-            <Heading level="3" className="velox-text-h3 mb-4 text-blue-800">
-              Multiple Operations Need Help?
-            </Heading>
-            <Text className="velox-text-body mb-6 max-w-2xl mx-auto">
-              Most companies transform 3-5 operations in their first year, creating compound efficiency gains across their entire organization.
+          <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Target className="w-6 h-6 text-blue-600" />
+              <Heading level="3" className="text-2xl font-bold text-gray-900">
+                Ready to Reclaim Your Time?
+              </Heading>
+            </div>
+            <Text className="velox-text-body mb-6 max-w-2xl mx-auto text-gray-600">
+              Most companies save 100+ hours per week across their operations. 
+              Find out exactly how much time you could reclaim.
             </Text>
+            
+            {/* Quick stats */}
+            <div className="grid md:grid-cols-3 gap-6 mb-8 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 mb-1">110+</div>
+                <p className="text-sm text-gray-600">Hours Saved Weekly</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-600 mb-1">96%</div>
+                <p className="text-sm text-gray-600">Average Error Reduction</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600 mb-1">55%</div>
+                <p className="text-sm text-gray-600">Average Cost Savings</p>
+              </div>
+            </div>
+            
             <Button
               size="lg"
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl transition-all duration-300"
               asChild
             >
               <Link href="/tools/business-audit">
-                See Your Full Transformation Potential
+                Get Your Personalized Time Analysis
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>

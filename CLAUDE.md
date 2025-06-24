@@ -12,6 +12,20 @@ npm run start    # Start production server
 npm run lint     # Run ESLint with Next.js config
 ```
 
+### Testing & API Verification
+```bash
+# API and Integration Testing
+node scripts/test-api-integration.js         # Test quiz submission API with sample data
+node scripts/test-report-generation.js       # Test AI report generation
+node scripts/test-end-to-end-report.js      # Full end-to-end report testing
+node scripts/test-direct-report-only.js     # Test report generation in isolation
+node scripts/test-question-mapper.js        # Test quiz question mapping logic
+node scripts/test-pdf.js                    # Test PDF generation
+
+# Verification Scripts
+node scripts/verify-speed-insights.js       # Verify Vercel Speed Insights integration
+```
+
 ### Design Analysis & Tools
 ```bash
 node scripts/design-analysis.js                   # Run Puppeteer design analysis and take screenshots
@@ -29,8 +43,6 @@ node scripts/split-screenshots-compressed.js      # Compress and split screensho
 ```bash
 node scripts/test-debug-logging.js                # Test debug logging system for quiz/report flow
 ```
-
-**Note**: All development test files have been cleaned up. The debug logging test script is the only remaining test utility.
 
 ### Debug Logging System
 
@@ -57,19 +69,18 @@ debug-logs/
 - Console output includes real-time progress with timing information
 - Use the test script to verify functionality: `node scripts/test-debug-logging.js`
 
-#### Benefits
-- Complete visibility into AI prompt engineering
-- Ability to compare email content with PDF content
-- Performance monitoring with timing data
-- Error tracking and debugging capabilities
-- Input validation and data flow verification
-
 ### Environment Setup
-Ensure you have a `.env.local` file with:
-- `NEXT_PUBLIC_SUPABASE_URL` - Supabase project URL
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Supabase anonymous key
-- `RESEND_API_KEY` - Resend API key for email functionality
-- `OPENROUTER_API_KEY` - OpenRouter API key for AI models
+```bash
+# Required Environment Variables
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+RESEND_API_KEY=your_resend_api_key
+OPENROUTER_API_KEY=your_openrouter_api_key
+
+# Optional Configuration
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_GA_TRACKING_ID=your_ga_tracking_id
+```
 
 ## Architecture Overview
 
@@ -86,6 +97,16 @@ This is a Next.js 14.1.0 application using the App Router with a comprehensive d
 - **Lucide React 0.511.0** for icons
 - **React Hook Form 7.56.4** + **Zod 3.25.7** for forms
 - **date-fns 4.1.0** for date handling
+- **Vercel Speed Insights** for performance monitoring
+
+### Database Schema
+
+Three main tables in Supabase with Row Level Security (RLS):
+- `audit_clients`: Customer information with contact details
+- `audit_quiz_submissions`: Quiz tracking with AI analysis status
+- `audit_quiz_answers`: Individual responses with enriched question text
+
+Database migrations are located in `/supabase/migrations/` and should be run through Supabase Dashboard or CLI.
 
 ### Design System Implementation
 
@@ -119,51 +140,44 @@ The design system principles are implemented throughout the codebase and define:
 1. **Path Aliases**: Use `@/` for imports from `src/` directory
 
 2. **API Routes**: Located in `/src/app/api/`
-   - `submit-quiz`: Handles audit tool submissions
+   - `submit-quiz`: Handles audit tool submissions with debug logging
    - `send-audit-email`: Sends customized ROI analysis emails
+   - `generate-report`: AI-powered report generation using Gemini and Claude
    - `test-email`: Development endpoint for testing email functionality
+   - `test-pdf`: PDF generation testing endpoint
 
-3. **Database Schema**: Three main tables in Supabase
-   - `clients`: Customer information
-   - `quiz_submissions`: Audit tool tracking
-   - `quiz_answers`: Individual responses
+3. **Common Utilities** (`/src/lib/utils.ts`):
+   - `cn()`: Class name merging with Tailwind
+   - `formatDate()`, `formatCurrency()`, `formatPercentage()`: Formatting utilities
+   - `calculateROI()`: ROI calculation logic
+   - `debounce()`: Function debouncing
+   - `truncateText()`, `isExternalLink()`: Text and link utilities
 
-4. **Analytics**: Custom analytics provider wrapping Google Analytics
-   - Use `useAnalytics` hook for tracking events
-   - Page views tracked automatically
+4. **Custom Hooks**:
+   - `useAnalytics()`: Event tracking and analytics
+   - `useIntersectionObserver()`: Intersection observer wrapper
 
-5. **Forms**: React Hook Form + Zod validation pattern
-   - Form schemas defined with Zod
-   - Use `@hookform/resolvers/zod` for integration
+5. **Configuration Files**:
+   - `/src/config/audit-quiz.ts`: Main quiz configuration
+   - `/src/config/service-quiz.ts`: Service selection quiz
+   - `/src/config/navigation.ts`: Site navigation structure
+   - `/src/config/site.ts`: Site metadata and SEO
+   - `/src/config/blog.ts`: Blog configuration
 
-6. **Animations**: Strategic use of both Tailwind CSS and Framer Motion
-   - Use `tailwindcss-animate` for simple animations (hover, focus states)
-   - Use Framer Motion for complex interactions and page transitions
-   - Keep animations subtle and purposeful
+6. **Form Handling Pattern**:
+   ```typescript
+   // Standard pattern using React Hook Form + Zod
+   const form = useForm<FormData>({
+     resolver: zodResolver(formSchema),
+     defaultValues: { /* ... */ }
+   })
+   ```
 
-### Development Guidelines
-
-1. **Component Creation**: Always check existing components in `/src/components/ui/` before creating new ones
-
-2. **Styling Approach**:
-   - Use Tailwind utility classes
-   - Follow the design system color tokens
-   - Maintain consistent spacing using Tailwind's scale
-
-3. **Image Optimization**: Use Next.js `Image` component with:
-   - Proper width/height or fill prop
-   - Appropriate loading strategy (lazy/eager)
-   - Alt text for accessibility
-
-4. **Performance Considerations**:
-   - Implement proper loading states
-   - Use dynamic imports for heavy components
-   - Optimize images with WebP/AVIF formats
-
-5. **Type Safety**: TypeScript strict mode is enabled
-   - Define proper types for all props and state
-   - Use type inference where appropriate
-   - Avoid `any` type
+7. **Animation Guidelines**:
+   - Maximum 5 animations per viewport
+   - Use `tailwindcss-animate` for simple transitions
+   - Use Framer Motion for complex animations
+   - Keep animations under 300ms
 
 ### Current Page Structure
 
@@ -209,12 +223,38 @@ The design system principles are implemented throughout the codebase and define:
 - ✅ "What took years now takes months. What took months now takes weeks."
 - ✅ "AI capabilities double every year"
 
-### Testing Approach
+### Deployment & Performance
 
-Currently no test framework is configured. When implementing tests:
-- Consider Jest + React Testing Library for unit tests
-- Playwright for E2E testing
-- Test critical user flows (quiz submission, email sending)
+#### Vercel Configuration:
+- Build command: `npm run build`
+- API route timeouts: 30 seconds for quiz/email endpoints
+- Automatic HTTPS and edge caching
+- Speed Insights enabled for Core Web Vitals monitoring
+
+#### Performance Guidelines:
+- Implement proper loading states with Suspense boundaries
+- Use dynamic imports for heavy components
+- Optimize images with WebP/AVIF formats
+- Lazy load below-the-fold content
+
+### Security & Best Practices
+
+1. **Type Safety**: TypeScript strict mode is enabled
+   - Define proper types for all props and state
+   - Use type inference where appropriate
+   - Avoid `any` type
+
+2. **Security**:
+   - All database tables have Row Level Security (RLS) enabled
+   - API routes include Zod validation
+   - Environment variables properly segregated
+   - No sensitive data in client-side code
+
+3. **SEO & Metadata**:
+   - Sitemap generation at `/sitemap.ts`
+   - Schema.org structured data support
+   - Open Graph and Twitter card metadata
+   - Automatic page view tracking with analytics
 
 ### Design Analysis Tools
 

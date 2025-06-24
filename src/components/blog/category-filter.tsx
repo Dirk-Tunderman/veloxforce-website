@@ -22,42 +22,29 @@ const iconMap = {
 
 export function CategoryFilter({ activeCategory, onCategoryChange, className }: CategoryFilterProps) {
   return (
-    <div className={cn("flex flex-wrap gap-3 justify-center", className)}>
+    <div className={cn("flex flex-wrap gap-2 justify-center", className)}>
       {/* All Posts Button */}
       <Button
         variant={activeCategory === 'all' ? 'default' : 'outline'}
         className={cn(
-          "h-auto py-3 px-6 rounded-xl transition-all duration-300",
+          "h-auto py-2 px-4 rounded-lg transition-all duration-200 border",
           activeCategory === 'all' 
-            ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md" 
-            : "hover:border-blue-300 hover:shadow-sm"
+            ? "bg-blue-600 text-white border-blue-600 shadow-sm hover:bg-blue-700" 
+            : "bg-white border-gray-200 hover:border-gray-300 hover:bg-gray-50"
         )}
         onClick={() => onCategoryChange('all')}
       >
-        <div className="flex items-center gap-3">
-          <div className={cn(
-            "w-8 h-8 rounded-lg flex items-center justify-center",
-            activeCategory === 'all' ? "bg-white/20" : "bg-gray-100"
+        <div className="flex items-center gap-2">
+          <Grid3X3 className={cn(
+            "w-4 h-4",
+            activeCategory === 'all' ? "text-white" : "text-gray-700"
+          )} />
+          <Text className={cn(
+            "font-medium text-sm",
+            activeCategory === 'all' ? "text-white" : "text-gray-700"
           )}>
-            <Grid3X3 className={cn(
-              "w-4 h-4",
-              activeCategory === 'all' ? "text-white" : "text-gray-600"
-            )} />
-          </div>
-          <div className="text-left">
-            <Text className={cn(
-              "font-semibold text-sm",
-              activeCategory === 'all' ? "text-white" : "text-gray-900"
-            )}>
-              All Posts
-            </Text>
-            <Text className={cn(
-              "text-xs",
-              activeCategory === 'all' ? "text-white/80" : "text-gray-500"
-            )}>
-              View all articles
-            </Text>
-          </div>
+            All Posts
+          </Text>
         </div>
       </Button>
 
@@ -71,37 +58,24 @@ export function CategoryFilter({ activeCategory, onCategoryChange, className }: 
             key={category.id}
             variant={isActive ? 'default' : 'outline'}
             className={cn(
-              "h-auto py-3 px-6 rounded-xl transition-all duration-300",
+              "h-auto py-2 px-4 rounded-lg transition-all duration-200 border",
               isActive 
-                ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md" 
-                : "hover:border-blue-300 hover:shadow-sm"
+                ? "bg-blue-600 text-white border-blue-600 shadow-sm hover:bg-blue-700" 
+                : "bg-white border-gray-200 hover:border-gray-300 hover:bg-gray-50"
             )}
             onClick={() => onCategoryChange(category.id)}
           >
-            <div className="flex items-center gap-3">
-              <div className={cn(
-                "w-8 h-8 rounded-lg flex items-center justify-center",
-                isActive ? "bg-white/20" : category.bgColor
+            <div className="flex items-center gap-2">
+              <IconComponent className={cn(
+                "w-4 h-4",
+                isActive ? "text-white" : "text-gray-700"
+              )} />
+              <Text className={cn(
+                "font-medium text-sm",
+                isActive ? "text-white" : "text-gray-700"
               )}>
-                <IconComponent className={cn(
-                  "w-4 h-4",
-                  isActive ? "text-white" : category.color
-                )} />
-              </div>
-              <div className="text-left">
-                <Text className={cn(
-                  "font-semibold text-sm",
-                  isActive ? "text-white" : "text-gray-900"
-                )}>
-                  {category.name}
-                </Text>
-                <Text className={cn(
-                  "text-xs",
-                  isActive ? "text-white/80" : "text-gray-500"
-                )}>
-                  {category.description}
-                </Text>
-              </div>
+                {category.name}
+              </Text>
             </div>
           </Button>
         )

@@ -11,15 +11,6 @@ export const metadata: Metadata = constructMetadata({
   title: "End Operational Chaos. Reclaim Your Growth.",
   description: "Once Your Toughest Manual Processes Are Transformed by This Hybrid AI-Human Model, Costs Typically Slash by up to 50%, Execution Speed Triples, and Your Leadership is Freed to Drive the Business Forward—Guaranteed.",
   keywords: ["AI automation", "business automation", "hybrid automation", "process automation", "operational efficiency", "automation certainty", "human-perfected automation"],
-  icons: {
-    icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/favicon-16x16.svg', sizes: '16x16', type: 'image/svg+xml' },
-      { url: '/favicon-32x32.svg', sizes: '32x32', type: 'image/svg+xml' },
-    ],
-    shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.svg',
-  },
 });
 
 export const viewport: Viewport = {

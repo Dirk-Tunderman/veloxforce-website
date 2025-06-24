@@ -92,15 +92,10 @@ export function ReadyToReclaimSection() {
             <p className="velox-text-lead text-gray-700 mb-6">
               Questions? We're here to help.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <div className="flex items-center gap-2 text-blue-600">
-                <Phone className="w-5 h-5" />
-                <span className="font-semibold">Call: +49 157 123 45678</span>
-              </div>
-              <div className="hidden sm:block text-gray-400">|</div>
+            <div className="flex items-center justify-center">
               <div className="flex items-center gap-2 text-blue-600">
                 <Mail className="w-5 h-5" />
-                <span className="font-semibold">Email: transform@veloxforce.ai</span>
+                <span className="font-semibold">Email: team@veloxforce.ai</span>
               </div>
             </div>
           </div>

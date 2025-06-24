@@ -13,24 +13,21 @@ export function BlogPageClient() {
   const filteredPosts = getBlogPostsByCategory(activeCategory)
 
   return (
-    <>
-      {/* Category Filter Section */}
-      <Section padding="lg" background="white">
-        <Container className="max-w-6xl">
-          <CategoryFilter 
-            activeCategory={activeCategory}
-            onCategoryChange={setActiveCategory}
-            className="mb-12"
-          />
-        </Container>
-      </Section>
-
-      {/* Blog Posts Grid */}
-      <Section padding="xl" background="light-blue">
-        <Container className="max-w-6xl">
-          <BlogGrid posts={filteredPosts} />
-        </Container>
-      </Section>
-    </>
+    <Section padding="md" background="white" className="pb-20">
+      <Container className="max-w-6xl">
+        {/* Category Filter */}
+        <CategoryFilter 
+          activeCategory={activeCategory}
+          onCategoryChange={setActiveCategory}
+          className="mb-8"
+        />
+        
+        {/* Subtle divider */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-10" />
+        
+        {/* Blog Posts Grid */}
+        <BlogGrid posts={filteredPosts} />
+      </Container>
+    </Section>
   )
 }

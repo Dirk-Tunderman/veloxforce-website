@@ -15,17 +15,10 @@ const ctaOptions = [
     href: "/tools/business-audit"
   },
   {
-    icon: Calculator,
-    title: "See ROI for Your Volumes",
-    description: "Calculate savings based on your specific numbers",
-    buttonText: "Calculate My Impact",
-    href: "/tools/business-audit"
-  },
-  {
     icon: MessageCircle,
-    title: "Ask About Your Specific Process",
-    description: '"Can you handle our unique situation?"',
-    buttonText: "Quick Expert Chat",
+    title: "Schedule a 30-Min Expert Call",
+    description: "Discuss your specific situation with our automation experts",
+    buttonText: "Schedule Expert Consultation",
     href: "/contact"
   }
 ]
@@ -55,13 +48,13 @@ export function DigitalWorkforceCTA() {
         </div>
 
         {/* CTA Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {ctaOptions.map((option, index) => {
             const IconComponent = option.icon
             return (
               <div
                 key={index}
-                className="card-base bg-white/95 backdrop-blur rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 group animate-on-scroll"
+                className="card-base bg-white/95 backdrop-blur rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 group animate-on-scroll flex flex-col h-full"
                 data-animation="fadeInUp"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -71,23 +64,25 @@ export function DigitalWorkforceCTA() {
                 </div>
 
                 {/* Content */}
-                <Heading level="3" className="velox-text-h3 text-blue-900 mb-4 group-hover:text-blue-700 transition-colors duration-300">
-                  {option.title}
-                </Heading>
-                
-                <Text className="velox-text-body text-blue-800 mb-8 leading-relaxed">
-                  {option.description}
-                </Text>
+                <div className="flex-1 flex flex-col">
+                  <Heading level="3" className="velox-text-h3 text-blue-900 mb-4 group-hover:text-blue-700 transition-colors duration-300">
+                    {option.title}
+                  </Heading>
+                  
+                  <Text className="velox-text-body text-blue-800 mb-8 leading-relaxed flex-1">
+                    {option.description}
+                  </Text>
 
-                {/* CTA Button */}
-                <Button 
-                  className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white w-full text-lg font-semibold px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
-                  asChild
-                >
-                  <a href={option.href} className="block text-center">
-                    {option.buttonText}
-                  </a>
-                </Button>
+                  {/* CTA Button */}
+                  <Button 
+                    className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white w-full text-lg font-semibold px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center mt-auto"
+                    asChild
+                  >
+                    <a href={option.href} className="block text-center">
+                      {option.buttonText}
+                    </a>
+                  </Button>
+                </div>
               </div>
             )
           })}

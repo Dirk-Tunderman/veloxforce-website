@@ -37,7 +37,7 @@ const profileCategories: ProfileCategory[] = [
     color: "gray"
   },
   {
-    title: "Timing Signals",
+    title: "Timing\nSignals",
     icon: Clock,
     items: [
       "Considering hiring for repetitive roles",
@@ -79,25 +79,30 @@ export function IdealPartnerProfileSection() {
               <div 
                 key={index} 
                 ref={cardRef as any}
-                className={`card-elevated transition-all duration-1000 ease-out ${
+                className={`card-elevated h-full flex flex-col transition-all duration-1000 ease-out ${
                   cardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={isBlue ? 'icon-container-gradient' : 'icon-container'}>
+                <div className="flex items-start gap-3 mb-6">
+                  <div className={`flex-shrink-0 ${isBlue ? 'icon-container-gradient' : 'icon-container'}`}>
                     <IconComponent className={`w-6 h-6 ${isBlue ? 'text-blue-600' : 'text-gray-700'}`} />
                   </div>
-                  <h3 className="velox-text-h3">
-                    {category.title}
+                  <h3 className="velox-text-h3 pt-1">
+                    {category.title.split('\n').map((line, lineIndex) => (
+                      <span key={lineIndex}>
+                        {line}
+                        {lineIndex < category.title.split('\n').length - 1 && <br />}
+                      </span>
+                    ))}
                   </h3>
                 </div>
                 
                 <ul className="space-y-3">
                   {category.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                      <p className="velox-text-body">{item}</p>
+                      <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
+                      <p className="velox-text-body leading-relaxed">{item}</p>
                     </li>
                   ))}
                 </ul>
