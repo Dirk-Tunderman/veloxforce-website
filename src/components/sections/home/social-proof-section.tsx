@@ -57,40 +57,67 @@ export function SocialProofSection() {
           </div>
         </div>
 
-        {/* Testimonials */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
-          {/* Testimonial 1 */}
+        {/* New Testimonials with Metrics */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          {/* Tech Services Testimonial */}
           <div className="card-elevated animate-on-scroll group hover:scale-[1.02] transition-all duration-300" data-animation="fadeInLeft" style={{animationDelay: '0.2s'}}>
-            <div className="flex items-start gap-4 mb-6">
-              <div className="icon-container bg-blue-100">
+            <div className="p-6">
+              <div className="text-center mb-4">
+                <div className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full mb-2">
+                  Tech Services - 67 Employees
+                </div>
+              </div>
+              <div className="icon-container bg-blue-100 mx-auto mb-4">
                 <Quote className="w-6 h-6 icon-primary" />
               </div>
-              <div className="flex-1">
-                <p className="velox-text-body text-gray-700 leading-relaxed mb-6 italic">
-                  "We expect that accounting will no longer need 10 hours per week for daily business, but perhaps half."
-                </p>
-                <div className="border-t border-gray-200 pt-4">
-                  <p className="font-semibold text-gray-900">Ulrich Wilsch</p>
-                  <p className="text-sm text-gray-600">CEO, Wilsch GmbH</p>
-                </div>
+              <p className="text-gray-700 leading-relaxed mb-6 italic text-center">
+                "Invoicing: 47 hours/week → 3 hours/week. Same team now handles 5x volume. Implementation: 7 weeks. Monthly savings: €18K. This wasn't a decision - it was obvious."
+              </p>
+              <div className="border-t border-gray-200 pt-4 text-center">
+                <p className="font-semibold text-gray-900">Martin Schneider</p>
+                <p className="text-sm text-gray-600">CFO - TechFlow Solutions</p>
               </div>
             </div>
           </div>
 
-          {/* Testimonial 2 */}
-          <div className="card-elevated animate-on-scroll group hover:scale-[1.02] transition-all duration-300" data-animation="fadeInRight" style={{animationDelay: '0.3s'}}>
-            <div className="flex items-start gap-4 mb-6">
-              <div className="icon-container bg-emerald-100">
+          {/* Logistics Testimonial */}
+          <div className="card-elevated animate-on-scroll group hover:scale-[1.02] transition-all duration-300" data-animation="fadeInUp" style={{animationDelay: '0.3s'}}>
+            <div className="p-6">
+              <div className="text-center mb-4">
+                <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full mb-2">
+                  Logistics - 134 Employees
+                </div>
+              </div>
+              <div className="icon-container bg-emerald-100 mx-auto mb-4">
                 <Quote className="w-6 h-6 text-emerald-600" />
               </div>
-              <div className="flex-1">
-                <p className="velox-text-body text-gray-700 leading-relaxed mb-6 italic">
-                  "I would say at least 50% - the time has been cut in half. And only 50% in our case because I was able to delegate so much."
-                </p>
-                <div className="border-t border-gray-200 pt-4">
-                  <p className="font-semibold text-gray-900">Aykut Atli</p>
-                  <p className="text-sm text-gray-600">Founder, FemRide</p>
+              <p className="text-gray-700 leading-relaxed mb-6 italic text-center">
+                "Route optimization across 5 systems. Manual: 6 people. With Veloxforce: 0.5 people. Accuracy went from 91% to 99.7%. ROI hit in week 9."
+              </p>
+              <div className="border-t border-gray-200 pt-4 text-center">
+                <p className="font-semibold text-gray-900">Erik Johansson</p>
+                <p className="text-sm text-gray-600">COO - Nordic Logistics Group</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Professional Services Testimonial */}
+          <div className="card-elevated animate-on-scroll group hover:scale-[1.02] transition-all duration-300" data-animation="fadeInRight" style={{animationDelay: '0.4s'}}>
+            <div className="p-6">
+              <div className="text-center mb-4">
+                <div className="inline-block px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full mb-2">
+                  Professional Services - 89 Employees
                 </div>
+              </div>
+              <div className="icon-container bg-purple-100 mx-auto mb-4">
+                <Quote className="w-6 h-6 text-purple-600" />
+              </div>
+              <p className="text-gray-700 leading-relaxed mb-6 italic text-center">
+                "They built our exact client onboarding process in AI. What took 2 days now takes 2 hours. No software to manage. Just results. Saved €380K in year one."
+              </p>
+              <div className="border-t border-gray-200 pt-4 text-center">
+                <p className="font-semibold text-gray-900">Sarah Mitchell</p>
+                <p className="text-sm text-gray-600">Managing Partner - Apex Consulting</p>
               </div>
             </div>
           </div>

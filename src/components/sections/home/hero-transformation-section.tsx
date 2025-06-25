@@ -7,12 +7,8 @@ import { Button } from "@/components/ui/button"
 import {
   ArrowRight,
   Target,
-  ArrowDown,
   Calculator,
-  CheckCircle,
-  AlertTriangle,
-  AlertCircle,
-  X
+  AlertTriangle
 } from "lucide-react"
 import Link from "next/link"
 
@@ -51,15 +47,23 @@ export function HeroTransformationSection() {
             {/* Main Content Block */}
             <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent [text-shadow:_0_2px_8px_rgb(255_255_255_/_80%),_0_1px_3px_rgb(255_255_255_/_60%)]">
-                Once You Delegate Your Most Painful Manual Processes,
+                Stop Buying Software.
                 <span className="block">
-                   You'll Transform From Overwhelmed Operator to Strategic Leader
+                   Start Receiving Outcomes.
                 </span>
               </h1>
 
               <p className="velox-text-lead text-center max-w-4xl mx-auto">
-                <span className="block text-xl md:text-2xl font-semibold text-blue-800 [text-shadow:_0_2px_6px_rgb(255_255_255_/_70%),_0_1px_2px_rgb(255_255_255_/_50%)]">AI creates custom software for your exact processes. We run it perfectly. You get outcomes, not tools to manage.</span>
+                <span className="block text-xl md:text-2xl font-semibold text-blue-800 [text-shadow:_0_2px_6px_rgb(255_255_255_/_70%),_0_1px_2px_rgb(255_255_255_/_50%)]">AI builds your perfect system. We run it 24/7. You receive finished work.</span>
               </p>
+              
+              <div className="max-w-4xl mx-auto">
+                <p className="text-lg md:text-xl text-white/90 [text-shadow:_0_2px_4px_rgb(0_0_0_/_60%)] leading-relaxed">
+                  Traditional path: Buy software → Learn it → Manage it → Hope it works.<br />
+                  Our path: Describe your need → We build it → Results flow automatically.<br />
+                  <span className="font-semibold">That's Service-as-Software.</span>
+                </p>
+              </div>
 
               {/* Social Proof Bar */}
               <div className="bg-white/90 backdrop-blur-md border border-white/25 rounded-full shadow-lg px-6 py-3 inline-flex items-center gap-6 text-gray-800 text-sm">
@@ -84,7 +88,7 @@ export function HeroTransformationSection() {
                 >
                   <Link href="/tools/business-audit">
                     <span className="relative z-10 flex items-center gap-2">
-                      See My Transformation Potential
+                      Show Me My Hidden Costs
                       <Calculator className="w-5 h-5" />
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
@@ -124,57 +128,62 @@ export function HeroTransformationSection() {
               style={{ animationDelay: '0.2s' }}
             >
               <h2 className="velox-text-h2 text-center" id="transformation">
-                From Operational Overwhelm to Strategic Leadership
+                Operational Reality Check: Your Actual Numbers
               </h2>
               <p className="velox-text-lead text-center text-gray-700 mt-4">
-                The transformation is real. The timeline depends on your scope.
+                Stop guessing. Start measuring what really matters.
               </p>
             </div>
             
             <div className="grid lg:grid-cols-12 gap-8 items-stretch mt-8 overflow-visible">
-              {/* Challenge Card */}
+              {/* Your Operations Today */}
               <div className="lg:col-span-5 animate-on-scroll overflow-visible" data-animation="fadeInLeft">
                 <div className="card-challenge relative pt-12 mt-6 overflow-visible h-full flex flex-col">
                   <div className="absolute -top-3 left-8 px-4 py-2 bg-gray-600 text-white rounded-full text-sm font-semibold z-10 shadow-md">
-                    Your Team Today
+                    Your Operations Scorecard Today
                   </div>
                   <div className="icon-container mb-6">
                     <AlertTriangle className="h-6 w-6 icon-primary" />
                   </div>
-                  <h4 className="velox-text-h3 mb-6">
-                    Your Team Today
+                  <h4 className="velox-text-h3 mb-6 text-gray-800">
+                    Current Reality
                   </h4>
                   <div className="space-y-6 flex-1">
-                    <div className="text-center px-4">
-                      <div className="flex items-center justify-center gap-3 mb-3">
-                        <AlertCircle className="w-6 h-6 text-red-500" />
-                        <p className="text-xl font-bold text-gray-800 leading-tight">Drowning in manual processes</p>
-                      </div>
-                      <div className="flex items-center justify-center gap-3">
-                        <X className="w-6 h-6 text-red-500" />
-                        <p className="text-lg text-gray-600 font-semibold">Strategic meetings cancelled (again)</p>
-                      </div>
-                    </div>
-                    <ul className="space-y-3 text-center">
-                      <li className="flex items-center justify-center gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                        <span className="velox-text-body">Sarah: Opens laptop to 47 invoices to process</span>
+                    <ul className="space-y-4 text-left">
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div>
+                        <div>
+                          <span className="font-semibold text-gray-800">Manual processing time:</span>
+                          <span className="block text-red-600 font-bold">12-48 hours per cycle</span>
+                        </div>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                        <span className="velox-text-body">Tom: Three hours answering "where's my order?"</span>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div>
+                        <div>
+                          <span className="font-semibold text-gray-800">Error rate:</span>
+                          <span className="block text-red-600 font-bold">3-5% requiring rework</span>
+                        </div>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                        <span className="velox-text-body">Maria: Two hours copying between systems</span>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div>
+                        <div>
+                          <span className="font-semibold text-gray-800">Capacity:</span>
+                          <span className="block text-red-600 font-bold">Limited by headcount</span>
+                        </div>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                        <span className="velox-text-body">You: Strategic planning cancelled (again)</span>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div>
+                        <div>
+                          <span className="font-semibold text-gray-800">Strategic time:</span>
+                          <span className="block text-red-600 font-bold">&lt;20% of week</span>
+                        </div>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <AlertCircle className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                        <span className="velox-text-body">Everyone: Leaves at 7 PM, further behind</span>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div>
+                        <div>
+                          <span className="font-semibold text-gray-800">Scaling cost:</span>
+                          <span className="block text-red-600 font-bold">€70K per additional FTE</span>
+                        </div>
                       </li>
                     </ul>
                   </div>
@@ -188,7 +197,7 @@ export function HeroTransformationSection() {
                 </div>
               </div>
               
-              {/* Solution Card */}
+              {/* With Service-as-Software */}
               <div className="lg:col-span-5 animate-on-scroll overflow-visible" data-animation="fadeInRight" style={{animationDelay: '0.2s'}}>
                 <div className="card-solution relative pt-12 mt-6 overflow-visible h-full flex flex-col">
                   <div className="absolute -top-3 left-8 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full text-sm font-semibold z-10 shadow-md">
@@ -198,33 +207,44 @@ export function HeroTransformationSection() {
                     <Target className="h-6 w-6 icon-accent" />
                   </div>
                   <h4 className="velox-text-h3 text-blue-800 mb-6">
-                    Your Team Tomorrow
+                    New Reality
                   </h4>
                   <div className="space-y-6 flex-1">
-                    <div className="text-center px-4">
-                      <p className="text-xl font-bold text-blue-800 mb-3 leading-tight">Focuses on strategic work</p>
-                      <p className="text-lg text-blue-600 font-semibold">Receives processed results and analyzes trends</p>
-                    </div>
-                    <ul className="space-y-3 text-center">
-                      <li className="flex items-center justify-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                        <span className="velox-text-body">Opens laptop to completed work awaiting review</span>
+                    <ul className="space-y-4 text-left">
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
+                        <div>
+                          <span className="font-semibold text-blue-800">Automated processing:</span>
+                          <span className="block text-emerald-600 font-bold">15-60 minutes</span>
+                        </div>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                        <span className="velox-text-body">Reviews three exceptions needing her expertise</span>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
+                        <div>
+                          <span className="font-semibold text-blue-800">Error rate:</span>
+                          <span className="block text-emerald-600 font-bold">&lt;0.1%</span>
+                        </div>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                        <span className="velox-text-body">Leads strategic session on market expansion</span>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
+                        <div>
+                          <span className="font-semibold text-blue-800">Capacity:</span>
+                          <span className="block text-emerald-600 font-bold">Unlimited scaling</span>
+                        </div>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                        <span className="velox-text-body">Mentors junior team member on analysis</span>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
+                        <div>
+                          <span className="font-semibold text-blue-800">Strategic time:</span>
+                          <span className="block text-emerald-600 font-bold">&gt;80% of week</span>
+                        </div>
                       </li>
-                      <li className="flex items-center justify-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                        <span className="velox-text-body">Leaves at 4 PM for daughter's recital</span>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
+                        <div>
+                          <span className="font-semibold text-blue-800">Scaling cost:</span>
+                          <span className="block text-emerald-600 font-bold">€0 (already included)</span>
+                        </div>
                       </li>
                     </ul>
                   </div>
@@ -232,15 +252,105 @@ export function HeroTransformationSection() {
               </div>
             </div>
             
-            {/* Industry Quote */}
+            {/* The Math */}
             <div className="text-center mt-16 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.4s'}}>
-              <div className="card-base max-w-4xl mx-auto p-8">
-                <p className="text-xl italic text-gray-700 mb-4 leading-relaxed">
-                  "We're entering a service as software era... customers will no longer buy software, they'll just make their own."
+              <div className="card-elevated max-w-2xl mx-auto p-8">
+                <h4 className="text-2xl font-bold text-blue-800 mb-4">The Math</h4>
+                <div className="flex items-center justify-center gap-4 text-lg font-semibold text-gray-700">
+                  <span>6-week build</span>
+                  <span className="text-blue-600">→</span>
+                  <span>8-week payback</span>
+                  <span className="text-blue-600">→</span>
+                  <span className="text-emerald-600 font-bold">Permanent advantage</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Why Building Custom AI Is Now Smarter */}
+            <div className="mt-20 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.5s'}}>
+              <div className="card-elevated max-w-6xl mx-auto p-12">
+                <h3 className="text-3xl font-bold text-center text-blue-800 mb-8">
+                  Why Building Custom AI Is Now Smarter Than Buying Software
+                </h3>
+                <p className="text-xl font-semibold text-center text-gray-700 mb-12">
+                  The Economics Have Flipped
                 </p>
-                <p className="text-sm font-semibold text-gray-600">
-                  — Industry Executive, BestPin Global
-                </p>
+                
+                <div className="grid md:grid-cols-2 gap-12 mb-12">
+                  {/* Old Model */}
+                  <div className="card-challenge p-8">
+                    <h4 className="text-xl font-bold text-gray-800 mb-6">Old Model (SaaS)</h4>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700">Generic features you don't need: <span className="font-bold text-red-600">80%</span></span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700">Features that fit your process: <span className="font-bold text-red-600">20%</span></span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700">Monthly cost: <span className="font-bold text-red-600">Forever</span></span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700">Still requires <span className="font-bold text-red-600">your team to operate</span></span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  {/* New Model */}
+                  <div className="card-solution p-8">
+                    <h4 className="text-xl font-bold text-blue-800 mb-6">New Model (Service-as-Software)</h4>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
+                        <span className="text-blue-700">Built for your exact process: <span className="font-bold text-emerald-600">100%</span></span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
+                        <span className="text-blue-700">Wasted features: <span className="font-bold text-emerald-600">0%</span></span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
+                        <span className="text-blue-700">We operate it: <span className="font-bold text-emerald-600">24/7/365</span></span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
+                        <span className="text-blue-700">Your team does <span className="font-bold text-emerald-600">strategic work</span></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                {/* Real Client Math */}
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 mb-8">
+                  <h4 className="text-xl font-bold text-blue-800 mb-6 text-center">Real Client Math</h4>
+                  <div className="space-y-3 max-w-2xl mx-auto">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-700">6 FTEs doing data processing:</span>
+                      <span className="font-bold text-red-600">€400K/year</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-700">Generic automation software:</span>
+                      <span className="font-bold text-red-600">€50K/year + 6 FTEs = €450K/year</span>
+                    </div>
+                    <div className="border-t border-blue-200 pt-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-blue-800 font-semibold">Service-as-Software:</span>
+                        <span className="font-bold text-emerald-600 text-xl">€120K/year total. Done.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* The Breakthrough */}
+                <div className="text-center">
+                  <p className="text-xl font-bold text-blue-800">
+                    The Breakthrough: AI makes custom software cheap to build. We make it invisible to run.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

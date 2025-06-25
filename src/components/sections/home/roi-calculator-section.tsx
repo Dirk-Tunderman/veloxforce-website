@@ -26,34 +26,101 @@ export function ROICalculatorSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20" />
       
       <Container className="relative z-10 max-w-7xl">
-        {/* Investment Philosophy */}
+        {/* Unit Economics Section */}
         <div className="text-center mb-20 animate-on-scroll" data-animation="fadeInUp">
-          <div className="card-elevated max-w-4xl mx-auto p-12">
+          <div className="card-elevated max-w-6xl mx-auto p-12">
             <h2 className="velox-text-h2 mb-8">
-              Transparent Economics That Make Sense
+              The Unit Economics of Intelligence
             </h2>
-            <div className="space-y-6">
-              <div className="text-center max-w-3xl mx-auto">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Investment scales with:</h3>
-                <ul className="space-y-2 text-gray-700 text-lg">
-                  <li className="flex items-center justify-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                    <span>Process complexity</span>
-                  </li>
-                  <li className="flex items-center justify-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                    <span>Volume handled</span>
-                  </li>
-                  <li className="flex items-center justify-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                    <span>Value delivered</span>
-                  </li>
-                </ul>
+            
+            {/* Cost Structure Formulas */}
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Current Cost Structure */}
+              <div className="card-challenge p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-6">Your Current Cost Structure</h3>
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+                  <p className="text-sm font-mono text-gray-700 leading-relaxed">
+                    <span className="font-bold">Process Outcome = </span><br />
+                    (Human Hours × €75) +<br />
+                    (Error Rate × Rework Cost) +<br />
+                    (Delay × Opportunity Cost)
+                  </p>
+                </div>
+                <p className="text-sm text-gray-600">Complex, variable, compounds with scale</p>
               </div>
-              <div className="text-center">
-                <p className="text-xl font-bold text-blue-600 mb-2">Always less than your current costs.</p>
-                <p className="text-lg font-semibold text-gray-700">ROI positive within 3-6 months.</p>
+              
+              {/* Service-as-Software Structure */}
+              <div className="card-solution p-6">
+                <h3 className="text-xl font-bold text-blue-800 mb-6">Service-as-Software Structure</h3>
+                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-4">
+                  <p className="text-sm font-mono text-blue-700 leading-relaxed">
+                    <span className="font-bold">Same Outcome = </span><br />
+                    Fixed Monthly Fee<br />
+                    (typically 20-30% of current cost)
+                  </p>
+                </div>
+                <p className="text-sm text-blue-600">Simple, predictable, scales infinitely</p>
               </div>
+            </div>
+            
+            {/* Real Examples */}
+            <div className="mb-8">
+              <h3 className="text-xl font-bold text-blue-800 mb-6">Real Examples (Anonymized)</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Simple Process */}
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-200">
+                  <h4 className="font-bold text-blue-800 mb-4">Simple Process (Invoice Processing)</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-700">Current: 2 FTEs</span>
+                      <span className="font-bold text-red-600">€140K/year</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-700">Service-as-Software:</span>
+                      <span className="font-bold text-emerald-600">€35K/year</span>
+                    </div>
+                    <div className="border-t border-blue-200 pt-2">
+                      <div className="flex justify-between">
+                        <span className="text-blue-800 font-semibold">Payback:</span>
+                        <span className="font-bold text-blue-800">11 weeks</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Complex Process */}
+                <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-lg p-6 border border-emerald-200">
+                  <h4 className="font-bold text-emerald-800 mb-4">Complex Process (Customer Onboarding)</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-700">Current: 6 FTEs + systems</span>
+                      <span className="font-bold text-red-600">€450K/year</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-700">Service-as-Software:</span>
+                      <span className="font-bold text-emerald-600">€135K/year</span>
+                    </div>
+                    <div className="border-t border-emerald-200 pt-2">
+                      <div className="flex justify-between">
+                        <span className="text-emerald-800 font-semibold">Payback:</span>
+                        <span className="font-bold text-emerald-800">14 weeks</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* The Scaling Secret */}
+            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-8 border border-orange-200">
+              <h3 className="text-xl font-bold text-orange-800 mb-4 text-center">The Scaling Secret</h3>
+              <p className="text-lg text-gray-700 text-center mb-4">
+                <span className="font-bold text-red-600">Traditional costs multiply.</span> 
+                <span className="font-bold text-emerald-600"> Our costs don't.</span>
+              </p>
+              <p className="text-lg text-orange-800 font-bold text-center">
+                At 10x volume, you pay the same.
+              </p>
             </div>
           </div>
         </div>
