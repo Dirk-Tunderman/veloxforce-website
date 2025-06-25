@@ -252,19 +252,6 @@ export function HeroTransformationSection() {
               </div>
             </div>
             
-            {/* The Math */}
-            <div className="text-center mt-16 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.4s'}}>
-              <div className="card-elevated max-w-2xl mx-auto p-8">
-                <h4 className="text-2xl font-bold text-blue-800 mb-4">The Math</h4>
-                <div className="flex items-center justify-center gap-4 text-lg font-semibold text-gray-700">
-                  <span>6-week build</span>
-                  <span className="text-blue-600">→</span>
-                  <span>8-week payback</span>
-                  <span className="text-blue-600">→</span>
-                  <span className="text-emerald-600 font-bold">Permanent advantage</span>
-                </div>
-              </div>
-            </div>
             
             {/* Why Building Custom AI Is Now Smarter */}
             <div className="mt-20 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.5s'}}>
@@ -324,26 +311,6 @@ export function HeroTransformationSection() {
                   </div>
                 </div>
                 
-                {/* Real Client Math */}
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 mb-8">
-                  <h4 className="text-xl font-bold text-blue-800 mb-6 text-center">Real Client Math</h4>
-                  <div className="space-y-3 max-w-2xl mx-auto">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700">6 FTEs doing data processing:</span>
-                      <span className="font-bold text-red-600">€400K/year</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700">Generic automation software:</span>
-                      <span className="font-bold text-red-600">€50K/year + 6 FTEs = €450K/year</span>
-                    </div>
-                    <div className="border-t border-blue-200 pt-3">
-                      <div className="flex justify-between items-center">
-                        <span className="text-blue-800 font-semibold">Service-as-Software:</span>
-                        <span className="font-bold text-emerald-600 text-xl">€120K/year total. Done.</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 
                 {/* The Breakthrough */}
                 <div className="text-center">

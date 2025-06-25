@@ -115,62 +115,6 @@ export function AIRealityCheckSection() {
           </div>
         </div>
 
-        {/* Your Choice */}
-        <div className="animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.3s'}}>
-          <div className="card-elevated max-w-5xl mx-auto p-10">
-            <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">
-              Your Choice
-            </h3>
-            
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              {/* Option 1 */}
-              <div className="card-challenge p-6 text-center">
-                <div className="icon-container bg-red-100 mx-auto mb-4">
-                  <AlertTriangle className="w-8 h-8 text-red-600" />
-                </div>
-                <h4 className="font-bold text-gray-800 mb-2">Experiment Yourself</h4>
-                <p className="text-sm text-gray-600 mb-4">Try AI tools and hope for the best</p>
-                <div className="bg-red-50 p-3 rounded-lg border border-red-200">
-                  <p className="text-xs font-bold text-red-600">73% fail in production</p>
-                </div>
-              </div>
-              
-              {/* Option 2 */}
-              <div className="card-challenge p-6 text-center">
-                <div className="icon-container bg-orange-100 mx-auto mb-4">
-                  <Users className="w-8 h-8 text-orange-600" />
-                </div>
-                <h4 className="font-bold text-gray-800 mb-2">Hire Consultants</h4>
-                <p className="text-sm text-gray-600 mb-4">Build it for you, leave you to run it</p>
-                <div className="bg-orange-50 p-3 rounded-lg border border-orange-200">
-                  <p className="text-xs font-bold text-orange-600">You still have to operate it</p>
-                </div>
-              </div>
-              
-              {/* Option 3 */}
-              <div className="card-solution p-6 text-center">
-                <div className="icon-container-gradient mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 icon-accent" />
-                </div>
-                <h4 className="font-bold text-blue-800 mb-2">Service-as-Software</h4>
-                <p className="text-sm text-blue-600 mb-4">We build it, run it, optimize it forever</p>
-                <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
-                  <p className="text-xs font-bold text-blue-600">Guaranteed outcomes</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Bottom Message */}
-            <div className="text-center bg-gray-50 rounded-lg p-6 border border-gray-200">
-              <p className="text-lg font-semibold text-gray-700">
-                Most choose #1, waste €100K, then call us for #3.
-              </p>
-              <p className="text-sm text-gray-600 mt-2">
-                Skip the expensive learning curve.
-              </p>
-            </div>
-          </div>
-        </div>
       </Container>
     </Section>
   )

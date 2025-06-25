@@ -110,45 +110,6 @@ export function TimingUrgencySection() {
           </div>
         </div>
 
-        {/* Decision Framework */}
-        <div className="mb-16 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.3s'}}>
-          <div className="card-elevated p-10">
-            <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">
-              The Decision Framework
-            </h3>
-            <div className="space-y-6">
-              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-                <div className="flex items-start gap-4">
-                  <AlertTriangle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-bold text-red-800 mb-2">If your competitors move first:</p>
-                    <p className="text-red-700">You're playing catch-up forever</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
-                <div className="flex items-start gap-4">
-                  <Users className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-bold text-orange-800 mb-2">If you move together:</p>
-                    <p className="text-orange-700">No advantage, just survival</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-6">
-                <div className="flex items-start gap-4">
-                  <Target className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="font-bold text-emerald-800 mb-2">If you move first:</p>
-                    <p className="text-emerald-700 font-semibold">18 months of compound advantage</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Capacity Constraint */}
         <div className="text-center animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.4s'}}>
