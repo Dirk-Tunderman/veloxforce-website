@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
@@ -46,7 +47,26 @@ import {
   Award
 } from "lucide-react"
 
-const operationCategories = [
+interface SubOperation {
+  id: string
+  title: string
+  description: string
+  icon: any
+  badge: string
+  image?: string
+  outcomes: string[]
+}
+
+interface OperationCategory {
+  id: string
+  title: string
+  subtitle: string
+  icon: any
+  color: string
+  subOperations: SubOperation[]
+}
+
+const operationCategories: OperationCategory[] = [
   {
     id: "financial",
     title: "Financial Operations",
@@ -60,6 +80,7 @@ const operationCategories = [
         description: "Connect all financial systems for seamless data movement and real-time visibility",
         icon: Database,
         badge: "001",
+        image: "/images/solutions/data-integration1.jpg",
         outcomes: ["Real-time financial dashboards", "Automated data synchronization", "Zero manual reconciliation"]
       },
       {
@@ -67,7 +88,8 @@ const operationCategories = [
         title: "Automated Compliance",
         description: "Real-time regulatory reporting and audit trail management across all jurisdictions",
         icon: FileCheck,
-        badge: "002", 
+        badge: "002",
+        image: "/images/solutions/compliance.jpg",
         outcomes: ["Instant compliance reporting", "Automated audit trails", "Regulatory change tracking"]
       },
       {
@@ -76,6 +98,7 @@ const operationCategories = [
         description: "AI-powered financial insights, forecasting, and anomaly detection for strategic decisions",
         icon: Brain,
         badge: "003",
+        image: "/images/solutions/intellegent-analytics.jpg",
         outcomes: ["Predictive cash flow analysis", "Automated variance detection", "Strategic financial insights"]
       },
       {
@@ -84,6 +107,7 @@ const operationCategories = [
         description: "Continuous workflow improvement and cost analysis with intelligent automation",
         icon: Settings,
         badge: "004",
+        image: "/images/solutions/process-optim.jpg",
         outcomes: ["Optimized financial workflows", "Cost reduction insights", "Process efficiency gains"]
       }
     ]
@@ -101,6 +125,7 @@ const operationCategories = [
         description: "Complete interaction history and preference management across all touchpoints",
         icon: UserCheck,
         badge: "001",
+        image: "/images/solutions/customer_records.jpg",
         outcomes: ["360° customer view", "Preference-based interactions", "Seamless experience continuity"]
       },
       {
@@ -109,6 +134,7 @@ const operationCategories = [
         description: "Voice, chat, email, and SMS response coordination with consistent quality",
         icon: Headphones,
         badge: "002",
+        image: "/images/solutions/omnichannel.jpg",
         outcomes: ["24/7 multi-channel coverage", "Consistent response quality", "Intelligent routing"]
       },
       {
@@ -117,6 +143,7 @@ const operationCategories = [
         description: "AI-powered problem detection and prevention before customer impact",
         icon: AlertTriangle,
         badge: "003",
+        image: "/images/solutions/procative issue resolution.jpg",
         outcomes: ["Issue prevention", "Proactive notifications", "Reduced escalations"]
       },
       {
@@ -125,6 +152,7 @@ const operationCategories = [
         description: "Customer satisfaction tracking and team optimization with actionable insights",
         icon: BarChart,
         badge: "004",
+        image: "/images/solutions/peformance intellegnce.jpg",
         outcomes: ["CSAT optimization", "Team performance insights", "Service quality metrics"]
       }
     ]
@@ -142,6 +170,7 @@ const operationCategories = [
         description: "Smart categorization, extraction, and automated filing with AI-powered organization",
         icon: FolderOpen,
         badge: "001",
+        image: "/images/solutions/docu-intelleg.jpg",
         outcomes: ["Intelligent document categorization", "Automated data extraction", "Instant retrieval systems"]
       },
       {
@@ -150,6 +179,7 @@ const operationCategories = [
         description: "End-to-end process digitization and optimization across departments",
         icon: Workflow,
         badge: "002",
+        image: "/images/solutions/workflow-auto.jpg",
         outcomes: ["Digitized approval workflows", "Cross-department coordination", "Process standardization"]
       },
       {
@@ -158,6 +188,7 @@ const operationCategories = [
         description: "Regulatory requirement tracking and reporting with automated updates",
         icon: Scale,
         badge: "003",
+        image: "/images/solutions/complicance.jpg",
         outcomes: ["Automated compliance tracking", "Real-time regulation updates", "Risk mitigation"]
       },
       {
@@ -166,6 +197,7 @@ const operationCategories = [
         description: "Cross-departmental task and resource management with intelligent allocation",
         icon: Layers,
         badge: "004",
+        image: "/images/solutions/coordination.jpg",
         outcomes: ["Optimized resource allocation", "Inter-department coordination", "Capacity planning"]
       }
     ]
@@ -183,6 +215,7 @@ const operationCategories = [
         description: "Complete invoice-to-payment cycle management with intelligent processing",
         icon: CreditCard,
         badge: "001",
+        image: "/images/solutions/receipt.jpg",
         outcomes: ["Automated invoice generation", "Payment processing", "Collections management"]
       },
       {
@@ -191,6 +224,7 @@ const operationCategories = [
         description: "Predictive analytics and growth opportunity identification with AI insights",
         icon: LineChart,
         badge: "002",
+        image: "/images/solutions/revenue.jpg",
         outcomes: ["Revenue forecasting", "Growth opportunity identification", "Churn prediction"]
       },
       {
@@ -199,6 +233,7 @@ const operationCategories = [
         description: "Multi-channel payment processing and reconciliation with fraud detection",
         icon: Wallet,
         badge: "003",
+        image: "/images/solutions/payment.jpg",
         outcomes: ["Multi-channel payment processing", "Automated reconciliation", "Fraud prevention"]
       },
       {
@@ -207,6 +242,7 @@ const operationCategories = [
         description: "Real-time revenue dashboards and insights with customizable analytics",
         icon: PieChart,
         badge: "004",
+        image: "/images/solutions/finance-dashboard.jpg",
         outcomes: ["Real-time revenue dashboards", "Custom financial reports", "Performance analytics"]
       }
     ]
@@ -224,6 +260,7 @@ const operationCategories = [
         description: "Advanced scoring, tracking, and nurturing automation with behavioral analysis",
         icon: Search,
         badge: "001",
+        image: "/images/solutions/sales1.jpg",
         outcomes: ["AI-powered lead scoring", "Behavioral tracking", "Automated nurturing sequences"]
       },
       {
@@ -232,6 +269,7 @@ const operationCategories = [
         description: "Complete opportunity lifecycle coordination with intelligent forecasting",
         icon: GitBranch,
         badge: "002",
+        image: "/images/solutions/sales2.jpg",
         outcomes: ["Pipeline visibility", "Opportunity tracking", "Sales forecasting"]
       },
       {
@@ -240,6 +278,7 @@ const operationCategories = [
         description: "Personalized outreach and follow-up sequences with timing optimization",
         icon: MessageSquare,
         badge: "003",
+        image: "/images/solutions/sales3.jpg",
         outcomes: ["Personalized outreach", "Automated follow-ups", "Relationship tracking"]
       },
       {
@@ -248,6 +287,7 @@ const operationCategories = [
         description: "Territory management and sales forecasting with actionable insights",
         icon: Award,
         badge: "004",
+        image: "/images/solutions/sales4.jpg",
         outcomes: ["Sales performance insights", "Territory optimization", "Revenue forecasting"]
       }
     ]
@@ -372,15 +412,29 @@ export function ComprehensiveSolutionsSection() {
                     </div>
 
                     {/* Visual Mockup Area */}
-                    <div className="mb-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 min-h-[120px] flex items-center justify-center border border-gray-200">
-                      <div className="text-center">
-                        <div className={`w-16 h-16 ${currentCategory.color} bg-opacity-20 rounded-xl flex items-center justify-center mx-auto mb-3`}>
-                          <SubOpIcon className={`w-8 h-8 ${currentCategory.color.replace('bg-', 'text-')}`} />
+                    <div className="mb-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg overflow-hidden border border-gray-200">
+                      {subOp.image ? (
+                        <div className="relative h-48 w-full">
+                          <Image
+                            src={subOp.image}
+                            alt={`${subOp.title} interface preview`}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
                         </div>
-                        <Text className="text-sm text-gray-500 font-medium">
-                          {subOp.title} Interface
-                        </Text>
-                      </div>
+                      ) : (
+                        <div className="p-6 min-h-[120px] flex items-center justify-center">
+                          <div className="text-center">
+                            <div className={`w-16 h-16 ${currentCategory.color} bg-opacity-20 rounded-xl flex items-center justify-center mx-auto mb-3`}>
+                              <SubOpIcon className={`w-8 h-8 ${currentCategory.color.replace('bg-', 'text-')}`} />
+                            </div>
+                            <Text className="text-sm text-gray-500 font-medium">
+                              {subOp.title} Interface
+                            </Text>
+                          </div>
+                        </div>
+                      )}
                     </div>
 
                     {/* Hover State - Show outcomes */}

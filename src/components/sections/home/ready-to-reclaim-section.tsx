@@ -85,32 +85,7 @@ export function ReadyToReclaimSection() {
           </div>
         </div>
 
-        {/* The Opportunity Cost Clock */}
-        <div className="text-center animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.3s'}}>
-          <div className="card-elevated max-w-4xl mx-auto p-10">
-            <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-lg p-8 border border-orange-200 mb-8">
-              <h3 className="text-xl font-bold text-red-600 mb-4">
-                The Opportunity Cost Clock
-              </h3>
-              <p className="text-lg font-semibold text-gray-800 mb-2">
-                Every week = €3,500-8,500 in lost efficiency.
-              </p>
-              <p className="text-xl font-bold text-red-600">
-                Make a decision.
-              </p>
-            </div>
-            
-            <p className="velox-text-lead text-gray-700 mb-6">
-              Questions? We're here to help.
-            </p>
-            <div className="flex items-center justify-center">
-              <div className="flex items-center gap-2 text-blue-600">
-                <Mail className="w-5 h-5" />
-                <span className="font-semibold">Email: team@veloxforce.ai</span>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </Container>
     </Section>
   )

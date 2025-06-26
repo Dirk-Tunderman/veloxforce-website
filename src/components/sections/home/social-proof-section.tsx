@@ -21,36 +21,81 @@ export function SocialProofSection() {
 
         {/* Client Logos Grid */}
         <div className="mb-16 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.1s'}}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center justify-center max-w-2xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-center max-w-5xl mx-auto">
             {/* FemRide Logo */}
             <div className="flex items-center justify-center">
-              <div className="w-32 h-20 flex items-center justify-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+              <div className="w-32 h-20 flex items-center justify-center p-3 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
                 <img
                   src="/images/companies/femride-logo.png"
                   alt="FemRide"
-                  className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  width={120}
+                  height={48}
+                  className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>
             </div>
-            
+
             {/* Wilsch Logo */}
             <div className="flex items-center justify-center">
-              <div className="w-32 h-20 flex items-center justify-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+              <div className="w-32 h-20 flex items-center justify-center p-3 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
                 <img
                   src="/images/companies/wilsch-logo.png"
                   alt="Wilsch"
-                  className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  width={120}
+                  height={48}
+                  className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>
             </div>
-            
+
             {/* WPH Logo */}
             <div className="flex items-center justify-center">
-              <div className="w-32 h-20 flex items-center justify-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+              <div className="w-32 h-20 flex items-center justify-center p-3 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
                 <img
                   src="/images/companies/wph-logo.svg"
                   alt="WPH"
-                  className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  width={120}
+                  height={48}
+                  className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            {/* IITR Logo */}
+            <div className="flex items-center justify-center">
+              <div className="w-32 h-20 flex items-center justify-center p-3 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <img
+                  src="/images/companies/iitr-logo.svg"
+                  alt="IITR Datenschutz"
+                  width={120}
+                  height={48}
+                  className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            {/* BruceBEM Logo */}
+            <div className="flex items-center justify-center">
+              <div className="w-32 h-20 flex items-center justify-center p-3 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <img
+                  src="/images/companies/brucebem-logo.png"
+                  alt="BruceBEM"
+                  width={120}
+                  height={48}
+                  className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            {/* Prellus Logo */}
+            <div className="flex items-center justify-center">
+              <div className="w-32 h-20 flex items-center justify-center p-3 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <img
+                  src="/images/companies/prellus-logo.svg"
+                  alt="Prellus"
+                  width={120}
+                  height={48}
+                  className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>
             </div>

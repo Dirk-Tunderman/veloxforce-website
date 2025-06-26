@@ -3,7 +3,7 @@
 import React from "react"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
-import { Check, X, Zap, Users, Cog, Shield, ThumbsUp, ThumbsDown, ArrowRight, Brain } from "lucide-react"
+import { Check, X, Zap, Users, Cog, Shield, ThumbsUp, ThumbsDown, ArrowRight, Brain, Server, Cloud, Sparkles } from "lucide-react"
 import Link from "next/link"
 
 export function ServiceDifferentiationSection() {
@@ -11,17 +11,70 @@ export function ServiceDifferentiationSection() {
     <Section padding="xl" background="transparent" className="relative overflow-hidden">
       {/* Simple static background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20" />
-      
+
       <Container className="relative z-10 max-w-7xl">
         {/* Premium Section Header */}
         <div className="text-center mb-20 animate-on-scroll" data-animation="fadeInUp">
           <h2 className="velox-text-h1-premium mb-8">
-            The Market Hasn't Caught Up to This Reality Yet
+            The $10 Trillion Evolution Nobody Saw Coming
           </h2>
           <p className="velox-text-lead max-w-4xl mx-auto text-blue-800">
-            <span className="font-bold">AI made custom software affordable.</span> We made it accessible by <span className="font-bold">running it for you</span>. 
-            <span className="font-semibold"> That's the Service-as-Software revolution.</span>
+            <span className="font-bold">Three decades of business software evolution</span> led to this breakthrough moment.
+            <span className="font-semibold"> Service-as-Software changes everything.</span>
           </p>
+        </div>
+
+        {/* Evolution Timeline */}
+        <div className="mb-20 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.1s'}}>
+          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            {/* Before 2000s */}
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gray-100 rounded-2xl flex items-center justify-center">
+                <Server className="w-10 h-10 text-gray-600" />
+              </div>
+              <h3 className="velox-text-h3 mb-4 text-gray-700">Before 2000s</h3>
+              <div className="space-y-2">
+                <p className="text-base font-bold text-gray-700 leading-relaxed">
+                  Buy servers, install software, hire IT teams
+                </p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Massive upfront costs, months of setup
+                </p>
+              </div>
+            </div>
+
+            {/* 2000s-2020s */}
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-6 bg-blue-100 rounded-2xl flex items-center justify-center">
+                <Cloud className="w-10 h-10 text-blue-600" />
+              </div>
+              <h3 className="velox-text-h3 mb-4 text-blue-700">2000s-2020s</h3>
+              <div className="space-y-2">
+                <p className="text-base font-bold text-blue-700 leading-relaxed">
+                  Rent software (SaaS), but still operate it yourself
+                </p>
+                <p className="text-sm text-blue-600 leading-relaxed">
+                  Lower costs, but you still manage everything
+                </p>
+              </div>
+            </div>
+
+            {/* 2024+ */}
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center shadow-lg">
+                <Sparkles className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="velox-text-h3 mb-4 text-blue-800">2024+</h3>
+              <div className="space-y-2">
+                <p className="text-base font-bold text-blue-800 leading-relaxed">
+                  Define outcomes, receive results (Service-as-Software)
+                </p>
+                <p className="text-sm text-blue-700 leading-relaxed">
+                  AI builds it, we run it, you receive finished work
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Enhanced Three-Column Comparison - Original Layout */}
@@ -184,62 +237,55 @@ export function ServiceDifferentiationSection() {
           <div className="lg:col-span-5 animate-on-scroll" data-animation="fadeInRight" style={{animationDelay: '0.4s'}}>
             <div className="card-solution relative min-h-[400px] flex flex-col">
               <div className="icon-container-gradient mb-6 mx-auto">
-                <Check className="w-8 h-8 icon-accent" />
+                <Sparkles className="w-8 h-8 text-white" />
               </div>
               <h3 className="velox-text-h2 text-blue-800 text-center mb-8 font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
                 Service-as-Software
               </h3>
-              
-              <div className="space-y-8 flex-1">
-                {/* Best of All Worlds */}
+
+              <div className="space-y-6 flex-1">
+                {/* Revolutionary Approach */}
                 <div className="animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.5s'}}>
-                  <div className="flex items-center gap-3 mb-4 justify-center">
-                    <Zap className="w-5 h-5 text-blue-600" />
-                    <span className="text-lg font-bold text-blue-800">Best of All Worlds</span>
-                  </div>
-                  <div className="space-y-3 text-base text-blue-800 font-medium">
+                  <div className="space-y-4 text-base text-blue-800 font-medium text-center">
                     <p className="flex items-center gap-3 justify-center">
                       <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                      <span>AI's intelligence + Human oversight</span>
+                      <span className="font-bold">AI builds YOUR software, not templates</span>
                     </p>
                     <p className="flex items-center gap-3 justify-center">
                       <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                      <span>Automation's scale + Custom solutions</span>
+                      <span className="font-bold">We operate complex tool orchestrations you never see</span>
                     </p>
                     <p className="flex items-center gap-3 justify-center">
                       <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                      <span>24/7 operations + Strategic thinking</span>
+                      <span className="font-bold">Guaranteed outcomes at 80% less than custom development</span>
+                    </p>
+                    <p className="flex items-center gap-3 justify-center">
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                      <span className="font-bold">ROI positive in 3-4 months, not years</span>
                     </p>
                   </div>
                 </div>
-                
-                {/* All Problems Solved */}
+
+                {/* Value Proposition */}
                 <div className="animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.6s'}}>
-                  <div className="flex items-center gap-3 mb-4 justify-center">
-                    <Shield className="w-5 h-5 text-blue-600" />
-                    <span className="text-lg font-bold text-blue-800">All Problems Solved</span>
-                  </div>
-                  <div className="space-y-3 text-base text-blue-800 font-medium">
-                    <p className="flex items-center gap-3 justify-center">
-                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                      <span>We manage the complexity</span>
-                    </p>
-                    <p className="flex items-center gap-3 justify-center">
-                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                      <span>We ensure quality & accuracy</span>
-                    </p>
-                    <p className="flex items-center gap-3 justify-center">
-                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                      <span>We handle scaling & improvements</span>
+                  <div className="bg-blue-50 rounded-lg p-6 text-center">
+                    <div className="flex items-center gap-3 mb-4 justify-center">
+                      <Shield className="w-5 h-5 text-blue-600" />
+                      <span className="text-lg font-bold text-blue-800">The Complete Solution</span>
+                    </div>
+                    <p className="text-blue-700 font-medium">
+                      You describe what you need. We build the AI system. We run it 24/7.
+                      <span className="font-bold"> You receive finished work.</span>
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-6 text-center">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.6s'}}>
-                  <span className="text-sm font-semibold text-blue-800">
-                    Guaranteed Results, Not Tools
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.7s'}}>
+                  <Sparkles className="w-4 h-4" />
+                  <span className="text-sm font-semibold">
+                    Outcomes, Not Software
                   </span>
                 </div>
               </div>
@@ -249,37 +295,41 @@ export function ServiceDifferentiationSection() {
 
 
 
-        {/* Key Message - Optimized */}
-        <div className="bg-white/95 border border-blue-200 rounded-lg p-6 text-center relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.7s'}}>
+        {/* Key Message - Evolution Complete */}
+        <div className="bg-gradient-to-r from-blue-50 to-white border border-blue-200 rounded-lg p-8 text-center relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.8s'}}>
           <div className="relative z-10">
             <h3 className="velox-text-h2 text-blue-900 mb-4">
-              You own the strategy. We own the execution.
+              The Evolution Is Complete. The Future Is Here.
             </h3>
             <p className="velox-text-lead text-blue-800 mb-8">
-              The perfect partnership for business growth
+              <span className="font-bold">Stop buying software. Start receiving outcomes.</span>
             </p>
-            
-            {/* ROI Preview Mini Widget */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8 max-w-2xl mx-auto">
+
+            {/* Evolution Benefits */}
+            <div className="grid md:grid-cols-4 gap-6 mb-8 max-w-4xl mx-auto">
               <div className="text-center hover:scale-105 transition-transform duration-200">
-                <div className="text-3xl font-bold text-blue-600 mb-1">10x</div>
-                <p className="text-sm text-gray-600">Faster Development</p>
+                <div className="text-3xl font-bold text-blue-600 mb-1">80%</div>
+                <p className="text-sm text-gray-600">Less Than Custom Development</p>
               </div>
               <div className="text-center hover:scale-105 transition-transform duration-200">
-                <div className="text-3xl font-bold text-blue-600 mb-1">90%</div>
-                <p className="text-sm text-gray-600">Cost Reduction</p>
+                <div className="text-3xl font-bold text-blue-600 mb-1">3-4</div>
+                <p className="text-sm text-gray-600">Months to ROI Positive</p>
               </div>
               <div className="text-center hover:scale-105 transition-transform duration-200">
                 <div className="text-3xl font-bold text-blue-600 mb-1">24/7</div>
-                <p className="text-sm text-gray-600">Operations</p>
+                <p className="text-sm text-gray-600">AI Operations</p>
+              </div>
+              <div className="text-center hover:scale-105 transition-transform duration-200">
+                <div className="text-3xl font-bold text-blue-600 mb-1">100%</div>
+                <p className="text-sm text-gray-600">Custom Built for You</p>
               </div>
             </div>
-            
-            <Link 
+
+            <Link
               href="/our-approach"
-              className="inline-flex items-center gap-2 group hover:scale-[1.02] transition-transform duration-200"
+              className="inline-flex items-center gap-2 group hover:scale-[1.02] transition-transform duration-200 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-semibold"
             >
-              <span>See How This Works</span>
+              <span>See How This Revolution Works</span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

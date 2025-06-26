@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="325" height="65" viewBox="0 0 325 65" xmlns="http://www.w3.org/2000/svg">
+  <rect width="325" height="65" fill="#ffffff"/>
+  
+  <!-- IITR Logo based on their actual website design -->
+  <g>
+    <!-- Main IITR text -->
+    <path d="M17.5,62.3H3.3V2.4h14.3V62.3z" fill="#1f2937"/>
+    <path d="M39.5,62.3H25.2V2.4h14.3V62.3z" fill="#1f2937"/>
+    <path d="M97,15.3H78.4v47H64v-47H45.5V2.4H97V15.3z" fill="#1f2937"/>
+    <path d="M155.4,62.3h-16l-10.8-20.8h-11.1v20.8h-14.4V2.4h28.1c7.2,0,12.7,1.7,16.6,5.2c3.9,3.5,5.8,8.1,5.8,13.8
+      c0,4.1-1.1,7.7-3.2,10.6c-2.2,3-4.8,5.2-7.9,6.6L155.4,62.3z M139.1,22.7c0-2.3-0.8-4.1-2.3-5.4c-1.5-1.3-3.5-1.9-5.9-1.9h-13.5
+      v14.8h13.5c2.4,0,4.4-0.7,5.9-2C138.3,26.7,139.1,24.9,139.1,22.7z" fill="#1f2937"/>
+    
+    <!-- Datenschutz text -->
+    <text x="172" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#64748b">DATENSCHUTZ</text>
+  </g>
+</svg>

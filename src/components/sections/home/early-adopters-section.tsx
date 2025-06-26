@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import { Container } from '@/components/layout/container'
 import { 
   TrendingUp, 
@@ -353,7 +354,57 @@ export function EarlyAdoptersSection() {
             />
           ))}
         </div>
-        
+
+        {/* Client Logos Section */}
+        <div className="mb-24 text-center">
+          <div className="mb-8">
+            <p className="velox-text-body text-gray-600 font-medium">
+              Trusted by forward-thinking businesses
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-center max-w-3xl mx-auto">
+            {/* IITR Logo */}
+            <div className="flex items-center justify-center">
+              <div className="w-40 h-20 flex items-center justify-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <Image
+                  src="/images/companies/iitr-logo.svg"
+                  alt="IITR Datenschutz"
+                  width={160}
+                  height={60}
+                  className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            {/* BruceBEM Logo */}
+            <div className="flex items-center justify-center">
+              <div className="w-40 h-20 flex items-center justify-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <Image
+                  src="/images/companies/brucebem-logo.svg"
+                  alt="BruceBEM"
+                  width={160}
+                  height={60}
+                  className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            {/* Prellus Logo */}
+            <div className="flex items-center justify-center">
+              <div className="w-40 h-20 flex items-center justify-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <Image
+                  src="/images/companies/prellus-logo.jpeg"
+                  alt="Prellus"
+                  width={160}
+                  height={60}
+                  className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Trust Builder Section */}
         <div
           ref={trustRef}

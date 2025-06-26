@@ -12,7 +12,7 @@ export const mainNavItems = [
     href: "/is-this-right-for-me",
   },
   {
-    title: "Blog",
+    title: "Insights",
     href: "/blog",
   },
   {
@@ -107,7 +107,7 @@ export const footerLinks = [
         href: "/is-this-right-for-me",
       },
       {
-        title: "Blog",
+        title: "Insights",
         href: "/blog",
       },
       {
