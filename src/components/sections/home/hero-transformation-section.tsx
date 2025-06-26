@@ -51,7 +51,7 @@ export function HeroTransformationSection() {
               </h1>
 
               <p className="velox-text-lead text-center max-w-4xl mx-auto">
-                <span className="block text-xl md:text-2xl font-semibold text-blue-800 [text-shadow:_0_2px_6px_rgb(255_255_255_/_70%),_0_1px_2px_rgb(255_255_255_/_50%)]">AI builds your perfect system. We run it 24/7. You receive finished work.</span>
+                <span className="block text-xl md:text-2xl font-semibold text-blue-800 [text-shadow:_0_2px_6px_rgb(255_255_255_/_70%),_0_1px_2px_rgb(255_255_255_/_50%)]">AI builds you're perfect system. We run it 24/7. You receive finished work.</span>
               </p>
               
               <div className="max-w-4xl mx-auto">

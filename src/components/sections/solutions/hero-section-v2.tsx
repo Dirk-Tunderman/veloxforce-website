@@ -1,11 +1,9 @@
 "use client"
 
-import Link from "next/link"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
-import { Button } from "@/components/ui/button"
-import { Calculator, Target, TrendingUp } from "lucide-react"
+import { AlertTriangle, Zap, Eye, CheckCircle, RotateCcw } from 'lucide-react'
 
 export function HeroSectionV2() {
   return (
@@ -37,79 +35,150 @@ export function HeroSectionV2() {
             </Heading>
 
             <Text className="velox-text-lead text-center max-w-4xl mx-auto">
-              <strong>Elevate your team from operators to innovators.</strong> Transform routine work into strategic advantage.
-            </Text>
-
-            <Text className="velox-text-body max-w-4xl mx-auto text-center">
-              Your talented people deserve better than data entry and status updates. See how we free your team to do the work that only they can do.
+              <strong>Every business is unique. Every process is unique.</strong> Now AI creates software that thinks and analyzes like your team.
             </Text>
           </div>
 
-          {/* Value Proposition Cards - CSS Animation with delay */}
-          <div 
-            className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto animate-fadeIn"
+          {/* Visual Comparison Animation */}
+          <div
+            className="max-w-6xl mx-auto animate-fadeIn"
             style={{ animationDelay: '0.3s' }}
           >
-            <div className="card-base">
-              <div className="icon-container mx-auto mb-4">
-                <Target className="w-6 h-6 icon-primary" />
-              </div>
-              <Text className="font-semibold text-gray-900 mb-2 text-center">
-                Strategic Focus
-              </Text>
-              <Text className="text-sm text-gray-600 text-center">
-                Your team works on growth, not routine tasks
-              </Text>
-            </div>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Traditional Software Side */}
+              <div className="text-center">
+                <div className="bg-gray-100 rounded-2xl p-8 mb-6 relative overflow-hidden">
+                  <div className="absolute top-4 left-4 text-xs font-bold text-gray-500 uppercase tracking-wide">Traditional Software</div>
 
-            <div className="card-base">
-              <div className="icon-container mx-auto mb-4">
-                <TrendingUp className="w-6 h-6 icon-primary" />
-              </div>
-              <Text className="font-semibold text-gray-900 mb-2 text-center">
-                Guaranteed Results
-              </Text>
-              <Text className="text-sm text-gray-600 text-center">
-                Perfect execution, every time, without supervision
-              </Text>
-            </div>
+                  {/* Puzzle Piece Metaphor - Business trying to fit into rigid software */}
+                  <div className="mt-8 space-y-6">
+                    {/* Rigid Software Shape (Square hole) */}
+                    <div className="flex justify-center">
+                      <div className="relative">
+                        <div className="w-32 h-24 bg-gray-400 rounded-lg border-4 border-gray-600 flex items-center justify-center">
+                          <div className="w-16 h-16 bg-gray-200 rounded-sm border-2 border-gray-500"></div>
+                        </div>
+                        <div className="absolute -top-2 -right-2 bg-gray-600 text-white text-xs px-2 py-1 rounded-full">
+                          Software
+                        </div>
+                      </div>
+                    </div>
 
-            <div className="card-base">
-              <div className="icon-container mx-auto mb-4">
-                <Calculator className="w-6 h-6 icon-accent" />
+                    {/* Struggling Animation */}
+                    <div className="flex justify-center">
+                      <AlertTriangle className="w-8 h-8 text-red-500 animate-bounce" />
+                    </div>
+
+                    {/* Your Business (Round peg trying to fit square hole) */}
+                    <div className="flex justify-center">
+                      <div className="relative">
+                        <div className="w-20 h-20 bg-gradient-to-br from-red-400 to-red-600 rounded-full border-4 border-red-700 flex items-center justify-center transform animate-pulse">
+                          <div className="text-white text-xs font-bold text-center">Your<br/>Business</div>
+                        </div>
+                        <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-red-600 font-medium whitespace-nowrap">
+                          Trying to fit...
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="text-center mt-6">
+                      <div className="inline-block px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-medium">
+                        You Adapt to Software
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <Text className="text-gray-600 text-sm">
+                  Rigid templates • One-size-fits-all • You change your process
+                </Text>
               </div>
-              <Text className="font-semibold text-gray-900 mb-2 text-center">
-                Clear ROI
-              </Text>
-              <Text className="text-sm text-gray-600 text-center">
-                Savings typically exceed investment within months
-              </Text>
+
+              {/* AI-Powered Side */}
+              <div className="text-center">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 mb-6 relative overflow-hidden border border-blue-200">
+                  <div className="absolute top-4 left-4 text-xs font-bold text-blue-600 uppercase tracking-wide">AI-Powered Service</div>
+
+                  {/* Liquid/Clay Metaphor - Software molding to business shape */}
+                  <div className="mt-8 space-y-6">
+                    {/* Your Business (Solid, established shape) */}
+                    <div className="flex justify-center">
+                      <div className="relative">
+                        <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full border-4 border-blue-900 flex items-center justify-center">
+                          <div className="text-white text-xs font-bold text-center">Your<br/>Business</div>
+                        </div>
+                        <div className="absolute -top-2 -right-2 bg-blue-800 text-white text-xs px-2 py-1 rounded-full">
+                          Fixed
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Adaptive Flow Animation */}
+                    <div className="flex justify-center">
+                      <Zap className="w-8 h-8 text-blue-500 animate-bounce" />
+                    </div>
+
+                    {/* AI Software (Liquid/moldable, adapting to business shape) */}
+                    <div className="flex justify-center">
+                      <div className="relative">
+                        <div className="w-32 h-24 bg-gradient-to-br from-blue-200 to-blue-300 rounded-2xl border-4 border-blue-400 flex items-center justify-center relative overflow-hidden">
+                          {/* Liquid animation effect */}
+                          <div className="absolute inset-2 bg-gradient-to-br from-blue-300 to-blue-500 rounded-full animate-pulse"></div>
+                          <div className="absolute inset-4 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                          <div className="relative z-10 text-blue-800 text-xs font-bold text-center">
+                            AI Software<br/>
+                            <span className="text-blue-600">(Adapting)</span>
+                          </div>
+                        </div>
+                        <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-blue-600 font-medium whitespace-nowrap">
+                          Molding to fit perfectly
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="text-center mt-6">
+                      <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                        Software Adapts to You
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <Text className="text-gray-600 text-sm">
+                  Custom-built • Thinks like your team • Learns your process
+                </Text>
+              </div>
             </div>
           </div>
 
-          {/* Primary CTA - Simplified hover effects */}
-          <div 
-            className="space-y-6 text-center animate-fadeIn"
+          {/* Simple Key Benefits */}
+          <div
+            className="max-w-4xl mx-auto animate-fadeIn"
             style={{ animationDelay: '0.5s' }}
           >
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-12 py-6 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 mx-auto"
-              asChild
-            >
-              <Link href="/tools/business-audit">
-                <div className="relative z-10 flex flex-col items-center py-2 text-center">
-                  <span className="text-lg">Check What I Can Delegate</span>
-                  <span className="text-sm font-normal opacity-90 text-center">Free assessment • 8 minutes • Honest analysis</span>
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div className="group">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Eye className="w-8 h-8 text-white" />
                 </div>
-              </Link>
-            </Button>
+                <Text className="font-bold text-gray-900 mb-2">Understands Context</Text>
+                <Text className="text-sm text-gray-600">Reads and comprehends like a human expert</Text>
+              </div>
 
-            <Text className="text-center text-gray-600 max-w-2xl mx-auto">
-              <strong>Don't see your specific operation?</strong><br />
-              These are just examples. We've transformed over 200 unique processes across every industry.<br />
-              If it's repetitive and follows rules, we can automate it.
-            </Text>
+              <div className="group">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </div>
+                <Text className="font-bold text-gray-900 mb-2">Makes Decisions</Text>
+                <Text className="text-sm text-gray-600">Handles exceptions using your business logic</Text>
+              </div>
+
+              <div className="group">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <RotateCcw className="w-8 h-8 text-white" />
+                </div>
+                <Text className="font-bold text-gray-900 mb-2">Continuously Learns</Text>
+                <Text className="text-sm text-gray-600">Improves based on your feedback</Text>
+              </div>
+            </div>
           </div>
 
         </div>

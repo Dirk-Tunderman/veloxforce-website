@@ -19,7 +19,7 @@ export function JourneyTimelineSection() {
           </div>
 
           <h2 className="velox-text-h2 mb-6">
-            Your Journey to Strategic Freedom
+            What you can Expect
           </h2>
 
           <p className="velox-text-lead max-w-3xl mx-auto">

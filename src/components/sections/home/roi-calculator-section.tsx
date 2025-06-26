@@ -223,24 +223,7 @@ export function ROICalculatorSection() {
             ))}
           </div>
 
-          {/* Assessment CTA */}
-          <div className="mt-12 text-center">
-            <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100 rounded-2xl p-8 max-w-4xl mx-auto">
-              <h4 className="text-xl font-bold text-gray-900 mb-4">
-                Want Your Custom ROI Calculation?
-              </h4>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                We'll analyze your specific process using our 6-step framework and show you exactly what's possible.
-                <strong> No generic estimates - just your real numbers.</strong>
-              </p>
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-8 py-4 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Get My ROI Assessment
-              </Button>
-            </div>
-          </div>
+
         </div>
 
 

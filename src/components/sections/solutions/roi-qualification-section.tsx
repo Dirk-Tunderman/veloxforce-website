@@ -83,65 +83,9 @@ export function ROIQualificationSection() {
           })}
         </div>
 
-        {/* Results Section */}
-        <div 
-          className="card-solution mb-12 animate-on-scroll"
-          data-animation="fadeInUp"
-        >
-          <div className="text-center space-y-6">
-            <Heading level="3" className="velox-text-h3 text-blue-800">
-              When these conditions meet, expect:
-            </Heading>
 
-            <div className="grid md:grid-cols-3 gap-8 py-6">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-3 leading-tight">50-80%</div>
-                <Text className="velox-text-body">
-                  Typical cost reduction from current state
-                </Text>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-3 leading-tight">3-6x</div>
-                <Text className="velox-text-body">
-                  Speed improvement with perfect accuracy
-                </Text>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-3 leading-tight">24/7</div>
-                <Text className="velox-text-body">
-                  Operations without human intervention
-                </Text>
-              </div>
-            </div>
 
-            <Text className="velox-text-body max-w-3xl mx-auto text-gray-600">
-              <strong>The math is simple:</strong> If a process consumes 10 hours weekly at skilled rates,
-              that's €20,000-€40,000 annually. Our transformation typically pays for itself within months.
-            </Text>
-          </div>
-        </div>
 
-        {/* CTA Section */}
-        <div 
-          className="text-center animate-on-scroll pb-8"
-          data-animation="fadeInUp" 
-          style={{ animationDelay: "0.5s" }}
-        >
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            asChild
-          >
-            <Link href="/tools/business-audit">
-              See Your Specific Savings
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-          </Button>
-
-          <Text className="velox-text-caption mt-6 text-gray-600 text-center">
-            Free ROI analysis • 8 minutes • No sales pressure
-          </Text>
-        </div>
       </Container>
     </Section>
   )

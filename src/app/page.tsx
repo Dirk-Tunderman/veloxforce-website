@@ -17,7 +17,7 @@ import { constructMetadata } from "@/components/seo"
 
 export const metadata: Metadata = constructMetadata({
   title: "Stop Buying Software. Start Receiving Outcomes | Veloxforce Service-as-Software",
-  description: "AI builds your perfect system. We run it 24/7. You receive finished work. Traditional path: Buy software → Learn it → Manage it → Hope it works. Our path: Describe your need → We build it → Results flow automatically.",
+  description: "AI builds you're perfect system. We run it 24/7. You receive finished work. Traditional path: Buy software → Learn it → Manage it → Hope it works. Our path: Describe your need → We build it → Results flow automatically.",
   keywords: ["service as software", "custom ai software", "business automation", "outcome-based services", "ai development", "process automation"],
 })
 

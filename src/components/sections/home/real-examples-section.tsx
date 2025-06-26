@@ -20,7 +20,7 @@ export function RealExamplesSection() {
           </div>
 
           <h2 className="velox-text-h2 text-center mb-6">
-            Which Process Is Stealing Your Strategic Time?
+            Which Process Is Stealing Your Business Time?
           </h2>
 
           <p className="velox-text-lead max-w-3xl mx-auto">

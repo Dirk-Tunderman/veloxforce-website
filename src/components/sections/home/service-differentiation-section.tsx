@@ -16,7 +16,7 @@ export function ServiceDifferentiationSection() {
         {/* Premium Section Header */}
         <div className="text-center mb-20 animate-on-scroll" data-animation="fadeInUp">
           <h2 className="velox-text-h1-premium mb-8">
-            The $10 Trillion Evolution Nobody Saw Coming
+            The Evolution Nobody Saw Coming
           </h2>
           <p className="velox-text-lead max-w-4xl mx-auto text-blue-800">
             <span className="font-bold">Three decades of business software evolution</span> led to this breakthrough moment.
@@ -33,11 +33,11 @@ export function ServiceDifferentiationSection() {
                 <Server className="w-10 h-10 text-gray-600" />
               </div>
               <h3 className="velox-text-h3 mb-4 text-gray-700">Before 2000s</h3>
-              <div className="space-y-2">
-                <p className="text-base font-bold text-gray-700 leading-relaxed">
+              <div className="space-y-3 min-h-[80px] flex flex-col justify-center">
+                <p className="text-base font-bold text-gray-700 leading-relaxed mx-auto max-w-[280px]">
                   Buy servers, install software, hire IT teams
                 </p>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-gray-600 leading-relaxed mx-auto max-w-[280px]">
                   Massive upfront costs, months of setup
                 </p>
               </div>
@@ -49,11 +49,11 @@ export function ServiceDifferentiationSection() {
                 <Cloud className="w-10 h-10 text-blue-600" />
               </div>
               <h3 className="velox-text-h3 mb-4 text-blue-700">2000s-2020s</h3>
-              <div className="space-y-2">
-                <p className="text-base font-bold text-blue-700 leading-relaxed">
+              <div className="space-y-3 min-h-[80px] flex flex-col justify-center">
+                <p className="text-base font-bold text-blue-700 leading-relaxed mx-auto max-w-[280px]">
                   Rent software (SaaS), but still operate it yourself
                 </p>
-                <p className="text-sm text-blue-600 leading-relaxed">
+                <p className="text-sm text-blue-600 leading-relaxed mx-auto max-w-[280px]">
                   Lower costs, but you still manage everything
                 </p>
               </div>
@@ -65,11 +65,11 @@ export function ServiceDifferentiationSection() {
                 <Sparkles className="w-10 h-10 text-white" />
               </div>
               <h3 className="velox-text-h3 mb-4 text-blue-800">2024+</h3>
-              <div className="space-y-2">
-                <p className="text-base font-bold text-blue-800 leading-relaxed">
+              <div className="space-y-3 min-h-[80px] flex flex-col justify-center">
+                <p className="text-base font-bold text-blue-800 leading-relaxed mx-auto max-w-[280px]">
                   Define outcomes, receive results (Service-as-Software)
                 </p>
-                <p className="text-sm text-blue-700 leading-relaxed">
+                <p className="text-sm text-blue-700 leading-relaxed mx-auto max-w-[280px]">
                   AI builds it, we run it, you receive finished work
                 </p>
               </div>
@@ -313,7 +313,7 @@ export function ServiceDifferentiationSection() {
               </div>
               <div className="text-center hover:scale-105 transition-transform duration-200">
                 <div className="text-3xl font-bold text-blue-600 mb-1">3-4</div>
-                <p className="text-sm text-gray-600">Months to ROI Positive</p>
+                <p className="text-sm text-gray-600">Months avarage to ROI Positive</p>
               </div>
               <div className="text-center hover:scale-105 transition-transform duration-200">
                 <div className="text-3xl font-bold text-blue-600 mb-1">24/7</div>

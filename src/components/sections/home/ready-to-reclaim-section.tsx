@@ -55,30 +55,30 @@ export function ReadyToReclaimSection() {
             </div>
           </div>
 
-          {/* For Leaders Who Need Proof */}
+          {/* Not Sure Yet */}
           <div className="group relative">
             <div className="card-elevated relative h-full min-h-[400px] flex flex-col p-8 text-center">
               <div className="inline-block px-4 py-2 bg-emerald-100 text-emerald-800 text-sm font-bold rounded-full mb-6">
-                For Leaders Who Need Proof
+                Not Sure Yet?
               </div>
-              
+
               <div className="icon-container w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-emerald-100 to-emerald-200">
                 <Download className="w-10 h-10 text-emerald-600" />
               </div>
-              
+
               <h3 className="text-2xl font-bold text-emerald-800 mb-6">
-                Show Me Real Client Results
+                Is This Right for Me?
               </h3>
-              
+
               <p className="velox-text-body text-gray-600 mb-8 flex-1 leading-relaxed">
-                See exactly how we transformed similar operations. No theory, just evidence.
+                Take our quick assessment to see if Service-as-Software fits your business needs and goals.
               </p>
 
               <Link
                 href="/is-this-right-for-me"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-white border-2 border-emerald-600 text-emerald-600 font-bold text-lg hover:bg-emerald-600 hover:text-white transition-all duration-300 hover:scale-105"
               >
-                <span>Show Me Real Client Results</span>
+                <span>Is This Right for Me?</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
