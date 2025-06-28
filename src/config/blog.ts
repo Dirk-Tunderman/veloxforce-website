@@ -200,7 +200,7 @@ His invoices now flow from anywhere to everywhere. His bookkeeper works from Ita
     },
     publishedAt: '2024-02-10',
     get readingTime() { return calculateReadingTime(this.content) },
-    featuredImage: '/images/blog/wilsch-case-study.jpg',
+    featuredImage: '/images/blog/banner_blog_invoice_case_study.jpeg',
     tags: ['Invoice Processing', 'Remote Work', 'AI Automation', 'Wilsch Systems', 'Digital Transformation', 'Case Study'],
     featured: true
   },

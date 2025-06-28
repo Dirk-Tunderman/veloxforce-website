@@ -151,13 +151,20 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       </Section>
 
       {/* Featured Image */}
-      <Section padding="none" background="white">
-        <Container className="max-w-6xl">
-          <div className="aspect-video bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl relative overflow-hidden mb-16">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20" />
-          </div>
-        </Container>
-      </Section>
+      {post.featuredImage && (
+        <Section padding="none" background="white">
+          <Container className="max-w-6xl">
+            <div className="aspect-video bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl relative overflow-hidden mb-16">
+              <img
+                src={post.featuredImage}
+                alt={post.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
+            </div>
+          </Container>
+        </Section>
+      )}
 
       {/* Article Content */}
       <Section padding="xl" background="white">

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excalidraw Diagram Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .diagram-info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 5px;
+            border-left: 4px solid #1976d2;
+        }
+        .elements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .element-card {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+        }
+        .element-start { border-left: 4px solid #388e3c; background: #c8e6c9; }
+        .element-decision { border-left: 4px solid #f9a825; background: #fff9c4; }
+        .element-fail { border-left: 4px solid #f57c00; background: #ffe0b2; }
+        .element-process { border-left: 4px solid #1976d2; background: #bbdefb; }
+        .element-learning { border-left: 4px solid #689f38; background: #dcedc8; }
+        .element-ai { border-left: 4px solid #7b1fa2; background: #e1bee7; }
+        .element-end { border-left: 4px solid #d32f2f; background: #ffcdd2; }
+        .element-type {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .element-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+            white-space: pre-line;
+        }
+        .element-position {
+            font-size: 11px;
+            color: #999;
+        }
+        .arrows-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .arrow-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 3px;
+            border-left: 3px solid #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>German Company Invoice Processing - Complete Transformation</h1>
+        
+        <div class="diagram-info">
+            <h3>📊 Diagram Analysis</h3>
+            <p><strong>Total Elements:</strong> <span id="elementCount">Loading...</span></p>
+            <p><strong>Diagram Type:</strong> Process Transformation Flow</p>
+            <p><strong>Status:</strong> <span style="color: green;">✅ Successfully Generated</span></p>
+        </div>
+
+        <h3>🎨 Visual Elements</h3>
+        <div id="elementsContainer" class="elements-grid">
+            Loading elements...
+        </div>
+
+        <div class="arrows-section">
+            <h3>🔗 Connections & Flow</h3>
+            <div id="arrowsContainer">
+                Loading connections...
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; padding: 15px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #ffc107;">
+            <h4>📝 Instructions:</h4>
+            <p>To view and edit this diagram:</p>
+            <ol>
+                <li>Open <code>diagrams/output.excalidraw</code> in VS Code</li>
+                <li>Make sure you have the Excalidraw extension installed</li>
+                <li>The diagram will render as an interactive flowchart</li>
+                <li>You can edit, export, and customize as needed</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Load and display the Excalidraw data
+        fetch('./output.excalidraw')
+            .then(response => response.json())
+            .then(data => {
+                displayDiagramData(data);
+            })
+            .catch(error => {
+                console.error('Error loading diagram:', error);
+                document.getElementById('elementsContainer').innerHTML = 
+                    '<p style="color: red;">Error loading diagram data</p>';
+            });
+
+        function displayDiagramData(data) {
+            const elements = data.elements || [];
+            const shapes = elements.filter(el => el.type !== 'text');
+            const arrows = elements.filter(el => el.type === 'arrow');
+            
+            document.getElementById('elementCount').textContent = elements.length;
+            
+            // Display shape elements
+            const container = document.getElementById('elementsContainer');
+            container.innerHTML = '';
+            
+            shapes.forEach(element => {
+                if (element.type === 'arrow') return;
+                
+                const card = document.createElement('div');
+                card.className = `element-card element-${getCategoryFromColors(element)}`;
+                
+                const textElement = elements.find(el => 
+                    el.type === 'text' && el.containerId === element.id
+                );
+                
+                card.innerHTML = `
+                    <div class="element-type">${element.type} • ${getCategoryFromColors(element)}</div>
+                    <div class="element-text">${textElement ? textElement.text : 'No text'}</div>
+                    <div class="element-position">Position: (${element.x}, ${element.y}) • Size: ${element.width}×${element.height}</div>
+                `;
+                
+                container.appendChild(card);
+            });
+            
+            // Display arrows
+            const arrowsContainer = document.getElementById('arrowsContainer');
+            arrowsContainer.innerHTML = '';
+            
+            arrows.forEach(arrow => {
+                const arrowDiv = document.createElement('div');
+                arrowDiv.className = 'arrow-item';
+                
+                const startElement = shapes.find(el => el.id === arrow.startBinding?.elementId);
+                const endElement = shapes.find(el => el.id === arrow.endBinding?.elementId);
+                
+                const startText = startElement ? getElementText(startElement, elements) : 'Unknown';
+                const endText = endElement ? getElementText(endElement, elements) : 'Unknown';
+                
+                arrowDiv.innerHTML = `
+                    <strong>${startText}</strong> → <strong>${endText}</strong>
+                `;
+                
+                arrowsContainer.appendChild(arrowDiv);
+            });
+        }
+        
+        function getCategoryFromColors(element) {
+            const bg = element.backgroundColor;
+            if (bg === '#c8e6c9') return 'start';
+            if (bg === '#fff9c4') return 'decision';
+            if (bg === '#ffe0b2') return 'fail';
+            if (bg === '#bbdefb') return 'process';
+            if (bg === '#dcedc8') return 'learning';
+            if (bg === '#e1bee7') return 'ai';
+            if (bg === '#ffcdd2') return 'end';
+            return 'unknown';
+        }
+        
+        function getElementText(element, allElements) {
+            const textElement = allElements.find(el => 
+                el.type === 'text' && el.containerId === element.id
+            );
+            return textElement ? textElement.text.split('\n')[0] : element.id;
+        }
+    </script>
+</body>
+</html>

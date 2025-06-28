@@ -1,16 +1,17 @@
 "use client"
 
+import React from "react"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
 import { Heading, Text } from "@/components/ui/typography"
 import { Button } from "@/components/ui/button"
-import { Calculator, TrendingUp, AlertTriangle, ArrowRight, Target, CheckCircle, X } from "lucide-react"
+import { Calculator, TrendingUp, AlertTriangle, ArrowRight, Target, CheckCircle, X, Clock, DollarSign, Users } from "lucide-react"
 import Link from "next/link"
 
 export function EvaluationGuideSection() {
   return (
     <div>
-      {/* Clean Hero Section - Matching Landing/Solutions Pattern */}
+      {/* New Hero Section - Direct and Results-Focused */}
       <Section
         padding="xl"
         background="white-to-light"
@@ -25,280 +26,363 @@ export function EvaluationGuideSection() {
             <div className="space-y-6 max-w-5xl mx-auto">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
-                  Every Business Has
+                  Here's Exactly How We Turn Your
                 </span>
                 <br />
-                <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
-                  Untapped Potential
+                <span className="text-gray-900">
+                  Manual Processes Into Automated Operations
                 </span>
               </h1>
-
-              <Text className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-                <strong>Four proven phases from operational overwhelm to strategic freedom.</strong> Each designed to unlock your business's hidden capacity without disruption.
-              </Text>
-
-              <Text className="text-lg text-gray-600 max-w-3xl mx-auto text-center">
-                The Service-as-Software Method transforms routine work into strategic advantage.
+              
+              <Text className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                No guesswork. No generic solutions. Just a proven system that transforms your specific processes into reliable, scalable automation.
               </Text>
             </div>
 
-            {/* Value Proposition Cards */}
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300">
-                <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Target className="w-6 h-6 text-gray-700" />
+            {/* Key Promise */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-blue-100 shadow-lg max-w-4xl mx-auto">
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                  <CheckCircle className="w-6 h-6 text-white" />
                 </div>
-                <Text className="font-semibold text-gray-900 mb-2 text-center">
-                  Partnership Focus
+                <Text className="text-2xl font-bold text-gray-900">
+                  Discovery through deep interviews and observation. Implementation timeline depends on complexity - we'll tell you exactly after discovery.
                 </Text>
-                <Text className="text-sm text-gray-600 text-center">
-                  You focus on strategy while we handle execution
-                </Text>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300">
-                <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-6 h-6 text-gray-700" />
-                </div>
-                <Text className="font-semibold text-gray-900 mb-2 text-center">
-                  Proven Results
-                </Text>
-                <Text className="text-sm text-gray-600 text-center">
-                  ROI-first approach with transparent outcomes
-                </Text>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Calculator className="w-6 h-6 text-blue-600" />
-                </div>
-                <Text className="font-semibold text-gray-900 mb-2 text-center">
-                  Clear Economics
-                </Text>
-                <Text className="text-sm text-gray-600 text-center">
-                  Investment scales with complexity and value
-                </Text>
-              </div>
-            </div>
-
-            {/* Primary CTAs */}
-            <div className="space-y-6 text-center">
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-10 py-5 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
-                  asChild
-                >
-                  <Link href="/tools/business-audit">
-                    <span className="relative z-10 flex items-center gap-2">
-                      Discover My Potential
-                      <Calculator className="w-5 h-5" />
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  </Link>
-                </Button>
-
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="px-10 py-5 h-auto text-lg font-semibold border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
-                  asChild
-                >
-                  <Link href="#cost-reality">
-                    <span className="flex items-center gap-2">
-                      See How It Works
-                      <ArrowRight className="w-5 h-5" />
-                    </span>
-                  </Link>
-                </Button>
               </div>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* Clean Cost Analysis Section */}
-      <Section padding="xl" background="transparent" id="cost-reality">
-        <Container className="max-w-6xl">
+      {/* Process Section */}
+      <Section padding="xl" background="white" className="relative">
+        <Container className="max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
-                The Hidden Cost Reality
-              </span>
-            </h2>
+            <Heading level={2} className="text-4xl font-bold text-gray-900 mb-6">
+              How We Build Your Automated Operations
+            </Heading>
             <Text className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Most businesses only see the tip of their operational cost iceberg. 
-              Understanding the full picture changes everything.
+              Discovery through deep interviews and observation. Implementation timeline depends on complexity - we'll tell you exactly after discovery.
             </Text>
           </div>
 
-          {/* Four Cost Categories - Clean Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Calculator className="w-6 h-6 text-gray-700" />
-              </div>
-              <Text className="text-sm text-gray-600 mb-2">Time spent × hourly rate</Text>
-              <Text className="text-lg font-bold text-gray-900">Direct Labor Cost</Text>
-            </div>
-            
-            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <AlertTriangle className="w-6 h-6 text-gray-700" />
-              </div>
-              <Text className="text-sm text-gray-600 mb-2">Mistakes and rework</Text>
-              <Text className="text-lg font-bold text-gray-900">Error Costs</Text>
-            </div>
-            
-            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="w-6 h-6 text-gray-700" />
-              </div>
-              <Text className="text-sm text-gray-600 mb-2">Supervision and coordination</Text>
-              <Text className="text-lg font-bold text-gray-900">Management Overhead</Text>
-            </div>
-            
-            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <ArrowRight className="w-6 h-6 text-blue-600" />
-              </div>
-              <Text className="text-sm text-gray-600 mb-2">Strategic work not done</Text>
-              <Text className="text-lg font-bold text-gray-900">Opportunity Cost</Text>
-            </div>
-          </div>
-
-          <div className="text-center mb-16">
-            <div className="max-w-3xl mx-auto">
-              <Text className="text-xl font-bold text-gray-900 mb-4">
-                Most clients discover their manual process costs 3-5x what they thought.
-              </Text>
-              <Text className="text-lg text-gray-600">
-                Once you understand the real cost, Service-as-Software makes perfect sense.
-              </Text>
-            </div>
-          </div>
-
-          {/* Real Example - Professional Two-Column Layout */}
-          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-8 mb-16">
-            {/* Top Section: Icon + Title and Calculations */}
-            <div className="grid md:grid-cols-2 gap-8 items-start mb-6">
-              {/* Left: Icon + Title */}
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Calculator className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-blue-900">
-                  Real Example: The Invoice Processing Reality
-                </h3>
-              </div>
+          {/* 4-Phase Process - Horizontal Flow with Animations */}
+          <div className="relative mb-20">
+            {/* Process Flow Container */}
+            <div className="grid lg:grid-cols-4 gap-6 lg:gap-8 relative">
               
-              {/* Right: Calculations */}
-              <div className="space-y-2">
-                <Text className="text-lg text-blue-800">
-                  <span className="font-bold">10 hours weekly</span> on invoicing
-                </Text>
-                <Text className="text-lg text-blue-800">
-                  = <span className="font-bold">520 hours annually</span>
-                </Text>
-                <Text className="text-lg text-blue-800">
-                  = <span className="font-bold">13 weeks of strategic work lost</span>
-                </Text>
-              </div>
-            </div>
-            
-            {/* Bottom Section: Conclusion */}
-            <div className="pt-6 border-t border-blue-200 text-center">
-              <div className="bg-blue-600 text-white px-6 py-3 rounded-lg inline-block">
-                <Text className="font-semibold">Service-as-Software reverses this equation.</Text>
-              </div>
-            </div>
-          </div>
-
-          {/* Think Differently Section - Clean Design */}
-          <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-center mb-8">
-              <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
-                Think Differently About Automation
-              </span>
-            </h3>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-                <h4 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-                  <div className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center">
-                    <X className="w-4 h-4 text-white" />
+              {/* Phase 1: Discovery */}
+              <div className="relative z-10 group">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-3 group-hover:border-blue-300 h-full flex flex-col">
+                  {/* Icon with Animation */}
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Users className="w-10 h-10 text-white group-hover:animate-pulse" />
                   </div>
-                  Stop Asking:
-                </h4>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-gray-500 rounded-full mt-2 flex-shrink-0" />
-                    <Text className="text-gray-700">"What software should we buy?"</Text>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-gray-500 rounded-full mt-2 flex-shrink-0" />
-                    <Text className="text-gray-700">"How do we manage this tool?"</Text>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-gray-500 rounded-full mt-2 flex-shrink-0" />
-                    <Text className="text-gray-700">"What are the features?"</Text>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                <h4 className="text-lg font-bold text-blue-800 mb-4 flex items-center gap-2">
-                  <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                    <CheckCircle className="w-4 h-4 text-white" />
-                  </div>
-                  Start Asking:
-                </h4>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                    <Text className="text-blue-800">"What outcomes do we need?"</Text>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                    <Text className="text-blue-800">"Who handles this for us?"</Text>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                    <Text className="text-blue-800">"What's the real ROI?"</Text>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="text-center mt-8">
-              <div className="max-w-md mx-auto">
-                <Text className="text-lg font-semibold text-blue-600">
-                  This shift changes everything.
-                </Text>
-              </div>
-            </div>
-          </div>
 
-          {/* Final CTA */}
-          <div className="text-center mt-16">
-            <Button
-              size="lg"
-              className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-semibold px-12 py-6 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden group"
-              asChild
-            >
-              <Link href="/tools/business-audit">
-                <div className="relative z-10 flex flex-col items-center py-2 text-center">
-                  <span className="text-lg">Calculate My Real Process Cost</span>
-                  <span className="text-sm font-normal opacity-90 text-center">
-                    Free assessment • 8 minutes • Honest analysis
-                  </span>
+                  {/* Phase Number */}
+                  <div className="text-center mb-4">
+                    <span className="inline-flex items-center justify-center w-10 h-10 bg-blue-100 text-blue-600 rounded-full text-lg font-bold shadow-sm">1</span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 text-center leading-tight">Discovery Through Deep Interviews</h3>
+
+                  {/* Key Points with Icons */}
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <div className="w-2.5 h-2.5 bg-blue-500 rounded-full" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed">Interview every person touching your processes</Text>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <div className="w-2.5 h-2.5 bg-blue-500 rounded-full" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed">Shadow your team for 2 days</Text>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <div className="w-2.5 h-2.5 bg-blue-500 rounded-full" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed">Document reality, not theory</Text>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <CheckCircle className="w-3.5 h-3.5 text-blue-500" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed font-medium">Identify immediate quick wins</Text>
+                    </div>
+                  </div>
+
+                  {/* Timeline Badge */}
+                  <div className="mt-auto bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-4 text-center">
+                    <Text className="text-sm font-bold text-blue-800 mb-1">2-3 weeks</Text>
+                    <Text className="text-xs text-blue-600">Can't rush understanding</Text>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-              </Link>
-            </Button>
+              </div>
+
+              {/* Phase 2: Analysis + Quick Wins */}
+              <div className="relative z-10 group">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-3 group-hover:border-purple-300 h-full flex flex-col">
+                  {/* Icon with Animation */}
+                  <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Calculator className="w-10 h-10 text-white group-hover:animate-pulse" />
+                  </div>
+
+                  {/* Phase Number */}
+                  <div className="text-center mb-4">
+                    <span className="inline-flex items-center justify-center w-10 h-10 bg-purple-100 text-purple-600 rounded-full text-lg font-bold shadow-sm">2</span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 text-center leading-tight">Analysis + Quick Wins</h3>
+
+                  {/* Key Points with Icons */}
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <DollarSign className="w-3.5 h-3.5 text-purple-500" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed">Calculate visible + hidden costs</Text>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <Target className="w-3.5 h-3.5 text-purple-500" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed">Project realistic ROI timeline</Text>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <CheckCircle className="w-3.5 h-3.5 text-purple-500" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed font-medium">Deploy ready-made SOPs</Text>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <TrendingUp className="w-3.5 h-3.5 text-purple-500" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed font-medium">Implement proven quick fixes</Text>
+                    </div>
+                  </div>
+
+                  {/* Decision Badge */}
+                  <div className="mt-auto bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-4 text-center">
+                    <Text className="text-sm font-bold text-purple-800 mb-1">Go/No-Go Decision</Text>
+                    <Text className="text-xs text-purple-600">Numbers must guarantee success</Text>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phase 3: Implementation */}
+              <div className="relative z-10 group">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-3 group-hover:border-green-300 h-full flex flex-col">
+                  {/* Icon with Animation */}
+                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <CheckCircle className="w-10 h-10 text-white group-hover:animate-bounce" />
+                  </div>
+
+                  {/* Phase Number */}
+                  <div className="text-center mb-4">
+                    <span className="inline-flex items-center justify-center w-10 h-10 bg-green-100 text-green-600 rounded-full text-lg font-bold shadow-sm">3</span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 text-center leading-tight">Smart Implementation</h3>
+
+                  {/* Key Points with Icons */}
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <Clock className="w-3.5 h-3.5 text-green-500" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed">Value delivery in weeks</Text>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <Target className="w-3.5 h-3.5 text-green-500" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed">Build complete system</Text>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <TrendingUp className="w-3.5 h-3.5 text-green-500" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed">Timeline varies by complexity</Text>
+                    </div>
+                  </div>
+
+                  {/* Timeline Options */}
+                  <div className="mt-auto bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-xl p-4">
+                    <Text className="text-sm text-green-700 mb-3 text-center font-bold">Implementation Timeline:</Text>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-green-700 font-medium">Simple:</span>
+                        <span className="text-green-800 font-bold">4-8 weeks</span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-green-700 font-medium">Standard:</span>
+                        <span className="text-green-800 font-bold">2-4 months</span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-green-700 font-medium">Complex:</span>
+                        <span className="text-green-800 font-bold">4-6 months</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phase 4: Rollout */}
+              <div className="relative z-10 group">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-3 group-hover:border-orange-300 h-full flex flex-col">
+                  {/* Icon with Animation */}
+                  <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <TrendingUp className="w-10 h-10 text-white group-hover:animate-pulse" />
+                  </div>
+
+                  {/* Phase Number */}
+                  <div className="text-center mb-4">
+                    <span className="inline-flex items-center justify-center w-10 h-10 bg-orange-100 text-orange-600 rounded-full text-lg font-bold shadow-sm">4</span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 text-center leading-tight">Systematic Rollout</h3>
+
+                  {/* Key Points with Icons */}
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <CheckCircle className="w-3.5 h-3.5 text-orange-500" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed">Parallel running systems</Text>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <TrendingUp className="w-3.5 h-3.5 text-orange-500" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed">Measure real results</Text>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <Users className="w-3.5 h-3.5 text-orange-500" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed">Gradual team adaptation</Text>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <Target className="w-3.5 h-3.5 text-orange-500" />
+                      </div>
+                      <Text className="text-sm text-gray-700 leading-relaxed">Zero disruption guarantee</Text>
+                    </div>
+                  </div>
+
+                  {/* ROI Badge */}
+                  <div className="mt-auto bg-gradient-to-r from-orange-50 to-orange-100 border border-orange-200 rounded-xl p-4 text-center">
+                    <Text className="text-sm font-bold text-orange-800 mb-1">ROI Achievement</Text>
+                    <Text className="text-xs text-orange-600">6-8 months after go-live</Text>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </Section>
+
+      {/* Realistic Timeline Expectations - Animated Flow */}
+      <Section padding="xl" background="gray-light" className="relative overflow-hidden">
+        <Container className="max-w-6xl">
+          {/* Background Animation Elements */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500 rounded-full animate-pulse" />
+            <div className="absolute bottom-10 right-10 w-24 h-24 bg-green-500 rounded-full animate-pulse delay-1000" />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-purple-500 rounded-full animate-pulse delay-500" />
+          </div>
+
+          <div className="relative z-10">
+            <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">Realistic Timeline Expectations</h3>
+
+            {/* Timeline Flow */}
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="hidden md:block absolute top-20 left-0 right-0 h-1 bg-gradient-to-r from-blue-300 via-green-300 to-purple-300 rounded-full" />
+
+              <div className="grid md:grid-cols-3 gap-8 relative">
+                {/* Discovery Phase */}
+                <div className="text-center group">
+                  <div className="relative">
+                    {/* Icon without circle */}
+                    <div className="flex items-center justify-center mx-auto mb-4">
+                      <Clock className="w-16 h-16 text-blue-600 group-hover:scale-110 transition-all duration-300 group-hover:animate-spin" />
+                    </div>
+                    {/* Timeline Dot */}
+                    <div className="hidden md:block absolute top-6 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-md" />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">Discovery Phase</h4>
+                  <div className="bg-blue-100 rounded-lg p-3 mb-3 group-hover:bg-blue-200 transition-colors duration-300">
+                    <Text className="text-blue-700 font-bold text-lg">2-3 weeks</Text>
+                  </div>
+                  <Text className="text-sm text-gray-600">
+                    Deep interviews + observation. Can't rush understanding your business.
+                  </Text>
+
+                  {/* Arrow */}
+                  <div className="hidden md:block absolute top-16 -right-4 z-20">
+                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-200">
+                      <ArrowRight className="w-4 h-4 text-gray-400 animate-pulse" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Implementation */}
+                <div className="text-center group">
+                  <div className="relative">
+                    {/* Icon without circle */}
+                    <div className="flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="w-16 h-16 text-green-600 group-hover:scale-110 transition-all duration-300 group-hover:animate-bounce" />
+                    </div>
+                    {/* Timeline Dot */}
+                    <div className="hidden md:block absolute top-6 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-white shadow-md" />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">Implementation</h4>
+                  <div className="bg-green-100 rounded-lg p-3 mb-3 group-hover:bg-green-200 transition-colors duration-300">
+                    <Text className="text-green-700 font-bold text-lg">Varies by Complexity</Text>
+                  </div>
+                  <Text className="text-sm text-gray-600">
+                    We'll give you exact timelines after discovery, not before.
+                  </Text>
+
+                  {/* Arrow */}
+                  <div className="hidden md:block absolute top-16 -right-4 z-20">
+                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-200">
+                      <ArrowRight className="w-4 h-4 text-gray-400 animate-pulse delay-300" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Value Delivery */}
+                <div className="text-center group">
+                  <div className="relative">
+                    {/* Icon without circle */}
+                    <div className="flex items-center justify-center mx-auto mb-4">
+                      <TrendingUp className="w-16 h-16 text-purple-600 group-hover:scale-110 transition-all duration-300 group-hover:animate-pulse" />
+                    </div>
+                    {/* Timeline Dot */}
+                    <div className="hidden md:block absolute top-6 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-white shadow-md" />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">Value Delivery</h4>
+                  <div className="bg-purple-100 rounded-lg p-3 mb-3 group-hover:bg-purple-200 transition-colors duration-300">
+                    <Text className="text-purple-700 font-bold text-sm">Quick wins: Within weeks</Text>
+                    <Text className="text-purple-700 font-bold text-sm">Full ROI: 6-8 months</Text>
+                  </div>
+                  <Text className="text-sm text-gray-600">
+                    See value immediately, achieve full transformation systematically.
+                  </Text>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+
     </div>
   )
 }

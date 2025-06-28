@@ -1,0 +1,160 @@
+{
+  "title": "Service as Software Transformation Flow",
+  "type": "process",
+  "elements": [
+    {
+      "id": "start",
+      "type": "ellipse",
+      "text": "Traditional SaaS Era",
+      "category": "start",
+      "x": 400,
+      "y": 50,
+      "width": 200,
+      "height": 80
+    },
+    {
+      "id": "shift",
+      "type": "diamond",
+      "text": "AI Revolution",
+      "category": "decision",
+      "x": 350,
+      "y": 180,
+      "width": 300,
+      "height": 120
+    },
+    {
+      "id": "new-era",
+      "type": "rectangle",
+      "text": "Service as Software Era",
+      "category": "process",
+      "x": 350,
+      "y": 350,
+      "width": 300,
+      "height": 80
+    },
+    {
+      "id": "think-service",
+      "type": "rectangle",
+      "text": "Think of Service Needed",
+      "category": "process",
+      "x": 100,
+      "y": 480,
+      "width": 250,
+      "height": 80
+    },
+    {
+      "id": "ai-creates",
+      "type": "rectangle",
+      "text": "AI Creates Custom Software",
+      "category": "ai",
+      "x": 100,
+      "y": 600,
+      "width": 250,
+      "height": 80
+    },
+    {
+      "id": "platform-need",
+      "type": "diamond",
+      "text": "Need Tools?",
+      "category": "decision",
+      "x": 350,
+      "y": 500,
+      "width": 300,
+      "height": 120
+    },
+    {
+      "id": "helpnow",
+      "type": "rectangle",
+      "text": "HelpNow Platform\nAI Agent Creation Tools",
+      "category": "ai",
+      "x": 350,
+      "y": 700,
+      "width": 300,
+      "height": 100
+    },
+    {
+      "id": "business-decision",
+      "type": "diamond",
+      "text": "Business Decision",
+      "category": "decision",
+      "x": 350,
+      "y": 900,
+      "width": 300,
+      "height": 120
+    },
+    {
+      "id": "lead",
+      "type": "rectangle",
+      "text": "Lead the Movement\nCreate Custom AI Agents",
+      "category": "end",
+      "x": 100,
+      "y": 1100,
+      "width": 250,
+      "height": 100
+    },
+    {
+      "id": "sideline",
+      "type": "rectangle",
+      "text": "Watch from Sidelines\nFall Behind Competition",
+      "category": "fail",
+      "x": 650,
+      "y": 1100,
+      "width": 250,
+      "height": 100
+    },
+    {
+      "type": "arrow",
+      "from": "start",
+      "to": "shift",
+      "label": ""
+    },
+    {
+      "type": "arrow",
+      "from": "shift",
+      "to": "new-era",
+      "label": "Enables"
+    },
+    {
+      "type": "arrow",
+      "from": "new-era",
+      "to": "think-service",
+      "label": ""
+    },
+    {
+      "type": "arrow",
+      "from": "think-service",
+      "to": "ai-creates",
+      "label": ""
+    },
+    {
+      "type": "arrow",
+      "from": "new-era",
+      "to": "platform-need",
+      "label": ""
+    },
+    {
+      "type": "arrow",
+      "from": "platform-need",
+      "to": "helpnow",
+      "label": "Yes"
+    },
+    {
+      "type": "arrow",
+      "from": "helpnow",
+      "to": "business-decision",
+      "label": ""
+    },
+    {
+      "type": "arrow",
+      "from": "business-decision",
+      "to": "lead",
+      "label": "Lead"
+    },
+    {
+      "type": "arrow",
+      "from": "business-decision",
+      "to": "sideline",
+      "label": "Wait"
+    }
+  ]
+}

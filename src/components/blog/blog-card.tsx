@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { BlogPost } from "@/types/blog"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Text, Heading } from "@/components/ui/typography"
@@ -26,8 +27,15 @@ export function BlogCard({ post, className }: BlogCardProps) {
     )}>
       <Link href={`/blog/${post.slug}`} className="block">
         {/* Featured Image */}
-        <div className="aspect-video bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden group-hover:from-blue-50 group-hover:to-blue-100 transition-colors duration-300">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-blue-600/10" />
+        <div className="aspect-video relative overflow-hidden bg-gray-100">
+          <Image
+            src={post.featuredImage}
+            alt={post.title}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
           <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur px-2.5 py-1 rounded-md shadow-sm">
             <Text className="text-xs font-medium text-gray-600 capitalize">
               {post.category.replace('-', ' ')}

@@ -9,7 +9,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "convert": "node diagrams/converter.js",
+    "convert-mermaid": "node diagrams/mermaid-to-excalidraw.js",
+    "watch": "node diagrams/watcher.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -52,7 +55,9 @@
     "resend": "^4.5.1",
     "tailwind-merge": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.25.7"
+    "zod": "^3.25.7",
+    "@excalidraw/excalidraw": "^0.17.0",
+    "chokidar": "^3.5.3"
   },
   "devDependencies": {
     "@types/node": "^20",

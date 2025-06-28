@@ -1,46 +1,30 @@
-// NEW A/B TEST "HOW IT WORKS" PAGE - PRIMARY VERSION
-// This implements the new Service-as-Software methodology copywriting
-// Original page preserved in page-original.tsx
+// TRANSFORMED "OUR APPROACH" PAGE - RESULTS-FOCUSED VERSION
+// Implements the new direct, ROI-focused messaging with 8-week process
+// Removes all fluff and focuses on concrete outcomes and objection handling
 
 import { Metadata } from "next"
 
 import { MainLayout } from "@/components/layout/main-layout"
 import { EvaluationGuideSection } from "@/components/sections/approach/evaluation-guide-section"
-import { ROIAnalysisSection } from "@/components/sections/approach/roi-analysis-section"
-import { CustomDevelopmentSection } from "@/components/sections/approach/custom-development-section"
-import { SeamlessHandoffSection } from "@/components/sections/approach/seamless-handoff-section"
-import { OngoingExcellenceSection } from "@/components/sections/approach/ongoing-excellence-section"
-import { WhyServiceAsSoftwareWorks } from "@/components/sections/approach/why-service-as-software-works"
-import { NextStepSection } from "@/components/sections/approach/next-step"
+import { ObjectionHandlingSection } from "@/components/sections/approach/objection-handling-section"
+import { FinalCTASection } from "@/components/sections/approach/final-cta-section"
 
 export const metadata: Metadata = {
-  title: "How It Works: The Service-as-Software Method | Veloxforce",
-  description: "ROI-first process delegation. We only proceed when the numbers make sense for both of us. See our proven approach to Service-as-Software implementation.",
+  title: "Our Proven 8-Week Process: Turn Chaos Into Automated Efficiency | Veloxforce",
+  description: "No magic, no BS - just a proven 8-week process that cuts operational costs by 70-90%. Based on 50+ successful implementations. See the exact week-by-week breakdown.",
 }
 
 export default function OurApproachPage() {
   return (
     <MainLayout>
-      {/* 1. ENHANCED HERO: "Every Business Has Untapped Potential" + Comprehensive Cost Analysis */}
+      {/* 1. HERO: "Here's Exactly How We Turn Your Operational Chaos Into Automated Efficiency" + 8-Week Process */}
       <EvaluationGuideSection />
 
-      {/* 2. "Phase 1: ROI Analysis First" */}
-      <ROIAnalysisSection />
+      {/* 2. OBJECTION HANDLING: "Let's Address the Elephant in the Room" */}
+      <ObjectionHandlingSection />
 
-      {/* 3. "Phase 2: Custom Solution Development" */}
-      <CustomDevelopmentSection />
-
-      {/* 4. "Phase 3: Seamless Handoff" */}
-      <SeamlessHandoffSection />
-
-      {/* 5. "Phase 4: Ongoing Excellence" */}
-      <OngoingExcellenceSection />
-
-      {/* 6. "Why Service-as-Software Works" */}
-      <WhyServiceAsSoftwareWorks />
-
-      {/* 7. "Ready to See Your Process Transformed?" */}
-      <NextStepSection />
+      {/* 3. FINAL CTA: "Get Your Free ROI Analysis" */}
+      <FinalCTASection />
     </MainLayout>
   )
 }
