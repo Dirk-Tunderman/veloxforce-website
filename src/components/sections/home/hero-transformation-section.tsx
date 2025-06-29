@@ -44,32 +44,44 @@ export function HeroTransformationSection() {
             {/* Main Content Block */}
             <div className="space-y-6 max-w-5xl mx-auto animate-fadeIn">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent [text-shadow:_0_2px_8px_rgb(255_255_255_/_80%),_0_1px_3px_rgb(255_255_255_/_60%)]">
-                Stop Buying Software.
+                Other People Buy Software.
                 <span className="block">
-                   Start Receiving Outcomes.
+                   You're about to Create It.
                 </span>
               </h1>
 
               <p className="velox-text-lead text-center max-w-4xl mx-auto">
-                <span className="block text-xl md:text-2xl font-semibold text-blue-800 [text-shadow:_0_2px_6px_rgb(255_255_255_/_70%),_0_1px_2px_rgb(255_255_255_/_50%)]">AI builds you're perfect system. We run it 24/7. You receive finished work.</span>
+                <span className="block text-xl md:text-2xl font-semibold text-blue-300 [text-shadow:_0_2px_4px_rgb(255_255_255_/_80%),_0_1px_2px_rgb(255_255_255_/_60%)]">Your processes, automated your way. Running continuously. Delivering outcomes, not software.
+</span>
               </p>
               
-              <div className="max-w-4xl mx-auto">
-                <p className="text-lg md:text-xl text-white/90 [text-shadow:_0_2px_4px_rgb(0_0_0_/_60%)] leading-relaxed">
-                  Traditional path: Buy software → Learn it → Manage it → Hope it works.<br />
-                  Our path: Describe your need → We build it → Results flow automatically.<br />
-                  <span className="font-semibold">That's Service-as-Software.</span>
-                </p>
+              <div className="max-w-5xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  {/* Traditional Path */}
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center">
+                    <div className="text-red-300 font-medium text-sm uppercase tracking-wide mb-3">Traditional Path</div>
+                    <div className="text-white/80 text-base md:text-lg leading-relaxed [text-shadow:_0_1px_2px_rgb(0_0_0_/_40%)]">
+                      Buy tools → Train team → Operate daily → Troubleshoot constantly → <span className="text-red-300 font-medium">Results vary</span>
+                    </div>
+                  </div>
+
+                  {/* Our Path */}
+                  <div className="bg-blue-500/10 backdrop-blur-sm border border-blue-400/20 rounded-xl p-6 text-center">
+                    <div className="text-blue-300 font-medium text-sm uppercase tracking-wide mb-3">Our Path</div>
+                    <div className="text-white text-base md:text-lg leading-relaxed [text-shadow:_0_1px_2px_rgb(0_0_0_/_40%)]">
+                      Define needs → Custom-built system → Runs without you → Monitored 24/7 → <span className="text-blue-300 font-medium">Outcomes guaranteed</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center">
+                  <span className="inline-block bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent font-bold text-xl md:text-2xl [text-shadow:_0_2px_4px_rgb(255_255_255_/_20%)]">
+                    That's Service-as-Software.
+                  </span>
+                </div>
               </div>
 
-              {/* Social Proof Bar */}
-              <div className="bg-white/90 backdrop-blur-md border border-white/25 rounded-full shadow-lg px-6 py-3 inline-flex items-center gap-6 text-gray-800 text-sm">
-                <span className="font-semibold">[Client Logos]</span>
-                <span className="text-gray-400">|</span>
-                <span className="font-medium">200+ Processes Automated</span>
-                <span className="text-gray-400">|</span>
-                <span className="font-medium">95% Success Rate</span>
-              </div>
+
             </div>
 
             {/* Primary CTAs - Design System Compliant */}

@@ -57,8 +57,8 @@ export const footerLinks = [
     title: "Company",
     links: [
       {
-        title: "About Us",
-        href: "/about-us",
+        title: "How It Works",
+        href: "/our-approach",
       },
       {
         title: "Careers",
@@ -69,30 +69,14 @@ export const footerLinks = [
         href: "/contact",
       },
       {
-        title: "Privacy Policy",
-        href: "/privacy-policy",
-      },
-      {
-        title: "Terms of Service",
-        href: "/terms-of-service",
+        title: "FAQ",
+        href: "/faq",
       },
     ],
   },
   {
     title: "Solutions",
     links: [
-      {
-        title: "Task Overload",
-        href: "/solutions/task-overload",
-      },
-      {
-        title: "Workflow Bottlenecks",
-        href: "/solutions/workflow-bottlenecks",
-      },
-      {
-        title: "Strategic Time Drain",
-        href: "/solutions/strategic-time-drain",
-      },
       {
         title: "All Solutions",
         href: "/solutions",
@@ -114,14 +98,6 @@ export const footerLinks = [
         title: "Case Studies",
         href: "/case-studies",
       },
-      {
-        title: "Guides",
-        href: "/guides",
-      },
-      {
-        title: "Webinars",
-        href: "/webinars",
-      },
     ],
   },
   {
@@ -130,18 +106,6 @@ export const footerLinks = [
       {
         title: "Free Process Audit",
         href: "/tools/business-audit",
-      },
-      {
-        title: "Process Efficiency Analyzer",
-        href: "/tools/business-audit",
-      },
-      {
-        title: "SOP Automator",
-        href: "/tools/sop-automator",
-      },
-      {
-        title: "Service Guarantee",
-        href: "/#service-guarantee",
       },
       {
         title: "All Tools",
