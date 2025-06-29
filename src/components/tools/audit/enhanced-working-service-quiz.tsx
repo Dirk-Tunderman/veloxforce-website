@@ -189,7 +189,7 @@ function LeadGenerationMethodsSelector({ question, value, onChange }: { question
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {question.options?.map((option) => {
           const IconComponent = methodIcons[option.value as keyof typeof methodIcons] || Settings
           const isSelected = selectedMethods.includes(option.value)
@@ -395,7 +395,7 @@ function TeamStructureBuilder({ question, value, onChange }: { question: Questio
   return (
     <div className="space-y-8">
       {/* Simplified Team Builder Interface */}
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
         {question.teamInputs?.map((input) => {
           const currentValue = parseInt(teamData[input.id] || '0')
           const isHours = input.id === 'weekly_hours'
@@ -541,7 +541,7 @@ function SalaryRangeSlider({ question, value, onChange }: { question: Question, 
         </div>
 
         {/* Salary Range Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
           {salaryRanges.map((range, index) => {
             const isSelected = value === range.value
 
@@ -623,7 +623,7 @@ function SalaryRangeSlider({ question, value, onChange }: { question: Question, 
       {/* Cost Impact Visualization */}
       {selectedRange && (
         <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-6 border border-gray-200">
-          <div className="grid md:grid-cols-3 gap-6 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div>
               <div className="text-2xl font-bold text-gray-900">€{selectedRange.min * 40}</div>
               <div className="text-sm text-gray-600">Weekly cost (40h)</div>
@@ -756,7 +756,7 @@ function TimeBreakdownSlider({ question, value, onChange }: { question: Question
       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
         <div className="text-center">
           <h4 className="font-semibold text-blue-900 mb-4">Total Investment per 10 Prospects</h4>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <div className="text-3xl font-bold text-blue-900">{getTotalHours()}h</div>
               <div className="text-sm text-blue-700">Total time investment</div>
@@ -866,7 +866,7 @@ function BusinessImpactSelector({ question, value, onChange }: { question: Quest
       </div>
 
       {/* Impact Selection Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4">
         {question.options?.map((option) => {
           const impactInfo = impactCategories[option.value as keyof typeof impactCategories]
           const IconComponent = impactInfo?.icon || AlertTriangle
@@ -933,7 +933,7 @@ function BusinessImpactSelector({ question, value, onChange }: { question: Quest
       {selectedImpacts.length > 0 && (
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
           <h4 className="font-semibold text-blue-900 mb-4">Selected Business Impacts</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
             {selectedImpacts.map((impactValue: string) => {
               const option = question.options?.find(o => o.value === impactValue)
               const impactInfo = impactCategories[impactValue as keyof typeof impactCategories]
@@ -1029,7 +1029,7 @@ function TimelineUrgencySelector({ question, value, onChange }: { question: Ques
       )}
 
       {/* Timeline Options */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4">
         {question.options?.map((option) => {
           const urgencyInfo = urgencyLevels[option.value as keyof typeof urgencyLevels]
           const IconComponent = urgencyInfo?.icon || Clock
@@ -1316,7 +1316,7 @@ function FinanceTimeConsumersSelector({ question, value, onChange }: { question:
       </div>
 
       {/* Process Selection Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {question.options?.map((option) => {
           const processInfo = processCategories[option.value as keyof typeof processCategories]
           const IconComponent = processInfo?.icon || FileText
@@ -1475,7 +1475,7 @@ function InvoiceProcessingTimeSelector({ question, value, onChange }: { question
       )}
 
       {/* Time Range Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {question.options?.map((option) => {
           const timeInfo = timeRanges[option.value as keyof typeof timeRanges]
           const IconComponent = timeInfo?.icon || Clock
@@ -1619,7 +1619,7 @@ function ErrorFrequencySelector({ question, value, onChange }: { question: Quest
       )}
 
       {/* Frequency Options */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {question.options?.map((option) => {
           const freqInfo = frequencyLevels[option.value as keyof typeof frequencyLevels]
           const IconComponent = freqInfo?.icon || Clock
@@ -1747,7 +1747,7 @@ function SystemsCountSelector({ question, value, onChange }: { question: Questio
       )}
 
       {/* System Range Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {question.options?.map((option) => {
           const systemInfo = systemRanges[option.value as keyof typeof systemRanges]
           const IconComponent = systemInfo?.icon || Database
@@ -1902,7 +1902,7 @@ function FinanceTransformationSelector({ question, value, onChange }: { question
       </div>
 
       {/* Transformation Priorities Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {question.options?.map((option) => {
           const priorityInfo = transformationCategories[option.value as keyof typeof transformationCategories]
           const IconComponent = priorityInfo?.icon || Target
@@ -2063,7 +2063,7 @@ function SystemTypesSelector({ question, value, onChange }: { question: Question
       </div>
 
       {/* System Types Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {question.options?.map((option) => {
           const typeInfo = systemCategories[option.value as keyof typeof systemCategories]
           const IconComponent = typeInfo?.icon || Database
@@ -2135,7 +2135,7 @@ function SystemTypesSelector({ question, value, onChange }: { question: Question
       {selectedTypes.length > 0 && (
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
           <h4 className="font-semibold text-blue-900 mb-4">Selected System Types</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
             {selectedTypes.map((typeValue: string) => {
               const option = question.options?.find(o => o.value === typeValue)
               const typeInfo = systemCategories[typeValue as keyof typeof systemCategories]
@@ -2609,7 +2609,7 @@ function FinanceTeamStructureBuilder({ question, value, onChange }: { question: 
       </div>
 
       {/* Team Input Sliders */}
-      <div className="grid gap-6 md:grid-cols-1">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-1">
         {question.teamInputs?.map((input) => {
           const currentValue = parseInt(teamData[input.id] || '0')
           const maxValue = input.max || 50
@@ -2812,9 +2812,9 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
 
   switch (question.type) {
     case 'visual_grid':
-      const gridCols = question.visualOptions && question.visualOptions.length > 6 
-        ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
-        : 'grid-cols-1 md:grid-cols-2'
+      const gridCols = question.visualOptions && question.visualOptions.length > 6
+        ? 'grid-cols-2 md:grid-cols-2 lg:grid-cols-3'
+        : 'grid-cols-2 md:grid-cols-2'
 
       return (
         <div className="space-y-6">
@@ -2902,7 +2902,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
     // case 'radio': // Deprecated - converted to visual_grid
       // Use visual grid for specific questions
       if (shouldUseVisualGrid(question)) {
-        const gridCols = question.id === 'company_size' ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-2'
+        const gridCols = question.id === 'company_size' ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-2'
 
         return (
           <div className="space-y-4">
@@ -3071,7 +3071,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
 
     // case 'visual_grid': // Duplicate:
       return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {question.visualOptions?.map((option) => {
             const IconComponent = DEPARTMENT_ICONS[option.value as keyof typeof DEPARTMENT_ICONS] || Settings
             const isSelected = value === option.value
@@ -3146,7 +3146,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
                   })
                 }}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
                   {breakdown.options.map((option) => {
                     const isSelected = value?.[breakdown.category] === option.value
                     return (
@@ -3292,7 +3292,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
                   })
                 }}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
                   {volumeInput.options.map((option) => {
                     const isSelected = value?.[volumeInput.category] === option.value
                     return (
@@ -3361,7 +3361,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
                   })
                 }}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
                   {metric.options.map((option) => {
                     const isSelected = value?.[metric.metric] === option.value
                     return (
@@ -3517,6 +3517,7 @@ function QuestionRenderer({ question, value, onChange, onNext }: QuestionRendere
       )
 
     case 'slider':
+    case 'range_slider':
       return (
         <ExternalQuestionRenderer
           question={question}
@@ -3960,7 +3961,7 @@ export function EnhancedWorkingServiceQuiz() {
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="text-center">
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Clock className="w-6 h-6 text-blue-600" />
@@ -3992,7 +3993,7 @@ export function EnhancedWorkingServiceQuiz() {
 
               <div className="text-left space-y-4 mb-8">
                 <h3 className="text-lg font-semibold text-gray-900 text-center">What You'll Discover:</h3>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex items-start space-x-3">
                     <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5" />
                     <span className="text-gray-700">Exact time savings potential for your department</span>

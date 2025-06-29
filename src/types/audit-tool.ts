@@ -216,6 +216,13 @@ export interface VisualOption {
   allowCustom?: boolean
 }
 
+export interface RangeOption {
+  value: string
+  label: string
+  displayValue: string
+  numericValue: number
+}
+
 export interface TimeCategory {
   id: string
   label: string
@@ -261,7 +268,7 @@ export interface Question {
   description?: string
   
   // Simplified to only 2 main types plus text/textarea/contact_form
-  type: 'visual_grid' | 'slider' | 'text' | 'textarea' | 'contact_form' | 'radio' | 'checkbox'
+  type: 'visual_grid' | 'slider' | 'range_slider' | 'text' | 'textarea' | 'contact_form' | 'radio' | 'checkbox'
   
   // Visual Grid properties
   visualOptions?: VisualOption[]
@@ -271,7 +278,10 @@ export interface Question {
   // Slider properties
   sliderConfig?: SliderConfig
   unitLabel?: string // For volume sliders: 'inquiries', 'transactions', etc.
-  
+
+  // Range slider properties
+  ranges?: RangeOption[]
+
   // Text/Textarea properties
   placeholder?: string
   maxLength?: number

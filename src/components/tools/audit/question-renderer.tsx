@@ -50,6 +50,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { Heading, Text } from "@/components/ui/typography"
 import { VolumeSlider } from "@/components/ui/volume-slider"
 import { TimeSlider } from "@/components/ui/time-slider"
+import { Slider } from "@/components/ui/slider"
 
 // Icon resolver for visual grid questions
 const getIconComponent = (iconName: string) => {
@@ -419,17 +420,17 @@ export function QuestionRenderer({
             {/* Selection instruction */}
             <div className="text-center">
               <Text className="velox-text-body text-blue-700 font-medium bg-blue-50 px-4 py-2 rounded-lg inline-block">
-                {question.multiple 
-                  ? (question.maxSelections 
-                      ? `Select up to ${question.maxSelections} options` 
+                {question.multiple
+                  ? (question.maxSelections
+                      ? `Select up to ${question.maxSelections} options`
                       : 'Select all that apply')
                   : 'Select one option'
                 }
               </Text>
             </div>
-            
+
             {/* Grid of options */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               {question.visualOptions.map((option) => {
                 const IconComponent = getIconComponent(option.icon || 'Info')
                 const currentValues = Array.isArray(value) ? value : []
@@ -591,110 +592,191 @@ export function QuestionRenderer({
           </div>
         )}
 
-        {/* Slider Questions - Universal numeric input interface */}
+        {/* Range Slider Questions */}
+        {question.type === 'range_slider' && question.ranges && (
+          <div className="space-y-6">
+            {/* Benchmark */}
+            {question.benchmark && (
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+                <Text className="text-blue-800 font-medium">
+                  {question.benchmark}
+                </Text>
+              </div>
+            )}
+
+            {/* Range Slider */}
+            <div className="space-y-4">
+              <Slider
+                value={[question.ranges.findIndex(r => r.value === value) || 0]}
+                onValueChange={(newValue) => {
+                  const selectedRange = question.ranges![newValue[0]]
+                  if (selectedRange) {
+                    onChange(selectedRange.value)
+                  }
+                }}
+                max={question.ranges.length - 1}
+                min={0}
+                step={1}
+                className="w-full"
+              />
+
+              {/* Range Labels */}
+              <div className="flex justify-between text-xs text-muted-foreground">
+                {question.ranges.map((range, index) => (
+                  <span key={range.value} className={index % 2 === 0 ? '' : 'hidden sm:block'}>
+                    {range.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Current Range Display */}
+            <div className="text-center p-4 rounded-lg border border-blue-200 bg-blue-50 mx-auto max-w-md">
+              <div className="text-2xl font-bold text-blue-600">
+                {question.ranges.find(r => r.value === value)?.displayValue || question.ranges[0]?.displayValue}
+              </div>
+            </div>
+
+            {/* Real-time Calculation */}
+            {question.realTimeCalculation && question.calculationMessage && value && (
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+                <Text className="text-blue-800 font-medium">
+                  {question.calculationMessage.replace('[X]',
+                    (question.ranges.find(r => r.value === value)?.numericValue || 0).toString()
+                  )}
+                </Text>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Slider Questions - Simple, working approach */}
         {question.type === 'slider' && question.sliderConfig && (
           <div className="space-y-6">
-            {/* Determine slider type and render appropriately */}
             {question.sliderConfig.timeframes ? (
               /* Volume slider with timeframe switching */
               <VolumeSlider
                 config={question.sliderConfig}
-                value={value || { amount: 50, timeframe: 'monthly' }}
+                value={value || { amount: question.sliderConfig.ranges?.monthly?.min || 50, timeframe: 'monthly' }}
                 onChange={onChange}
                 unitLabel={question.unitLabel || 'units'}
               />
-            ) : question.sliderConfig.unit === 'hours' ? (
-              /* Time-based slider for hours */
+            ) : question.sliderConfig.unit === 'hours' && question.id !== 'first_response_time' ? (
+              /* Time-based slider for weekly hours (not response time) */
               <TimeSlider
                 config={question.sliderConfig}
-                value={value || question.sliderConfig.min || 0}
+                value={value !== undefined ? value : (question.sliderConfig.min || 0)}
                 onChange={onChange}
                 showCalculation={question.realTimeCalculation}
                 executiveHourlyRate={question.hourlyRate || 100}
               />
-            ) : question.sliderConfig.unit === 'minutes' ? (
-              /* Enhanced slider for minutes */
-              <div className="space-y-6">
-                <div className="text-center space-y-4">
-                  <div className="text-4xl font-bold text-blue-600">
-                    {value || question.sliderConfig.min || 0} minutes
-                  </div>
-                  {question.realTimeCalculation && (
-                    <div className="text-lg text-gray-600">
-                      {question.calculationMessage?.replace('[X]', (value || question.sliderConfig.min || 0).toString())}
-                    </div>
-                  )}
-                </div>
-                
-                <div className="px-4">
-                  <input
-                    type="range"
-                    min={question.sliderConfig.min}
-                    max={question.sliderConfig.max}
-                    step={question.sliderConfig.step || 1}
-                    value={value || question.sliderConfig.min || 0}
-                    onChange={(e) => onChange(Number(e.target.value))}
-                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                    style={{
-                      background: `linear-gradient(to right, #2563EB 0%, #2563EB ${((value || question.sliderConfig.min || 0) - (question.sliderConfig.min || 0)) / ((question.sliderConfig.max || 100) - (question.sliderConfig.min || 0)) * 100}%, #E5E7EB ${((value || question.sliderConfig.min || 0) - (question.sliderConfig.min || 0)) / ((question.sliderConfig.max || 100) - (question.sliderConfig.min || 0)) * 100}%, #E5E7EB 100%)`
-                    }}
-                  />
-                  <div className="flex justify-between text-sm text-gray-500 mt-2">
-                    <span>{question.sliderConfig.min} min</span>
-                    <span>{question.sliderConfig.max} min</span>
-                  </div>
-                </div>
-                
-                {/* Show markers if available */}
-                {question.sliderConfig.markers && (
-                  <div className="flex justify-between text-xs text-gray-400 px-4">
-                    {question.sliderConfig.markers.map((marker, index) => (
-                      <span key={index}>{marker}m</span>
-                    ))}
-                  </div>
-                )}
-              </div>
             ) : (
-              /* Basic numeric slider */
-              <div className="space-y-4">
-                <div className="px-4">
-                  <input
-                    type="range"
-                    min={question.sliderConfig.min}
-                    max={question.sliderConfig.max}
-                    step={question.sliderConfig.step || 1}
-                    value={value || question.sliderConfig.min || 0}
-                    onChange={(e) => onChange(Number(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                  />
-                  <div className="flex justify-between text-sm text-gray-500 mt-2">
-                    <span>{question.sliderConfig.min}</span>
-                    <span className="font-bold text-blue-600">
-                      {value || question.sliderConfig.min || 0}
-                      {question.sliderConfig.unit && ` ${question.sliderConfig.unit}`}
-                    </span>
-                    <span>{question.sliderConfig.max}</span>
-                  </div>
-                </div>
-                
-                {/* Show markers if available */}
-                {question.sliderConfig.markers && (
-                  <div className="flex justify-between text-xs text-gray-400 px-4">
-                    {question.sliderConfig.markers.map((marker, index) => (
-                      <span key={index}>{marker}</span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
+              /* Range-based slider - reliable and user-friendly */
+              (() => {
+                const markers = question.sliderConfig.markers || []
 
-            {/* Show subtext if available */}
-            {question.subtext && (
-              <div className="text-center">
-                <Text className="text-sm text-gray-600 italic">
-                  {question.subtext.replace('X', (value || 0).toString())}
-                </Text>
-              </div>
+                // Generate ranges from markers
+                const generateRanges = (markers: number[], unit: string) => {
+                  if (markers.length === 0) return []
+
+                  const ranges = []
+
+                  // First range: "Under X"
+                  if (markers[0] > 0) {
+                    ranges.push({
+                      value: `0-${markers[0]}`,
+                      label: `Under ${markers[0]}`,
+                      displayValue: `< ${markers[0]} ${unit}`,
+                      numericValue: markers[0] / 2 // Use midpoint for calculations
+                    })
+                  }
+
+                  // Middle ranges: "X - Y"
+                  for (let i = 0; i < markers.length - 1; i++) {
+                    const start = markers[i]
+                    const end = markers[i + 1]
+                    ranges.push({
+                      value: `${start}-${end}`,
+                      label: `${start} - ${end}`,
+                      displayValue: `${start}-${end} ${unit}`,
+                      numericValue: (start + end) / 2 // Use midpoint for calculations
+                    })
+                  }
+
+                  // Last range: "X+"
+                  const lastMarker = markers[markers.length - 1]
+                  ranges.push({
+                    value: `${lastMarker}+`,
+                    label: `${lastMarker}+`,
+                    displayValue: `${lastMarker}+ ${unit}`,
+                    numericValue: lastMarker * 1.5 // Use 150% for calculations
+                  })
+
+                  return ranges
+                }
+
+                const ranges = generateRanges(markers, question.sliderConfig.unit || '')
+                const currentValue = value !== undefined ? value : ranges[0]?.value
+                const currentRange = ranges.find(r => r.value === currentValue) || ranges[0]
+                const currentIndex = ranges.findIndex(r => r.value === currentValue)
+
+                const handleSliderChange = (newValue: number[]) => {
+                  const selectedRange = ranges[newValue[0]]
+                  if (selectedRange) {
+                    onChange(selectedRange.value)
+                  }
+                }
+
+                return (
+                  <div className="space-y-6">
+                    {/* Benchmark */}
+                    {question.benchmark && (
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+                        <Text className="text-blue-800 font-medium">
+                          {question.benchmark}
+                        </Text>
+                      </div>
+                    )}
+
+                    {/* Range Slider */}
+                    <div className="space-y-4">
+                      <Slider
+                        value={[currentIndex >= 0 ? currentIndex : 0]}
+                        onValueChange={handleSliderChange}
+                        max={ranges.length - 1}
+                        min={0}
+                        step={1}
+                        className="w-full"
+                      />
+
+                      {/* Range Labels */}
+                      <div className="flex justify-between text-xs text-muted-foreground">
+                        {ranges.map((range, index) => (
+                          <span key={range.value} className={index % 2 === 0 ? '' : 'hidden sm:block'}>
+                            {range.label}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Current Range Display */}
+                    <div className="text-center p-4 rounded-lg border border-blue-200 bg-blue-50 mx-auto max-w-md">
+                      <div className="text-2xl font-bold text-blue-600">
+                        {currentRange?.displayValue || 'Select range'}
+                      </div>
+                    </div>
+
+                    {/* Real-time Calculation */}
+                    {question.realTimeCalculation && question.calculationMessage && currentRange && (
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+                        <Text className="text-blue-800 font-medium">
+                          {question.calculationMessage.replace('[X]', currentRange.numericValue.toString())}
+                        </Text>
+                      </div>
+                    )}
+                  </div>
+                )
+              })()
             )}
           </div>
         )}

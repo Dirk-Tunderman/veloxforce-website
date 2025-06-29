@@ -26,7 +26,7 @@ export function TimeSlider({
   }
 
   const getTimeLabel = (hours: number): string => {
-    if (hours === 0) return 'None'
+    if (hours === 0) return '0 hours'
     if (hours <= 2) return `${hours} hour${hours === 1 ? '' : 's'}`
     if (hours <= 5) return `${hours} hours`
     if (hours <= 10) return `${hours} hours`
@@ -41,11 +41,11 @@ export function TimeSlider({
   }
 
   const getImpactMessage = (hours: number): string => {
-    if (hours === 0) return 'Excellent delegation!'
-    if (hours <= 2) return 'Good delegation with some oversight'
-    if (hours <= 5) return 'Significant time investment'
-    if (hours <= 10) return 'High executive time cost'
-    return 'Critical time drain on leadership'
+    if (hours === 0) return 'No time spent on repetitive tasks'
+    if (hours <= 2) return 'Minimal time on operational tasks'
+    if (hours <= 5) return 'Moderate time investment'
+    if (hours <= 10) return 'Significant time investment'
+    return 'High time investment in operations'
   }
 
   const calculateMonthlyCost = (hours: number): number => {
@@ -79,7 +79,7 @@ export function TimeSlider({
 
       {/* Current Value Display */}
       <motion.div
-        className="text-center p-4 rounded-lg border"
+        className="text-center p-4 rounded-lg border mx-auto max-w-md"
         style={{
           borderColor: getImpactColor(value),
           backgroundColor: `${getImpactColor(value)}10`
