@@ -31,7 +31,6 @@ export const SERVICE_QUIZ_PHASES: QuizPhase[] = [
         type: 'visual_grid',
         required: true,
         multiple: false,
-        allowCustom: true,
         visualOptions: [
           { value: 'decision-maker', label: 'Decision Maker', description: 'Owner/CEO/C-Suite', icon: 'Crown', color: 'blue' },
           { value: 'department-head', label: 'Department Head', description: 'Director/VP/Head of', icon: 'Target', color: 'gray' },
@@ -125,7 +124,6 @@ export const SALES_ROUTE_PHASES: QuizPhase[] = [
         required: true,
         multiple: true,
         maxSelections: 3,
-        allowCustom: true,
         visualOptions: [
           { value: 'linkedin-outreach', label: 'LinkedIn outreach and social selling', description: 'Professional networking', icon: 'Users', color: 'blue' },
           { value: 'cold-email', label: 'Cold email campaigns', description: 'Direct email marketing', icon: 'Mail', color: 'gray' },
@@ -173,7 +171,6 @@ export const SALES_ROUTE_PHASES: QuizPhase[] = [
         type: 'visual_grid',
         required: true,
         multiple: false,
-        allowCustom: true,
         visualOptions: [
           { value: '40-plus', label: '40%+ become customers', description: '40%+ conversion rate', icon: 'TrendingUp', color: 'blue' },
           { value: '30-40', label: '30-40% conversion', description: '30-40% conversion rate', icon: 'BarChart3', color: 'gray' },
@@ -206,7 +203,6 @@ export const SALES_ROUTE_PHASES: QuizPhase[] = [
         required: true,
         multiple: true,
         maxSelections: 3,
-        allowCustom: true,
         visualOptions: [
           { value: 'finding-prospects', label: 'Finding qualified prospects', description: 'Lead generation challenges', icon: 'Target', color: 'blue' },
           { value: 'personalizing-outreach', label: 'Personalizing outreach at scale', description: 'Custom messaging bottleneck', icon: 'Mail', color: 'gray' },

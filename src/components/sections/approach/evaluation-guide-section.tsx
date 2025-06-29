@@ -58,7 +58,7 @@ export function EvaluationGuideSection() {
       <Section padding="xl" background="white" className="relative">
         <Container className="max-w-7xl">
           <div className="text-center mb-16">
-            <Heading level={2} className="text-4xl font-bold text-gray-900 mb-6">
+            <Heading level="2" className="text-4xl font-bold text-gray-900 mb-6">
               How We Build Your Automated Operations
             </Heading>
             <Text className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -287,7 +287,7 @@ export function EvaluationGuideSection() {
       </Section>
 
       {/* Realistic Timeline Expectations - Animated Flow */}
-      <Section padding="xl" background="gray-light" className="relative overflow-hidden">
+      <Section padding="xl" background="muted" className="relative overflow-hidden">
         <Container className="max-w-6xl">
           {/* Background Animation Elements */}
           <div className="absolute inset-0 opacity-5">
