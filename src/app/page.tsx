@@ -6,6 +6,7 @@ import { Metadata } from "next"
 
 import { MainLayout } from "@/components/layout/main-layout"
 import { HeroTransformationSection } from "@/components/sections/home/hero-transformation-section"
+import { OperationalEvolutionSection } from "@/components/sections/home/operational-evolution-section"
 import { ServiceDifferentiationSection } from "@/components/sections/home/service-differentiation-section"
 import { RealExamplesSection } from "@/components/sections/home/real-examples-section"
 import { AIRealityCheckSection } from "@/components/sections/home/ai-reality-check-section"
@@ -27,25 +28,28 @@ export default function HomePage() {
       {/* Section 1: Hero - AI can build custom software for YOUR exact process */}
       <HeroTransformationSection />
 
-      {/* Section 2: Problem/Solution Comparison - Generic vs AI-built software */}
+      {/* Section 2: Operational Evolution - When organizations outgrow their operating models */}
+      <OperationalEvolutionSection />
+
+      {/* Section 3: Problem/Solution Comparison - Generic vs AI-built software */}
       <ServiceDifferentiationSection />
 
-      {/* Section 3: How It Actually Works - Concrete process timeline */}
+      {/* Section 4: How It Actually Works - Concrete process timeline */}
       <JourneyTimelineSection />
 
-      {/* Section 4: Real Client Examples - Specific processes with hard numbers */}
+      {/* Section 5: Real Client Examples - Specific processes with hard numbers */}
       <RealExamplesSection />
 
-      {/* Section 5: Why This is Possible Now - Technical reality without jargon */}
+      {/* Section 6: Why This is Possible Now - Technical reality without jargon */}
       <AIRealityCheckSection />
 
-      {/* Section 6: Process Fit Criteria - Which processes this works for */}
+      {/* Section 7: Process Fit Criteria - Which processes this works for */}
       <ProcessFitCriteriaSection />
 
-      {/* Section 7: Investment Model - 80% less than traditional development */}
+      {/* Section 8: Investment Model - 80% less than traditional development */}
       <ROICalculatorSection />
 
-      {/* Section 8: Call to Action - Three concrete next steps */}
+      {/* Section 9: Call to Action - Three concrete next steps */}
       <ReadyToReclaimSection />
     </MainLayout>
   )

@@ -3,7 +3,7 @@
 import React from "react"
 import { Container } from "@/components/layout/container"
 import { Section } from "@/components/layout/section"
-import { Check, X, Zap, Users, Cog, Shield, ThumbsUp, ThumbsDown, ArrowRight, Brain, Server, Cloud, Sparkles } from "lucide-react"
+import { Check, X, Users, Cog, Shield, ThumbsUp, ThumbsDown, ArrowRight, Brain, Sparkles, Clock, AlertTriangle, Cloud, Link2, Zap } from "lucide-react"
 import Link from "next/link"
 
 export function ServiceDifferentiationSection() {
@@ -16,65 +16,175 @@ export function ServiceDifferentiationSection() {
         {/* Premium Section Header */}
         <div className="text-center mb-20 animate-on-scroll" data-animation="fadeInUp">
           <h2 className="velox-text-h1-premium mb-8">
-            The Evolution Nobody Saw Coming
+            Closing the Gap Between Capability and Capacity
           </h2>
-          <p className="velox-text-lead max-w-4xl mx-auto text-blue-800">
-            <span className="font-bold">Three decades of business software evolution</span> led to this breakthrough moment.
-            <span className="font-semibold"> Service-as-Software changes everything.</span>
-          </p>
         </div>
 
-        {/* Evolution Timeline */}
+        {/* The Model That Changes Everything */}
         <div className="mb-20 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.1s'}}>
-          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            {/* Before 2000s */}
-            <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gray-100 rounded-2xl flex items-center justify-center">
-                <Server className="w-10 h-10 text-gray-600" />
+          <div className="text-center mb-12">
+            <h3 className="velox-text-h2 mb-6">The Model That Changes Everything</h3>
+            <p className="velox-text-lead max-w-4xl mx-auto text-blue-800">
+              The problem is clear: capable teams trapped by inefficient systems.<br />
+              The solution emerging: separate strategic work from systematic work.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Keep In-House */}
+            <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-3xl p-8 shadow-lg">
+              <div className="text-center mb-8">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Brain className="w-8 h-8 text-white" />
+                </div>
+                <h4 className="velox-text-h3 text-blue-800 font-bold">Keep In-House:</h4>
               </div>
-              <h3 className="velox-text-h3 mb-4 text-gray-700">Before 2000s</h3>
-              <div className="space-y-3 min-h-[80px] flex flex-col justify-center">
-                <p className="text-base font-bold text-gray-700 leading-relaxed mx-auto max-w-[280px]">
-                  Buy servers, install software, hire IT teams
-                </p>
-                <p className="text-sm text-gray-600 leading-relaxed mx-auto max-w-[280px]">
-                  Massive upfront costs, months of setup
-                </p>
+              <div className="space-y-4 text-center">
+                <div className="flex items-center justify-center gap-3">
+                  <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                  <span className="velox-text-body text-blue-800">Creative problem solving</span>
+                </div>
+                <div className="flex items-center justify-center gap-3">
+                  <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                  <span className="velox-text-body text-blue-800">Relationship building</span>
+                </div>
+                <div className="flex items-center justify-center gap-3">
+                  <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                  <span className="velox-text-body text-blue-800">Strategic decisions</span>
+                </div>
+                <div className="flex items-center justify-center gap-3">
+                  <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                  <span className="velox-text-body text-blue-800">Innovation and vision</span>
+                </div>
               </div>
             </div>
 
-            {/* 2000s-2020s */}
-            <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-6 bg-blue-100 rounded-2xl flex items-center justify-center">
-                <Cloud className="w-10 h-10 text-blue-600" />
+            {/* Systematize Completely */}
+            <div className="bg-gradient-to-br from-green-50 to-white border border-green-200 rounded-3xl p-8 shadow-lg">
+              <div className="text-center mb-8">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-green-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Cog className="w-8 h-8 text-white" />
+                </div>
+                <h4 className="velox-text-h3 text-green-800 font-bold">Systematize Completely:</h4>
               </div>
-              <h3 className="velox-text-h3 mb-4 text-blue-700">2000s-2020s</h3>
-              <div className="space-y-3 min-h-[80px] flex flex-col justify-center">
-                <p className="text-base font-bold text-blue-700 leading-relaxed mx-auto max-w-[280px]">
-                  Rent software (SaaS), but still operate it yourself
-                </p>
-                <p className="text-sm text-blue-600 leading-relaxed mx-auto max-w-[280px]">
-                  Lower costs, but you still manage everything
-                </p>
-              </div>
-            </div>
-
-            {/* 2024+ */}
-            <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center shadow-lg">
-                <Sparkles className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="velox-text-h3 mb-4 text-blue-800">2024+</h3>
-              <div className="space-y-3 min-h-[80px] flex flex-col justify-center">
-                <p className="text-base font-bold text-blue-800 leading-relaxed mx-auto max-w-[280px]">
-                  Define outcomes, receive results (Service-as-Software)
-                </p>
-                <p className="text-sm text-blue-700 leading-relaxed mx-auto max-w-[280px]">
-                  AI builds it, we run it, you receive finished work
-                </p>
+              <div className="space-y-4 text-center">
+                <div className="flex items-center justify-center gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  <span className="velox-text-body text-green-800">Repetitive processes</span>
+                </div>
+                <div className="flex items-center justify-center gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  <span className="velox-text-body text-green-800">Data movement</span>
+                </div>
+                <div className="flex items-center justify-center gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  <span className="velox-text-body text-green-800">Routine communications</span>
+                </div>
+                <div className="flex items-center justify-center gap-3">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  <span className="velox-text-body text-green-800">Standard procedures</span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Why This Wasn't Possible Before - Enhanced Visual Design */}
+        <div className="mb-20 animate-on-scroll" data-animation="fadeInUp" style={{animationDelay: '0.2s'}}>
+          <div className="text-center mb-16">
+            <h3 className="velox-text-h2 mb-6 text-blue-800">Why This Wasn't Possible Before</h3>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              {/* Left Side - Problems */}
+              <div className="bg-gradient-to-br from-red-50 to-red-100/50 border-2 border-red-200 rounded-3xl p-8 shadow-xl h-full">
+                {/* Header with Icon */}
+                <div className="text-center mb-8">
+                  <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <X className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="h-16 flex items-center justify-center">
+                    <h4 className="velox-text-h3 text-red-800 font-bold">Until recently, custom automation meant:</h4>
+                  </div>
+                </div>
+
+                {/* Problem List with Lucide Icons */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4 bg-white/60 rounded-xl p-4 border border-red-200">
+                    <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold text-lg">€</span>
+                    </div>
+                    <span className="velox-text-body text-red-800 font-semibold">€500K+ enterprise software projects</span>
+                  </div>
+                  <div className="flex items-center gap-4 bg-white/60 rounded-xl p-4 border border-red-200">
+                    <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="velox-text-body text-red-800 font-semibold">12-18 month implementations</span>
+                  </div>
+                  <div className="flex items-center gap-4 bg-white/60 rounded-xl p-4 border border-red-200">
+                    <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Users className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="velox-text-body text-red-800 font-semibold">Teams of consultants</span>
+                  </div>
+                  <div className="flex items-center gap-4 bg-white/60 rounded-xl p-4 border border-red-200">
+                    <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <AlertTriangle className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="velox-text-body text-red-800 font-semibold">Massive disruption</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side - Solutions */}
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 border-2 border-blue-200 rounded-3xl p-8 shadow-xl h-full">
+                {/* Header with Icon */}
+                <div className="text-center mb-8">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <Sparkles className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="h-16 flex items-center justify-center">
+                    <h4 className="velox-text-h3 text-blue-800 font-bold">What changed? Just four things:</h4>
+                  </div>
+                </div>
+
+                {/* Solutions List with Lucide Icons */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4 bg-white/60 rounded-xl p-4 border border-blue-200">
+                    <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Brain className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="velox-text-body text-blue-800 font-semibold">AI can now understand and handle complex business logic</span>
+                  </div>
+                  <div className="flex items-center gap-4 bg-white/60 rounded-xl p-4 border border-blue-200">
+                    <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Cloud className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="velox-text-body text-blue-800 font-semibold">Cloud infrastructure costs dropped 90%</span>
+                  </div>
+                  <div className="flex items-center gap-4 bg-white/60 rounded-xl p-4 border border-blue-200">
+                    <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Link2 className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="velox-text-body text-blue-800 font-semibold">Integration tools can connect any system</span>
+                  </div>
+                  <div className="flex items-center gap-4 bg-white/60 rounded-xl p-4 border border-blue-200">
+                    <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Zap className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="velox-text-body text-blue-800 font-semibold">Development time has speeded up massively</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section Title */}
+        <div className="text-center mb-16">
+          <h3 className="velox-text-h2 text-blue-800 font-bold">What Service as a Software does</h3>
         </div>
 
         {/* Enhanced Three-Column Comparison - Original Layout */}
