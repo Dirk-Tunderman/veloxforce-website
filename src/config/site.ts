@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Veloxforce",
   description: "Transform your business with Veloxforce's hybrid AI-human automation services. Cut operational costs by 50% while delivering 3x faster execution.",
-  url: "https://ks8ss4co8wcwcsgcgwgs40g0.veloxpower.store",
-  ogImage: "https://ks8ss4co8wcwcsgcgwgs40g0.veloxpower.store/images/og.jpg",
+  url: "https://veloxforce.ai",
+  ogImage: "https://veloxforce.ai/images/og.jpg",
   links: {
     twitter: "https://twitter.com/veloxforce",
     linkedin: "https://linkedin.com/company/veloxforce",

@@ -295,24 +295,58 @@ export async function POST(request: NextRequest) {
  */
 async function triggerReportGeneration(serviceSubmission: ServiceQuizSubmission): Promise<void> {
   try {
+    // Determine the correct base URL for the API call
+    let baseUrl: string
+
+    if (process.env.VERCEL) {
+      // In Vercel production environment - use custom domain
+      baseUrl = 'https://veloxforce.ai'
+    } else if (process.env.VERCEL_URL) {
+      // In Vercel preview deployments
+      baseUrl = `https://${process.env.VERCEL_URL}`
+    } else {
+      // Local development
+      baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3001'
+    }
+
+    console.log(`🔗 Making report generation request to: ${baseUrl}/api/generate-report`)
+    console.log(`🌍 Environment: VERCEL=${!!process.env.VERCEL}, VERCEL_URL=${process.env.VERCEL_URL}`)
+
     // Call our report generation API
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3001'}/api/generate-report`, {
+    const response = await fetch(`${baseUrl}/api/generate-report`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(serviceSubmission)
+      body: JSON.stringify(serviceSubmission),
+      // Add timeout to prevent hanging
+      signal: AbortSignal.timeout(300000) // 5 minutes timeout
     })
 
     if (!response.ok) {
       const errorData = await response.text()
+      console.error(`❌ Report generation API failed: ${response.status}`)
+      console.error(`📄 Error response: ${errorData}`)
       throw new Error(`Report generation API failed: ${response.status} - ${errorData}`)
     }
 
     const result = await response.json()
-    console.log('Report generation result:', result)
+    console.log('✅ Report generation completed successfully')
+    console.log('📊 Report generation result:', result)
   } catch (error) {
     console.error('Failed to trigger report generation:', error)
-    throw error
+
+    // Log additional error details for debugging
+    if (error instanceof Error) {
+      console.error('❌ Error name:', error.name)
+      console.error('❌ Error message:', error.message)
+      if (error.cause) {
+        console.error('❌ Error cause:', error.cause)
+      }
+    }
+
+    // Don't throw here - we want the quiz submission to succeed even if report generation fails
+    // The user will still get their immediate response, and we can handle report generation separately
+    console.log('⚠️  Report generation failed, but quiz submission will continue')
   }
 }
