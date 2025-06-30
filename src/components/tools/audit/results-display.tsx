@@ -109,11 +109,11 @@ export function ResultsDisplay({ results }: ResultsDisplayProps) {
 
       <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
         <Text className="text-center mb-4">
-          <strong>Based on your responses</strong>, you're currently losing €{animatedValues.cost.toLocaleString()} every month on inefficient {results.processName}.
-          Automation would free up <strong>{animatedValues.hours} hours weekly</strong> for strategic growth.
+          <strong>Based on your responses</strong>, your current {results.processName} process costs approximately €{animatedValues.cost.toLocaleString()} monthly.
+          Automation could free up <strong>{animatedValues.hours} hours weekly</strong> for strategic growth.
         </Text>
         <Text className="text-center font-bold text-primary text-lg">
-          Ready to stop the bleeding?
+          Ready to explore automation opportunities?
         </Text>
       </div>
 

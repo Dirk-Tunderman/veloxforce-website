@@ -22,8 +22,9 @@ export class EmailService {
       const emailTemplate = this.createBusinessReportEmailTemplate(reportData)
       
       // Send email with PDF attachment
+      // Using Resend's verified domain for better deliverability
       const { data, error } = await resend.emails.send({
-        from: 'VeloxForce Business Intelligence <reports@notifications.veloxforce.ai>',
+        from: 'VeloxForce Business Intelligence <onboarding@resend.dev>',
         to: [reportData.contactEmail],
         subject: `Your Business Automation Analysis Report - ${reportData.companyName}`,
         html: emailTemplate,
@@ -67,7 +68,7 @@ export class EmailService {
   async sendErrorNotification(contactEmail: string, companyName: string, errorDetails: string): Promise<void> {
     try {
       await resend.emails.send({
-        from: 'VeloxForce Support <support@notifications.veloxforce.ai>',
+        from: 'VeloxForce Support <onboarding@resend.dev>',
         to: [contactEmail],
         subject: `Report Generation Issue - ${companyName}`,
         html: this.createErrorNotificationTemplate(companyName, errorDetails),
@@ -77,6 +78,51 @@ export class EmailService {
       })
     } catch (error) {
       console.error('Error sending error notification:', error)
+    }
+  }
+
+  /**
+   * Send simple test email without attachment to verify domain/delivery
+   */
+  async sendSimpleTestEmail(contactEmail: string, companyName: string): Promise<{ success: boolean; emailId?: string; error?: string }> {
+    try {
+      const { data, error } = await resend.emails.send({
+        from: 'VeloxForce Test <onboarding@resend.dev>',
+        to: [contactEmail],
+        subject: `Test Email - ${companyName}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <h1 style="color: #1A365D;">Email Delivery Test</h1>
+            <p>This is a simple test email to verify email delivery is working.</p>
+            <p><strong>Company:</strong> ${companyName}</p>
+            <p><strong>Time:</strong> ${new Date().toISOString()}</p>
+            <p>If you receive this email, the basic email functionality is working correctly.</p>
+          </div>
+        `,
+        headers: {
+          'X-Priority': '3'
+        }
+      })
+
+      if (error) {
+        console.error('Simple test email error:', error)
+        return {
+          success: false,
+          error: error.message || 'Failed to send test email'
+        }
+      }
+
+      return {
+        success: true,
+        emailId: data?.id
+      }
+
+    } catch (error) {
+      console.error('Simple test email service error:', error)
+      return {
+        success: false,
+        error: error instanceof Error ? error.message : 'Unknown email error'
+      }
     }
   }
 

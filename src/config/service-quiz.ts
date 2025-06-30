@@ -487,8 +487,7 @@ export const CUSTOMER_SERVICE_ROUTE_PHASES: QuizPhase[] = [
           { value: 'slow', label: '4-8hrs', displayValue: '4-8 hours', numericValue: 6 },
           { value: 'poor', label: '8-24hrs', displayValue: '8-24 hours', numericValue: 16 },
           { value: 'critical', label: '24hrs+', displayValue: '24+ hours', numericValue: 36 }
-        ],
-        benchmark: 'Industry best practice: Under 2 hours for initial response'
+        ]
       },
       {
         id: 'inquiry_repetitiveness',
@@ -501,9 +500,7 @@ export const CUSTOMER_SERVICE_ROUTE_PHASES: QuizPhase[] = [
           { value: 'moderate', label: '40-60%', displayValue: '40-60% repetitive', numericValue: 50 },
           { value: 'high', label: '60-80%', displayValue: '60-80% repetitive', numericValue: 70 },
           { value: 'very-high', label: '80-100%', displayValue: '80-100% repetitive', numericValue: 90 }
-        ],
-        realTimeCalculation: true,
-        calculationMessage: '[X]% repetitive inquiries identified'
+        ]
       },
       {
         id: 'service_team_size',
@@ -739,8 +736,7 @@ export const OPERATIONS_ROUTE_PHASES: QuizPhase[] = [
           { value: 'high', label: '30-40hrs', displayValue: '30-40 hours per week', numericValue: 35 },
           { value: 'very-high', label: '40-60hrs', displayValue: '40-60 hours per week', numericValue: 50 },
           { value: 'extreme', label: '60hrs+', displayValue: '60+ hours per week', numericValue: 70 }
-        ],
-        subtext: 'That\'s X hours that could be automated!'
+        ]
       },
       {
         id: 'operations_continuity',
@@ -848,9 +844,7 @@ export const MARKETING_ROUTE_PHASES: QuizPhase[] = [
           { value: 'high', label: '20-30hrs', displayValue: '20-30 hours per week', numericValue: 25 },
           { value: 'very-high', label: '30-40hrs', displayValue: '30-40 hours per week', numericValue: 35 },
           { value: 'extreme', label: '40hrs+', displayValue: '40+ hours per week', numericValue: 45 }
-        ],
-        realTimeCalculation: true,
-        calculationMessage: '[X] hours weekly - AI could reduce this by 70%'
+        ]
       },
       {
         id: 'marketing_pain_points',
@@ -1265,8 +1259,7 @@ export const FINAL_QUESTIONS: QuizPhase[] = [
           { value: '15000-25000', label: '€15,000-25,000', description: '€15,000-25,000', icon: 'Building2', color: 'gray' },
           { value: '25000-50000', label: '€25,000-50,000', description: '€25,000-50,000', icon: 'Factory', color: 'gray' },
           { value: 'more-50000', label: 'More than €50,000', description: 'Over €50,000', icon: 'Factory', color: 'gray' }
-        ],
-        benchmark: 'Companies your size typically invest €5,000-15,000 monthly in operational improvements'
+        ]
       },
       {
         id: 'success_vision',

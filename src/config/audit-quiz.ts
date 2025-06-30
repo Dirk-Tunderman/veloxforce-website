@@ -84,8 +84,7 @@ export const QUIZ_PHASES: QuizPhase[] = [
             medium: '#F59E0B', // Yellow for 50-100 monthly
             high: '#10B981'    // Green for 100+ monthly
           }
-        },
-        realTimeCalculation: true
+        }
       },
       {
         id: 'q3_timeInvestment',
@@ -134,9 +133,7 @@ export const QUIZ_PHASES: QuizPhase[] = [
           { value: '40-60', label: '€40-60 per hour (Professional staff)', score: 1 },
           { value: '60-100', label: '€60-100 per hour (Senior/Technical staff)', score: 2 },
           { value: '100-plus', label: '€100+ per hour (Executive/Specialist)', score: 2 }
-        ],
-        realTimeCalculation: true,
-        calculationMessage: 'Based on [X] hours weekly, you\'re investing: €[Amount] per month on this process'
+        ]
       },
       {
         id: 'q4_executiveTime',
@@ -151,10 +148,6 @@ export const QUIZ_PHASES: QuizPhase[] = [
           step: 1,
           markers: [0, 2, 5, 10, 20],
           labels: ['None', '1-2', '3-5', '5-10', '10-20', '20+']
-        },
-        conditionalMessage: {
-          condition: 'value > 0',
-          message: 'That\'s [X] hours of strategic time worth €[Amount]/month\nTime you could spend on growth initiatives instead'
         },
         identityTransformation: true
       }
@@ -208,8 +201,7 @@ export const QUIZ_PHASES: QuizPhase[] = [
           { value: 'weekly', label: 'Weekly', score: 1 },
           { value: 'monthly', label: 'Monthly', score: 1 },
           { value: 'rarely', label: 'Rarely', score: 0 }
-        ],
-        calculationMessage: 'Estimated error cost: €[Amount]/month\nService-as-Software typically achieves 98%+ accuracy'
+        ]
       }
     ]
   },

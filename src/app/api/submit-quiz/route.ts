@@ -296,7 +296,7 @@ export async function POST(request: NextRequest) {
 async function triggerReportGeneration(serviceSubmission: ServiceQuizSubmission): Promise<void> {
   try {
     // Call our report generation API
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/generate-report`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3001'}/api/generate-report`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
