@@ -21,7 +21,39 @@ export interface TimingData {
 export class DebugLogger {
   private session: DebugSession | null = null
   private timings: TimingData[] = []
-  private debugLogsDir = path.join(process.cwd(), 'debug-logs')
+  private debugLogsDir: string
+  private isServerless: boolean
+
+  constructor() {
+    // Detect serverless environment (Vercel, Netlify, etc.)
+    this.isServerless = !!(process.env.VERCEL || process.env.NETLIFY || process.env.AWS_LAMBDA_FUNCTION_NAME)
+
+    // Use appropriate directory based on environment
+    if (this.isServerless) {
+      // In serverless environments, use /tmp which is writable
+      this.debugLogsDir = path.join('/tmp', 'debug-logs')
+    } else {
+      // In local development, use project directory
+      this.debugLogsDir = path.join(process.cwd(), 'debug-logs')
+    }
+  }
+
+  /**
+   * Safe file write that handles serverless environment limitations
+   */
+  private async safeWriteFile(filepath: string, content: string, logMessage: string): Promise<void> {
+    try {
+      await fs.writeFile(filepath, content)
+      console.log(logMessage)
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      console.warn(`⚠️  Failed to write file (${this.isServerless ? 'serverless environment' : 'filesystem error'}):`, errorMessage)
+      // In serverless environments, we can still log the operation success
+      if (this.isServerless) {
+        console.log(logMessage.replace('saved:', 'processed:').replace('logged:', 'processed:'))
+      }
+    }
+  }
 
   /**
    * Initialize a new debug session
@@ -40,13 +72,15 @@ export class DebugLogger {
       debugPath
     }
 
-    // Create debug directory
+    // Create debug directory (only if filesystem is writable)
     try {
       await fs.mkdir(debugPath, { recursive: true })
       console.log(`🚀 Debug session started: ${sessionId}`)
       console.log(`📁 Debug files will be saved to: ${debugPath}`)
     } catch (error) {
-      console.error('Failed to create debug directory:', error)
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      console.warn(`⚠️  Debug directory creation failed (${this.isServerless ? 'serverless environment' : 'filesystem error'}):`, errorMessage)
+      console.log(`🚀 Debug session started: ${sessionId} (console logging only)`)
     }
 
     // Start timing
@@ -114,8 +148,11 @@ export class DebugLogger {
         }
       }
 
-      await fs.writeFile(filepath, JSON.stringify(logData, null, 2))
-      console.log(`📝 Quiz input data logged: ${Object.keys(data.quizAnswers).length} questions`)
+      await this.safeWriteFile(
+        filepath,
+        JSON.stringify(logData, null, 2),
+        `📝 Quiz input data logged: ${Object.keys(data.quizAnswers).length} questions`
+      )
     } catch (error) {
       console.error('Failed to log quiz input:', error)
     }
@@ -151,8 +188,11 @@ export class DebugLogger {
         }
       }
 
-      await fs.writeFile(filepath, JSON.stringify(logData, null, 2))
-      console.log(`🕷️  Website data logged: ${data.allContent.length} pages, ${logData.metadata.totalContentLength} chars`)
+      await this.safeWriteFile(
+        filepath,
+        JSON.stringify(logData, null, 2),
+        `🕷️  Website data logged: ${data.allContent.length} pages, ${logData.metadata.totalContentLength} chars`
+      )
     } catch (error) {
       console.error('Failed to log website data:', error)
     }
@@ -199,8 +239,11 @@ export class DebugLogger {
       }
 
       existingData.prompts.push(promptEntry)
-      await fs.writeFile(filepath, JSON.stringify(existingData, null, 2))
-      console.log(`🧠 AI prompt logged for ${data.model}: ${promptEntry.metadata.promptLength} chars`)
+      await this.safeWriteFile(
+        filepath,
+        JSON.stringify(existingData, null, 2),
+        `🧠 AI prompt logged for ${data.model}: ${promptEntry.metadata.promptLength} chars`
+      )
     } catch (error) {
       console.error('Failed to log AI prompts:', error)
     }
@@ -247,10 +290,12 @@ export class DebugLogger {
       }
 
       existingData.responses.push(responseEntry)
-      await fs.writeFile(filepath, JSON.stringify(existingData, null, 2))
-      
       const status = data.success ? '✅' : '❌'
-      console.log(`${status} AI response from ${data.model}: ${responseEntry.metadata.responseSize} chars`)
+      await this.safeWriteFile(
+        filepath,
+        JSON.stringify(existingData, null, 2),
+        `${status} AI response from ${data.model}: ${responseEntry.metadata.responseSize} chars`
+      )
     } catch (error) {
       console.error('Failed to log AI response:', error)
     }
@@ -293,8 +338,11 @@ export class DebugLogger {
         metadata
       }
 
-      await fs.writeFile(filepath, JSON.stringify(logData, null, 2))
-      console.log(`📊 Business analysis logged: ${metadata.reportLength} chars, Sections: ${Object.entries(metadata).filter(([k, v]) => k.startsWith('has') && v).length}`)
+      await this.safeWriteFile(
+        filepath,
+        JSON.stringify(logData, null, 2),
+        `📊 Business analysis logged: ${metadata.reportLength} chars, Sections: ${Object.entries(metadata).filter(([k, v]) => k.startsWith('has') && v).length}`
+      )
     } catch (error) {
       console.error('Failed to log business analysis:', error)
     }
@@ -320,8 +368,11 @@ export class DebugLogger {
         }
       }
 
-      await fs.writeFile(filepath, JSON.stringify(logData, null, 2))
-      console.log(`📄 PDF report data logged: ${logData.metadata.reportSize} chars`)
+      await this.safeWriteFile(
+        filepath,
+        JSON.stringify(logData, null, 2),
+        `📄 PDF report data logged: ${logData.metadata.reportSize} chars`
+      )
     } catch (error) {
       console.error('Failed to log PDF report data:', error)
     }
@@ -348,8 +399,11 @@ export class DebugLogger {
         }
       }
 
-      await fs.writeFile(filepath, JSON.stringify(logData, null, 2))
-      console.log(`📧 Email data logged: ${logData.metadata.emailDataSize} chars, PDF: ${logData.metadata.hasPDFAttachment}`)
+      await this.safeWriteFile(
+        filepath,
+        JSON.stringify(logData, null, 2),
+        `📧 Email data logged: ${logData.metadata.emailDataSize} chars, PDF: ${logData.metadata.hasPDFAttachment}`
+      )
     } catch (error) {
       console.error('Failed to log email data:', error)
     }
@@ -364,37 +418,45 @@ export class DebugLogger {
       return
     }
 
+    const summary = [
+      `Debug Session Summary`,
+      `====================`,
+      `Session ID: ${this.session.sessionId}`,
+      `Company: ${this.session.companyName}`,
+      `Email: ${this.session.email}`,
+      `Timestamp: ${this.session.timestamp}`,
+      `Debug Path: ${this.session.debugPath}`,
+      ``,
+      `Timing Information:`,
+      `------------------`
+    ]
+
+    for (const timing of this.timings) {
+      const status = timing.status === 'completed' ? '✅' : timing.status === 'failed' ? '❌' : '⏱️ '
+      const duration = timing.duration ? `${timing.duration}ms` : 'N/A'
+      const error = timing.error ? ` - Error: ${timing.error}` : ''
+      summary.push(`${status} ${timing.step}: ${duration}${error}`)
+    }
+
+    summary.push('')
+    summary.push(`Total session duration: ${this.getTotalDuration()}ms`)
+    summary.push(`Files generated: ${await this.getGeneratedFiles()}`)
+
     try {
       const filepath = path.join(this.session.debugPath, 'debug_log.txt')
-      
-      const summary = [
-        `Debug Session Summary`,
-        `====================`,
-        `Session ID: ${this.session.sessionId}`,
-        `Company: ${this.session.companyName}`,
-        `Email: ${this.session.email}`,
-        `Timestamp: ${this.session.timestamp}`,
-        `Debug Path: ${this.session.debugPath}`,
-        ``,
-        `Timing Information:`,
-        `------------------`
-      ]
-
-      for (const timing of this.timings) {
-        const status = timing.status === 'completed' ? '✅' : timing.status === 'failed' ? '❌' : '⏱️ '
-        const duration = timing.duration ? `${timing.duration}ms` : 'N/A'
-        const error = timing.error ? ` - Error: ${timing.error}` : ''
-        summary.push(`${status} ${timing.step}: ${duration}${error}`)
-      }
-
-      summary.push('')
-      summary.push(`Total session duration: ${this.getTotalDuration()}ms`)
-      summary.push(`Files generated: ${await this.getGeneratedFiles()}`)
-
-      await fs.writeFile(filepath, summary.join('\n'))
-      console.log(`📋 Debug summary saved: ${filepath}`)
+      await this.safeWriteFile(
+        filepath,
+        summary.join('\n'),
+        `📋 Debug summary saved: ${filepath}`
+      )
     } catch (error) {
-      console.error('Failed to save debug summary:', error)
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      console.warn(`⚠️  Failed to save debug summary (${this.isServerless ? 'serverless environment' : 'filesystem error'}):`, errorMessage)
+      // In serverless environments, just log the summary to console
+      if (this.isServerless) {
+        console.log('📋 Debug Summary (Console Only):')
+        console.log(summary.join('\n'))
+      }
     }
   }
 
@@ -426,11 +488,15 @@ export class DebugLogger {
    */
   private async getGeneratedFiles(): Promise<string[]> {
     if (!this.session) return []
-    
+
     try {
       const files = await fs.readdir(this.session.debugPath)
       return files.filter(file => file.endsWith('.json') || file.endsWith('.txt'))
     } catch (error) {
+      // In serverless environments, we can't read the directory
+      if (this.isServerless) {
+        return ['console-logs-only']
+      }
       return []
     }
   }
