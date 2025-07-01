@@ -84,7 +84,8 @@ export function DepthAssessmentSection() {
                 }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <div className="grid lg:grid-cols-12 gap-8 items-center">
+                {/* Desktop Layout */}
+                <div className="hidden lg:grid lg:grid-cols-12 gap-8 items-center">
                   {/* Challenge Card */}
                   <div className="lg:col-span-5">
                     <div className="card-base opacity-90">
@@ -123,7 +124,7 @@ export function DepthAssessmentSection() {
                       <h3 className="velox-text-h3 text-blue-800 mb-4">
                         {question.deeper}
                       </h3>
-                      
+
                       <div className="bg-blue-100 rounded-lg p-4 border border-blue-200">
                         <p className="text-sm font-semibold text-blue-900 mb-2">
                           If your answer includes:
@@ -137,6 +138,66 @@ export function DepthAssessmentSection() {
                           ))}
                         </ul>
                         <p className="text-sm font-bold text-blue-900 mt-3">
+                          → Strong fit indicator
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mobile Layout */}
+                <div className="lg:hidden space-y-6">
+                  {/* Surface Question */}
+                  <div className="card-base opacity-90">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="icon-container">
+                        <IconComponent className="w-5 h-5 text-gray-700" />
+                      </div>
+                      <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">
+                        Surface Question
+                      </p>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {question.surface}
+                    </h3>
+                  </div>
+
+                  {/* Mobile Transformation Indicator */}
+                  <div className="flex justify-center">
+                    <div className="flex items-center gap-3 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
+                      <span>But the real question is</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </div>
+                  </div>
+
+                  {/* Deeper Question */}
+                  <div className="card-solution">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="icon-container-gradient">
+                        <IconComponent className="w-5 h-5 text-blue-600" />
+                      </div>
+                      <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
+                        Deeper Question
+                      </p>
+                    </div>
+                    <h3 className="text-xl font-bold text-blue-800 mb-4">
+                      {question.deeper}
+                    </h3>
+
+                    <div className="bg-blue-100 rounded-lg p-4 border border-blue-200">
+                      <p className="text-sm font-semibold text-blue-900 mb-3">
+                        If your answer includes:
+                      </p>
+                      <ul className="space-y-3">
+                        {question.indicators.map((indicator, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
+                            <p className="text-sm text-blue-800 leading-relaxed">{indicator}</p>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-4 pt-3 border-t border-blue-200">
+                        <p className="text-base font-bold text-blue-900">
                           → Strong fit indicator
                         </p>
                       </div>

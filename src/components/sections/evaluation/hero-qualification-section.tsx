@@ -45,30 +45,30 @@ export function HeroQualificationSection() {
         </div>
 
         {/* Trust Building Section */}
-        <div className="bg-white rounded-2xl p-8 border border-blue-100 shadow-lg max-w-4xl mx-auto relative">
+        <div className="bg-white rounded-2xl p-6 md:p-8 border border-blue-100 shadow-lg max-w-4xl mx-auto relative">
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-2xl"></div>
-          <div className="flex items-start gap-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center border border-blue-200 shadow-sm">
+          <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center border border-blue-200 shadow-sm flex-shrink-0">
               <Shield className="w-6 h-6 text-blue-600" />
             </div>
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
                 Before You Read Further
               </h3>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
                 We've turned away <span className="font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">23% of potential clients</span> because the fit wasn't right.
                 This guide helps you determine - honestly - if Service-as-Software makes sense for you.
               </p>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                  <p className="text-gray-700">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-700 text-sm md:text-base">
                     <span className="font-semibold text-gray-900">If it doesn't,</span> we'll tell you what to do instead.
                   </p>
                 </div>
-                <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  <p className="text-gray-700">
+                <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-700 text-sm md:text-base">
                     <span className="font-semibold text-gray-900">If it does,</span> you'll know exactly why and what to expect.
                   </p>
                 </div>
