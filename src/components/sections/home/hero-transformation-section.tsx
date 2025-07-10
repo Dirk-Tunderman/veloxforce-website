@@ -51,29 +51,11 @@ export function HeroTransformationSection() {
               </h1>
 
               <p className="velox-text-lead text-center max-w-4xl mx-auto">
-                <span className="block text-xl md:text-2xl font-semibold text-blue-300 [text-shadow:_0_2px_4px_rgb(255_255_255_/_80%),_0_1px_2px_rgb(255_255_255_/_60%)]">Your processes, automated your way. Running continuously. Delivering outcomes, not software.
-</span>
+                <span className="block text-xl md:text-2xl font-semibold text-blue-300 [text-shadow:_0_2px_4px_rgb(255_255_255_/_80%),_0_1px_2px_rgb(255_255_255_/_60%)]">Digital employees handle 90% of routine work. Your people handle the relationships, strategy and key-decisions. Together, they're unstoppable.
+              </span>
               </p>
               
               <div className="max-w-5xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  {/* Traditional Path */}
-                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center">
-                    <div className="text-red-300 font-medium text-sm uppercase tracking-wide mb-3">Traditional Path</div>
-                    <div className="text-white/80 text-base md:text-lg leading-relaxed [text-shadow:_0_1px_2px_rgb(0_0_0_/_40%)]">
-                      Buy tools → Train team → Operate daily → Troubleshoot constantly → <span className="text-red-300 font-medium">Results vary</span>
-                    </div>
-                  </div>
-
-                  {/* Our Path */}
-                  <div className="bg-blue-500/10 backdrop-blur-sm border border-blue-400/20 rounded-xl p-6 text-center">
-                    <div className="text-blue-300 font-medium text-sm uppercase tracking-wide mb-3">Our Path</div>
-                    <div className="text-white text-base md:text-lg leading-relaxed [text-shadow:_0_1px_2px_rgb(0_0_0_/_40%)]">
-                      Define needs → Custom-built system → Runs without you → Monitored 24/7 → <span className="text-blue-300 font-medium">Outcomes guaranteed</span>
-                    </div>
-                  </div>
-                </div>
-
                 <div className="text-center">
                   <span className="inline-block bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent font-bold text-xl md:text-2xl [text-shadow:_0_2px_4px_rgb(255_255_255_/_20%)]">
                     That's Service-as-Software.
@@ -125,3 +107,5 @@ export function HeroTransformationSection() {
     </Section>
   )
 }
+
+

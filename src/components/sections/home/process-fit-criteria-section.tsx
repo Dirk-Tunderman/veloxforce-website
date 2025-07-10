@@ -20,7 +20,7 @@ export function ProcessFitCriteriaSection() {
           </div>
 
           <h2 className="velox-text-h2 mb-6">
-            Which Processes Work Best With AI?
+            Which Processes Work Best?
           </h2>
 
           <p className="velox-text-lead max-w-3xl mx-auto">

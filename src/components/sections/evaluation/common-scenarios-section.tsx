@@ -147,11 +147,11 @@ export function CommonScenariosSection() {
 
         {/* CTA */}
         <div className="text-center">
-          <Text className="text-lg text-gray-700 mb-4">
+          <Text className="text-lg text-gray-700 mb-4 text-center">
             Want to see more scenarios specific to your industry?
           </Text>
-          <a 
-            href="/solutions" 
+          <a
+            href="/solutions"
             className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
           >
             See more scenarios in your industry →

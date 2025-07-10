@@ -112,14 +112,14 @@ export function IdealPartnerProfileSection() {
         </div>
 
         {/* Success Story Callout */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-8">
+        <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-2xl p-8 border border-gray-700 shadow-xl">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl font-bold mb-4 text-white">
               The Common Thread
             </h3>
-            <p className="text-lg text-blue-100 leading-relaxed">
+            <p className="text-lg text-gray-200 leading-relaxed">
               Every successful Service-as-Software partnership shares one trait:{" "}
-              <span className="font-bold text-white">
+              <span className="font-bold text-white bg-blue-600/20 px-2 py-1 rounded">
                 Leadership that values strategic work over operational control.
               </span>{" "}
               They understand that true growth comes from delegation, not micromanagement.
